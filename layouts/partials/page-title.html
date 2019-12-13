@@ -1,22 +1,10 @@
-{{"<!-- Global Page Section Start -->" | safeHTML }}
-<section class="global-page-header">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="block">
-                    <h2>{{ .Title }}</h2>
-                    <ol class="breadcrumb list-inline text-center">
-                        <li class="list-inline-item">
-                            <a href="{{ .Site.BaseURL }}">
-                                <i class="ion-ios-home"></i>
-                                Home &nbsp; &nbsp;/
-                            </a>
-                        </li>
-                        <li class="active list-inline-item">{{ .Title }}</li>
-                    </ol>
-                </div>
-            </div>
-        </div>
+<section class="single-page-header" style='background-image: url("{{ .Site.Params.banner.bgImage | absURL }}");'>
+    <div class="block wow fadeInUp" data-wow-delay=".2s">
+        <section class="cd-intro">
+            <h1 class="wow about fadeInUp animated cd-headline slide" data-wow-delay=".4s">
+                {{ with .Site.Params.about.title }}<span>{{ . }}</span>{{ end }}
+            </h1>
+        </section>
+        {{ with .Site.Params.about.content }}<p class="wow fadeInUp animated" data-wow-delay=".6s">{{ . }}</p>{{ end }}
     </div>
 </section>
-{{"<!-- Global Page Section End -->" | safeHTML }}
