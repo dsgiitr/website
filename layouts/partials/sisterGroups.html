@@ -1,0 +1,24 @@
+{{ if .Site.Data.sisterGroup.enable }}
+{{ "<!-- sisterGroup Section Start -->" | safeHTML }}
+<section id="sisterGroups">
+    <div class="container">
+        <div class="section-heading">
+            {{ with .Site.Data.sisterGroup.title }}<div class="sister subtitle wow fadeInUp animated" data-wow-duration="500ms" data-wow-delay=".3s">{{ . }}</div>{{ end }}
+        </div>
+        <div class="row">
+            <div class="col-md-3 col-sm-6" style="width: 100%; display:contents;">
+                {{ $delay := 300 }}
+                <div class="wow fadeInLeft animated sistergp" data-wow-duration="500ms" data-wow-delay="{{ $delay }}ms">
+                        {{ range $index, $elemrnt := .Site.Data.sisterGroup.details }}
+                        <div class="grps">
+                            {{ with .name }} <h2>{{ . }}</h2> {{ end }}
+                            {{ with .description }}<p>{{ . }}</p>{{ end }}
+                        </div>
+                    {{ end }}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{{ "<!-- sisterGroup Section End -->" | safeHTML }}
+{{ end }}
