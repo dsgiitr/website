@@ -1,0 +1,12 @@
+enable  : true
+title   : Sister Groups
+details:
+  - name        : SDSLabs
+    description : >
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ac lacinia nisi, ac maximus sem.
+  - name        : PAG
+    description : >
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ac lacinia nisi, ac maximus sem.
+  - name        : INFOSEC IITR
+    description : >
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ac lacinia nisi, ac maximus sem.

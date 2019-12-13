@@ -1,0 +1,32 @@
+enable  : true
+title   : Announcement
+subtitle: >
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed, <br> quasi dolores numquam dolor vero ex, tempora commodi      repellendus quod laborum.
+item    :
+  item1    :
+    - name  : UPCOMING EVENT
+      title : DSG - Intro Talk
+      linkName : View Details->
+      url : /events
+      description : >
+        Cupidatat laboris mollit reprehenderita laboris sint do velit quis consectetur.
+    - name  : 
+      title : DSG Talk1
+      linkName : 
+      url : 
+      description : >
+        Cupidatat dhgfjksd hfjksd enderit sint do velit quis consectetur1.
+
+  item2    :
+    - name  : NEW BLOG
+      title : Data Science Road Map
+      linkName : Read->
+      url : /blogs
+      description : >
+        Cupidatat laboris mollit reprehenderit sint do velit quis consectetur.
+    - name  : 
+      title : Data Science
+      linkName : 
+      url : 
+      description : >
+        Cupidatat sdlkjc lkdhad sint do velit quis consectetur1.
