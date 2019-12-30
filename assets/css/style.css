@@ -81,7 +81,7 @@ a:hover {
 }
 
 .ann-content:nth-child(1) {
-  width: 70%;
+  width: 50%;
   height: 359px;
   background: #FFFFFF;
   border-radius: 4px;
@@ -89,7 +89,15 @@ a:hover {
 }
 
 .ann-content:nth-child(2) {
-  width: 30%;
+  width: 25%;
+  height: 359px;
+  background: #FFFFFF;
+  border-radius: 4px;
+  margin: 0 20px;
+}
+
+.ann-content:nth-child(3) {
+  width: 25%;
   height: 359px;
   background: #FFFFFF;
   border-radius: 4px;
@@ -104,6 +112,13 @@ a:hover {
     margin-left: -15px;
   }
 
+  div.ann-content:nth-child(3) {
+    width: 80%;
+    height: 359px;
+    background: #FFFFFF;
+    border-radius: 4px;
+    margin: 20px;
+  }
   div.ann-content:nth-child(2) {
     width: 80%;
     height: 359px;
@@ -121,6 +136,46 @@ a:hover {
   .side-panel {
     display: none;
   }
+}
+
+.inter {
+  font-family: "Inter", "Roboto", sans-serif;
+}
+
+#landing-text {
+  font-family: "Inter", "Roboto", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  text-transform: none;
+  color: #000;
+  font-size: 1rem;
+  line-height: unset;
+  margin: 0 17vh;
+}
+
+.view-project {
+  color: #5096FF;
+  font-family: "Inter", "Roboto", sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.div-project {
+  margin-top: 15vh;
+}
+
+.scroll {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2vh;
+}
+
+.particles-js-canvas-el {
+  width: 100%;
+  position: absolute;
+  height: 100%;
+  top: 0;
 }
 
 .title-announcement {
@@ -333,14 +388,18 @@ a:hover {
 }
 
 #hero-area {
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  background-attachment: fixed;
-  padding: 245px 0;
   color: #fff;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
   position: relative;
+  height: 101vh;
+}
+
+.center-verticle {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
 }
 
 #hero-area:before {
@@ -365,17 +424,6 @@ a:hover {
   font-weight: 700;
   margin-bottom: 15px;
   text-transform: uppercase;
-}
-
-#hero-area h2 {
-  font-size: 18px;
-  font-weight: 300;
-  margin-bottom: 38px;
-  line-height: 27px;
-  text-transform: uppercase;
-  color: #666;
-  font-family: 'Roboto', sans-serif;
-  margin-top: 25px;
 }
 
 #hero-area .btn {
@@ -648,21 +696,28 @@ figure figcaption p {
   font-style: normal;
   font-weight: normal;
   font-size: 16px;
-  background-repeat: no-repeat;
-  background-position: 50%;
-  background-size: cover;
-  background-attachment: fixed;
-  padding: 140px 150px 440px 90px;
+  height: 100vh;
   color: #000000;
   box-shadow: 0 0 8px rgba(0,0,0,.3);
   position: relative;
 }
 
+.teamIMG {
+  width: 70%;
+  height: auto;
+}
+
+.about-center {
+  position: relative;
+  top: 40%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
 .img-wrapper-team:hover .social-btn {
   display: inline-flex;
-  position: absolute;
   z-index: 2;
-  top: 95px;
   left: 30%;
 }
 
@@ -719,6 +774,7 @@ figure figcaption p {
 
 .team-item {
   box-shadow: none;
+  width: fit-content;
 }
 
 .img-fluid {
@@ -889,8 +945,6 @@ article {
 .img-wrapper-team {
   position: relative;
   overflow: hidden;
-  width: 210px;
-  height: 210px
 }
 
 .fig-team {
@@ -1107,6 +1161,66 @@ article {
 
 .gallery figure .buttons {
   left: 40%;
+}
+
+.link-cerebro {
+  width: 11rem;
+  height: 2.5rem;
+  text-align: center;
+  background: #24A62D;
+  color: #ffffff;
+  border-radius: 4px;
+  float: right;
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.visit-cerebro {
+  color: #ffffff;
+  position: relative;
+  top: 25%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.visit-cerebro:hover {
+  color: #ffffff;
+}
+
+.cerebro-text {
+  margin-top: 2rem;
+  font-family: Roboto;
+  font-style: normal;
+  color: #ffffff;
+}
+
+.cerebroContainer {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .link-cerebro {
+    float: left;
+    margin-top: 7px;
+  }
+
+  .about-center {
+    position: absolute;
+    top: 70vh;
+  }
+
+  .teamIMG {
+    visibility: hidden;
+  }
 }
 
 .social-btn {
@@ -1559,8 +1673,17 @@ article {
   background: #222222;
   padding: 25px 0;
   color: #555;
+  position: relative;
   width: 100%;
-  height: 500px;
+  height: 17rem;
+}
+
+#footer-container {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
 }
 
 .ion-social-facebook:before {
@@ -1586,8 +1709,6 @@ article {
   font-size: 44px;
   line-height: 53px;
   text-align: initial;
-  position: absolute;
-  top: 100px;
   color: #fff;
 }
 
@@ -1595,14 +1716,9 @@ article {
   color: #02bdd5;
 }
 
-.social {
-  position: absolute;
-  top: 270px;
-}
-
 #footer .social li {
   display: inline-block;
-  margin-right: 15px;
+  margin-right: 30px;
 }
 
 #footer .social li a {

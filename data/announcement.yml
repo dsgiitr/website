@@ -10,23 +10,19 @@ item    :
       url : /events
       description : >
         Cupidatat laboris mollit reprehenderita laboris sint do velit quis consectetur.
-    - name  : 
-      title : DSG Talk1
-      linkName : 
-      url : 
-      description : >
-        Cupidatat dhgfjksd hfjksd enderit sint do velit quis consectetur1.
 
   item2    :
     - name  : NEW BLOG
-      title : Data Science Road Map
+      title : Data Science
       linkName : Read->
       url : /blogs
       description : >
         Cupidatat laboris mollit reprehenderit sint do velit quis consectetur.
-    - name  : 
-      title : Data Science
-      linkName : 
-      url : 
+
+  item3    :
+    - name  : UPCOMING EVENT
+      title : ML workshop
+      linkName : View Details->
+      url : /events
       description : >
-        Cupidatat sdlkjc lkdhad sint do velit quis consectetur1.
+        Cupidatat laboris mollit reprehenderita laboris sint do velit quis consectetur.

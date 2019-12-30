@@ -27,6 +27,8 @@ summaryLength = 30
 [params]
     home = "Home"
     logo = "images/dsg.png"
+    cerebro = "images/cerebro.png"
+    cerebroBack = "images/cerebroBack.svg"
     dateFormat = "28 July 1999"
     # Meta data
     author = "DSG"
@@ -35,10 +37,11 @@ summaryLength = 30
     [params.banner]
         enable  = true
         bgImage = "images/slider.svg"
-        heading = "Data Science Group"
+        heading = "Data Science Group, IIT Roorkee"
+        projectLink = "#works"
+        scroll = "images/scroll.svg"
+        down = "images/down.svg"
         description = "DSG is an umbrella group Which comes under SDS(Software Development Section).It is a student group that constantly tries to learn and foster technical activities in campus."
-        [[params.banner.flipText]]
-            title   = "IIT Roorkee, India"
 
     # Homepage About Section
     [params.about]
@@ -64,4 +67,12 @@ summaryLength = 30
 
         [[params.footer.socialIcon]]
             icon = "ion-social-linkedin"
+            url = "#"
+
+        [[params.footer.ccIcon]]
+            icon = "ion-closed-captioning"
+            url = "#"
+        
+        [[params.footer.locationIcon]]
+            icon = "ion-ios-location"
             url = "#"

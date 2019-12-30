@@ -1,17 +1,29 @@
 {{ "<!-- Footer Section Start -->" | safeHTML }}
 <footer id="footer">
-    <div class="container">
+    <div class="container" id="footer-container">
         <div class="row content-justify-between">
-            <div class="col-md-8 col-12 text-center text-lg-left text-md-left">
+            <div style="width: 100%;">
                 <p class="copyright">
                     Contact Us
                 </p>
+            </div>
+            <div class="col-md-7 col-12 text-lg-left text-md-left">
                 {{ "<!-- Social Media -->" | safeHTML }}
                 <ul class="social">
                     {{ range .Site.Params.footer.socialIcon }}
                     <li><a href="{{ .url }}"><i class="{{ .icon }}"></i></a></li>
                     {{ end }}
+                    {{ range .Site.Params.footer.ccIcon }}
+                    <li style="float: right; color: #FFFFFF;"><i class="{{ .icon }}"></i> DSG IITR</li>
+                    {{ end }}
                 </ul>
+            </div>
+            <div class="col-md-5 col-12 text-lg-left text-md-left">
+                {{ range .Site.Params.footer.locationIcon }}
+                <div style="float: right; color: #FFFFFF;">
+                    <i class="{{ .icon }}" style="color: #000;"></i> New Sac Building, IIT Roorkee
+                </div>
+                {{ end }}
             </div>
         </div>
     </div>
@@ -46,6 +58,5 @@
     ga('create', '{{ .Site.Params.googleAnalitycsID }}', 'auto');
     ga('send', 'pageview');
 </script>
-<!-- {{ "particle.js" | safeHTML }} -->
-<!-- <script type="text/javascript" src="{{ "plugins/particlesjs/particles.min.js" | absURL }}"></script> -->
-<!-- <script type="text/javascript" src="{{ "plugins/particlesjs/demo/js/app.js" | absURL }}"></script> -->
+<script type="text/javascript" src="{{ "plugins/particlesjs/particles.min.js" | absURL }}"></script>
+<script type="text/javascript" src="{{ "plugins/particlesjs/demo/js/app.js" | absURL }}"></script>
