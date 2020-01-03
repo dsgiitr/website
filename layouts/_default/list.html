@@ -7,15 +7,16 @@
         <h1 class="wow about upcoming fadeInUp animated cd-headline slide" data-wow-delay=".4s">
             <span>Projects</span>
         </h1>
-        <div class="row">
-            <div class="col-md-12">
-                {{ range .Data.Pages }}
+            <div class="row">
+                <div class="col-md-12">
+                    {{ $paginator := .Paginate (where .Data.Pages "Type" "posts") }}
+                    {{ range $paginator.Pages }}
                     <div class="sng-page">
                         <div class="col-md-8 left">
                             <article class="wow fadeInDown" data-wow-delay=".3s" data-wow-duration="500ms">
                                 <div class="blog-content">
                                     <h2 class="blogpost-title">
-                                        <a href="{{ .Permalink }}">{{ .Title }}</a>
+                                        <a href="{{ .Permalink }}" style="font-weight: bold;">{{ .Title }}</a>
                                     </h2>
                                     <div class="blog-meta">
                                         <span>{{ dateFormat "Monday, Jan 2, 2006" .Date }}</span>
@@ -44,6 +45,9 @@
                         </div>
                     </div>
                 {{ end }}
+                <div>
+                    {{ partial "pagination" . }}
+                </div>
             </div>
         </div>
     </div>

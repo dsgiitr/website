@@ -16,13 +16,14 @@
                 </div>
             </div>
             <div class="col-md-10">
-                {{ range .Data.Pages }}
+                {{ $paginator := .Paginate (.Data.Pages) }}
+                {{ range $paginator.Pages }}
                     <div class="sng-page">
                         <div class="col-md-7 left">
                             <article class="wow fadeInDown" data-wow-delay=".3s" data-wow-duration="500ms">
                                 <div class="blog-content">
                                     <h2 class="blogpost-title">
-                                        <a href="{{ .Permalink }}">{{ .Title }}</a>
+                                        <a href="{{ .Permalink }}" style="font-weight: bold;">{{ .Title }}</a>
                                     </h2>
                                     <div class="blog-meta">
                                         <span>{{ dateFormat "Monday, Jan 2, 2006" .Date }}</span>
@@ -53,6 +54,9 @@
                 {{ end }}
             </div>
         </div>
+    </div>
+    <div>
+        {{ partial "pagination" . }}
     </div>
 </section>
 

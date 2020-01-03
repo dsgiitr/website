@@ -16,7 +16,7 @@
                                 <article class="wow fadeInDown" data-wow-delay=".3s" data-wow-duration="500ms">
                                     <div class="blog-content">
                                         <h2 class="blogpost-title">
-                                            <a href="{{ .Permalink }}">{{ .Title }}</a>
+                                            <a href="{{ .Permalink }}" style="font-weight: bold;">{{ .Title }}</a>
                                         </h2>
                                         <div class="blog-meta">
                                             <span>{{ dateFormat "Monday, Jan 2, 2006" .Date }}</span>
@@ -50,7 +50,7 @@
         </div>
     </div>
     <div class="container">
-        <h1 class="wow about upcoming fadeInUp animated cd-headline slide" data-wow-delay=".4s">
+        <h1 class="wow about upcoming fadeInUp animated cd-headline slide" style="margin-top: 25vh;" data-wow-delay=".4s">
             <span>Past Events</span>
         </h1>
         <div class="row">

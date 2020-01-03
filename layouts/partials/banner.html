@@ -1,12 +1,12 @@
 {{ if .Site.Params.banner.enable }}
 {{ "<!-- Slider Section Start -->" | safeHTML }}
 <section id="hero-area">
-    <div class="container center-verticle" style="z-index: 10;">
+    <div class="container center-verticle" style="z-index: 9;">
         <div class="row">
             <div class="col-md-12 text-center">
                 <div class="block wow fadeInUp" data-wow-delay=".2s">
                     {{ "<!-- Slider -->" | safeHTML}}
-                    <section class="cd-intro">
+                    <section class="cd-intro intro-landing">
                         <h1 class="wow fadeInUp animated cd-headline slide" data-wow-delay=".4s">
                             {{ with .Site.Params.banner.heading }}<span class="inter">{{ . }}</span>{{ end }}
                         </h1>

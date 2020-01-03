@@ -3,7 +3,7 @@
 @import url(http://fonts.googleapis.com/css?family=Glegoo);
 
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: "Inter", "Roboto", sans-serif;
 }
 
 h1,
@@ -143,7 +143,7 @@ a:hover {
 }
 
 #landing-text {
-  font-family: "Inter", "Roboto", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-style: normal;
   font-weight: normal;
   text-transform: none;
@@ -151,6 +151,42 @@ a:hover {
   font-size: 1rem;
   line-height: unset;
   margin: 0 17vh;
+}
+
+
+.scroll {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2vh;
+}
+
+@media (max-width: 425px) {
+  .intro-landing {
+    display: none;
+  }
+
+  #landing-text {
+    font-family: "Roboto", sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    text-transform: none;
+    color: #000;
+    font-size: 1rem;
+    line-height: unset;
+    margin: 0 10vh;
+  }
+
+  .div-project  {
+    display: none;
+  }
+
+  .scroll {
+    display: none;
+  }
+
+  .location-foot {
+    display: none;
+  }
 }
 
 .view-project {
@@ -163,12 +199,6 @@ a:hover {
 
 .div-project {
   margin-top: 15vh;
-}
-
-.scroll {
-  display: flex;
-  flex-direction: column;
-  margin-top: 2vh;
 }
 
 .particles-js-canvas-el {
@@ -315,7 +345,6 @@ a:hover {
   font-size: 14px;
   font-weight: 500;
   transition: .3s all;
-  text-transform: uppercase;
   padding: 5px 15px;
   display: block;
 }
@@ -423,7 +452,6 @@ a:hover {
   color: #333;
   font-weight: 700;
   margin-bottom: 15px;
-  text-transform: uppercase;
 }
 
 #hero-area .btn {
@@ -1282,7 +1310,6 @@ article {
 }
 
 .media-top1 p {
-  font-family: "Helvetica", sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 12px;
