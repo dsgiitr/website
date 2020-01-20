@@ -17,7 +17,7 @@
                             <a href="{{ .linkedInurl }}" class="social-link"><i class="{{ with .linkedInicon }} {{ . }} {{ end }}"></i></a>
                         </div>
                         {{ with .image }}
-                            <img src="{{ . | absURL }}" class="img-fluid team-img" alt="team-member">
+                            <img src="{{ . | absURL }}" class="img-fluid team-img team-img-back" alt="team-member">
                         {{ end }}
                     </div>
                     <figcaption class="fig-team">
@@ -48,7 +48,7 @@
                             <a href="{{ .linkedInurl }}" class="social-link"><i class="{{ with .linkedInicon }} {{ . }} {{ end }}"></i></a>
                         </div>
                         {{ with .image }}
-                            <img src="{{ . | absURL }}" class="img-fluid team-img" alt="team-member">
+                            <img src="{{ . | absURL }}" class="img-fluid team-img team-img-back" alt="team-member">
                         {{ end }}
                     </div>
                     <figcaption class="fig-team">
