@@ -37,8 +37,8 @@ where $\mathcal{N}(i)$ is the set of its one-hop neighbors (to include $v_{i}$ i
 
 GAT introduces the attention mechanism as a substitute for the statically normalized convolution operation. The figure below clearly illustrates the key difference.
 
-{{< figure src="/images/blogs/GAT/GCN_vs_GAT.jpg" title="GCN vs GAT" width=800x class="floatcenter">}}
-<!-- <img src="/images/blogs/GAT/GCN_vs_GAT.jpg" width=800x/> -->
+<!-- {{< figure src="/images/blogs/GAT/GCN_vs_GAT.jpg" title="GCN vs GAT" width=800x class="floatcenter">}} -->
+<img src="/images/blogs/GAT/GCN_vs_GAT.jpg" width=800x/>
 
 <hr/>
 

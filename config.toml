@@ -9,7 +9,7 @@ paginate = 3
     # Navbar Menu
     [[menu.nav]]
         name    = "Work"
-        url     = "work"
+        url     = "/#works"
         weight  = 2
     [[menu.nav]]
         name    = "Events"
