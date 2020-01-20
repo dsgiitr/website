@@ -3,7 +3,7 @@
 @import url(http://fonts.googleapis.com/css?family=Glegoo);
 
 body {
-  font-family: "Inter", "Roboto", sans-serif;
+  font-family: "droid sans","helvetica neue","Helvetica","Arial",sans-serif;
 }
 
 h1,
@@ -20,14 +20,22 @@ h2 {
 }
 
 p {
-  font-family: "Roboto", sans-serif;
-  line-height: 22px;
-  font-size: 16px;
-  font-weight: 300;
+  font-family: "droid sans","helvetica neue","Helvetica","Arial",sans-serif;
+  line-height: 27px;
+  font-size: 18px;
+  font-weight: 400;
+  text-align: justify;
+}
+
+.post-content p {
+  text-align: justify;
 }
 
 body {
   background: #ffffff;
+  line-height: 27px;
+  font-size: 18px;
+  font-weight: 400;
 }
 
 ul {
@@ -343,7 +351,7 @@ a:hover {
 .navbar .nav-item .nav-link {
   color: #444 !important;
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 600;
   transition: .3s all;
   padding: 5px 15px;
   display: block;
@@ -542,6 +550,10 @@ a:hover {
 
 #about .block img {
   max-width: 100%;
+}
+
+.post-content img {
+  max-width: -webkit-fill-available;
 }
 
 .about-feature .block {
@@ -784,6 +796,7 @@ figure figcaption p {
   line-height: 24px;
   color: #6B6B6B;
   margin-top: 40px;
+  padding: 0 1rem;
 }
 
 .grps h2:nth-child(1) {
@@ -805,6 +818,22 @@ figure figcaption p {
   width: fit-content;
 }
 
+/* .team-item:before {
+  background-color: inherit;
+  content: ' ';
+}
+
+.team-img-back {
+  background-color: rgba(0,0,0,0);
+  transition: background-color 1s;
+}
+
+.team-img-back:hover {
+  background-color: linear-gradient(0deg, rgba(125, 139, 160, 0.7), rgba(80, 150, 255, 0.7));
+  background-color: rgba(0,0,0,.5);
+  opacity: 0.6;
+} */
+
 .img-fluid {
   max-height: 100%;
   width: auto;
@@ -819,9 +848,8 @@ figure figcaption p {
 }
 
 .img-fluid-work-event {
-  width: 100%;
+  width: 70%;
   height: auto;
-  max-height: 360px;
 }
 
 .right {
@@ -976,7 +1004,7 @@ article {
 }
 
 .fig-team {
-  font-family: Inter;
+  font-family: "Inter", "Roboto", sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 20px;
@@ -986,6 +1014,7 @@ article {
   padding: 20px 10px 10px 2px;
   margin-bottom: 45px;
   box-shadow: none;
+  text-align: center;
 }
 
 .blog-post-image {
@@ -1209,7 +1238,7 @@ article {
 .visit-cerebro {
   color: #ffffff;
   position: relative;
-  top: 25%;
+  top: 18%;
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
@@ -1388,6 +1417,8 @@ article {
 
 .single-post {
   border: none;
+  width: 50%;
+  margin: 0 auto;
 }
 
 .single-post .comments {
