@@ -21,13 +21,13 @@
                             </li>
                             {{ range .Site.Menus.nav }}
                             <li class="nav-item">
-                                {{/*  {{ if eq .Name "Work" }}
+                                {{ if eq .Name "Work" }}
                                     <a class="nav-link" href="{{ .URL }}">{{ .Name }}</a>
                                 {{ end }}
                                 {{ if ne .Name "Work" }}
                                     <a class="nav-link" href="{{ .URL | absURL }}">{{ .Name }}</a>
-                                {{ end }}  */}}
-                                <a class="nav-link" href="{{ .URL | absURL }}">{{ .Name }}</a>
+                                {{ end }}
+                                <!-- <a class="nav-link" href="{{ .URL | absURL }}">{{ .Name }}</a> -->
                             </li>
                             {{ end }}
                     </div>
