@@ -19,7 +19,7 @@
   "license": "MIT",
   "files": [
     "particles.js",
-    "particles.min.js"
+    "particlescnf.js"
   ],
   "bugs": {
     "url": "https://github.com/VincentGarreau/particles.js/issues"
