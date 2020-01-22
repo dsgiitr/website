@@ -2,66 +2,66 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>RL on DSG | IIT Roorkee</title>
-    <link>https://dsgiitr.github.io/Website/tags/rl/</link>
+    <link>/tags/rl/</link>
     <description>Recent content in RL on DSG | IIT Roorkee</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 01 Dec 2019 23:40:49 +0000</lastBuildDate>
     
-	<atom:link href="https://dsgiitr.github.io/Website/tags/rl/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/rl/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Event-1</title>
-      <link>https://dsgiitr.github.io/Website/events/event1/</link>
+      <link>/events/event1/</link>
       <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
       
-      <guid>https://dsgiitr.github.io/Website/events/event1/</guid>
+      <guid>/events/event1/</guid>
       <description>Consectur in Bibendum Totam rem aperiam eaque ipsa quae illo inventore veritatis et quasi architebetea.vitae dicta sunt explicabo. nemo enim ipsam volup as tatem quia voluptassit aspernatur.aut odit aut fugit sed quia consequuntur magni dolores eo ratione voluptatem.</description>
     </item>
     
     <item>
       <title>Event-2</title>
-      <link>https://dsgiitr.github.io/Website/events/event2/</link>
+      <link>/events/event2/</link>
       <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
       
-      <guid>https://dsgiitr.github.io/Website/events/event2/</guid>
+      <guid>/events/event2/</guid>
       <description>Consectur in Bibendum Totam rem aperiam eaque ipsa quae illo inventore veritatis et quasi architebetea.vitae dicta sunt explicabo. nemo enim ipsam volup as tatem quia voluptassit aspernatur.aut odit aut fugit sed quia consequuntur magni dolores eo ratione voluptatem.</description>
     </item>
     
     <item>
       <title>Event-3</title>
-      <link>https://dsgiitr.github.io/Website/events/event3/</link>
+      <link>/events/event3/</link>
       <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
       
-      <guid>https://dsgiitr.github.io/Website/events/event3/</guid>
+      <guid>/events/event3/</guid>
       <description>Consectur in Bibendum Totam rem aperiam eaque ipsa quae illo inventore veritatis et quasi architebetea.vitae dicta sunt explicabo. nemo enim ipsam volup as tatem quia voluptassit aspernatur.aut odit aut fugit sed quia consequuntur magni dolores eo ratione voluptatem.</description>
     </item>
     
     <item>
       <title>Event-4</title>
-      <link>https://dsgiitr.github.io/Website/events/event4/</link>
+      <link>/events/event4/</link>
       <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
       
-      <guid>https://dsgiitr.github.io/Website/events/event4/</guid>
+      <guid>/events/event4/</guid>
       <description>Consectur in Bibendum Totam rem aperiam eaque ipsa quae illo inventore veritatis et quasi architebetea.vitae dicta sunt explicabo. nemo enim ipsam volup as tatem quia voluptassit aspernatur.aut odit aut fugit sed quia consequuntur magni dolores eo ratione voluptatem.</description>
     </item>
     
     <item>
       <title>Event-5</title>
-      <link>https://dsgiitr.github.io/Website/events/event5/</link>
+      <link>/events/event5/</link>
       <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
       
-      <guid>https://dsgiitr.github.io/Website/events/event5/</guid>
+      <guid>/events/event5/</guid>
       <description>Consectur in Bibendum Totam rem aperiam eaque ipsa quae illo inventore veritatis et quasi architebetea.vitae dicta sunt explicabo. nemo enim ipsam volup as tatem quia voluptassit aspernatur.aut odit aut fugit sed quia consequuntur magni dolores eo ratione voluptatem.</description>
     </item>
     
     <item>
       <title>Event-6</title>
-      <link>https://dsgiitr.github.io/Website/events/event6/</link>
+      <link>/events/event6/</link>
       <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
       
-      <guid>https://dsgiitr.github.io/Website/events/event6/</guid>
+      <guid>/events/event6/</guid>
       <description>Consectur in Bibendum Totam rem aperiam eaque ipsa quae illo inventore veritatis et quasi architebetea.vitae dicta sunt explicabo. nemo enim ipsam volup as tatem quia voluptassit aspernatur.aut odit aut fugit sed quia consequuntur magni dolores eo ratione voluptatem.</description>
     </item>
     

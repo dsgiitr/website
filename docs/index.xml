@@ -2,229 +2,229 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>DSG | IIT Roorkee</title>
-    <link>https://dsgiitr.github.io/Website/</link>
+    <link>/</link>
     <description>Recent content on DSG | IIT Roorkee</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 01 Jan 2020 23:40:49 +0000</lastBuildDate>
     
-	<atom:link href="https://dsgiitr.github.io/Website/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Understanding Graph Attention Networks (GAT)</title>
-      <link>https://dsgiitr.github.io/Website/blogs/gat/</link>
+      <link>/blogs/gat/</link>
       <pubDate>Wed, 01 Jan 2020 23:40:49 +0000</pubDate>
       
-      <guid>https://dsgiitr.github.io/Website/blogs/gat/</guid>
+      <guid>/blogs/gat/</guid>
       <description>Understanding Graph Attention Networks (GAT) -- This is 4th in the series of blogs Explained: Graph Representation Learning. Let&amp;rsquo;s dive right in, assuming you have read the first three. GAT (Graph Attention Network), is a novel neural network architectures that operate on graph-structured data, leveraging masked self-attentional layers to address the shortcomings of prior methods based on graph convolutions or their approximations.</description>
     </item>
     
     <item>
       <title>A New Year a New Posibility</title>
-      <link>https://dsgiitr.github.io/Website/blogs/a-new-year-a-new-posibility/</link>
+      <link>/blogs/a-new-year-a-new-posibility/</link>
       <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
       
-      <guid>https://dsgiitr.github.io/Website/blogs/a-new-year-a-new-posibility/</guid>
+      <guid>/blogs/a-new-year-a-new-posibility/</guid>
       <description>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas sit expedita, iusto repellendus cumque, officia architecto consequatur illo fuga eum sed ut autem eos voluptas. Nemo, a, rem! Atque quisquam aperiam eaque tenetur autem, soluta itaque omnis.</description>
     </item>
     
     <item>
       <title>Building an Online Audience</title>
-      <link>https://dsgiitr.github.io/Website/blogs/building-an-online-audience/</link>
+      <link>/blogs/building-an-online-audience/</link>
       <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
       
-      <guid>https://dsgiitr.github.io/Website/blogs/building-an-online-audience/</guid>
+      <guid>/blogs/building-an-online-audience/</guid>
       <description>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas sit expedita, iusto repellendus cumque, officia architecto consequatur illo fuga eum sed ut autem eos voluptas. Nemo, a, rem! Atque quisquam aperiam eaque tenetur autem, soluta itaque omnis.</description>
     </item>
     
     <item>
       <title>Event-1</title>
-      <link>https://dsgiitr.github.io/Website/events/event1/</link>
+      <link>/events/event1/</link>
       <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
       
-      <guid>https://dsgiitr.github.io/Website/events/event1/</guid>
+      <guid>/events/event1/</guid>
       <description>Consectur in Bibendum Totam rem aperiam eaque ipsa quae illo inventore veritatis et quasi architebetea.vitae dicta sunt explicabo. nemo enim ipsam volup as tatem quia voluptassit aspernatur.aut odit aut fugit sed quia consequuntur magni dolores eo ratione voluptatem.</description>
     </item>
     
     <item>
       <title>Event-2</title>
-      <link>https://dsgiitr.github.io/Website/events/event2/</link>
+      <link>/events/event2/</link>
       <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
       
-      <guid>https://dsgiitr.github.io/Website/events/event2/</guid>
+      <guid>/events/event2/</guid>
       <description>Consectur in Bibendum Totam rem aperiam eaque ipsa quae illo inventore veritatis et quasi architebetea.vitae dicta sunt explicabo. nemo enim ipsam volup as tatem quia voluptassit aspernatur.aut odit aut fugit sed quia consequuntur magni dolores eo ratione voluptatem.</description>
     </item>
     
     <item>
       <title>Event-3</title>
-      <link>https://dsgiitr.github.io/Website/events/event3/</link>
+      <link>/events/event3/</link>
       <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
       
-      <guid>https://dsgiitr.github.io/Website/events/event3/</guid>
+      <guid>/events/event3/</guid>
       <description>Consectur in Bibendum Totam rem aperiam eaque ipsa quae illo inventore veritatis et quasi architebetea.vitae dicta sunt explicabo. nemo enim ipsam volup as tatem quia voluptassit aspernatur.aut odit aut fugit sed quia consequuntur magni dolores eo ratione voluptatem.</description>
     </item>
     
     <item>
       <title>Event-4</title>
-      <link>https://dsgiitr.github.io/Website/events/event4/</link>
+      <link>/events/event4/</link>
       <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
       
-      <guid>https://dsgiitr.github.io/Website/events/event4/</guid>
+      <guid>/events/event4/</guid>
       <description>Consectur in Bibendum Totam rem aperiam eaque ipsa quae illo inventore veritatis et quasi architebetea.vitae dicta sunt explicabo. nemo enim ipsam volup as tatem quia voluptassit aspernatur.aut odit aut fugit sed quia consequuntur magni dolores eo ratione voluptatem.</description>
     </item>
     
     <item>
       <title>Event-5</title>
-      <link>https://dsgiitr.github.io/Website/events/event5/</link>
+      <link>/events/event5/</link>
       <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
       
-      <guid>https://dsgiitr.github.io/Website/events/event5/</guid>
+      <guid>/events/event5/</guid>
       <description>Consectur in Bibendum Totam rem aperiam eaque ipsa quae illo inventore veritatis et quasi architebetea.vitae dicta sunt explicabo. nemo enim ipsam volup as tatem quia voluptassit aspernatur.aut odit aut fugit sed quia consequuntur magni dolores eo ratione voluptatem.</description>
     </item>
     
     <item>
       <title>Event-6</title>
-      <link>https://dsgiitr.github.io/Website/events/event6/</link>
+      <link>/events/event6/</link>
       <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
       
-      <guid>https://dsgiitr.github.io/Website/events/event6/</guid>
+      <guid>/events/event6/</guid>
       <description>Consectur in Bibendum Totam rem aperiam eaque ipsa quae illo inventore veritatis et quasi architebetea.vitae dicta sunt explicabo. nemo enim ipsam volup as tatem quia voluptassit aspernatur.aut odit aut fugit sed quia consequuntur magni dolores eo ratione voluptatem.</description>
     </item>
     
     <item>
       <title>How To Setup Timer Hugo</title>
-      <link>https://dsgiitr.github.io/Website/blogs/installation/</link>
+      <link>/blogs/installation/</link>
       <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
       
-      <guid>https://dsgiitr.github.io/Website/blogs/installation/</guid>
+      <guid>/blogs/installation/</guid>
       <description>Install this template by following those simple steps: STEP-1 : Hugo installation Check this link below for install hugo on your computer. hugo install documentation
 STEP-2 : Create your project Hugo provides a new command to create a new website.</description>
     </item>
     
     <item>
       <title>Project-1</title>
-      <link>https://dsgiitr.github.io/Website/work/project1/</link>
+      <link>/work/project1/</link>
       <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
       
-      <guid>https://dsgiitr.github.io/Website/work/project1/</guid>
+      <guid>/work/project1/</guid>
       <description>Consectur in Bibendum Totam rem aperiam eaque ipsa quae illo inventore veritatis et quasi architebetea.vitae dicta sunt explicabo. nemo enim ipsam volup as tatem quia voluptassit aspernatur.aut odit aut fugit sed quia consequuntur magni dolores eo ratione voluptatem.</description>
     </item>
     
     <item>
       <title>Project-10</title>
-      <link>https://dsgiitr.github.io/Website/work/project10/</link>
+      <link>/work/project10/</link>
       <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
       
-      <guid>https://dsgiitr.github.io/Website/work/project10/</guid>
+      <guid>/work/project10/</guid>
       <description>Consectur in Bibendum Totam rem aperiam eaque ipsa quae illo inventore veritatis et quasi architebetea.vitae dicta sunt explicabo. nemo enim ipsam volup as tatem quia voluptassit aspernatur.aut odit aut fugit sed quia consequuntur magni dolores eo ratione voluptatem.</description>
     </item>
     
     <item>
       <title>Project-11</title>
-      <link>https://dsgiitr.github.io/Website/work/project11/</link>
+      <link>/work/project11/</link>
       <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
       
-      <guid>https://dsgiitr.github.io/Website/work/project11/</guid>
+      <guid>/work/project11/</guid>
       <description>Consectur in Bibendum Totam rem aperiam eaque ipsa quae illo inventore veritatis et quasi architebetea.vitae dicta sunt explicabo. nemo enim ipsam volup as tatem quia voluptassit aspernatur.aut odit aut fugit sed quia consequuntur magni dolores eo ratione voluptatem.</description>
     </item>
     
     <item>
       <title>Project-12</title>
-      <link>https://dsgiitr.github.io/Website/work/project12/</link>
+      <link>/work/project12/</link>
       <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
       
-      <guid>https://dsgiitr.github.io/Website/work/project12/</guid>
+      <guid>/work/project12/</guid>
       <description>Consectur in Bibendum Totam rem aperiam eaque ipsa quae illo inventore veritatis et quasi architebetea.vitae dicta sunt explicabo. nemo enim ipsam volup as tatem quia voluptassit aspernatur.aut odit aut fugit sed quia consequuntur magni dolores eo ratione voluptatem.</description>
     </item>
     
     <item>
       <title>Project-2</title>
-      <link>https://dsgiitr.github.io/Website/work/project2/</link>
+      <link>/work/project2/</link>
       <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
       
-      <guid>https://dsgiitr.github.io/Website/work/project2/</guid>
+      <guid>/work/project2/</guid>
       <description>Consectur in Bibendum Totam rem aperiam eaque ipsa quae illo inventore veritatis et quasi architebetea.vitae dicta sunt explicabo. nemo enim ipsam volup as tatem quia voluptassit aspernatur.aut odit aut fugit sed quia consequuntur magni dolores eo ratione voluptatem.</description>
     </item>
     
     <item>
       <title>Project-3</title>
-      <link>https://dsgiitr.github.io/Website/work/project3/</link>
+      <link>/work/project3/</link>
       <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
       
-      <guid>https://dsgiitr.github.io/Website/work/project3/</guid>
+      <guid>/work/project3/</guid>
       <description>Consectur in Bibendum Totam rem aperiam eaque ipsa quae illo inventore veritatis et quasi architebetea.vitae dicta sunt explicabo. nemo enim ipsam volup as tatem quia voluptassit aspernatur.aut odit aut fugit sed quia consequuntur magni dolores eo ratione voluptatem.</description>
     </item>
     
     <item>
       <title>Project-4</title>
-      <link>https://dsgiitr.github.io/Website/work/project4/</link>
+      <link>/work/project4/</link>
       <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
       
-      <guid>https://dsgiitr.github.io/Website/work/project4/</guid>
+      <guid>/work/project4/</guid>
       <description>Consectur in Bibendum Totam rem aperiam eaque ipsa quae illo inventore veritatis et quasi architebetea.vitae dicta sunt explicabo. nemo enim ipsam volup as tatem quia voluptassit aspernatur.aut odit aut fugit sed quia consequuntur magni dolores eo ratione voluptatem.</description>
     </item>
     
     <item>
       <title>Project-5</title>
-      <link>https://dsgiitr.github.io/Website/work/project5/</link>
+      <link>/work/project5/</link>
       <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
       
-      <guid>https://dsgiitr.github.io/Website/work/project5/</guid>
+      <guid>/work/project5/</guid>
       <description>Consectur in Bibendum Totam rem aperiam eaque ipsa quae illo inventore veritatis et quasi architebetea.vitae dicta sunt explicabo. nemo enim ipsam volup as tatem quia voluptassit aspernatur.aut odit aut fugit sed quia consequuntur magni dolores eo ratione voluptatem.</description>
     </item>
     
     <item>
       <title>Project-6</title>
-      <link>https://dsgiitr.github.io/Website/work/project6/</link>
+      <link>/work/project6/</link>
       <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
       
-      <guid>https://dsgiitr.github.io/Website/work/project6/</guid>
+      <guid>/work/project6/</guid>
       <description>Consectur in Bibendum Totam rem aperiam eaque ipsa quae illo inventore veritatis et quasi architebetea.vitae dicta sunt explicabo. nemo enim ipsam volup as tatem quia voluptassit aspernatur.aut odit aut fugit sed quia consequuntur magni dolores eo ratione voluptatem.</description>
     </item>
     
     <item>
       <title>Project-7</title>
-      <link>https://dsgiitr.github.io/Website/work/project7/</link>
+      <link>/work/project7/</link>
       <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
       
-      <guid>https://dsgiitr.github.io/Website/work/project7/</guid>
+      <guid>/work/project7/</guid>
       <description>Consectur in Bibendum Totam rem aperiam eaque ipsa quae illo inventore veritatis et quasi architebetea.vitae dicta sunt explicabo. nemo enim ipsam volup as tatem quia voluptassit aspernatur.aut odit aut fugit sed quia consequuntur magni dolores eo ratione voluptatem.</description>
     </item>
     
     <item>
       <title>Project-8</title>
-      <link>https://dsgiitr.github.io/Website/work/project8/</link>
+      <link>/work/project8/</link>
       <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
       
-      <guid>https://dsgiitr.github.io/Website/work/project8/</guid>
+      <guid>/work/project8/</guid>
       <description>Consectur in Bibendum Totam rem aperiam eaque ipsa quae illo inventore veritatis et quasi architebetea.vitae dicta sunt explicabo. nemo enim ipsam volup as tatem quia voluptassit aspernatur.aut odit aut fugit sed quia consequuntur magni dolores eo ratione voluptatem.</description>
     </item>
     
     <item>
       <title>Project-9</title>
-      <link>https://dsgiitr.github.io/Website/work/project9/</link>
+      <link>/work/project9/</link>
       <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
       
-      <guid>https://dsgiitr.github.io/Website/work/project9/</guid>
+      <guid>/work/project9/</guid>
       <description>Consectur in Bibendum Totam rem aperiam eaque ipsa quae illo inventore veritatis et quasi architebetea.vitae dicta sunt explicabo. nemo enim ipsam volup as tatem quia voluptassit aspernatur.aut odit aut fugit sed quia consequuntur magni dolores eo ratione voluptatem.</description>
     </item>
     
     <item>
       <title>Space Shouldn&#39;t Be the Final Frontier</title>
-      <link>https://dsgiitr.github.io/Website/blogs/space-shouldnt-be-the-final-frontier/</link>
+      <link>/blogs/space-shouldnt-be-the-final-frontier/</link>
       <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
       
-      <guid>https://dsgiitr.github.io/Website/blogs/space-shouldnt-be-the-final-frontier/</guid>
+      <guid>/blogs/space-shouldnt-be-the-final-frontier/</guid>
       <description>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas sit expedita, iusto repellendus cumque, officia architecto consequatur illo fuga eum sed ut autem eos voluptas. Nemo, a, rem! Atque quisquam aperiam eaque tenetur autem, soluta itaque omnis.</description>
     </item>
     
     <item>
       <title>Roadmap To Data Science</title>
-      <link>https://dsgiitr.github.io/Website/blogs/roadmap_to_datascience/</link>
+      <link>/blogs/roadmap_to_datascience/</link>
       <pubDate>Sun, 04 Aug 2019 23:40:49 +0000</pubDate>
       
-      <guid>https://dsgiitr.github.io/Website/blogs/roadmap_to_datascience/</guid>
+      <guid>/blogs/roadmap_to_datascience/</guid>
       <description>In the 21st century, computer science advancement, development of intelligent machines and generation of immense amounts of data has led to the development of new fields of study, buzzwords, Data Science and Machine Learning.</description>
     </item>
     

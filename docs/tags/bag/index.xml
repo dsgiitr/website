@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>bag on DSG | IIT Roorkee</title>
-    <link>https://dsgiitr.github.io/Website/tags/bag/</link>
+    <link>/tags/bag/</link>
     <description>Recent content in bag on DSG | IIT Roorkee</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 01 Dec 2019 23:40:49 +0000</lastBuildDate>
     
-	<atom:link href="https://dsgiitr.github.io/Website/tags/bag/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/bag/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Project-5</title>
-      <link>https://dsgiitr.github.io/Website/work/project5/</link>
+      <link>/work/project5/</link>
       <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
       
-      <guid>https://dsgiitr.github.io/Website/work/project5/</guid>
+      <guid>/work/project5/</guid>
       <description>Consectur in Bibendum Totam rem aperiam eaque ipsa quae illo inventore veritatis et quasi architebetea.vitae dicta sunt explicabo. nemo enim ipsam volup as tatem quia voluptassit aspernatur.aut odit aut fugit sed quia consequuntur magni dolores eo ratione voluptatem.</description>
     </item>
     

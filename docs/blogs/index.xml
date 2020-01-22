@@ -2,67 +2,67 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Blogs on DSG | IIT Roorkee</title>
-    <link>https://dsgiitr.github.io/Website/blogs/</link>
+    <link>/blogs/</link>
     <description>Recent content in Blogs on DSG | IIT Roorkee</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 01 Dec 2019 23:40:49 +0000</lastBuildDate>
     
-	<atom:link href="https://dsgiitr.github.io/Website/blogs/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/blogs/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Understanding Graph Attention Networks (GAT)</title>
-      <link>https://dsgiitr.github.io/Website/blogs/gat/</link>
+      <link>/blogs/gat/</link>
       <pubDate>Wed, 01 Jan 2020 23:40:49 +0000</pubDate>
       
-      <guid>https://dsgiitr.github.io/Website/blogs/gat/</guid>
+      <guid>/blogs/gat/</guid>
       <description>Understanding Graph Attention Networks (GAT) -- This is 4th in the series of blogs Explained: Graph Representation Learning. Let&amp;rsquo;s dive right in, assuming you have read the first three. GAT (Graph Attention Network), is a novel neural network architectures that operate on graph-structured data, leveraging masked self-attentional layers to address the shortcomings of prior methods based on graph convolutions or their approximations.</description>
     </item>
     
     <item>
       <title>A New Year a New Posibility</title>
-      <link>https://dsgiitr.github.io/Website/blogs/a-new-year-a-new-posibility/</link>
+      <link>/blogs/a-new-year-a-new-posibility/</link>
       <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
       
-      <guid>https://dsgiitr.github.io/Website/blogs/a-new-year-a-new-posibility/</guid>
+      <guid>/blogs/a-new-year-a-new-posibility/</guid>
       <description>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas sit expedita, iusto repellendus cumque, officia architecto consequatur illo fuga eum sed ut autem eos voluptas. Nemo, a, rem! Atque quisquam aperiam eaque tenetur autem, soluta itaque omnis.</description>
     </item>
     
     <item>
       <title>Building an Online Audience</title>
-      <link>https://dsgiitr.github.io/Website/blogs/building-an-online-audience/</link>
+      <link>/blogs/building-an-online-audience/</link>
       <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
       
-      <guid>https://dsgiitr.github.io/Website/blogs/building-an-online-audience/</guid>
+      <guid>/blogs/building-an-online-audience/</guid>
       <description>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas sit expedita, iusto repellendus cumque, officia architecto consequatur illo fuga eum sed ut autem eos voluptas. Nemo, a, rem! Atque quisquam aperiam eaque tenetur autem, soluta itaque omnis.</description>
     </item>
     
     <item>
       <title>How To Setup Timer Hugo</title>
-      <link>https://dsgiitr.github.io/Website/blogs/installation/</link>
+      <link>/blogs/installation/</link>
       <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
       
-      <guid>https://dsgiitr.github.io/Website/blogs/installation/</guid>
+      <guid>/blogs/installation/</guid>
       <description>Install this template by following those simple steps: STEP-1 : Hugo installation Check this link below for install hugo on your computer. hugo install documentation
 STEP-2 : Create your project Hugo provides a new command to create a new website.</description>
     </item>
     
     <item>
       <title>Space Shouldn&#39;t Be the Final Frontier</title>
-      <link>https://dsgiitr.github.io/Website/blogs/space-shouldnt-be-the-final-frontier/</link>
+      <link>/blogs/space-shouldnt-be-the-final-frontier/</link>
       <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
       
-      <guid>https://dsgiitr.github.io/Website/blogs/space-shouldnt-be-the-final-frontier/</guid>
+      <guid>/blogs/space-shouldnt-be-the-final-frontier/</guid>
       <description>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas sit expedita, iusto repellendus cumque, officia architecto consequatur illo fuga eum sed ut autem eos voluptas. Nemo, a, rem! Atque quisquam aperiam eaque tenetur autem, soluta itaque omnis.</description>
     </item>
     
     <item>
       <title>Roadmap To Data Science</title>
-      <link>https://dsgiitr.github.io/Website/blogs/roadmap_to_datascience/</link>
+      <link>/blogs/roadmap_to_datascience/</link>
       <pubDate>Sun, 04 Aug 2019 23:40:49 +0000</pubDate>
       
-      <guid>https://dsgiitr.github.io/Website/blogs/roadmap_to_datascience/</guid>
+      <guid>/blogs/roadmap_to_datascience/</guid>
       <description>In the 21st century, computer science advancement, development of intelligent machines and generation of immense amounts of data has led to the development of new fields of study, buzzwords, Data Science and Machine Learning.</description>
     </item>
     

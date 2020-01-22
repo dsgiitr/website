@@ -2,192 +2,192 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on DSG | IIT Roorkee</title>
-    <link>https://dsgiitr.github.io/Website/tags/</link>
+    <link>/tags/</link>
     <description>Recent content in Tags on DSG | IIT Roorkee</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 01 Jan 2020 23:40:49 +0000</lastBuildDate>
     
-	<atom:link href="https://dsgiitr.github.io/Website/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Graph Representation Learning</title>
-      <link>https://dsgiitr.github.io/Website/tags/graph-representation-learning/</link>
+      <link>/tags/graph-representation-learning/</link>
       <pubDate>Wed, 01 Jan 2020 23:40:49 +0000</pubDate>
       
-      <guid>https://dsgiitr.github.io/Website/tags/graph-representation-learning/</guid>
+      <guid>/tags/graph-representation-learning/</guid>
       <description></description>
     </item>
     
     <item>
       <title>3d-model</title>
-      <link>https://dsgiitr.github.io/Website/tags/3d-model/</link>
+      <link>/tags/3d-model/</link>
       <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
       
-      <guid>https://dsgiitr.github.io/Website/tags/3d-model/</guid>
+      <guid>/tags/3d-model/</guid>
       <description></description>
     </item>
     
     <item>
       <title>bag</title>
-      <link>https://dsgiitr.github.io/Website/tags/bag/</link>
+      <link>/tags/bag/</link>
       <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
       
-      <guid>https://dsgiitr.github.io/Website/tags/bag/</guid>
+      <guid>/tags/bag/</guid>
       <description></description>
     </item>
     
     <item>
       <title>business</title>
-      <link>https://dsgiitr.github.io/Website/tags/business/</link>
+      <link>/tags/business/</link>
       <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
       
-      <guid>https://dsgiitr.github.io/Website/tags/business/</guid>
+      <guid>/tags/business/</guid>
       <description></description>
     </item>
     
     <item>
       <title>design</title>
-      <link>https://dsgiitr.github.io/Website/tags/design/</link>
+      <link>/tags/design/</link>
       <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
       
-      <guid>https://dsgiitr.github.io/Website/tags/design/</guid>
+      <guid>/tags/design/</guid>
       <description></description>
     </item>
     
     <item>
       <title>fashion</title>
-      <link>https://dsgiitr.github.io/Website/tags/fashion/</link>
+      <link>/tags/fashion/</link>
       <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
       
-      <guid>https://dsgiitr.github.io/Website/tags/fashion/</guid>
+      <guid>/tags/fashion/</guid>
       <description></description>
     </item>
     
     <item>
       <title>inspiration</title>
-      <link>https://dsgiitr.github.io/Website/tags/inspiration/</link>
+      <link>/tags/inspiration/</link>
       <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
       
-      <guid>https://dsgiitr.github.io/Website/tags/inspiration/</guid>
+      <guid>/tags/inspiration/</guid>
       <description></description>
     </item>
     
     <item>
       <title>install</title>
-      <link>https://dsgiitr.github.io/Website/tags/install/</link>
+      <link>/tags/install/</link>
       <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
       
-      <guid>https://dsgiitr.github.io/Website/tags/install/</guid>
+      <guid>/tags/install/</guid>
       <description></description>
     </item>
     
     <item>
       <title>internet</title>
-      <link>https://dsgiitr.github.io/Website/tags/internet/</link>
+      <link>/tags/internet/</link>
       <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
       
-      <guid>https://dsgiitr.github.io/Website/tags/internet/</guid>
+      <guid>/tags/internet/</guid>
       <description></description>
     </item>
     
     <item>
       <title>letters</title>
-      <link>https://dsgiitr.github.io/Website/tags/letters/</link>
+      <link>/tags/letters/</link>
       <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
       
-      <guid>https://dsgiitr.github.io/Website/tags/letters/</guid>
+      <guid>/tags/letters/</guid>
       <description></description>
     </item>
     
     <item>
       <title>ML</title>
-      <link>https://dsgiitr.github.io/Website/tags/ml/</link>
+      <link>/tags/ml/</link>
       <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
       
-      <guid>https://dsgiitr.github.io/Website/tags/ml/</guid>
+      <guid>/tags/ml/</guid>
       <description></description>
     </item>
     
     <item>
       <title>mockup</title>
-      <link>https://dsgiitr.github.io/Website/tags/mockup/</link>
+      <link>/tags/mockup/</link>
       <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
       
-      <guid>https://dsgiitr.github.io/Website/tags/mockup/</guid>
+      <guid>/tags/mockup/</guid>
       <description></description>
     </item>
     
     <item>
       <title>motivation</title>
-      <link>https://dsgiitr.github.io/Website/tags/motivation/</link>
+      <link>/tags/motivation/</link>
       <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
       
-      <guid>https://dsgiitr.github.io/Website/tags/motivation/</guid>
+      <guid>/tags/motivation/</guid>
       <description></description>
     </item>
     
     <item>
       <title>package</title>
-      <link>https://dsgiitr.github.io/Website/tags/package/</link>
+      <link>/tags/package/</link>
       <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
       
-      <guid>https://dsgiitr.github.io/Website/tags/package/</guid>
+      <guid>/tags/package/</guid>
       <description></description>
     </item>
     
     <item>
       <title>people</title>
-      <link>https://dsgiitr.github.io/Website/tags/people/</link>
+      <link>/tags/people/</link>
       <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
       
-      <guid>https://dsgiitr.github.io/Website/tags/people/</guid>
+      <guid>/tags/people/</guid>
       <description></description>
     </item>
     
     <item>
       <title>product</title>
-      <link>https://dsgiitr.github.io/Website/tags/product/</link>
+      <link>/tags/product/</link>
       <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
       
-      <guid>https://dsgiitr.github.io/Website/tags/product/</guid>
+      <guid>/tags/product/</guid>
       <description></description>
     </item>
     
     <item>
       <title>RL</title>
-      <link>https://dsgiitr.github.io/Website/tags/rl/</link>
+      <link>/tags/rl/</link>
       <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
       
-      <guid>https://dsgiitr.github.io/Website/tags/rl/</guid>
+      <guid>/tags/rl/</guid>
       <description></description>
     </item>
     
     <item>
       <title>tech</title>
-      <link>https://dsgiitr.github.io/Website/tags/tech/</link>
+      <link>/tags/tech/</link>
       <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
       
-      <guid>https://dsgiitr.github.io/Website/tags/tech/</guid>
+      <guid>/tags/tech/</guid>
       <description></description>
     </item>
     
     <item>
       <title>typography</title>
-      <link>https://dsgiitr.github.io/Website/tags/typography/</link>
+      <link>/tags/typography/</link>
       <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
       
-      <guid>https://dsgiitr.github.io/Website/tags/typography/</guid>
+      <guid>/tags/typography/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Beginner</title>
-      <link>https://dsgiitr.github.io/Website/tags/beginner/</link>
+      <link>/tags/beginner/</link>
       <pubDate>Sun, 04 Aug 2019 23:40:49 +0000</pubDate>
       
-      <guid>https://dsgiitr.github.io/Website/tags/beginner/</guid>
+      <guid>/tags/beginner/</guid>
       <description></description>
     </item>
     
