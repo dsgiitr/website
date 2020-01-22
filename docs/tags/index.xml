@@ -2,192 +2,192 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on DSG | IIT Roorkee</title>
-    <link>http://localhost:1313/tags/</link>
+    <link>https://dsgiitr.github.io/Website/tags/</link>
     <description>Recent content in Tags on DSG | IIT Roorkee</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 01 Jan 2020 23:40:49 +0000</lastBuildDate>
     
-	<atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://dsgiitr.github.io/Website/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Graph Representation Learning</title>
-      <link>http://localhost:1313/tags/graph-representation-learning/</link>
+      <link>https://dsgiitr.github.io/Website/tags/graph-representation-learning/</link>
       <pubDate>Wed, 01 Jan 2020 23:40:49 +0000</pubDate>
       
-      <guid>http://localhost:1313/tags/graph-representation-learning/</guid>
+      <guid>https://dsgiitr.github.io/Website/tags/graph-representation-learning/</guid>
       <description></description>
     </item>
     
     <item>
       <title>3d-model</title>
-      <link>http://localhost:1313/tags/3d-model/</link>
+      <link>https://dsgiitr.github.io/Website/tags/3d-model/</link>
       <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
       
-      <guid>http://localhost:1313/tags/3d-model/</guid>
+      <guid>https://dsgiitr.github.io/Website/tags/3d-model/</guid>
       <description></description>
     </item>
     
     <item>
       <title>bag</title>
-      <link>http://localhost:1313/tags/bag/</link>
+      <link>https://dsgiitr.github.io/Website/tags/bag/</link>
       <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
       
-      <guid>http://localhost:1313/tags/bag/</guid>
+      <guid>https://dsgiitr.github.io/Website/tags/bag/</guid>
       <description></description>
     </item>
     
     <item>
       <title>business</title>
-      <link>http://localhost:1313/tags/business/</link>
+      <link>https://dsgiitr.github.io/Website/tags/business/</link>
       <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
       
-      <guid>http://localhost:1313/tags/business/</guid>
+      <guid>https://dsgiitr.github.io/Website/tags/business/</guid>
       <description></description>
     </item>
     
     <item>
       <title>design</title>
-      <link>http://localhost:1313/tags/design/</link>
+      <link>https://dsgiitr.github.io/Website/tags/design/</link>
       <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
       
-      <guid>http://localhost:1313/tags/design/</guid>
+      <guid>https://dsgiitr.github.io/Website/tags/design/</guid>
       <description></description>
     </item>
     
     <item>
       <title>fashion</title>
-      <link>http://localhost:1313/tags/fashion/</link>
+      <link>https://dsgiitr.github.io/Website/tags/fashion/</link>
       <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
       
-      <guid>http://localhost:1313/tags/fashion/</guid>
+      <guid>https://dsgiitr.github.io/Website/tags/fashion/</guid>
       <description></description>
     </item>
     
     <item>
       <title>inspiration</title>
-      <link>http://localhost:1313/tags/inspiration/</link>
+      <link>https://dsgiitr.github.io/Website/tags/inspiration/</link>
       <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
       
-      <guid>http://localhost:1313/tags/inspiration/</guid>
+      <guid>https://dsgiitr.github.io/Website/tags/inspiration/</guid>
       <description></description>
     </item>
     
     <item>
       <title>install</title>
-      <link>http://localhost:1313/tags/install/</link>
+      <link>https://dsgiitr.github.io/Website/tags/install/</link>
       <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
       
-      <guid>http://localhost:1313/tags/install/</guid>
+      <guid>https://dsgiitr.github.io/Website/tags/install/</guid>
       <description></description>
     </item>
     
     <item>
       <title>internet</title>
-      <link>http://localhost:1313/tags/internet/</link>
+      <link>https://dsgiitr.github.io/Website/tags/internet/</link>
       <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
       
-      <guid>http://localhost:1313/tags/internet/</guid>
+      <guid>https://dsgiitr.github.io/Website/tags/internet/</guid>
       <description></description>
     </item>
     
     <item>
       <title>letters</title>
-      <link>http://localhost:1313/tags/letters/</link>
+      <link>https://dsgiitr.github.io/Website/tags/letters/</link>
       <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
       
-      <guid>http://localhost:1313/tags/letters/</guid>
+      <guid>https://dsgiitr.github.io/Website/tags/letters/</guid>
       <description></description>
     </item>
     
     <item>
       <title>ML</title>
-      <link>http://localhost:1313/tags/ml/</link>
+      <link>https://dsgiitr.github.io/Website/tags/ml/</link>
       <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
       
-      <guid>http://localhost:1313/tags/ml/</guid>
+      <guid>https://dsgiitr.github.io/Website/tags/ml/</guid>
       <description></description>
     </item>
     
     <item>
       <title>mockup</title>
-      <link>http://localhost:1313/tags/mockup/</link>
+      <link>https://dsgiitr.github.io/Website/tags/mockup/</link>
       <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
       
-      <guid>http://localhost:1313/tags/mockup/</guid>
+      <guid>https://dsgiitr.github.io/Website/tags/mockup/</guid>
       <description></description>
     </item>
     
     <item>
       <title>motivation</title>
-      <link>http://localhost:1313/tags/motivation/</link>
+      <link>https://dsgiitr.github.io/Website/tags/motivation/</link>
       <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
       
-      <guid>http://localhost:1313/tags/motivation/</guid>
+      <guid>https://dsgiitr.github.io/Website/tags/motivation/</guid>
       <description></description>
     </item>
     
     <item>
       <title>package</title>
-      <link>http://localhost:1313/tags/package/</link>
+      <link>https://dsgiitr.github.io/Website/tags/package/</link>
       <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
       
-      <guid>http://localhost:1313/tags/package/</guid>
+      <guid>https://dsgiitr.github.io/Website/tags/package/</guid>
       <description></description>
     </item>
     
     <item>
       <title>people</title>
-      <link>http://localhost:1313/tags/people/</link>
+      <link>https://dsgiitr.github.io/Website/tags/people/</link>
       <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
       
-      <guid>http://localhost:1313/tags/people/</guid>
+      <guid>https://dsgiitr.github.io/Website/tags/people/</guid>
       <description></description>
     </item>
     
     <item>
       <title>product</title>
-      <link>http://localhost:1313/tags/product/</link>
+      <link>https://dsgiitr.github.io/Website/tags/product/</link>
       <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
       
-      <guid>http://localhost:1313/tags/product/</guid>
+      <guid>https://dsgiitr.github.io/Website/tags/product/</guid>
       <description></description>
     </item>
     
     <item>
       <title>RL</title>
-      <link>http://localhost:1313/tags/rl/</link>
+      <link>https://dsgiitr.github.io/Website/tags/rl/</link>
       <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
       
-      <guid>http://localhost:1313/tags/rl/</guid>
+      <guid>https://dsgiitr.github.io/Website/tags/rl/</guid>
       <description></description>
     </item>
     
     <item>
       <title>tech</title>
-      <link>http://localhost:1313/tags/tech/</link>
+      <link>https://dsgiitr.github.io/Website/tags/tech/</link>
       <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
       
-      <guid>http://localhost:1313/tags/tech/</guid>
+      <guid>https://dsgiitr.github.io/Website/tags/tech/</guid>
       <description></description>
     </item>
     
     <item>
       <title>typography</title>
-      <link>http://localhost:1313/tags/typography/</link>
+      <link>https://dsgiitr.github.io/Website/tags/typography/</link>
       <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
       
-      <guid>http://localhost:1313/tags/typography/</guid>
+      <guid>https://dsgiitr.github.io/Website/tags/typography/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Beginner</title>
-      <link>http://localhost:1313/tags/beginner/</link>
+      <link>https://dsgiitr.github.io/Website/tags/beginner/</link>
       <pubDate>Sun, 04 Aug 2019 23:40:49 +0000</pubDate>
       
-      <guid>http://localhost:1313/tags/beginner/</guid>
+      <guid>https://dsgiitr.github.io/Website/tags/beginner/</guid>
       <description></description>
     </item>
     
