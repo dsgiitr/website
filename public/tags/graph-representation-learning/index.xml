@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Graph Representation Learning on DSG | IIT Roorkee</title>
+    <link>http://localhost:1313/tags/graph-representation-learning/</link>
+    <description>Recent content in Graph Representation Learning on DSG | IIT Roorkee</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 01 Jan 2020 23:40:49 +0000</lastBuildDate>
+    
+	<atom:link href="http://localhost:1313/tags/graph-representation-learning/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Understanding Graph Attention Networks (GAT)</title>
+      <link>http://localhost:1313/blogs/gat/</link>
+      <pubDate>Wed, 01 Jan 2020 23:40:49 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blogs/gat/</guid>
+      <description>Understanding Graph Attention Networks (GAT) -- This is 4th in the series of blogs Explained: Graph Representation Learning. Let&amp;rsquo;s dive right in, assuming you have read the first three. GAT (Graph Attention Network), is a novel neural network architectures that operate on graph-structured data, leveraging masked self-attentional layers to address the shortcomings of prior methods based on graph convolutions or their approximations.</description>
+    </item>
+    
+  </channel>
+</rss>

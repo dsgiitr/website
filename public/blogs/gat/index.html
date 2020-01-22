@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en-us"><head>
+  <!-- Basic Page Needs -->
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  
+  <meta name="description" content="Machine Learning / Graph Representation Learning">
+  <meta name="author" content="DSG">
+  <meta name="generator" content="Hugo 0.59.0" />
+  
+  <!-- Mobile Specific Metas -->
+  <meta name="format-detection" content="telephone=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Understanding Graph Attention Networks (GAT)</title>
+  <link rel="icon" href="http://localhost:1313/images/dsg.ico">
+
+  <!-- Twitter Bootstrs CSS -->
+  <link rel="stylesheet" href="http://localhost:1313/plugins/bootstrap/bootstrap.min.css">
+  <!-- Ionicons Fonts Css -->
+  <link rel="stylesheet" href="http://localhost:1313/plugins/ionicons/ionicons.min.css">
+  <!-- animate css -->
+  <link rel="stylesheet" href="http://localhost:1313/plugins/animate-css/animate.css">
+  <!-- Hero area slider css-->
+  <link rel="stylesheet" href="http://localhost:1313/plugins/slider/slider.css">
+  <!-- slick slider -->
+  <link rel="stylesheet" href="http://localhost:1313/plugins/slick/slick.css">
+  <!-- Fancybox -->
+  <link rel="stylesheet" href="http://localhost:1313/plugins/facncybox/jquery.fancybox.css">
+  <!-- hover -->
+  <link rel="stylesheet" href="http://localhost:1313/plugins/hover/hover-min.css">
+  <!-- template main css file -->
+  
+  <link rel="stylesheet" href="http://localhost:1313/css/style.min.css" integrity="" media="screen">
+</head><body><section class="top-bar animated-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <a class="navbar-brand" href="http://localhost:1313/">
+                        <img id="logo" src="http://localhost:1313/images/dsg.png" alt="logo">
+                        <span class="logoText">DSG</span>
+                    </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
+                        aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navigation">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item">
+                                <a class="nav-link"
+                                    href="http://localhost:1313/">Home
+                                </a>
+                            </li>
+                            
+                            <li class="nav-item">
+                                
+                                    <a class="nav-link" href="/#works">Work</a>
+                                
+                                
+                                
+                            </li>
+                            
+                            <li class="nav-item">
+                                
+                                
+                                    <a class="nav-link" href="http://localhost:1313/events">Events</a>
+                                
+                                
+                            </li>
+                            
+                            <li class="nav-item">
+                                
+                                
+                                    <a class="nav-link" href="http://localhost:1313/blogs">Blogs</a>
+                                
+                                
+                            </li>
+                            
+                            <li class="nav-item">
+                                
+                                
+                                    <a class="nav-link" href="http://localhost:1313/about">About</a>
+                                
+                                
+                            </li>
+                            
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="global-page-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="block">
+                    <h2>Understanding Graph Attention Networks (GAT)</h2>
+                    <div class="portfolio-meta">
+                        <span>Wednesday, Jan 1, 2020</span>|
+                        <span> Tags:
+                            Graph Representation Learning
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="single-post">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                
+                <div class="post-img">
+                    <img class="img-fluid-work" alt="" src="http://localhost:1313/images/blogs/GAT/GAT_Cover.jpg">
+                </div>
+                
+                <div class="post-content">
+                    
+
+<!-- # Understanding Graph Attention Networks (GAT) -->
+
+<h1><center>Understanding Graph Attention Networks (GAT)</center></h1>
+
+<!-- ![GAT Cover](GAT_Cover.jpg) -->
+
+<!-- <img src="images/blogs/GAT/GAT_Cover.jpg" width=700x/> -->
+
+<p>This is 4th in the series of blogs <font color="green"><em>Explained: Graph Representation Learning</em></font>. Let&rsquo;s dive right in, assuming you have read the first three. GAT (Graph Attention Network), is a novel neural network architectures that operate on graph-structured data, leveraging masked self-attentional layers to address the shortcomings of prior methods based on graph convolutions or their approximations. By stacking layers in which nodes are able to attend over their neighborhoods’ features, the method enables (implicitly) specifying different weights to different nodes in a neighborhood, without requiring any kind of costly matrix operation (such as inversion) or depending on knowing the graph structure upfront. In this way, GAT addresses several key challenges of spectral-based graph neural networks simultaneously, and make the model readily applicable to inductive as well as transductive problems.</p>
+
+<p>Analyzing and Visualizing the learned attentional weights also lead to a more interpretable model in terms of importance of neighbors.</p>
+
+<p>But before getting into the meat of this method, I want you to be familiar and thorough with the Attention Mechanism, because we&rsquo;ll be building GATs on the concept of <b>Self Attention</b> and <b>Multi-Head Attention</b> introduced by <b><i>Vaswani et al.</i></b>
+If not, you may read this blog, <a href="http://jalammar.github.io/illustrated-transformer/">The Illustrated Transformer</a> by Jay Alamar.</p>
+
+<hr/>
+
+<h2><center>Can we do better than GCNs?</center></h2>
+<!-- ## Can we do better than GCNs? -->
+
+From Graph Convolutional Network (GCN), we learnt that combining local graph structure and node-level features yields good performance on node classification task. However, the way GCN aggregates messages is <b>structure-dependent</b>, which may hurt its generalizability.
+
+The fundamental novelty that GAT brings to the table is how the information from the one-hop neighborhood is aggregated. For GCN, a graph convolution operation produces the normalized sum of neighbors' node features as follows:
+
+$$h_i^{(l+1)}=\sigma\left(\sum_{j\in \mathcal{N}(i)} {\frac{1}{c_{ij}} W^{(l)}h^{(l)}_j}\right)$$
+
+where $\mathcal{N}(i)$ is the set of its one-hop neighbors (to include $v_{i}$ in the set, we simply added a self-loop to each node), $c_{ij}=\sqrt{|\mathcal{N}(i)|}\sqrt{|\mathcal{N}(j)|}$ is a normalization constant based on graph structure, $\sigma$ is an activation function (GCN uses ReLU), and $W^{l}$ is a shared weight matrix for node-wise feature transformation.
+
+GAT introduces the attention mechanism as a substitute for the statically normalized convolution operation. The figure below clearly illustrates the key difference.
+
+<!-- <figure class="floatcenter">
+    <img src="/images/blogs/GAT/GCN_vs_GAT.jpg" width="800x"/> <figcaption>
+            <h4>GCN vs GAT</h4>
+        </figcaption>
+</figure>
+ -->
+<img src="/images/blogs/GAT/GCN_vs_GAT.jpg" width=800x/>
+
+<hr/>
+
+<!-- ## How does the attention work in GAT layer? -->
+<h1><center>How does the GAT layer work?</center></h1>
+
+The particular attentional setup utilized by GAT closely follows the work of `Bahdanau et al. (2015)` i.e *Additive Attention*, but the framework is agnostic to the particular choice of attention mechanism.
+
+The input to the layer is a set of node features, $\mathbf{h} = \{\vec{h}_1,\vec{h}_2,...,\vec{h}_N\}, \vec{h}_i ∈ \mathbb{R}^{F}$ , where $N$ is the
+number of nodes, and $F$ is the number of features in each node. The layer produces a new set of node
+features (of potentially different cardinality $F'$ ), $\mathbf{h} = \{\vec{h'}_1,\vec{h'}_2,...,\vec{h'}_N\}, \vec{h'}_i ∈ \mathbb{R}^{F'}$, as its output.
+
+
+<h3><font color="black" >The Attentional Layer broken into 4 separate parts:</font></h3>
+
+<hr/>
+
+**1)** <font color="red">**Simple linear transformation:**</font> In order to obtain sufficient expressive power to transform the input features into higher level features, atleast one learnable linear transformation is required. To that end, as an initial step, a shared linear transformation, parametrized by a weight matrix, $W ∈ \mathbb{R}^{F′×F}$ , is applied to every node.
+
+$$\begin{split}\begin{align}
+z_i^{(l)}&=W^{(l)}h_i^{(l)} \\
+\end{align}\end{split}$$
+
+<div style="float: right">
+    <img src="/images/blogs/GAT/Attentional_Layer.jpg" width=400x/>
+</div>
+
+
+<hr/>
+
+**2)** <font color="red">**Attention Coefficients:**</font> We then compute a pair-wise <font color="blue">**un-normalized**</font> attention score between two neighbors. Here, it first concatenates the $z$ embeddings of the two nodes, where $||$ denotes concatenation, then takes a dot product of it and a learnable weight vector $\vec a^{(l)}$, and applies a LeakyReLU in the end. This form of attention is usually called additive attention, in contrast with the dot-product attention used for the Transformer model. We then perform self-attention on the nodes, a shared attentional mechanism $a$ : $\mathbb{R}^{F′} × \mathbb{R}^{F′} → \mathbb{R}$ to compute attention coefficients 
+$$\begin{split}\begin{align}
+e_{ij}^{(l)}&=\text{LeakyReLU}(\vec a^{(l)^T}(z_i^{(l)}||z_j^{(l)}))\\
+\end{align}\end{split}$$
+
+**Q. Is this step the most important step?** 
+
+**Ans.** Yes! This indicates the importance of node $j’s$ features to node $i$. This step allows every node to attend on every other node, dropping all structural information.
+
+**NOTE:** The graph structure is injected into the mechanism by performing <b>*masked attention*</b>, we only compute $e_{ij}$ for nodes $j$ ∈ $N_{i}$, where $N_{i}$ is some neighborhood of node $i$ in the graph. In all the experiments, these will be exactly the first-order neighbors of $i$ (including $i$).
+
+
+<hr/>
+
+**3)** <font color="red">**Softmax:**</font> This makes coefficients easily comparable across different nodes, we normalize them across all choices of $j$ using the softmax function
+
+$$\begin{split}\begin{align}
+\alpha_{ij}^{(l)}&=\frac{\exp(e_{ij}^{(l)})}{\sum_{k\in \mathcal{N}(i)}^{}\exp(e_{ik}^{(l)})}\\
+\end{align}\end{split}$$
+
+
+<hr/>
+
+**4)** <font color="red">**Aggregation:**</font> This step is similar to GCN. The embeddings from neighbors are aggregated together, scaled by the attention scores. 
+
+$$\begin{split}\begin{align}
+h_i^{(l+1)}&=\sigma\left(\sum_{j\in \mathcal{N}(i)} {\alpha^{(l)}_{ij} z^{(l)}_j }\right)
+\end{align}\end{split}$$
+
+<hr/>
+
+<!-- ![Attentional Layer](Attentional_Layer.jpg){:style="float: right;margin-right: 7px;margin-top: 7px;"} -->
+
+
+<!-- ![Attentional Layer](Attentional_Layer.jpg =250x) -->
+
+
+<!-- ### Multi-head Attention -->
+<h2><center>Multi-head Attention</center></h2>
+
+<p>
+<img src="images/blogs/GAT/MultiHead_Attention.jpeg" width=500x/>
+*An illustration of multi-head attention (with K = 3 heads) by node 1 on its neighborhood. Different arrow styles and colors denote independent attention computations. The aggregated features from each head are concatenated or averaged to obtain $\vec{h'}_{1}$.*
+</p>
+
+<p>Analogous to multiple channels in ConvNet, GAT introduces multi-head attention to enrich the model capacity and to stabilize the learning process. Specifically, K independent attention mechanisms execute the transformation of Equation 4, and then their outputs can be combined in 2 ways depending on the use:</p>
+
+<ul>
+<li><p><b>Concatenation</b></p>
+
+<p>$$\textbf{Concatenation}: h^{(l+1)}<em>{i} =||</em>{k=1}^{K}\sigma\left(\sum<em>{j\in \mathcal{N}(i)}\alpha</em>{ij}^{k}W^{k}h^{(l)}_{j}\right)$$</p>
+
+<ul>
+<li>As can be seen in this settingthe final returned output, $h′$, will consist of $KF′$ features (rather than F′) for each node.</li>
+</ul></li>
+
+<li><p><b>Averaging</b></p>
+
+<ul>
+<li>If we perform multi-head attention on the final (prediction) layer of the network, concatenation is no longer sensible and instead, averaging is employed, and delay applying the final nonlinearity (usually a softmax or logistic sigmoid for classification problems) until then:
+<br /></li>
+</ul>
+
+<p>$$\textbf{Average}: h<em>{i}^{(l+1)}=\sigma\left(\frac{1}{K}\sum</em>{k=1}^{K}\sum<em>{j\in\mathcal{N}(i)}\alpha</em>{ij}^{k}W^{k}h^{(l)}_{j}\right)$$</p></li>
+</ul>
+
+<p>Thus concatenation for intermediary layers and average for the final layer are used.</p>
+
+<!-- ## Implementing GAT Layer in PyTorch -->
+
+<h1><center>Implementing GAT Layer in PyTorch</center></h1>
+
+<h2 id="imports">Imports</h2>
+
+<pre><code class="language-python">
+import numpy as np
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
+
+torch.manual_seed(2020) # seed for reproducible numbers
+</code></pre>
+
+<h2 id="gat-layer">GAT Layer</h2>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python3" data-lang="python3"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">GATLayer</span>(nn<span style="color:#f92672">.</span>Module):
+    <span style="color:#e6db74">&#34;&#34;&#34;
+</span><span style="color:#e6db74">    Simple PyTorch Implementation of the Graph Attention layer.
+</span><span style="color:#e6db74">    &#34;&#34;&#34;</span>
+
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">__init__</span>(self, in_features, out_features, dropout, alpha, concat<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>):
+        super(GATLayer, self)<span style="color:#f92672">.</span>__init__()
+        self<span style="color:#f92672">.</span>dropout       <span style="color:#f92672">=</span> dropout        <span style="color:#75715e"># drop prob = 0.6</span>
+        self<span style="color:#f92672">.</span>in_features   <span style="color:#f92672">=</span> in_features    <span style="color:#75715e"># </span>
+        self<span style="color:#f92672">.</span>out_features  <span style="color:#f92672">=</span> out_features   <span style="color:#75715e"># </span>
+        self<span style="color:#f92672">.</span>alpha         <span style="color:#f92672">=</span> alpha          <span style="color:#75715e"># LeakyReLU with negative input slope, alpha = 0.2</span>
+        self<span style="color:#f92672">.</span>concat        <span style="color:#f92672">=</span> concat         <span style="color:#75715e"># conacat = True for all layers except the output layer.</span>
+
+        <span style="color:#75715e"># Xavier Initialization of Weights</span>
+        <span style="color:#75715e"># Alternatively use weights_init to apply weights of choice </span>
+        self<span style="color:#f92672">.</span>W <span style="color:#f92672">=</span> nn<span style="color:#f92672">.</span>Parameter(torch<span style="color:#f92672">.</span>zeros(size<span style="color:#f92672">=</span>(in_features, out_features)))
+        nn<span style="color:#f92672">.</span>init<span style="color:#f92672">.</span>xavier_uniform_(self<span style="color:#f92672">.</span>W<span style="color:#f92672">.</span>data, gain<span style="color:#f92672">=</span><span style="color:#ae81ff">1.414</span>)
+        self<span style="color:#f92672">.</span>a <span style="color:#f92672">=</span> nn<span style="color:#f92672">.</span>Parameter(torch<span style="color:#f92672">.</span>zeros(size<span style="color:#f92672">=</span>(<span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>out_features, <span style="color:#ae81ff">1</span>)))
+        nn<span style="color:#f92672">.</span>init<span style="color:#f92672">.</span>xavier_uniform_(self<span style="color:#f92672">.</span>a<span style="color:#f92672">.</span>data, gain<span style="color:#f92672">=</span><span style="color:#ae81ff">1.414</span>)
+        
+        <span style="color:#75715e"># LeakyReLU</span>
+        self<span style="color:#f92672">.</span>leakyrelu <span style="color:#f92672">=</span> nn<span style="color:#f92672">.</span>LeakyReLU(self<span style="color:#f92672">.</span>alpha)
+
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">forward</span>(self, input, adj):
+        <span style="color:#75715e"># Linear Transformation</span>
+        h <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>mm(input, self<span style="color:#f92672">.</span>W)
+        N <span style="color:#f92672">=</span> h<span style="color:#f92672">.</span>size()[<span style="color:#ae81ff">0</span>]
+
+        <span style="color:#75715e"># Attention Mechanism</span>
+        a_input <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>cat([h<span style="color:#f92672">.</span>repeat(<span style="color:#ae81ff">1</span>, N)<span style="color:#f92672">.</span>view(N <span style="color:#f92672">*</span> N, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>), h<span style="color:#f92672">.</span>repeat(N, <span style="color:#ae81ff">1</span>)], dim<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)<span style="color:#f92672">.</span>view(N, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> self<span style="color:#f92672">.</span>out_features)
+        e       <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>leakyrelu(torch<span style="color:#f92672">.</span>matmul(a_input, self<span style="color:#f92672">.</span>a)<span style="color:#f92672">.</span>squeeze(<span style="color:#ae81ff">2</span>))
+
+        <span style="color:#75715e"># Masked Attention</span>
+        zero_vec  <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">9e15</span><span style="color:#f92672">*</span>torch<span style="color:#f92672">.</span>ones_like(e)
+        attention <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>where(adj <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>, e, zero_vec)
+        
+        attention <span style="color:#f92672">=</span> F<span style="color:#f92672">.</span>softmax(attention, dim<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
+        attention <span style="color:#f92672">=</span> F<span style="color:#f92672">.</span>dropout(attention, self<span style="color:#f92672">.</span>dropout, training<span style="color:#f92672">=</span>self<span style="color:#f92672">.</span>training)
+        h_prime   <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>matmul(attention, h)
+
+        <span style="color:#66d9ef">if</span> self<span style="color:#f92672">.</span>concat:
+            <span style="color:#66d9ef">return</span> F<span style="color:#f92672">.</span>elu(h_prime)
+        <span style="color:#66d9ef">else</span>:
+            <span style="color:#66d9ef">return</span> h_prime</code></pre></div>
+
+<!-- ## Implementing GAT on Citation Datasets using PyTorch Geometric -->
+
+<h1><center>Implementing GAT on Citation Datasets using PyTorch Geometric</center></h1>
+
+<h3 id="pyg-imports">PyG Imports</h3>
+
+<pre><code class="language-python">from torch_geometric.data import Data
+from torch_geometric.nn import GATConv
+from torch_geometric.datasets import Planetoid
+import torch_geometric.transforms as T
+
+import matplotlib.pyplot as plt
+%matplotlib notebook
+
+import warnings
+warnings.filterwarnings(&quot;ignore&quot;)
+</code></pre>
+
+<pre><code class="language-python">name_data = 'Cora'
+dataset = Planetoid(root= '/tmp/' + name_data, name = name_data)
+dataset.transform = T.NormalizeFeatures()
+
+print(f&quot;Number of Classes in {name_data}:&quot;, dataset.num_classes)
+print(f&quot;Number of Node Features in {name_data}:&quot;, dataset.num_node_features)
+</code></pre>
+
+<h3 id="model">Model</h3>
+
+<pre><code class="language-python">class GAT(torch.nn.Module):
+    def __init__(self):
+        super(GAT, self).__init__()
+        self.hid = 8
+        self.in_head = 8
+        self.out_head = 1
+        
+        self.conv1 = GATConv(dataset.num_features, self.hid, heads=self.in_head, dropout=0.6)
+        self.conv2 = GATConv(self.hid*self.in_head, dataset.num_classes, concat=False,
+                             heads=self.out_head, dropout=0.6)
+
+    def forward(self, data):
+        x, edge_index = data.x, data.edge_index
+        
+        # Dropout before the GAT layer is used to avoid overfitting in small datasets like Cora.
+        # One can skip them if the dataset is sufficiently large.
+        
+        x = F.dropout(x, p=0.6, training=self.training)
+        x = self.conv1(x, edge_index)
+        x = F.elu(x)
+        x = F.dropout(x, p=0.6, training=self.training)
+        x = self.conv2(x, edge_index)
+        
+        return F.log_softmax(x, dim=1)
+</code></pre>
+
+<h3 id="train">Train</h3>
+
+<pre><code class="language-python">device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+
+model = GAT().to(device)
+
+data = dataset[0].to(device)
+optimizer = torch.optim.Adam(model.parameters(), lr=0.005, weight_decay=5e-4)
+
+model.train()
+for epoch in range(1000):
+    model.train()
+    optimizer.zero_grad()
+    out = model(data)
+    loss = F.nll_loss(out[data.train_mask], data.y[data.train_mask])
+    
+    if epoch%200 == 0:
+        print(loss)
+    
+    loss.backward()
+    optimizer.step()
+</code></pre>
+
+<h3 id="evaluate">Evaluate</h3>
+
+<pre><code class="language-python">model.eval()
+_, pred = model(data).max(dim=1)
+correct = float(pred[data.test_mask].eq(data.y[data.test_mask]).sum().item())
+acc = correct / data.test_mask.sum().item()
+print('Accuracy: {:.4f}'.format(acc))
+</code></pre>
+
+<h2 id="references">References</h2>
+
+<p><a href="https://arxiv.org/abs/1710.10903">Graph Attention Networks</a></p>
+
+<p><a href="https://docs.dgl.ai/tutorials/models/1_gnn/9_gat.html">Graph attention network, DGL by Zhang et al.</a></p>
+
+<p><a href="https://arxiv.org/pdf/1706.03762.pdf">Attention Is All You Need</a></p>
+
+<p><a href="http://jalammar.github.io/illustrated-transformer/">The Illustrated Transformer</a></p>
+
+<p><a href="https://jalammar.github.io/visualizing-neural-machine-translation-mechanics-of-seq2seq-models-with-attention/">Mechanics of Seq2seq Models With Attention</a></p>
+
+<p><a href="https://lilianweng.github.io/lil-log/2018/06/24/attention-attention.html">Attention? Attention!</a></p>
+
+<h3 id="written-by">Written By</h3>
+
+<ul>
+<li>Anirudh Dagar</li>
+</ul>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer Section Start -->
+<footer id="footer">
+    <div class="container" id="footer-container">
+        <div class="row content-justify-between">
+            <div style="width: 100%;">
+                <p class="copyright">
+                    Contact Us
+                </p>
+            </div>
+            <div class="col-md-7 col-12 text-lg-left text-md-left">
+                <!-- Social Media -->
+                <ul class="social">
+                    
+                    <li><a href="#"><i class="ion-social-facebook"></i></a></li>
+                    
+                    <li><a href="#"><i class="ion-social-github"></i></a></li>
+                    
+                    <li><a href="#"><i class="ion-social-linkedin"></i></a></li>
+                    
+                    
+                    <li style="float: right; color: #FFFFFF;"><i class="ion-closed-captioning"></i> DSG IITR</li>
+                    
+                </ul>
+            </div>
+            <div class="col-md-5 col-12 text-lg-left text-md-left location-foot">
+                
+                <div style="float: right; color: #FFFFFF;">
+                    <i class="ion-ios-location" style="color: #000;"></i> New Sac Building, IIT Roorkee
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    
+    <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+  });
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+
+  MathJax.Hub.Config({
+  
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+  });
+</script>
+</footer>
+<!-- footer section end -->
+
+
+<!-- jquery -->
+<script src="http://localhost:1313/plugins/jQurey/jquery.min.js"></script>
+<!-- Form Validation -->
+<script src="http://localhost:1313/plugins/form-validation/jquery.form.js"></script>
+<script src="http://localhost:1313/plugins/form-validation/jquery.validate.min.js"></script>
+<!-- slick slider -->
+<script src="http://localhost:1313/plugins/slick/slick.min.js"></script>
+<!-- bootstrap js -->
+<script src="http://localhost:1313/plugins/bootstrap/bootstrap.min.js"></script>
+<!-- wow js -->
+<script src="http://localhost:1313/plugins/wow-js/wow.min.js"></script>
+<!-- slider js -->
+<script src="http://localhost:1313/plugins/slider/slider.js"></script>
+<!-- Fancybox -->
+<script src="http://localhost:1313/plugins/facncybox/jquery.fancybox.js"></script>
+<!-- template main js -->
+
+<script src="http://localhost:1313/js/script.min.js"></script>
+<!-- google analitycs -->
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', '', 'auto');
+    ga('send', 'pageview');
+</script>
+<script type="text/javascript" src="http://localhost:1313/plugins/particlesjs/particles.min.js"></script>
+<script type="text/javascript" src="http://localhost:1313/plugins/particlesjs/demo/js/app.js"></script></body>
+</html>
