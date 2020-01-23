@@ -61,15 +61,15 @@ publishDir = "docs"
     [params.footer]
         [[params.footer.socialIcon]]
             icon = "ion-social-facebook"
-            url = "#"
+            url = "https://www.facebook.com/dsgiitr/"
 
         [[params.footer.socialIcon]]
             icon = "ion-social-github"
-            url = "#"
+            url = "https://github.com/dsgiitr"
 
         [[params.footer.socialIcon]]
             icon = "ion-social-linkedin"
-            url = "#"
+            url = "https://www.linkedin.com/company/26638705/"
 
         [[params.footer.ccIcon]]
             icon = "ion-closed-captioning"
@@ -77,4 +77,4 @@ publishDir = "docs"
         
         [[params.footer.locationIcon]]
             icon = "ion-ios-location"
-            url = "#"
+            url = "https://goo.gl/maps/CX6KT39ivMidoyEe8"
