@@ -43,13 +43,13 @@ publishDir = "docs"
         projectLink = "#works"
         scroll = "images/scroll.svg"
         down = "images/down.svg"
-        description = "DSG is an umbrella group Which comes under SDS(Software Development Section).It is a student group that constantly tries to learn and foster technical activities in campus."
+        description = "A student organization Driving innovation via Machine Learning. Code | Train | Predict"
 
     # Homepage About Section
     [params.about]
         enable  = true
         title   = "About"
-        content = "Hello, We are DSG(Data Science Group) IITR, an umbrella group Which comes under SDS(Software Development Section).We are a student group that constantly tries to learn and foster technical activities in campus. Our members work in Machine Learning, Deep Learning, Reinforcement Learning and sometimes even in complex topic like Graph Networks."
+        content = "We are Data Science Group, IIT Roorkee. A student organizaton and a part of the umbrella organization Software Development Section. We aim to work on innovative open source projects in the domain of Machine Learning, bridging the gap between research and industry. In the process, we fullfil our mission of cultivating and evolving the technical community in Roorkee by organizing lectures, workshops, hackathons spanning across the field of Machine Learning, Deep Learning and Data Science in general."
         image   = "images/about/aboutTeam.jpeg"
 
     # work Section On Homepage
