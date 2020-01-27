@@ -43,7 +43,7 @@ publishDir = "docs"
         projectLink = "#works"
         scroll = "images/scroll.svg"
         down = "images/down.svg"
-        description = "A student organization Driving innovation via Machine Learning. Code | Train | Predict"
+        description = "A student organization Driving innovation via Machine Learning."
 
     # Homepage About Section
     [params.about]
