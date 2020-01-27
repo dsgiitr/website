@@ -5,6 +5,9 @@ summaryLength = 30
 paginate = 3
 publishDir = "docs"
 
+[markup.goldmark.renderer]
+unsafe= true
+
 # Site Menu
 [menu]
     # Navbar Menu
