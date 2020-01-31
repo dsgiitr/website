@@ -21,6 +21,15 @@
     </item>
     
     <item>
+      <title>Understanding Deepwalk</title>
+      <link>/blogs/deepwalk/</link>
+      <pubDate>Wed, 01 Jan 2020 23:40:49 +0000</pubDate>
+      
+      <guid>/blogs/deepwalk/</guid>
+      <description>As a part of this blog series and continuing with the tradition of extracting useful graph features by considering the topology of the network graph using machine learning, this blog deals with Deep Walk.</description>
+    </item>
+    
+    <item>
       <title>Understanding Graph Attention Networks (GAT)</title>
       <link>/blogs/gat/</link>
       <pubDate>Wed, 01 Jan 2020 23:40:49 +0000</pubDate>

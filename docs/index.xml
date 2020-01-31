@@ -21,6 +21,15 @@
     </item>
     
     <item>
+      <title>Understanding Deepwalk</title>
+      <link>/blogs/deepwalk/</link>
+      <pubDate>Wed, 01 Jan 2020 23:40:49 +0000</pubDate>
+      
+      <guid>/blogs/deepwalk/</guid>
+      <description>As a part of this blog series and continuing with the tradition of extracting useful graph features by considering the topology of the network graph using machine learning, this blog deals with Deep Walk.</description>
+    </item>
+    
+    <item>
       <title>Understanding Graph Attention Networks (GAT)</title>
       <link>/blogs/gat/</link>
       <pubDate>Wed, 01 Jan 2020 23:40:49 +0000</pubDate>
@@ -228,12 +237,77 @@
     </item>
     
     <item>
+      <title>Artistic Style Transfer with Convolutional Neural Network</title>
+      <link>/blogs/style_transfer_with_cnn/</link>
+      <pubDate>Mon, 04 Sep 2017 23:40:49 +0000</pubDate>
+      
+      <guid>/blogs/style_transfer_with_cnn/</guid>
+      <description>We all have used apps like Prisma and Lucid, but ever wondered how these things works?</description>
+    </item>
+    
+    <item>
+      <title>Baby steps with Tensoflow #2</title>
+      <link>/blogs/baby_steps_with_tf_part2/</link>
+      <pubDate>Sat, 17 Jun 2017 23:40:49 +0000</pubDate>
+      
+      <guid>/blogs/baby_steps_with_tf_part2/</guid>
+      <description>In this blog we will understand how to use Tensoflow for Linear and Logistic Regression. I hope you have read 1st blog of this series, if not please give it a read.</description>
+    </item>
+    
+    <item>
+      <title>Convolutional Neural Network with TensorFlow Implementation</title>
+      <link>/blogs/cnn_with_tf/</link>
+      <pubDate>Sat, 17 Jun 2017 23:40:49 +0000</pubDate>
+      
+      <guid>/blogs/cnn_with_tf/</guid>
+      <description>When you hear about deep learning breaking a new technological barrier, Convolutional Neural Networks are involved most of the times.</description>
+    </item>
+    
+    <item>
+      <title>Baby steps with Tensorflow #1</title>
+      <link>/blogs/baby_steps_with_tf_part1/</link>
+      <pubDate>Thu, 01 Jun 2017 23:40:49 +0000</pubDate>
+      
+      <guid>/blogs/baby_steps_with_tf_part1/</guid>
+      <description>Deep Learning is a Mandate for Humans, Not Just Machines — Andrew Ng Yes, Deep learning is a next big thing.</description>
+    </item>
+    
+    <item>
+      <title>Singular Value Decomposition. Elucidated.</title>
+      <link>/blogs/svd/</link>
+      <pubDate>Thu, 18 May 2017 23:40:49 +0000</pubDate>
+      
+      <guid>/blogs/svd/</guid>
+      <description>Not this SVD :P
+Mathematics is building block of Machine learning. I know math is hard to understand but it is much needed as well.</description>
+    </item>
+    
+    <item>
+      <title>Data Science Congress. Something legendary.</title>
+      <link>/blogs/data_science_congress/</link>
+      <pubDate>Wed, 17 May 2017 23:40:49 +0000</pubDate>
+      
+      <guid>/blogs/data_science_congress/</guid>
+      <description>I know. You know. Everybody knows. What?
+ India. Research. Data Science. They hardly go together.</description>
+    </item>
+    
+    <item>
       <title>Regularization. Clarified.</title>
       <link>/blogs/regularization_clarified/</link>
       <pubDate>Sun, 02 Apr 2017 23:40:49 +0000</pubDate>
       
       <guid>/blogs/regularization_clarified/</guid>
       <description>The end is near. No, not the world, but the 12A12D series. After Linear Regression, it’s time to add more DS flavour.</description>
+    </item>
+    
+    <item>
+      <title>Decision Trees. Decoded.</title>
+      <link>/blogs/decision_trees_decoded/</link>
+      <pubDate>Wed, 22 Mar 2017 23:40:49 +0000</pubDate>
+      
+      <guid>/blogs/decision_trees_decoded/</guid>
+      <description>It’s time to give the Algorithm series, an informative start. Here, we start with one of the most famous category i.</description>
     </item>
     
     <item>

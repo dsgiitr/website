@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en-us"><head>
+  <!-- Basic Page Needs -->
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  
+  <meta name="description" content="Data Science">
+  <meta name="author" content="DSG">
+  <meta name="generator" content="Hugo 0.61.0" />
+  
+  <!-- Mobile Specific Metas -->
+  <meta name="format-detection" content="telephone=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Decision Trees. Decoded.</title>
+  <link rel="icon" href="/images/dsg.ico">
+
+  <!-- Twitter Bootstrs CSS -->
+  <link rel="stylesheet" href="/plugins/bootstrap/bootstrap.min.css">
+  <!-- Ionicons Fonts Css -->
+  <link rel="stylesheet" href="/plugins/ionicons/ionicons.min.css">
+  <!-- animate css -->
+  <link rel="stylesheet" href="/plugins/animate-css/animate.css">
+  <!-- Hero area slider css-->
+  <link rel="stylesheet" href="/plugins/slider/slider.css">
+  <!-- slick slider -->
+  <link rel="stylesheet" href="/plugins/slick/slick.css">
+  <!-- Fancybox -->
+  <link rel="stylesheet" href="/plugins/facncybox/jquery.fancybox.css">
+  <!-- hover -->
+  <link rel="stylesheet" href="/plugins/hover/hover-min.css">
+  <!-- template main css file -->
+  
+  <link rel="stylesheet" href="/css/style.min.css" integrity="" media="screen">
+</head><body><section class="top-bar animated-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <a class="navbar-brand" href="/">
+                        <img id="logo" src="/images/dsg.png" alt="logo">
+                        <span class="logoText">DSG</span>
+                    </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
+                        aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navigation">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item">
+                                <a class="nav-link"
+                                    href="/">Home
+                                </a>
+                            </li>
+                            
+                            <li class="nav-item">
+                                
+                                    <a class="nav-link" href="/#works">Work</a>
+                                
+                                
+                                
+                            </li>
+                            
+                            <li class="nav-item">
+                                
+                                
+                                    <a class="nav-link" href="/events">Events</a>
+                                
+                                
+                            </li>
+                            
+                            <li class="nav-item">
+                                
+                                
+                                    <a class="nav-link" href="/blogs">Blogs</a>
+                                
+                                
+                            </li>
+                            
+                            <li class="nav-item">
+                                
+                                
+                                    <a class="nav-link" href="/about">About</a>
+                                
+                                
+                            </li>
+                            
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="global-page-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="block">
+                    <h2>Decision Trees. Decoded.</h2>
+                    <div class="portfolio-meta">
+                        <span>Wednesday, Mar 22, 2017</span>|
+                        <span> Tags:
+                            Machine Learning
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="single-post">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                
+                <div class="post-img">
+                    <img class="img-fluid-work" alt="" src="https://cdn-images-1.medium.com/max/1472/1*m85Ynvm51AokFs84WuegHQ.jpeg">
+                </div>
+                
+                <div class="post-content">
+                    <p>It’s time to give the <a href="https://medium.com/data-science-group-iitr/algos-algos-everywhere-f4e684473f14#.79qy9j9y0">Algorithm</a> series, an <em>informative</em> start. Here, we start with one of the most famous category i.e. <strong>Tree Based Models</strong>, which consists of Decision Trees, Random Forest and Boosting methods.</p>
+<p>To initiate the learning with a basic example, the above is a <a href="https://en.wikipedia.org/wiki/Decision_tree">decision tree</a> for you:</p>
+<p>Yes, you may be thinking that ML can’t be this easy. Frankly, it is. Trust me.</p>
+<blockquote>
+<p><strong>A river cuts through a rock not because of it’s power, but it’s persistence.</strong></p>
+</blockquote>
+<hr>
+<h1 id="what-is-a-decision-tree">What is a Decision Tree?</h1>
+<p>As the name says all about it, it is a tree which helps us by assisting us in decision-making. Used for both <strong>classification</strong> and <strong>regression</strong>, it is a very basic and important predictive learning algorithm.</p>
+<ul>
+<li>
+<p>It is <strong><em>different</em></strong> from others because it works intuitively i.e., taking decisions one-by-one.</p>
+</li>
+<li>
+<p><strong>Non-parametric</strong>: Fast and efficient.</p>
+</li>
+</ul>
+<p>It consists of nodes which have <strong>parent-child relationships</strong>:</p>
+<p><img src="https://cdn-images-1.medium.com/max/1358/1*h22XDY1LDFYkuMvTAjnZtA.png" alt="Decision Tree - Outline"></p>
+<p>Finally, it gives us what we actually want - prediction for a given scenario.</p>
+<hr>
+<h1 id="how-it-works">How it works?</h1>
+<p>It breaks a dataset into smaller subsets, and at the same time, an associated decision tree is <em>incrementally developed</em>.
+As it happens in real life, we consider the <strong>most important factor</strong>, and divide possibilities according to it.
+Similarly, tree building starts by finding the <em>variable/feature</em> for <strong>best split</strong>.</p>
+<blockquote>
+<p>First of all, let’s cover the <strong>basic terminology</strong> used:</p>
+</blockquote>
+<p><img src="https://cdn-images-1.medium.com/max/1184/1*dLxNivHYH7AB8l0PfOpCdw.png" alt="Terminology explained."></p>
+<ul>
+<li>
+<p>**Root Node: **Entire population or sample, further gets divided into two or more homogeneous sets.</p>
+</li>
+<li>
+<p><strong>Parent and Child Node:</strong> Node which is divided into sub-nodes is called parent node, whereas sub-nodes are the child of parent node.</p>
+</li>
+<li>
+<p><strong>Splitting:</strong> Process of dividing a node into two or more sub-nodes.</p>
+</li>
+<li>
+<p><strong>Decision Node:</strong> A sub-node that splits into further sub-nodes.</p>
+</li>
+<li>
+<p>**Leaf/ Terminal Node: **Nodes that do not split.</p>
+</li>
+<li>
+<p>**Pruning: **When we remove sub-nodes of a decision node, this process is called pruning. (Opposite of Splitting)</p>
+</li>
+<li>
+<p><strong>Branch/Sub-Tree:</strong> Sub-section of entire tree.</p>
+</li>
+</ul>
+<hr>
+<blockquote>
+<p><strong><em>Splitting! What is it?</em></strong></p>
+</blockquote>
+<p>Decision tree considers the most important variable using some fancy criterion and splits dataset based on it. It is done to reach a stage where we have <strong>homogenous subsets</strong> that are giving predictions with utmost surety.</p>
+<p><img src="https://cdn-images-1.medium.com/max/2676/1*Rbyss_MmTWQafQXLhvO6UA.png" alt="Don’t give up already!"></p>
+<p>These criteria affect the way tree grows, and thus the <strong>accuracy of model</strong>. It takes place until a user-defined stopping condition is reached, or perfect homogeneity is obtained.</p>
+<p>To put things in perspective, check out how **<a href="http://nerds.airbnb.com/confidence-splitting-criterions/">Airbnb** improved their accuracy using new confidence splitting criter</a>ia.</p>
+<p>Some of them are:</p>
+<ul>
+<li>
+<p><strong>Gini Index:</strong> Measure of variance across all classes of the data. Measures the <em>impurity</em> of the data.
+<em>Ex.</em> Given a binary classification problem, the number of positive cases equals the negative ones. <em><em>GI = 1/2</em>(1–1/2)+1/2</em>(1–1/2) = 1/2
+**This is maximum GI possible. As we split data, and move towards subtree, GI decreases to zero with increase in depth of tree.</p>
+</li>
+<li>
+<p><strong>Entropy:</strong> Measure of randomness. More the random data, higher the entropy.
+**E = -p*log(p) **; <em>p - probability</em></p>
+</li>
+</ul>
+<p><img src="https://cdn-images-1.medium.com/max/2048/0*mvoE2G7vVaJ2ALEf." alt="Variation is evident."></p>
+<p><strong><em>Information Gain</em></strong>: Decrease in entropy. The difference between the entropy before the split and the average entropy after split is obtained to decide when to split.</p>
+<p>The variable which provides <strong>maximum entropy gain</strong> is chosen!</p>
+<ul>
+<li>**Reduction in Variance: **This is used mainly in Regression. As the name suggests, variation before split and after split is calculated.
+The split giving the <strong>highest reduction</strong> is selected!</li>
+</ul>
+<hr>
+<h4 id="pruning-of-a-tree">Pruning of a Tree</h4>
+<p>The greed to fit data using decision tree can sometimes result in <a href="https:**//www.quora.com/What-is-an-intuitive-explanation-of-overfitting">**overfitting</a> of data. To avoid this, either strong stopping criterion or pruning is used.</p>
+<blockquote>
+<p><strong>Pruning is exact opposite of splitting.</strong></p>
+</blockquote>
+<ul>
+<li>
+<p>Top down approach (early stopping)</p>
+</li>
+<li>
+<p>Bottom up approach (error rate)</p>
+</li>
+</ul>
+<h3 id="decision-tree-with-only-one-level-are-termed-as-decision-stumps-often-in-bagging-and-boosting-models-to-avoid-overfitting-decision-stump-is-better-than-full-grown-tree">Decision tree with only one level are termed as decision stumps. Often in bagging and boosting models, to avoid overfitting, decision stump is better than full grown tree.</h3>
+<hr>
+<h1 id="is-it-really-that-good">Is it really that good?</h1>
+<p>We have been reading about a primitive algorithm for the past 4 minutes. Let’s try to conclude whether it is worth all the attention!</p>
+<blockquote>
+<p><strong>Pros</strong></p>
+</blockquote>
+<ul>
+<li>
+<p>Not every relation is linear. <strong>Non-linear relations</strong> are captured by DTs.</p>
+</li>
+<li>
+<p>Easy to understand and visualise.</p>
+</li>
+<li>
+<p>Can be used for <strong>feature engineering</strong>. (<em>Ex.</em> Binning, EDA or <a href="https://www.kaggle.com/yildirimarda/titanic/decision-tree-visualization-submission/code">this</a>)</p>
+</li>
+<li>
+<p>No Assumptions - God Level. _/_</p>
+</li>
+<li>
+<p><em>Very little</em> data preparation needed for algorithm.</p>
+</li>
+<li>
+<p>Model validation using statistical test, influences <strong>model reliability</strong>.</p>
+</li>
+</ul>
+<blockquote>
+<p><strong>Cons</strong></p>
+</blockquote>
+<ul>
+<li>
+<p>If not tuned well, may lead to <strong>overfitting</strong>.</p>
+</li>
+<li>
+<p>Non-parametric, no optimisation. But, hyperparameter tuning. So, once it gives limit you can not go further.</p>
+</li>
+<li>
+<p><strong>Unstable</strong>. Small variation in data -&gt; completely different tree formation.</p>
+</li>
+<li>
+<p>In case of <em>imbalanced dataset</em>, decision trees are biased. However, by using proper splitting criteria, this issue can be resolved.</p>
+</li>
+</ul>
+<hr>
+<h1 id="most-important-parameters">Most Important Parameters</h1>
+<p>Half of you must be already sleeping by now. I know it’s getting long, but such is the vastness of this algorithm. To make it easy, here are SOME important ones which you should tune to top LB:</p>
+<p>(a) <strong>Minimum Samples Split:</strong> Minimum number of sample required to split a node. This parameter helps in reducing overfitting.
+<em>High value: Underfitting, Low value: Overfitting</em></p>
+<p>(b) <strong>Maximum Depth of a Tree:</strong> Most influential parameter. Gives limit on vertical depth decide upto which level pruning is required.
+<em>Higher value: Overfitting, Lower value: Underfitting</em></p>
+<p>(c) <strong>Maximum Features:</strong> At each node, while splitting either we can chose best feature from pool of all the features or limited number of random features. This parameter adds a little randomness - good generalised model.</p>
+<p>Rest are available at <a href="http://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeClassifier.html#sklearn.tree.DecisionTreeClassifier">Sklearn</a>, but focus on these first. :D</p>
+<hr>
+<h4 id="references">References</h4>
+<ol>
+<li>
+<p><a href="https://www.analyticsvidhya.com/blog/2016/04/complete-tutorial-tree-based-modeling-scratch-in-python/">AV Blog</a> on Tree Based Modeling</p>
+</li>
+<li>
+<p><a href="http://machinelearningmastery.com/classification-and-regression-trees-for-machine-learning/">Machine Learning Mastery</a></p>
+</li>
+<li>
+<p><a href="http://www.ke.tu-darmstadt.de/lehre/archiv/ws0809/mldm/dt.pdf">http://www.ke.tu-darmstadt.de/lehre/archiv/ws0809/mldm/dt.pdf</a></p>
+</li>
+<li>
+<p><a href="http://www.iainpardoe.com/teaching/dsc433/handouts/chapter6h.pdf">http://www.iainpardoe.com/teaching/dsc433/handouts/chapter6h.pdf</a></p>
+</li>
+<li>
+<p>Sklearn tree <a href="http://scikit-learn.org/stable/modules/tree.html">module</a></p>
+</li>
+</ol>
+<h4 id="footnotes">Footnotes</h4>
+<p>What this blog has done is made you aware of one of the basic ML algorithm. Understand it thoroughly from the links given above, and you are <strong>good to go</strong>!</p>
+<p>Try and follow our series for a heads up on the variety that ML entails.</p>
+<p>Thanks for reading. :)
+<em>And, ❤ if this was a good read. Enjoy!</em></p>
+<p>Co-Authors: <a href="https://medium.com/u/ffd0563b6405">Ajay Unagar</a>, <a href="https://medium.com/u/d5a0a4ae1a8e">Rishabh Jain</a>, <a href="https://medium.com/@goyalkanha11">Kanha Goyal</a></p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer Section Start -->
+<footer id="footer">
+    <div class="container" id="footer-container">
+        <div class="row content-justify-between">
+            <div style="width: 100%;">
+                <p class="copyright">
+                    Contact Us
+                </p>
+            </div>
+            <div class="col-md-7 col-12 text-lg-left text-md-left">
+                <!-- Social Media -->
+                <ul class="social">
+                    
+                    <li><a href="https://www.facebook.com/dsgiitr/"><i class="ion-social-facebook"></i></a></li>
+                    
+                    <li><a href="https://github.com/dsgiitr"><i class="ion-social-github"></i></a></li>
+                    
+                    <li><a href="https://www.linkedin.com/company/26638705/"><i class="ion-social-linkedin"></i></a></li>
+                    
+                    
+                    <li style="float: right; color: #FFFFFF;"><i class="ion-closed-captioning"></i> DSG IITR</li>
+                    
+                </ul>
+            </div>
+            <div class="col-md-5 col-12 text-lg-left text-md-left location-foot">
+                
+                <div style="float: right; color: #FFFFFF;">
+                    <i class="ion-ios-location" style="color: #000;"></i> New Sac Building, IIT Roorkee
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    
+    <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+  });
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+
+  MathJax.Hub.Config({
+  
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+  });
+</script>
+</footer>
+<!-- footer section end -->
+
+
+<!-- jquery -->
+<script src="/plugins/jQurey/jquery.min.js"></script>
+<!-- Form Validation -->
+<script src="/plugins/form-validation/jquery.form.js"></script>
+<script src="/plugins/form-validation/jquery.validate.min.js"></script>
+<!-- slick slider -->
+<script src="/plugins/slick/slick.min.js"></script>
+<!-- bootstrap js -->
+<script src="/plugins/bootstrap/bootstrap.min.js"></script>
+<!-- wow js -->
+<script src="/plugins/wow-js/wow.min.js"></script>
+<!-- slider js -->
+<script src="/plugins/slider/slider.js"></script>
+<!-- Fancybox -->
+<script src="/plugins/facncybox/jquery.fancybox.js"></script>
+<!-- template main js -->
+
+<script src="/js/script.min.js"></script>
+<!-- google analitycs -->
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', '', 'auto');
+    ga('send', 'pageview');
+</script>
+<script type="text/javascript" src="/plugins/particlesjs/particles.min.js"></script>
+<script type="text/javascript" src="/plugins/particlesjs/demo/js/app.js"></script></body>
+</html>

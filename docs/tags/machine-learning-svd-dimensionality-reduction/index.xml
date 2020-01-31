@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Machine learning, SVD, Dimensionality Reduction on DSG | IIT Roorkee</title>
+    <link>/tags/machine-learning-svd-dimensionality-reduction/</link>
+    <description>Recent content in Machine learning, SVD, Dimensionality Reduction on DSG | IIT Roorkee</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 18 May 2017 23:40:49 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/machine-learning-svd-dimensionality-reduction/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Singular Value Decomposition. Elucidated.</title>
+      <link>/blogs/svd/</link>
+      <pubDate>Thu, 18 May 2017 23:40:49 +0000</pubDate>
+      
+      <guid>/blogs/svd/</guid>
+      <description>Not this SVD :P
+Mathematics is building block of Machine learning. I know math is hard to understand but it is much needed as well.</description>
+    </item>
+    
+  </channel>
+</rss>
