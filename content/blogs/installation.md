@@ -1,6 +1,6 @@
 ---
 title: "How To Setup Timer Hugo"
-date: 2019-12-01T23:40:49+00:00
+date: 2015-12-01T23:40:49+00:00
 type: post
 image: images/blogs/post-1.svg
 author: Subham Sahoo

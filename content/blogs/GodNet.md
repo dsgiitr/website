@@ -1,6 +1,6 @@
 ---
 title: "GodNet: A Neural Network Which Can Predict Your Future?"
-date: 2020-01-01T23:40:49+00:00
+date: 2019-03-27T23:40:49+00:00
 description : "Machine Learning / Graph Representation Learning"
 type: post
 image: https://cdn-images-1.medium.com/max/8000/1*ySiQbxr91-vbxPaVs16_nw.jpeg
