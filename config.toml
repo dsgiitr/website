@@ -42,7 +42,8 @@ unsafe= true
     [params.banner]
         enable  = true
         bgImage = "images/slider.svg"
-        heading = "Data Science Group, IIT Roorkee"
+        heading = "Data Science Group"
+        subHeading = "IIT Roorkee"
         projectLink = "#works"
         scroll = "images/scroll.svg"
         down = "images/down.svg"
@@ -53,7 +54,7 @@ unsafe= true
         enable  = true
         title   = "About"
         content = "We are Data Science Group, IIT Roorkee. A student organizaton and a part of the umbrella organization Software Development Section. We aim to work on innovative open source projects in the domain of Machine Learning, bridging the gap between research and industry. In the process, we fullfil our mission of cultivating and evolving the technical community in Roorkee by organizing lectures, workshops, hackathons spanning across the field of Machine Learning, Deep Learning and Data Science in general."
-        image   = "images/about/aboutTeam.jpeg"
+        image   = "images/about/teamDSG.jpg"
 
     # work Section On Homepage
     [params.work]

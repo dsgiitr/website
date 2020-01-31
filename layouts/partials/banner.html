@@ -8,11 +8,12 @@
                     {{ "<!-- Slider -->" | safeHTML}}
                     <section class="cd-intro intro-landing">
                         <h1 class="wow fadeInUp animated cd-headline slide" data-wow-delay=".4s">
-                            {{ with .Site.Params.banner.heading }}<span class="inter">{{ . }}</span>{{ end }}
+                            {{ with .Site.Params.banner.heading }}<div class="inter">{{ . }}</div>{{ end }}
+                            {{ with .Site.Params.banner.subHeading }}<div class="inter">{{ . }}</div>{{ end }}
                         </h1>
                     </section>
                     {{ with .Site.Params.banner.description }}<h2 id="landing-text" class="wow fadeInUp animated inter" data-wow-delay=".6s">{{ . }}</h2>{{ end }}
-                        <h2 id="landing-text" class="typewrite" data-period="2000" data-type='[ "Code", "Train", "Predict" ]'>
+                        <h2 id="landing-subText" class="typewrite typewriteStl" data-period="2000" data-type='[ "Code", "Train", "Predict" ]'>
                         <span class="wrap"></span>
                         </h2>
                     <div class="div-project">
@@ -85,4 +86,4 @@
         css.type = "text/css";
         css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #fff}";
         document.body.appendChild(css);
-    };</script>>
+    };</script>
