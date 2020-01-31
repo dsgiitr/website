@@ -17,14 +17,22 @@
                         {{ $bottom := print "media-bottom" $val }}
                         {{ $link := print "media-link" $val }}
 
-                        <div class="{{ $top }}">
-                            {{ with .name }}<p>{{ . }}</p>{{ end }}
-                        </div>
+                        {{ if eq .order 1 }}
+                            <div class="first-Section {{ $top }}">
+                                {{ with .name }}<p>{{ . }}</p>{{ end }}
+                            </div>
+                        {{ end }}
+                        {{ if ne .order 1 }}
+                            <div class="{{ $top }}">
+                                {{ with .name }}<p>{{ . }}</p>{{ end }}
+                            </div>
+                        {{ end }}
+
                         <div class="{{ $middle }}">
                             {{ with .title }}<p>{{ . }}</p>{{ end }}
                         </div>
                         <div class="{{ $bottom }}">
-                            {{ with .description }}<p>{{ . }}</p>{{ end }}
+                            {{ with .description }}<p style="font-size: 15px;">{{ . }}</p>{{ end }}
                         </div>
                         <div class="{{ $link }}">
                             <a href="{{ with .url }}{{ . }}{{ end }}">{{ with .linkName }}{{ . }}{{ end }}</a>

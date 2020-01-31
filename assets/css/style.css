@@ -153,14 +153,24 @@ a:hover {
 #landing-text {
   font-family: "Roboto", sans-serif;
   font-style: normal;
-  font-weight: normal;
   text-transform: none;
   color: #000;
-  font-size: 1rem;
   line-height: unset;
-  margin: 0 17vh;
+  margin: 2rem 17vh;
+  font-size: 1.1rem;
+  font-weight: unset;
 }
 
+#landing-subText {
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  text-transform: none;
+  line-height: unset;
+  margin: 2rem 17vh;
+  font-size: 1.6rem;
+  color: #5096ff;
+  font-weight: 420;
+}
 
 .scroll {
   display: flex;
@@ -182,6 +192,12 @@ a:hover {
     font-size: 1rem;
     line-height: unset;
     margin: 0 10vh;
+  }
+
+  .typewriteStl {
+    font-size: 1.6rem;
+    color: #5096ff;
+    font-weight: 420;
   }
 
   .div-project  {
@@ -743,13 +759,13 @@ figure figcaption p {
 }
 
 .teamIMG {
-  width: 70%;
+  width: 95%;
   height: auto;
 }
 
 .about-center {
   position: relative;
-  top: 40%;
+  top: 50%;
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
@@ -1331,11 +1347,15 @@ article {
   position: absolute;
   width: auto;
   padding: 5px 15px;
-  height: 27px;
-  left: 10%;
+  height: 2.1rem;;
+  left: 16%;
   top: 20px;
   background: #EFEFEF;
   border-radius: 2px;
+}
+
+.first-Section {
+  left: 13%;
 }
 
 .media-top1 p {
