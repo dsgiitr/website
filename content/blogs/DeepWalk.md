@@ -68,7 +68,6 @@ First, let's get rid of the punctuations and assign a random vector to each word
 
 One question that may arise now is, 'How do these feature vectors relate with the probability?'. The answer is that in the probability function, we'll utilize the word vectors assigned to them. But, aren't those vectors random? Ahh, they are at the start, but we promise you by the end of the blog they would have converged to the values, which gives some meaning to those seemingly random numbers.
 
-<!-- #### So, What exactly the probability function helps us with? -->
 
 <h3><font  >So, What exactly the probability function helps us with? </font></h3>
 What does it mean to find the probability of a vector given other vectors? This is a simple question with a pretty simple answer, take it as a fill in the blank problem that you may have dealt with in the primary school,
@@ -78,7 +77,6 @@ What does it mean to find the probability of a vector given other vectors? This 
 What is the most likely guess? Most people will fill it with an 'are'. (Unless you are pretending to be over smart in an attempt to prove how cool you are). You were able to fill that because you've seen some examples of the word 'are' previously in life, which help you with the context. The probability function is also trying to do the same; it is finding out the word which is most likely to occur given the words that are surrounding it.
 
 
-<!-- #### But this still doesn't explain how it's going to do that. -->
 <h4>But but this still doesn't explain how it's going to do that.</h4>
 In case you guessed 'Neural Network', you are correct. In this blog we'll be using neural nets (feeling sleepy now, so let's wrap this up)
 
@@ -91,8 +89,8 @@ Lets suppose the words in the vocabulary are $V_1$, $V_2$, $...$ $V_i$, $....$ $
 
 So a simple neural network will help us solve the fill in the blank problem.
 
+<hr/>
 
-<!-- ## Deep Walk = SkipGram Analogy + Random Walks -->
 <h3><font color="green">Deep Walk = SkipGram Analogy + Random Walks</font></h3>
 These random walks can be thought of as short sentences and phrases in a special language; the direct analogy is to estimate the likelihood of observing vertex $v_i$ given all the previous vertices visited so far in the random walk, i.e., Our goal is to learn a latent representation, not only a probability distribution of node co-occurrences, and so we introduce a mapping function $ Φ: v ∈ V→R^{|V|×d} $. This mapping $Φ$ represents the latent social representation associated with each vertex $v$ in the graph. (In practice, we represent $Φ$ by a $|V|×d$ matrix of free parameters, which will serve later on as our $X_E$).
 
@@ -107,7 +105,7 @@ Mathematically the Deep Walk algorithm is defined as follows,
 <!-- ![Deep Walk Algorithm](./DeepWalk_Algo.jpg) -->
 <center><img src="/images/blogs/DeepWalk/DeepWalk_Algo.jpg" width=800x/></center>
 
-<!-- ## PyTorch Implementation of DeepWalk -->
+<hr/>
 <h2>PyTorch Implementation of DeepWalk </h2>
 
 Here we will use using the following graph as an example to implement Deep Walk on,
@@ -378,7 +376,7 @@ for i in range(8):
     33.0 30.0 20.0 15.0 35.0 28.0 35.0 0.0 
     20.0 26.0 25.0 27.0 6.0 3.0 0.0 90.0 
 
-
+<hr/>
 <h3>References</h3>
 
 - [DeepWalk: Online Learning of Social Representations](http://www.perozzi.net/publications/14_kdd_deepwalk.pdf)
@@ -396,6 +394,7 @@ for i in range(8):
     - [Negative Sampling](http://mccormickml.com/2017/01/11/word2vec-tutorial-part-2-negative-sampling/)
     - [skip-gram](http://mccormickml.com/2016/04/19/word2vec-tutorial-the-skip-gram-model/)
     
+<hr/>
 <h3>Written By</h3>
 
 - Ajit Pant

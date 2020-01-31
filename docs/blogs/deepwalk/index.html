@@ -121,33 +121,32 @@
                 
                 <div class="post-content">
                     <p>As a part of this blog series and continuing with the tradition of extracting useful graph features by considering the topology of the network graph using machine learning, this blog deals with Deep Walk. This is a simple unsupervised online learning approach, very similar to language modeling used in <strong>NLP</strong>, where the goal is to generate word embeddings. In this case, generalizing the same concept, it merely tries to learn latent representations of nodes/vertices of a given graph. These graph embeddings, which capture neighborhood similarity and community membership, can then be used for learning downstream tasks on the graph.</p>
-<center><img src="/images/blogs/DeepWalk/karate_to_embedding.jpg" width=700x/></center>
+<center><img src="/images/blogs/DeepWalk/karate_to_embedding.jpg" width=500x/></center>
 <br>
 <h2><font color="red" >Motivation</font></h2>
 <p>Assume a setting, given a graph G where you wish to convert the nodes into embedding vectors, and the only information about a node are the indices of the nodes to which it is connected (adjacency matrix). Since there is no initial feature matrix corresponding to the data, we construct a feature matrix which will have all the randomly selected nodes. There can be multiple methods to select these, but here we are assuming that they are normally sampled (though it won't make much of a difference even if they are taken from some other distribution).</p>
-<!-- ## Random Walks -->
 <h1><font color="black" >Random Walks </font></h1>
 Random walk rooted at vertex $v_i$ as $W_{v_i}$. It is a stochastic process with random variables ${W^1}_{v_i}$, ${W^2}_{v_i}$, $. . .$, ${W^k}_{v_i}$ such that ${W^{k+1}}{v_i}$ is a vertex chosen at random from the
 neighbors of vertex $v_k$. Random Walk distances are good features for many problems. We'll be discussing how these short random walks are analogous to the sentences in the language modeling setting and how we can carry the concept of context windows to graphs as well.
-<br>
+<hr/>
 <!-- ## What is Power Law? -->
-<h2><font color="#4ADAFA" >What is Power Law? </font></h2>
+<h2>What is Power Law? </font></h2>
 A scale-free network is a network whose degree distribution follows a power law, at least asymptotically. That is, the fraction $P(k)$ of nodes in the network having $k$ connections to other nodes goes for large values of $k$ as
 $P(k) \sim k^{-\gamma}$ where $k=2,3$ etc.
 <!--![Power Law Graph](./Power_Law_Graph.gif) -->
-<center><img src="/images/blogs/DeepWalk/Power_Law_Graph.gif" width=800x/></center>
+<center><img src="/images/blogs/DeepWalk/Power_Law_Graph.gif" width=600x/></center>
 <p>The network of global banking activity with nodes representing the absolute size of assets booked in the respective jurisdiction and the edges between them the exchange of financial assets, with data taken from the IMF, is a scale-free network and follows Power Law. We can then see clearly how very few core nodes dominate this network, there are approximately 200 countries in the world, but these 19 most significant jurisdictions in terms of capital together are responsible for over 90% of the assets.</p>
 <!-- <img src="./Power_Law_Example.jpg" alt="Input Graph to Embdeddings" width="600"/> -->
-<center><img src="/images/blogs/DeepWalk/Power_Law_Example.jpg" width=800x/></center>
+<center><img src="/images/blogs/DeepWalk/Power_Law_Example.jpg" width=700x/></center>
 <p>These highly centralized networks are more formally called scale-free or power-law networks, that describe a power or exponential relationship between the degree of connectivity a node has and the frequency of its occurrence. <a href="https://www.youtube.com/watch?v=qmCrtuS9vtU">More</a> about centralized networks and power law.</p>
-<!-- ### Why is it important here? -->
+<hr/>
 <h2><center>Why is it important here? </center></h2>
 Social networks, including collaboration networks, computer networks, financial networks, and Protein-protein interaction networks are some examples of networks claimed to be scale-free.
 <p>According to the authors,<strong> &ldquo;If the degree distribution of a connected graph follows a power law (i.e. scale-free), we observe that the frequency which vertices appear in the short random walks will also follow a power-law distribution. Word frequency in natural language follows a similar distribution, and techniques from language modeling account for this distributional behavior.&ldquo;</strong></p>
 <!-- ![NLP vs Graph Random Walks Power Law D](./NLP_vs_Graph.jpg) -->
 <center><img src="/images/blogs/DeepWalk/NLP_vs_Graph.jpg" width=800x/></center>
-*$(a)$ comes from a series of short random walks on a scale-free graph, and $(b)$ comes from the text of 100,000 articles from the English Wikipedia.*
-<!-- ## Intuition with SkipGram -->
+<center>$(a)$ comes from a series of short random walks on a scale-free graph, and $(b)$ comes from the text of 100,000 articles from the English Wikipedia.</center>
+<hr/>
 <h1><font ><center>Intuition with SkipGram </font></center></h1>
 Think about the below unrelated problem for now:-
 <p>Given, some english sentences (could be any other language, doesn't matter) you need to find a vector corresponding to each word appearing at least once in the sentence such that the words having similar meaning appear close to each other in their vector space, and the opposite must hold for words which are dissimilar.</p>
@@ -159,14 +158,12 @@ Think about the below unrelated problem for now:-
 <p>From the above sentences you can see that 1 and 2 are related to each other, so even if someone does'nt know the language, one can make out that the words &lsquo;Hi&rsquo; and &lsquo;Hello&rsquo; have roughly the same meaning. We will be using a technique similar to what a human uses while trying to find out related words. Yes! We'll be guessing the meaning based on the words which are common between the sentences. Mathematically, learning a representation in word-2-vec means learning a mapping function from the word co-occurences, and that is exactly what we are heading for.</p>
 <!-- #### But, How? -->
 <h4><font color="black" >But, How? </font></h4>
-First, let's get rid of the punctuations and assign a random vector to each word. Now since these vectors are assigned randomly, it implies the current representation is useless. We'll use our good old friend, *probability*, to convert these into meaningful representations. The aim is to increase the probability of a word occurring, considering the terms around it. Let's assume the probability is given by $P(x|y)$, where $y$ is the set of words that appear in the same sentence in which $x$ occurs. Remember we are only taking one sentence at a time, so first we'll maximize the probability of <font color="#11EE75">'Hi'</font> given <font color="#11EE75">{'I', 'am', 'Bert'} </font>, then we'll maximize the probability of <font color="#11EE75">'I'</font> given <font color="#11EE75">{'Hi', 'am', 'Bert'}</font>. We will do it for each word in the first sentence, and then for the second sentence. Repeat this procedure for all the sentences over and over again until the feature vectors have converged. 
+First, let's get rid of the punctuations and assign a random vector to each word. Now since these vectors are assigned randomly, it implies the current representation is useless. We'll use our good old friend, *probability*, to convert these into meaningful representations. The aim is to increase the probability of a word occurring, considering the terms around it. Let's assume the probability is given by $P(x|y)$, where $y$ is the set of words that appear in the same sentence in which $x$ occurs. Remember we are only taking one sentence at a time, so first we'll maximize the probability of <font color="green">'Hi'</font> given <font color="green">{'I', 'am', 'Bert'} </font>, then we'll maximize the probability of <font color="green">'I'</font> given <font color="green">{'Hi', 'am', 'Bert'}</font>. We will do it for each word in the first sentence, and then for the second sentence. Repeat this procedure for all the sentences over and over again until the feature vectors have converged. 
 <p>One question that may arise now is, &lsquo;How do these feature vectors relate with the probability?'. The answer is that in the probability function, we'll utilize the word vectors assigned to them. But, aren't those vectors random? Ahh, they are at the start, but we promise you by the end of the blog they would have converged to the values, which gives some meaning to those seemingly random numbers.</p>
-<!-- #### So, What exactly the probability function helps us with? -->
 <h3><font  >So, What exactly the probability function helps us with? </font></h3>
 What does it mean to find the probability of a vector given other vectors? This is a simple question with a pretty simple answer, take it as a fill in the blank problem that you may have dealt with in the primary school,
 <p><font color= "red">Roses ____ red.</font></p>
 <p>What is the most likely guess? Most people will fill it with an &lsquo;are&rsquo;. (Unless you are pretending to be over smart in an attempt to prove how cool you are). You were able to fill that because you've seen some examples of the word &lsquo;are&rsquo; previously in life, which help you with the context. The probability function is also trying to do the same; it is finding out the word which is most likely to occur given the words that are surrounding it.</p>
-<!-- #### But this still doesn't explain how it's going to do that. -->
 <h4>But but this still doesn't explain how it's going to do that.</h4>
 In case you guessed 'Neural Network', you are correct. In this blog we'll be using neural nets (feeling sleepy now, so let's wrap this up)
 <p>It is not necessary to use neural nets to estimate the probability function, but it works and looks cool :P, frankly, the authors used it, so we'll follow them.</p>
@@ -174,8 +171,8 @@ In case you guessed 'Neural Network', you are correct. In this blog we'll be usi
 <p>Now let's move on to the interpretation of input and output layers (don't care about the hidden layer).
 Lets suppose the words in the vocabulary are $V_1$, $V_2$, $&hellip;$ $V_i$, $&hellip;.$ $V_n$. Assume that out of these V4, V7, V9 appears along with the word whose probability we are trying to maximize. So the input layers will have the 4th, 7th, and the 9th neuron with value 1, and all others will have the value 0. The hidden layer will then have some function of these values. The hidden layer has no non-linear activation. The |V| neuron in the output layer will have a score; the higher it is, the higher the chances of that word appearing along with the surrounding words. Apply <strong>Sigmoid, boom! we got the probabilities.</strong></p>
 <p>So a simple neural network will help us solve the fill in the blank problem.</p>
-<!-- ## Deep Walk = SkipGram Analogy + Random Walks -->
-<h3><font color="#35E820" >Deep Walk = SkipGram Analogy + Random Walks</font></h3>
+<hr/>
+<h3><font color="green">Deep Walk = SkipGram Analogy + Random Walks</font></h3>
 These random walks can be thought of as short sentences and phrases in a special language; the direct analogy is to estimate the likelihood of observing vertex $v_i$ given all the previous vertices visited so far in the random walk, i.e., Our goal is to learn a latent representation, not only a probability distribution of node co-occurrences, and so we introduce a mapping function $ Φ: v ∈ V→R^{|V|×d} $. This mapping $Φ$ represents the latent social representation associated with each vertex $v$ in the graph. (In practice, we represent $Φ$ by a $|V|×d$ matrix of free parameters, which will serve later on as our $X_E$).
 <p>The problem then, is to estimate the likelihood: $ Pr ({v}_{i} | Φ(v1), Φ(v2), · · · , Φ(vi−1))) $</p>
 <p>In simple words, <em>DeepWalk</em> algorithm uses the notion of Random Walks to get the surrounding nodes(words) and ultimately calculate the probability given the context nodes. In simple words we use random walk to start at a node, finds out all the nodes which have an edge connecting with this start node and randomly select one out of them, then consider this new node as the start node and repeat this procedure, after n iterations you will have traversed n nodes (some of them might repeat, but it does not matter as is the case of words in a sentence which may repeat as well). We will take n nodes as the surrounding nodes for the original node and will try to maximize probability concerning those using the probability function estimate.</p>
@@ -183,7 +180,7 @@ These random walks can be thought of as short sentences and phrases in a special
 <p>Mathematically the Deep Walk algorithm is defined as follows,</p>
 <!-- ![Deep Walk Algorithm](./DeepWalk_Algo.jpg) -->
 <center><img src="/images/blogs/DeepWalk/DeepWalk_Algo.jpg" width=800x/></center>
-<!-- ## PyTorch Implementation of DeepWalk -->
+<hr/>
 <h2>PyTorch Implementation of DeepWalk </h2>
 <p>Here we will use using the following graph as an example to implement Deep Walk on,</p>
 <!-- ![Example Graph](./graph.png) -->
@@ -235,8 +232,10 @@ The skipgram model is closely related to the <strong>CBOW</strong> model that we
         hidden <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>matmul(one_hot, self<span style="color:#f92672">.</span>phi)
         out    <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>matmul(hidden, self<span style="color:#f92672">.</span>phi2)
         <span style="color:#66d9ef">return</span> out
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">model <span style="color:#f92672">=</span> Model()
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">skip_gram</span>(wvi,  w):
+
+model <span style="color:#f92672">=</span> Model()
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">skip_gram</span>(wvi,  w):
     <span style="color:#66d9ef">for</span> j <span style="color:#f92672">in</span> range(len(wvi)):
         <span style="color:#66d9ef">for</span> k <span style="color:#f92672">in</span> range(max(<span style="color:#ae81ff">0</span>,j<span style="color:#f92672">-</span>w) , min(j<span style="color:#f92672">+</span>w, len(wvi))):
             
@@ -347,7 +346,8 @@ In this example, leaf nodes represent the original nodes of our graph. The highl
         <span style="color:#66d9ef">return</span> p
 </code></pre></div><p>The input to hidden weight vector no longer represents the vector corresponding to each vector, so directly trying to read it will not provide any valuable insight, a better option is to predict the probability of different vectors against each other to figure out the likelihood of coexistence of the nodes.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">hierarchicalModel <span style="color:#f92672">=</span> HierarchicalModel()
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">HierarchicalSkipGram</span>(wvi,  w):
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">HierarchicalSkipGram</span>(wvi,  w):
    
     <span style="color:#66d9ef">for</span> j <span style="color:#f92672">in</span> range(len(wvi)):
         <span style="color:#66d9ef">for</span> k <span style="color:#f92672">in</span> range(max(<span style="color:#ae81ff">0</span>,j<span style="color:#f92672">-</span>w) , min(j<span style="color:#f92672">+</span>w, len(wvi))):
@@ -359,12 +359,14 @@ In this example, leaf nodes represent the original nodes of our graph. The highl
             <span style="color:#66d9ef">for</span> param <span style="color:#f92672">in</span> hierarchicalModel<span style="color:#f92672">.</span>parameters():
                 param<span style="color:#f92672">.</span>data<span style="color:#f92672">.</span>sub_(lr<span style="color:#f92672">*</span>param<span style="color:#f92672">.</span>grad)
                 param<span style="color:#f92672">.</span>grad<span style="color:#f92672">.</span>data<span style="color:#f92672">.</span>zero_()
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(y):
+
+<span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(y):
     random<span style="color:#f92672">.</span>shuffle(v)
     <span style="color:#66d9ef">for</span> vi <span style="color:#f92672">in</span> v:
         wvi <span style="color:#f92672">=</span> RandomWalk(vi,t)
         HierarchicalSkipGram(wvi, w)
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">8</span>):
+
+<span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">8</span>):
     <span style="color:#66d9ef">for</span> j <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">8</span>):
         <span style="color:#66d9ef">print</span>((hierarchicalModel(i,j)<span style="color:#f92672">.</span>item()<span style="color:#f92672">*</span><span style="color:#ae81ff">100</span>)<span style="color:#f92672">/</span><span style="color:#f92672">/</span><span style="color:#ae81ff">1</span>, end<span style="color:#f92672">=</span><span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74"> </span><span style="color:#e6db74">&#39;</span>)
     <span style="color:#66d9ef">print</span>(end <span style="color:#f92672">=</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#39;</span>)
@@ -377,6 +379,7 @@ In this example, leaf nodes represent the original nodes of our graph. The highl
 33.0 30.0 20.0 15.0 35.0 28.0 35.0 0.0 
 20.0 26.0 25.0 27.0 6.0 3.0 0.0 90.0 
 </code></pre>
+<hr/>
 <h3>References</h3>
 <ul>
 <li>
@@ -401,6 +404,7 @@ In this example, leaf nodes represent the original nodes of our graph. The highl
 </ul>
 </li>
 </ul>
+<hr/>
 <h3>Written By</h3>
 <ul>
 <li>Ajit Pant</li>

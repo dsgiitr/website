@@ -145,23 +145,29 @@ In the (GCN or DeepWalk) model, the graph was fixed beforehand, let's say the 'Z
 <p>First, we assign random values to the embeddings, and on each step, we will set the value of the embedding as the average of embeddings for all the nodes it is directly connected. The following example shows the working on a simple linear graph.</p>
 <center><img src="/images/blogs/GraphSAGE/animation.gif"></center>
 <center><strong>Mean_Embeddings</strong></center>
+<br/>
 <p>This is a straightforward idea, which can be generalized by representing it in the following way,</p>
 <img src="/images/blogs/GraphSAGE/simple_neighbours.png">
 <center><strong>Simple Neighbours</strong></center>
+<br/>
 <p>Here The Black Box joining A with B, C, D represents some function of the A, B, C, D. ( In the above animation, it was the mean function). We can replace this box by any function like say sum or max. This function is known as the aggregator function.</p>
 <p>Now let's try to make it more general by using not only the neighbours of a node but also the neighbours of the neighbours. The first question is how to make use of neighbours of neighbours. The way which we will be using here is to first generate each node's embedding in the first step by using only its neighbours just like we did above, and then in the second step, we will use these embeddings to generate the new embeddings. Take a look at the following</p>
 <img src="/images/blogs/GraphSAGE/aggregation_1.png">
 <center><strong>One_Layer_Aggregation</strong></center>
+<br/>
 <p>The numbers written along with the nodes are the value of embedding at the time, T=0.</p>
 <p>Values of embedding after one step are as follows:</p>
 <img src="/images/blogs/GraphSAGE/animation_2_bw.gif">
 <center><strong>Aggregation Layer 1</strong></center>
+<br/>
 <p>So after one iteration, the values are as follows:</p>
 <img src="/images/blogs/GraphSAGE/aggregation_2.png">
 <center><strong>Aggregation After One Layer</strong></center>>
+<br/>
 <p>Repeating the same procedure on this new graph, we get (try verifying yourself)</p>
 <img src="/images/blogs/GraphSAGE/aggregation_3.png">
 <center><strong>Aggregation After Two Layer</strong></center>
+<br/>
 <p>Lets try to do some analysis of the aggregation. Represent by $A^{(0)}$ the initial value of embedding of A(i.e. 0.1), by $A^{(1)}$ the value after one layer(i.e. 0.25) similarly $A^{(2)}$, $B^{(0)}$, $B^{(1)}$ and all other values.</p>
 <p>Clearly</p>
 <p>$$A^{(1)} = \frac{(A^{(0)} + B^{(0)} + C^{(0)} + D^{(0)})}{4}$$</p>
@@ -216,21 +222,25 @@ for $k=1..K$ do <br>
 <p>This graph-based loss function encourages nearby nodes to have similar representations, while enforcing
 that the representations of disparate nodes are highly distinct.</p>
 <p>For supervised learning, either we can learn the embeddings first and then use those embeddings for the downstream task or combine both the part of learning embeddings and the part of applying these embeddings in the task into a single end to end models and then use the loss for the final part, and backpropagate to learn the embeddings while solving the task simultaneously.</p>
-<h1 id="aggregator-architectures">Aggregator Architectures</h1>
-<p>One of the critical difference between GCN and Graphsage is the generalisation of the aggregation function, which was the mean aggregator in GCN. So rather than only taking the average, we use generalised aggregation function in GraphSAGE. GraphSAGE owes its inductivity to its aggregator functions.</p>
+<hr/>
+<h1><center><font color="green"> Aggregator Architectures </font></center></h1>
+One of the critical difference between GCN and Graphsage is the generalisation of the aggregation function, which was the mean aggregator in GCN. So rather than only taking the average, we use generalised aggregation function in GraphSAGE. GraphSAGE owes its inductivity to its aggregator functions.
+<hr/>
 <h2 id="mean-aggregator">Mean aggregator</h2>
 <p>Mean aggregator is as simple as you thought it would be. In mean aggregator we simply
 take the elementwise mean of the vectors in <strong>{h<sub>u</sub><sup>k-1</sup>     ∀u ∈ N (v)}</strong>.
 In other words, we can average embeddings of all nodes in the neighbourhood to construct the neighbourhood embedding.
 <img src="/images/blogs/GraphSAGE/ma.png">?</p>
 <center><strong>Mean Aggregator</strong></center>
+<hr/>
 <h2 id="pool-aggregator">Pool aggregator</h2>
 <p>Until now, we were using a weighted average type of approach. But we could also use pooling type of approach; for example, we can do elementwise min or max pooling. So this would be another option where we are taking the messages from our neighbours, transforming them and applying some pooling technique(max-pooling or min pooling).
 <img src="/images/blogs/GraphSAGE/pa.png"></p>
-<center><strong>Pool Aggregator</strong></center>
 <p>In the above equation, max denotes the elementwise max operator, and σ is a nonlinear activation function (yes you are right it can be ReLU). Please note that the function applied before the max-pooling can be an arbitrarily deep multi-layer perceptron, but in the original paper, simple single-layer architectures are preferred.</p>
+<hr/>
 <h2 id="lstm-aggregator">LSTM aggregator</h2>
 <p>We could also use a deep neural network like LSTM to learn how to aggregate the neighbours. Order invariance is important in the aggregator function, but since LSTM is not order invariant,  we would have to train the LSTM over several random orderings or permutation of neighbours to make sure that this will learn that order is not essential.</p>
+<hr/>
 <h1 id="inductive-capability">Inductive capability</h1>
 <p>One interesting property of GraphSAGE is that we can train our model on one subset of the graph and apply this model on another subset of this graph. The reason we can do this is that we can do parameter sharing, i.e. those processing boxes are the same everywhere (W and B are shared across all the computational graphs or architectures). So when a new architecture comes into play, we can borrow the parameters (W and B), do a forward pass, and we get our prediction.
 <img src="/images/blogs/GraphSAGE/sharing_param.png"></p>
@@ -242,6 +252,7 @@ In other words, we can average embeddings of all nodes in the neighbourhood to c
 <img src="/images/blogs/GraphSAGE/new_node.png">
 <center><strong>new node</strong></center>
 <p>We can use this property in social-network (like Facebook). Consider the first graph in the above figure, users in a social-network are represented by the nodes of the graph. Initially, we would train our model on this graph. After some time suppose another user is added in the network, now we don't have to train our model from scratch on the second graph, we will create the computational graph of the new node, borrow the parameters from the already trained model and then we can find the embeddings of the newly added user.</p>
+<hr/>
 <h1 id="implementation-in-pytorch">Implementation in PyTorch</h1>
 <h2 id="imports">Imports</h2>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> torch
@@ -569,14 +580,29 @@ In other words, we can average embeddings of all nodes in the neighbourhood to c
 Validation F1: 0.842
 Average batch time: 0.04003107070922852
 </code></pre>
+<hr/>
 <h2 id="references">References</h2>
 <ul>
-<li><a href="https://cs.stanford.edu/people/jure/pubs/graphsage-nips17.pdf">https://cs.stanford.edu/people/jure/pubs/graphsage-nips17.pdf</a></li>
-<li><a href="https://www.youtube.com/watch?v=7JELX6DiUxQ">Graph Node Embedding Algorithms (Stanford - Fall 2019) by Jure Leskovec</a></li>
-<li><a href="https://www.youtube.com/watch?v=oQL4E1gK3VU">Jure Leskovec: &ldquo;Large-scale Graph Representation Learning&rdquo;</a></li>
-<li><a href="https://www.youtube.com/watch?v=MIAbDNAxChI">Jure Leskovec &ldquo;Deep Learning on Graphs&rdquo;
-</a></li>
+<li>
+<p><a href="https://cs.stanford.edu/people/jure/pubs/graphsage-nips17.pdf">https://cs.stanford.edu/people/jure/pubs/graphsage-nips17.pdf</a></p>
+</li>
+<li>
+<p><a href="https://www.youtube.com/watch?v=7JELX6DiUxQ">Graph Node Embedding Algorithms (Stanford - Fall 2019) by Jure Leskovec</a></p>
+</li>
+<li>
+<p><a href="https://www.youtube.com/watch?v=oQL4E1gK3VU">Jure Leskovec: &ldquo;Large-scale Graph Representation Learning&rdquo;</a></p>
+</li>
+<li>
+<p><a href="https://www.youtube.com/watch?v=MIAbDNAxChI">Jure Leskovec &ldquo;Deep Learning on Graphs&rdquo;</a></p>
+</li>
 </ul>
+<hr/>
+<h2 id="written-by">Written By</h2>
+<ul>
+<li> Ajit Pant</li>
+<li> Shubham Chandel</li>
+<li> Shashank Gupta</li>
+<li> Anirudh Dagar</li>
 
                 </div>
             </div>

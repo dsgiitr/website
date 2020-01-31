@@ -12,6 +12,15 @@
     
     
     <item>
+      <title>A Review : Graph Convolutional Networks (GCN)</title>
+      <link>/blogs/gcn/</link>
+      <pubDate>Wed, 01 Jan 2020 23:40:49 +0000</pubDate>
+      
+      <guid>/blogs/gcn/</guid>
+      <description>Introduction Graphs Whom are we kidding! You may skip this section if you know what graphs are.</description>
+    </item>
+    
+    <item>
       <title>GraphSAGE (SAmple and aggreGatE) : Inductive Learning on Graphs</title>
       <link>/blogs/graphsage/</link>
       <pubDate>Wed, 01 Jan 2020 23:40:49 +0000</pubDate>

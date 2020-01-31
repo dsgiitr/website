@@ -49,11 +49,13 @@ First, we assign random values to the embeddings, and on each step, we will set 
 
 <center><img src="/images/blogs/GraphSAGE/animation.gif"></center>
 <center><strong>Mean_Embeddings</strong></center>
+<br/>
 
 This is a straightforward idea, which can be generalized by representing it in the following way,
 
 <img src="/images/blogs/GraphSAGE/simple_neighbours.png">
 <center><strong>Simple Neighbours</strong></center>
+<br/>
 
 Here The Black Box joining A with B, C, D represents some function of the A, B, C, D. ( In the above animation, it was the mean function). We can replace this box by any function like say sum or max. This function is known as the aggregator function.
 
@@ -61,6 +63,7 @@ Now let's try to make it more general by using not only the neighbours of a node
 
 <img src="/images/blogs/GraphSAGE/aggregation_1.png">
 <center><strong>One_Layer_Aggregation</strong></center>
+<br/>
 
 The numbers written along with the nodes are the value of embedding at the time, T=0.
 
@@ -68,16 +71,19 @@ Values of embedding after one step are as follows:
 
 <img src="/images/blogs/GraphSAGE/animation_2_bw.gif">
 <center><strong>Aggregation Layer 1</strong></center>
+<br/>
 
 So after one iteration, the values are as follows:
 
 <img src="/images/blogs/GraphSAGE/aggregation_2.png">
 <center><strong>Aggregation After One Layer</strong></center>>
+<br/>
 
 Repeating the same procedure on this new graph, we get (try verifying yourself)
 
 <img src="/images/blogs/GraphSAGE/aggregation_3.png">
 <center><strong>Aggregation After Two Layer</strong></center>
+<br/>
 
 Lets try to do some analysis of the aggregation. Represent by $A^{(0)}$ the initial value of embedding of A(i.e. 0.1), by $A^{(1)}$ the value after one layer(i.e. 0.25) similarly $A^{(2)}$, $B^{(0)}$, $B^{(1)}$ and all other values.
 
@@ -173,8 +179,12 @@ that the representations of disparate nodes are highly distinct.
 
 For supervised learning, either we can learn the embeddings first and then use those embeddings for the downstream task or combine both the part of learning embeddings and the part of applying these embeddings in the task into a single end to end models and then use the loss for the final part, and backpropagate to learn the embeddings while solving the task simultaneously.
 
-# Aggregator Architectures
+<hr/>
+
+<h1><center><font color="green"> Aggregator Architectures </font></center></h1>
 One of the critical difference between GCN and Graphsage is the generalisation of the aggregation function, which was the mean aggregator in GCN. So rather than only taking the average, we use generalised aggregation function in GraphSAGE. GraphSAGE owes its inductivity to its aggregator functions.
+
+<hr/>
 
 ## Mean aggregator 
 Mean aggregator is as simple as you thought it would be. In mean aggregator we simply
@@ -183,18 +193,22 @@ In other words, we can average embeddings of all nodes in the neighbourhood to c
 <img src="/images/blogs/GraphSAGE/ma.png">?
 <center><strong>Mean Aggregator</strong></center>
 
+<hr/>
 
 ## Pool aggregator
 
 
 Until now, we were using a weighted average type of approach. But we could also use pooling type of approach; for example, we can do elementwise min or max pooling. So this would be another option where we are taking the messages from our neighbours, transforming them and applying some pooling technique(max-pooling or min pooling).
 <img src="/images/blogs/GraphSAGE/pa.png">
-<center><strong>Pool Aggregator</strong></center>
 
 In the above equation, max denotes the elementwise max operator, and σ is a nonlinear activation function (yes you are right it can be ReLU). Please note that the function applied before the max-pooling can be an arbitrarily deep multi-layer perceptron, but in the original paper, simple single-layer architectures are preferred.
 
+<hr/>
+
 ## LSTM aggregator
 We could also use a deep neural network like LSTM to learn how to aggregate the neighbours. Order invariance is important in the aggregator function, but since LSTM is not order invariant,  we would have to train the LSTM over several random orderings or permutation of neighbours to make sure that this will learn that order is not essential.
+
+<hr/>
 
 # Inductive capability
 
@@ -212,6 +226,8 @@ We know that our old methods like DeepWalk were not able to generalise to a new 
 <center><strong>new node</strong></center>
 
 We can use this property in social-network (like Facebook). Consider the first graph in the above figure, users in a social-network are represented by the nodes of the graph. Initially, we would train our model on this graph. After some time suppose another user is added in the network, now we don't have to train our model from scratch on the second graph, we will create the computational graph of the new node, borrow the parameters from the already trained model and then we can find the embeddings of the newly added user.
+
+<hr/>
 
 # Implementation in PyTorch
 
@@ -556,10 +572,23 @@ if __name__ == "__main__":
     Validation F1: 0.842
     Average batch time: 0.04003107070922852
 
+<hr/>
 
 ## References
 - https://cs.stanford.edu/people/jure/pubs/graphsage-nips17.pdf
+
 - [Graph Node Embedding Algorithms (Stanford - Fall 2019) by Jure Leskovec](https://www.youtube.com/watch?v=7JELX6DiUxQ)
+
 - [Jure Leskovec: "Large-scale Graph Representation Learning"](https://www.youtube.com/watch?v=oQL4E1gK3VU)
-- [Jure Leskovec "Deep Learning on Graphs"
-](https://www.youtube.com/watch?v=MIAbDNAxChI)
+
+- [Jure Leskovec "Deep Learning on Graphs"](https://www.youtube.com/watch?v=MIAbDNAxChI)
+
+<hr/>
+
+## Written By 
+<ul>
+
+<li> Ajit Pant</li>
+<li> Shubham Chandel</li>
+<li> Shashank Gupta</li>
+<li> Anirudh Dagar</li>
