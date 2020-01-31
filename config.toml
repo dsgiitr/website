@@ -1,8 +1,8 @@
 baseURL = "/"
 languageCode = "en-us"
 title = "DSG | IIT Roorkee"
-summaryLength = 30
-paginate = 3
+summaryLength = 15
+paginate = 5
 publishDir = "docs"
 
 [markup.goldmark.renderer]
