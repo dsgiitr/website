@@ -6,7 +6,7 @@
     <description>Recent content in install on DSG | IIT Roorkee</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 01 Dec 2019 23:40:49 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 01 Dec 2015 23:40:49 +0000</lastBuildDate>
     
 	<atom:link href="/tags/install/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,11 +14,10 @@
     <item>
       <title>How To Setup Timer Hugo</title>
       <link>/blogs/installation/</link>
-      <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
+      <pubDate>Tue, 01 Dec 2015 23:40:49 +0000</pubDate>
       
       <guid>/blogs/installation/</guid>
-      <description>Install this template by following those simple steps: STEP-1 : Hugo installation Check this link below for install hugo on your computer. hugo install documentation
-STEP-2 : Create your project Hugo provides a new command to create a new website.</description>
+      <description>Install this template by following those simple steps: STEP-1 : Hugo installation Check this link below for install hugo on your computer.</description>
     </item>
     
   </channel>

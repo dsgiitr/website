@@ -33,11 +33,6 @@
   </url>
   
   <url>
-    <loc>/blogs/a-new-year-a-new-posibility/</loc>
-    <lastmod>2019-12-01T23:40:49+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/about/</loc>
     <lastmod>2019-12-01T23:40:49+00:00</lastmod>
   </url>
@@ -49,16 +44,6 @@
   
   <url>
     <loc>/blogs/</loc>
-    <lastmod>2019-12-01T23:40:49+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/blogs/building-an-online-audience/</loc>
-    <lastmod>2019-12-01T23:40:49+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/business/</loc>
     <lastmod>2019-12-01T23:40:49+00:00</lastmod>
   </url>
   
@@ -108,26 +93,6 @@
   </url>
   
   <url>
-    <loc>/blogs/installation/</loc>
-    <lastmod>2019-12-01T23:40:49+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/inspiration/</loc>
-    <lastmod>2019-12-01T23:40:49+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/install/</loc>
-    <lastmod>2019-12-01T23:40:49+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/internet/</loc>
-    <lastmod>2019-12-01T23:40:49+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/tags/letters/</loc>
     <lastmod>2019-12-01T23:40:49+00:00</lastmod>
   </url>
@@ -143,17 +108,7 @@
   </url>
   
   <url>
-    <loc>/tags/motivation/</loc>
-    <lastmod>2019-12-01T23:40:49+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/tags/package/</loc>
-    <lastmod>2019-12-01T23:40:49+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/people/</loc>
     <lastmod>2019-12-01T23:40:49+00:00</lastmod>
   </url>
   
@@ -228,16 +183,6 @@
   </url>
   
   <url>
-    <loc>/blogs/space-shouldnt-be-the-final-frontier/</loc>
-    <lastmod>2019-12-01T23:40:49+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/tech/</loc>
-    <lastmod>2019-12-01T23:40:49+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/tags/typography/</loc>
     <lastmod>2019-12-01T23:40:49+00:00</lastmod>
   </url>
@@ -255,6 +200,56 @@
   <url>
     <loc>/blogs/roadmap_to_datascience/</loc>
     <lastmod>2019-08-04T23:40:49+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/deep-learning/</loc>
+    <lastmod>2019-03-27T23:40:49+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/blogs/godnet/</loc>
+    <lastmod>2019-03-27T23:40:49+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/deep-learning-nlp/</loc>
+    <lastmod>2017-10-15T23:40:49+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/blogs/word_embeddings/</loc>
+    <lastmod>2017-10-15T23:40:49+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/blogs/loss_functions_and_optimization_algorithms_demystified/</loc>
+    <lastmod>2017-09-29T23:40:49+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/loss-functions-deep-learning/</loc>
+    <lastmod>2017-09-29T23:40:49+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/regualrization-machine-learning/</loc>
+    <lastmod>2017-04-02T23:40:49+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/blogs/regularization_clarified/</loc>
+    <lastmod>2017-04-02T23:40:49+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/blogs/installation/</loc>
+    <lastmod>2015-12-01T23:40:49+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/install/</loc>
+    <lastmod>2015-12-01T23:40:49+00:00</lastmod>
   </url>
   
   <url>

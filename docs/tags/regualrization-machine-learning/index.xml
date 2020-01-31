@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Regualrization, Machine Learning on DSG | IIT Roorkee</title>
+    <link>/tags/regualrization-machine-learning/</link>
+    <description>Recent content in Regualrization, Machine Learning on DSG | IIT Roorkee</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 02 Apr 2017 23:40:49 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/regualrization-machine-learning/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Regularization. Clarified.</title>
+      <link>/blogs/regularization_clarified/</link>
+      <pubDate>Sun, 02 Apr 2017 23:40:49 +0000</pubDate>
+      
+      <guid>/blogs/regularization_clarified/</guid>
+      <description>The end is near. No, not the world, but the 12A12D series. After Linear Regression, it’s time to add more DS flavour.</description>
+    </item>
+    
+  </channel>
+</rss>

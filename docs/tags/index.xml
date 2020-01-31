@@ -39,15 +39,6 @@
     </item>
     
     <item>
-      <title>business</title>
-      <link>/tags/business/</link>
-      <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
-      
-      <guid>/tags/business/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>design</title>
       <link>/tags/design/</link>
       <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
@@ -62,33 +53,6 @@
       <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
       
       <guid>/tags/fashion/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>inspiration</title>
-      <link>/tags/inspiration/</link>
-      <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
-      
-      <guid>/tags/inspiration/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>install</title>
-      <link>/tags/install/</link>
-      <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
-      
-      <guid>/tags/install/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>internet</title>
-      <link>/tags/internet/</link>
-      <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
-      
-      <guid>/tags/internet/</guid>
       <description></description>
     </item>
     
@@ -120,29 +84,11 @@
     </item>
     
     <item>
-      <title>motivation</title>
-      <link>/tags/motivation/</link>
-      <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
-      
-      <guid>/tags/motivation/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>package</title>
       <link>/tags/package/</link>
       <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
       
       <guid>/tags/package/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>people</title>
-      <link>/tags/people/</link>
-      <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
-      
-      <guid>/tags/people/</guid>
       <description></description>
     </item>
     
@@ -165,15 +111,6 @@
     </item>
     
     <item>
-      <title>tech</title>
-      <link>/tags/tech/</link>
-      <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
-      
-      <guid>/tags/tech/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>typography</title>
       <link>/tags/typography/</link>
       <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
@@ -188,6 +125,51 @@
       <pubDate>Sun, 04 Aug 2019 23:40:49 +0000</pubDate>
       
       <guid>/tags/beginner/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Deep Learning</title>
+      <link>/tags/deep-learning/</link>
+      <pubDate>Wed, 27 Mar 2019 23:40:49 +0000</pubDate>
+      
+      <guid>/tags/deep-learning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Deep Learning, NLP</title>
+      <link>/tags/deep-learning-nlp/</link>
+      <pubDate>Sun, 15 Oct 2017 23:40:49 +0000</pubDate>
+      
+      <guid>/tags/deep-learning-nlp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Loss Functions, Deep Learning</title>
+      <link>/tags/loss-functions-deep-learning/</link>
+      <pubDate>Fri, 29 Sep 2017 23:40:49 +0000</pubDate>
+      
+      <guid>/tags/loss-functions-deep-learning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Regualrization, Machine Learning</title>
+      <link>/tags/regualrization-machine-learning/</link>
+      <pubDate>Sun, 02 Apr 2017 23:40:49 +0000</pubDate>
+      
+      <guid>/tags/regualrization-machine-learning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>install</title>
+      <link>/tags/install/</link>
+      <pubDate>Tue, 01 Dec 2015 23:40:49 +0000</pubDate>
+      
+      <guid>/tags/install/</guid>
       <description></description>
     </item>
     
