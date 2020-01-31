@@ -12,6 +12,15 @@
     
     
     <item>
+      <title>GraphSAGE (SAmple and aggreGatE) : Inductive Learning on Graphs</title>
+      <link>/blogs/graphsage/</link>
+      <pubDate>Wed, 01 Jan 2020 23:40:49 +0000</pubDate>
+      
+      <guid>/blogs/graphsage/</guid>
+      <description>Introduction In the previous blogs, we covered GCN and DeepWalk, which are methods to generate node embeddings. The basic idea behind node embedding approaches is to use dimensionality reduction techniques to distill the high-dimensional information about a node’s neighborhood into a dense vector embedding.</description>
+    </item>
+    
+    <item>
       <title>Understanding Graph Attention Networks (GAT)</title>
       <link>/blogs/gat/</link>
       <pubDate>Wed, 01 Jan 2020 23:40:49 +0000</pubDate>
