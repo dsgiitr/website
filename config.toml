@@ -5,6 +5,20 @@ summaryLength = 15
 paginate = 7
 publishDir = "docs"
 
+# Use HTML Style within markdown.
+[markup]
+
+  [markup.highlight]
+    codeFences = true
+    guessSyntax = true
+    hl_Lines = ""
+    lineNoStart = 1
+    lineNos = true
+    lineNumbersInTable = true
+    noClasses = true
+    style = "monokailight"
+    tabWidth = 4
+
 [markup.goldmark.renderer]
 unsafe= true
 

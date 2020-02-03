@@ -127,45 +127,104 @@
 <p>We will focus on Tensorflow. (For all the great debaters out there, I’m not a supporter of anyone. Turns out tensorflow is relatively new with really great resources to learn and most of the industries seems to use it.) I’m learning tensorflow from other resources, so I will try to merge them here in best way possible. This will surely help those who haven’t used Tensorflow before, I can not say anything for others. Though it is assumed that you all have basic under standing of Neural Networks, Loss functions, Optimization techniques, Backpropagation, etc. If not I suggest you go through <a href="http://neuralnetworksanddeeplearning.com/">this great book</a> by Michael Nielsen. I will also be mentioning more often other libraries like numpy, sklearn, matplotlib, etc.</p>
 <h4 id="constants-variables-placeholders-and-operations">Constants, Variables, Placeholders and Operations</h4>
 <p><strong>Constants</strong>: Here constants has same meaning as in any other programming language. They stores constant value. (Integer, float, etc.)</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">c1 <span style="color:#f92672">=</span> tf<span style="color:#f92672">.</span>constant(value <span style="color:#f92672">=</span> <span style="color:#ae81ff">32</span>, dtype <span style="color:#f92672">=</span> tf<span style="color:#f92672">.</span>float32, name <span style="color:#f92672">=</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">a</span><span style="color:#e6db74">&#39;</span>)
-c2 <span style="color:#f92672">=</span> tf<span style="color:#f92672">.</span>constant(value <span style="color:#f92672">=</span> <span style="color:#ae81ff">20</span>, dtype <span style="color:#f92672">=</span> tf<span style="color:#f92672">.</span>float32, name <span style="color:#f92672">=</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">b</span><span style="color:#e6db74">&#39;</span>)
-</code></pre></div><p>Where will you be using constants? Value which are not supposed to change! Like number of layers, shape of the weight vectors, shape of each layer, etc. Some of the great constant initializers are <a href="https://www.tensorflow.org/api_guides/python/constant_op">here</a> (most like numpy). Thing to notice is that you can not even get a value of tensor until you initialize a session. What is session? We will get to it.</p>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#111">c1</span> <span style="color:#f92672">=</span> <span style="color:#111">tf</span><span style="color:#f92672">.</span><span style="color:#111">constant</span><span style="color:#111">(</span><span style="color:#111">value</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">32</span><span style="color:#111">,</span> <span style="color:#111">dtype</span> <span style="color:#f92672">=</span> <span style="color:#111">tf</span><span style="color:#f92672">.</span><span style="color:#111">float32</span><span style="color:#111">,</span> <span style="color:#111">name</span> <span style="color:#f92672">=</span> <span style="color:#d88200"></span><span style="color:#d88200">&#39;</span><span style="color:#d88200">a</span><span style="color:#d88200">&#39;</span><span style="color:#111">)</span>
+<span style="color:#111">c2</span> <span style="color:#f92672">=</span> <span style="color:#111">tf</span><span style="color:#f92672">.</span><span style="color:#111">constant</span><span style="color:#111">(</span><span style="color:#111">value</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">20</span><span style="color:#111">,</span> <span style="color:#111">dtype</span> <span style="color:#f92672">=</span> <span style="color:#111">tf</span><span style="color:#f92672">.</span><span style="color:#111">float32</span><span style="color:#111">,</span> <span style="color:#111">name</span> <span style="color:#f92672">=</span> <span style="color:#d88200"></span><span style="color:#d88200">&#39;</span><span style="color:#d88200">b</span><span style="color:#d88200">&#39;</span><span style="color:#111">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Where will you be using constants? Value which are not supposed to change! Like number of layers, shape of the weight vectors, shape of each layer, etc. Some of the great constant initializers are <a href="https://www.tensorflow.org/api_guides/python/constant_op">here</a> (most like numpy). Thing to notice is that you can not even get a value of tensor until you initialize a session. What is session? We will get to it.</p>
 <p><strong>Variables</strong>:</p>
 <p>Variables are those, which will be updated in Tensorflow graph. For example: Weights and biases. More about variables <a href="https://www.tensorflow.org/programmers_guide/variables">here</a>.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># variable 1 with initial value 100</span>
-v1 <span style="color:#f92672">=</span> tf<span style="color:#f92672">.</span>Variable(initial_value<span style="color:#f92672">=</span>[<span style="color:#ae81ff">100</span>], name <span style="color:#f92672">=</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">v1</span><span style="color:#e6db74">&#39;</span>)
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># variable 1 with initial value 100</span>
+<span style="color:#111">v1</span> <span style="color:#f92672">=</span> <span style="color:#111">tf</span><span style="color:#f92672">.</span><span style="color:#111">Variable</span><span style="color:#111">(</span><span style="color:#111">initial_value</span><span style="color:#f92672">=</span><span style="color:#111">[</span><span style="color:#ae81ff">100</span><span style="color:#111">]</span><span style="color:#111">,</span> <span style="color:#111">name</span> <span style="color:#f92672">=</span> <span style="color:#d88200"></span><span style="color:#d88200">&#39;</span><span style="color:#d88200">v1</span><span style="color:#d88200">&#39;</span><span style="color:#111">)</span>
 
 <span style="color:#75715e"># variable 3 with initial value initialized by a constant</span>
-v3 <span style="color:#f92672">=</span> tf<span style="color:#f92672">.</span>Variable(initial_value<span style="color:#f92672">=</span> tf<span style="color:#f92672">.</span>random_normal(shape<span style="color:#f92672">=</span> [<span style="color:#ae81ff">100</span> , <span style="color:#ae81ff">4</span>], mean<span style="color:#f92672">=</span> <span style="color:#ae81ff">0.0</span>, stddev<span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>), name <span style="color:#f92672">=</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">v3</span><span style="color:#e6db74">&#39;</span>)
-</code></pre></div><p><strong>Placeholders</strong>:</p>
+<span style="color:#111">v3</span> <span style="color:#f92672">=</span> <span style="color:#111">tf</span><span style="color:#f92672">.</span><span style="color:#111">Variable</span><span style="color:#111">(</span><span style="color:#111">initial_value</span><span style="color:#f92672">=</span> <span style="color:#111">tf</span><span style="color:#f92672">.</span><span style="color:#111">random_normal</span><span style="color:#111">(</span><span style="color:#111">shape</span><span style="color:#f92672">=</span> <span style="color:#111">[</span><span style="color:#ae81ff">100</span> <span style="color:#111">,</span> <span style="color:#ae81ff">4</span><span style="color:#111">]</span><span style="color:#111">,</span> <span style="color:#111">mean</span><span style="color:#f92672">=</span> <span style="color:#ae81ff">0.0</span><span style="color:#111">,</span> <span style="color:#111">stddev</span><span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span><span style="color:#111">)</span><span style="color:#111">,</span> <span style="color:#111">name</span> <span style="color:#f92672">=</span> <span style="color:#d88200"></span><span style="color:#d88200">&#39;</span><span style="color:#d88200">v3</span><span style="color:#d88200">&#39;</span><span style="color:#111">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>Placeholders</strong>:</p>
 <p>Placeholders are as name suggest reserve space for the data. So, while feed forwarding you can feed data into network through placeholders. Placeholders have defined shape. If your input data has n-dimensions, you need to specify n-1 dimensions and then while feeding, you can feed data into batches in the network. More about placeholders <a href="https://www.tensorflow.org/versions/r0.11/api_docs/python/io_ops/placeholders">here</a>.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># For example lets say you have MNIST data</span>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># For example lets say you have MNIST data</span>
 <span style="color:#75715e"># MNIST digits are 28*28 pixels, so you need to specify this</span>
 <span style="color:#75715e">#dimension in placeholder.</span>
 <span style="color:#75715e">#Here shape = [None, 28*28], where None can take any value.</span>
-ph1 <span style="color:#f92672">=</span> tf<span style="color:#f92672">.</span>placeholder(dtype<span style="color:#f92672">=</span> tf<span style="color:#f92672">.</span>float32, shape<span style="color:#f92672">=</span> [None, <span style="color:#ae81ff">28</span><span style="color:#f92672">*</span><span style="color:#ae81ff">28</span>])
-</code></pre></div><p><strong>Operations:</strong></p>
+<span style="color:#111">ph1</span> <span style="color:#f92672">=</span> <span style="color:#111">tf</span><span style="color:#f92672">.</span><span style="color:#111">placeholder</span><span style="color:#111">(</span><span style="color:#111">dtype</span><span style="color:#f92672">=</span> <span style="color:#111">tf</span><span style="color:#f92672">.</span><span style="color:#111">float32</span><span style="color:#111">,</span> <span style="color:#111">shape</span><span style="color:#f92672">=</span> <span style="color:#111">[</span><span style="color:#111">None</span><span style="color:#111">,</span> <span style="color:#ae81ff">28</span><span style="color:#f92672">*</span><span style="color:#ae81ff">28</span><span style="color:#111">]</span><span style="color:#111">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>Operations:</strong></p>
 <p>Operation are basic function we define on variables, constants and placeholders. More about operations <a href="https://www.tensorflow.org/api_guides/python/math_ops">here</a></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># multiply c1 and c2</span>
-o1 <span style="color:#f92672">=</span> tf<span style="color:#f92672">.</span>multiply(c1, c2)
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># multiply c1 and c2</span>
+<span style="color:#111">o1</span> <span style="color:#f92672">=</span> <span style="color:#111">tf</span><span style="color:#f92672">.</span><span style="color:#111">multiply</span><span style="color:#111">(</span><span style="color:#111">c1</span><span style="color:#111">,</span> <span style="color:#111">c2</span><span style="color:#111">)</span>
 
 <span style="color:#75715e"># sum of elements of v3</span>
-o4 <span style="color:#f92672">=</span>tf<span style="color:#f92672">.</span>reduce_sum(v3)
-</code></pre></div><h4 id="session">Session</h4>
+<span style="color:#111">o4</span> <span style="color:#f92672">=</span><span style="color:#111">tf</span><span style="color:#f92672">.</span><span style="color:#111">reduce_sum</span><span style="color:#111">(</span><span style="color:#111">v3</span><span style="color:#111">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="session">Session</h4>
 <p>Session is a class implemented in Tensorflow for running operations, and evaluating constants and variables. More about session <a href="https://www.tensorflow.org/api_docs/python/tf/Session">here</a>.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Start a session</span>
-sess <span style="color:#f92672">=</span> tf<span style="color:#f92672">.</span>Session()
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Start a session</span>
+<span style="color:#111">sess</span> <span style="color:#f92672">=</span> <span style="color:#111">tf</span><span style="color:#f92672">.</span><span style="color:#111">Session</span><span style="color:#111">(</span><span style="color:#111">)</span>
 
 <span style="color:#75715e"># We can evaludate o1 and o2</span>
-<span style="color:#66d9ef">print</span>(sess<span style="color:#f92672">.</span>run(o1), sess<span style="color:#f92672">.</span>run(o2))
+<span style="color:#00a8c8">print</span><span style="color:#111">(</span><span style="color:#111">sess</span><span style="color:#f92672">.</span><span style="color:#111">run</span><span style="color:#111">(</span><span style="color:#111">o1</span><span style="color:#111">)</span><span style="color:#111">,</span> <span style="color:#111">sess</span><span style="color:#f92672">.</span><span style="color:#111">run</span><span style="color:#111">(</span><span style="color:#111">o2</span><span style="color:#111">)</span><span style="color:#111">)</span>
 
 <span style="color:#75715e"># We need to initialize all the variables defined</span>
 <span style="color:#75715e"># before evaluating operations which contain variables</span>
-sess<span style="color:#f92672">.</span>run(tf<span style="color:#f92672">.</span>global_variables_initializer())
+<span style="color:#111">sess</span><span style="color:#f92672">.</span><span style="color:#111">run</span><span style="color:#111">(</span><span style="color:#111">tf</span><span style="color:#f92672">.</span><span style="color:#111">global_variables_initializer</span><span style="color:#111">(</span><span style="color:#111">)</span><span style="color:#111">)</span>
 
 <span style="color:#75715e"># Now we can evaluate operation on variables</span>
-<span style="color:#66d9ef">print</span>(sess<span style="color:#f92672">.</span>run(o4))
-</code></pre></div><h4 id="how-tensoflow-works">How Tensoflow works?</h4>
+<span style="color:#00a8c8">print</span><span style="color:#111">(</span><span style="color:#111">sess</span><span style="color:#f92672">.</span><span style="color:#111">run</span><span style="color:#111">(</span><span style="color:#111">o4</span><span style="color:#111">)</span><span style="color:#111">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="how-tensoflow-works">How Tensoflow works?</h4>
 <p>What are the main steps of any machine learning algorithm in Tensorflow?</p>
 <ol>
 <li>

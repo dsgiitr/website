@@ -199,129 +199,286 @@ As can be seen in this setting, the final returned output, $h′$, will consist 
 <!-- ## Implementing GAT Layer in PyTorch -->
 <h1><center>Implementing GAT Layer in PyTorch</center></h1>
 <h2 id="imports">Imports</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
-<span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
-<span style="color:#f92672">import</span> torch
-<span style="color:#f92672">import</span> torch.nn <span style="color:#f92672">as</span> nn
-<span style="color:#f92672">import</span> torch.nn.functional <span style="color:#f92672">as</span> F
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
+<span style="color:#f92672">import</span> <span style="color:#111">numpy</span> <span style="color:#f92672">as</span> <span style="color:#111">np</span>
+<span style="color:#f92672">import</span> <span style="color:#111">torch</span>
+<span style="color:#f92672">import</span> <span style="color:#111">torch.nn</span> <span style="color:#f92672">as</span> <span style="color:#111">nn</span>
+<span style="color:#f92672">import</span> <span style="color:#111">torch.nn.functional</span> <span style="color:#f92672">as</span> <span style="color:#111">F</span>
 
-torch<span style="color:#f92672">.</span>manual_seed(<span style="color:#ae81ff">2020</span>) <span style="color:#75715e"># seed for reproducible numbers</span>
-</code></pre></div><h2 id="gat-layer">GAT Layer</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python3" data-lang="python3"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">GATLayer</span>(nn<span style="color:#f92672">.</span>Module):
-    <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;&#34;&#34;</span><span style="color:#e6db74">
-</span><span style="color:#e6db74"></span><span style="color:#e6db74">    Simple PyTorch Implementation of the Graph Attention layer.</span><span style="color:#e6db74">
-</span><span style="color:#e6db74"></span><span style="color:#e6db74">    </span><span style="color:#e6db74">&#34;&#34;&#34;</span>
+<span style="color:#111">torch</span><span style="color:#f92672">.</span><span style="color:#111">manual_seed</span><span style="color:#111">(</span><span style="color:#ae81ff">2020</span><span style="color:#111">)</span> <span style="color:#75715e"># seed for reproducible numbers</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="gat-layer">GAT Layer</h2>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python3" data-lang="python3"><span style="color:#00a8c8">class</span> <span style="color:#75af00">GATLayer</span><span style="color:#111">(</span><span style="color:#111">nn</span><span style="color:#f92672">.</span><span style="color:#111">Module</span><span style="color:#111">)</span><span style="color:#111">:</span>
+    <span style="color:#d88200"></span><span style="color:#d88200">&#34;&#34;&#34;</span><span style="color:#d88200">
+</span><span style="color:#d88200"></span><span style="color:#d88200">    Simple PyTorch Implementation of the Graph Attention layer.</span><span style="color:#d88200">
+</span><span style="color:#d88200"></span><span style="color:#d88200">    </span><span style="color:#d88200">&#34;&#34;&#34;</span>
 
-    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">__init__</span>(self, in_features, out_features, dropout, alpha, concat<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>):
-        super(GATLayer, self)<span style="color:#f92672">.</span>__init__()
-        self<span style="color:#f92672">.</span>dropout       <span style="color:#f92672">=</span> dropout        <span style="color:#75715e"># drop prob = 0.6</span>
-        self<span style="color:#f92672">.</span>in_features   <span style="color:#f92672">=</span> in_features    <span style="color:#75715e"># </span>
-        self<span style="color:#f92672">.</span>out_features  <span style="color:#f92672">=</span> out_features   <span style="color:#75715e"># </span>
-        self<span style="color:#f92672">.</span>alpha         <span style="color:#f92672">=</span> alpha          <span style="color:#75715e"># LeakyReLU with negative input slope, alpha = 0.2</span>
-        self<span style="color:#f92672">.</span>concat        <span style="color:#f92672">=</span> concat         <span style="color:#75715e"># conacat = True for all layers except the output layer.</span>
+    <span style="color:#00a8c8">def</span> <span style="color:#75af00">__init__</span><span style="color:#111">(</span><span style="color:#111">self</span><span style="color:#111">,</span> <span style="color:#111">in_features</span><span style="color:#111">,</span> <span style="color:#111">out_features</span><span style="color:#111">,</span> <span style="color:#111">dropout</span><span style="color:#111">,</span> <span style="color:#111">alpha</span><span style="color:#111">,</span> <span style="color:#111">concat</span><span style="color:#f92672">=</span><span style="color:#00a8c8">True</span><span style="color:#111">)</span><span style="color:#111">:</span>
+        <span style="color:#111">super</span><span style="color:#111">(</span><span style="color:#111">GATLayer</span><span style="color:#111">,</span> <span style="color:#111">self</span><span style="color:#111">)</span><span style="color:#f92672">.</span><span style="color:#111">__init__</span><span style="color:#111">(</span><span style="color:#111">)</span>
+        <span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">dropout</span>       <span style="color:#f92672">=</span> <span style="color:#111">dropout</span>        <span style="color:#75715e"># drop prob = 0.6</span>
+        <span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">in_features</span>   <span style="color:#f92672">=</span> <span style="color:#111">in_features</span>    <span style="color:#75715e"># </span>
+        <span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">out_features</span>  <span style="color:#f92672">=</span> <span style="color:#111">out_features</span>   <span style="color:#75715e"># </span>
+        <span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">alpha</span>         <span style="color:#f92672">=</span> <span style="color:#111">alpha</span>          <span style="color:#75715e"># LeakyReLU with negative input slope, alpha = 0.2</span>
+        <span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">concat</span>        <span style="color:#f92672">=</span> <span style="color:#111">concat</span>         <span style="color:#75715e"># conacat = True for all layers except the output layer.</span>
 
         <span style="color:#75715e"># Xavier Initialization of Weights</span>
         <span style="color:#75715e"># Alternatively use weights_init to apply weights of choice </span>
-        self<span style="color:#f92672">.</span>W <span style="color:#f92672">=</span> nn<span style="color:#f92672">.</span>Parameter(torch<span style="color:#f92672">.</span>zeros(size<span style="color:#f92672">=</span>(in_features, out_features)))
-        nn<span style="color:#f92672">.</span>init<span style="color:#f92672">.</span>xavier_uniform_(self<span style="color:#f92672">.</span>W<span style="color:#f92672">.</span>data, gain<span style="color:#f92672">=</span><span style="color:#ae81ff">1.414</span>)
-        self<span style="color:#f92672">.</span>a <span style="color:#f92672">=</span> nn<span style="color:#f92672">.</span>Parameter(torch<span style="color:#f92672">.</span>zeros(size<span style="color:#f92672">=</span>(<span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>out_features, <span style="color:#ae81ff">1</span>)))
-        nn<span style="color:#f92672">.</span>init<span style="color:#f92672">.</span>xavier_uniform_(self<span style="color:#f92672">.</span>a<span style="color:#f92672">.</span>data, gain<span style="color:#f92672">=</span><span style="color:#ae81ff">1.414</span>)
+        <span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">W</span> <span style="color:#f92672">=</span> <span style="color:#111">nn</span><span style="color:#f92672">.</span><span style="color:#111">Parameter</span><span style="color:#111">(</span><span style="color:#111">torch</span><span style="color:#f92672">.</span><span style="color:#111">zeros</span><span style="color:#111">(</span><span style="color:#111">size</span><span style="color:#f92672">=</span><span style="color:#111">(</span><span style="color:#111">in_features</span><span style="color:#111">,</span> <span style="color:#111">out_features</span><span style="color:#111">)</span><span style="color:#111">)</span><span style="color:#111">)</span>
+        <span style="color:#111">nn</span><span style="color:#f92672">.</span><span style="color:#111">init</span><span style="color:#f92672">.</span><span style="color:#111">xavier_uniform_</span><span style="color:#111">(</span><span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">W</span><span style="color:#f92672">.</span><span style="color:#111">data</span><span style="color:#111">,</span> <span style="color:#111">gain</span><span style="color:#f92672">=</span><span style="color:#ae81ff">1.414</span><span style="color:#111">)</span>
+        <span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">a</span> <span style="color:#f92672">=</span> <span style="color:#111">nn</span><span style="color:#f92672">.</span><span style="color:#111">Parameter</span><span style="color:#111">(</span><span style="color:#111">torch</span><span style="color:#f92672">.</span><span style="color:#111">zeros</span><span style="color:#111">(</span><span style="color:#111">size</span><span style="color:#f92672">=</span><span style="color:#111">(</span><span style="color:#ae81ff">2</span><span style="color:#f92672">*</span><span style="color:#111">out_features</span><span style="color:#111">,</span> <span style="color:#ae81ff">1</span><span style="color:#111">)</span><span style="color:#111">)</span><span style="color:#111">)</span>
+        <span style="color:#111">nn</span><span style="color:#f92672">.</span><span style="color:#111">init</span><span style="color:#f92672">.</span><span style="color:#111">xavier_uniform_</span><span style="color:#111">(</span><span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">a</span><span style="color:#f92672">.</span><span style="color:#111">data</span><span style="color:#111">,</span> <span style="color:#111">gain</span><span style="color:#f92672">=</span><span style="color:#ae81ff">1.414</span><span style="color:#111">)</span>
         
         <span style="color:#75715e"># LeakyReLU</span>
-        self<span style="color:#f92672">.</span>leakyrelu <span style="color:#f92672">=</span> nn<span style="color:#f92672">.</span>LeakyReLU(self<span style="color:#f92672">.</span>alpha)
+        <span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">leakyrelu</span> <span style="color:#f92672">=</span> <span style="color:#111">nn</span><span style="color:#f92672">.</span><span style="color:#111">LeakyReLU</span><span style="color:#111">(</span><span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">alpha</span><span style="color:#111">)</span>
 
-    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">forward</span>(self, input, adj):
+    <span style="color:#00a8c8">def</span> <span style="color:#75af00">forward</span><span style="color:#111">(</span><span style="color:#111">self</span><span style="color:#111">,</span> <span style="color:#111">input</span><span style="color:#111">,</span> <span style="color:#111">adj</span><span style="color:#111">)</span><span style="color:#111">:</span>
         <span style="color:#75715e"># Linear Transformation</span>
-        h <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>mm(input, self<span style="color:#f92672">.</span>W)
-        N <span style="color:#f92672">=</span> h<span style="color:#f92672">.</span>size()[<span style="color:#ae81ff">0</span>]
+        <span style="color:#111">h</span> <span style="color:#f92672">=</span> <span style="color:#111">torch</span><span style="color:#f92672">.</span><span style="color:#111">mm</span><span style="color:#111">(</span><span style="color:#111">input</span><span style="color:#111">,</span> <span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">W</span><span style="color:#111">)</span>
+        <span style="color:#111">N</span> <span style="color:#f92672">=</span> <span style="color:#111">h</span><span style="color:#f92672">.</span><span style="color:#111">size</span><span style="color:#111">(</span><span style="color:#111">)</span><span style="color:#111">[</span><span style="color:#ae81ff">0</span><span style="color:#111">]</span>
 
         <span style="color:#75715e"># Attention Mechanism</span>
-        a_input <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>cat([h<span style="color:#f92672">.</span>repeat(<span style="color:#ae81ff">1</span>, N)<span style="color:#f92672">.</span>view(N <span style="color:#f92672">*</span> N, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>), h<span style="color:#f92672">.</span>repeat(N, <span style="color:#ae81ff">1</span>)], dim<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)<span style="color:#f92672">.</span>view(N, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> self<span style="color:#f92672">.</span>out_features)
-        e       <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>leakyrelu(torch<span style="color:#f92672">.</span>matmul(a_input, self<span style="color:#f92672">.</span>a)<span style="color:#f92672">.</span>squeeze(<span style="color:#ae81ff">2</span>))
+        <span style="color:#111">a_input</span> <span style="color:#f92672">=</span> <span style="color:#111">torch</span><span style="color:#f92672">.</span><span style="color:#111">cat</span><span style="color:#111">(</span><span style="color:#111">[</span><span style="color:#111">h</span><span style="color:#f92672">.</span><span style="color:#111">repeat</span><span style="color:#111">(</span><span style="color:#ae81ff">1</span><span style="color:#111">,</span> <span style="color:#111">N</span><span style="color:#111">)</span><span style="color:#f92672">.</span><span style="color:#111">view</span><span style="color:#111">(</span><span style="color:#111">N</span> <span style="color:#f92672">*</span> <span style="color:#111">N</span><span style="color:#111">,</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span><span style="color:#111">)</span><span style="color:#111">,</span> <span style="color:#111">h</span><span style="color:#f92672">.</span><span style="color:#111">repeat</span><span style="color:#111">(</span><span style="color:#111">N</span><span style="color:#111">,</span> <span style="color:#ae81ff">1</span><span style="color:#111">)</span><span style="color:#111">]</span><span style="color:#111">,</span> <span style="color:#111">dim</span><span style="color:#f92672">=</span><span style="color:#ae81ff">1</span><span style="color:#111">)</span><span style="color:#f92672">.</span><span style="color:#111">view</span><span style="color:#111">(</span><span style="color:#111">N</span><span style="color:#111">,</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span><span style="color:#111">,</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> <span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">out_features</span><span style="color:#111">)</span>
+        <span style="color:#111">e</span>       <span style="color:#f92672">=</span> <span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">leakyrelu</span><span style="color:#111">(</span><span style="color:#111">torch</span><span style="color:#f92672">.</span><span style="color:#111">matmul</span><span style="color:#111">(</span><span style="color:#111">a_input</span><span style="color:#111">,</span> <span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">a</span><span style="color:#111">)</span><span style="color:#f92672">.</span><span style="color:#111">squeeze</span><span style="color:#111">(</span><span style="color:#ae81ff">2</span><span style="color:#111">)</span><span style="color:#111">)</span>
 
         <span style="color:#75715e"># Masked Attention</span>
-        zero_vec  <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">9e15</span><span style="color:#f92672">*</span>torch<span style="color:#f92672">.</span>ones_like(e)
-        attention <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>where(adj <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>, e, zero_vec)
+        <span style="color:#111">zero_vec</span>  <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">9e15</span><span style="color:#f92672">*</span><span style="color:#111">torch</span><span style="color:#f92672">.</span><span style="color:#111">ones_like</span><span style="color:#111">(</span><span style="color:#111">e</span><span style="color:#111">)</span>
+        <span style="color:#111">attention</span> <span style="color:#f92672">=</span> <span style="color:#111">torch</span><span style="color:#f92672">.</span><span style="color:#111">where</span><span style="color:#111">(</span><span style="color:#111">adj</span> <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span><span style="color:#111">,</span> <span style="color:#111">e</span><span style="color:#111">,</span> <span style="color:#111">zero_vec</span><span style="color:#111">)</span>
         
-        attention <span style="color:#f92672">=</span> F<span style="color:#f92672">.</span>softmax(attention, dim<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
-        attention <span style="color:#f92672">=</span> F<span style="color:#f92672">.</span>dropout(attention, self<span style="color:#f92672">.</span>dropout, training<span style="color:#f92672">=</span>self<span style="color:#f92672">.</span>training)
-        h_prime   <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>matmul(attention, h)
+        <span style="color:#111">attention</span> <span style="color:#f92672">=</span> <span style="color:#111">F</span><span style="color:#f92672">.</span><span style="color:#111">softmax</span><span style="color:#111">(</span><span style="color:#111">attention</span><span style="color:#111">,</span> <span style="color:#111">dim</span><span style="color:#f92672">=</span><span style="color:#ae81ff">1</span><span style="color:#111">)</span>
+        <span style="color:#111">attention</span> <span style="color:#f92672">=</span> <span style="color:#111">F</span><span style="color:#f92672">.</span><span style="color:#111">dropout</span><span style="color:#111">(</span><span style="color:#111">attention</span><span style="color:#111">,</span> <span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">dropout</span><span style="color:#111">,</span> <span style="color:#111">training</span><span style="color:#f92672">=</span><span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">training</span><span style="color:#111">)</span>
+        <span style="color:#111">h_prime</span>   <span style="color:#f92672">=</span> <span style="color:#111">torch</span><span style="color:#f92672">.</span><span style="color:#111">matmul</span><span style="color:#111">(</span><span style="color:#111">attention</span><span style="color:#111">,</span> <span style="color:#111">h</span><span style="color:#111">)</span>
 
-        <span style="color:#66d9ef">if</span> self<span style="color:#f92672">.</span>concat:
-            <span style="color:#66d9ef">return</span> F<span style="color:#f92672">.</span>elu(h_prime)
-        <span style="color:#66d9ef">else</span>:
-            <span style="color:#66d9ef">return</span> h_prime</code></pre></div>
+        <span style="color:#00a8c8">if</span> <span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">concat</span><span style="color:#111">:</span>
+            <span style="color:#00a8c8">return</span> <span style="color:#111">F</span><span style="color:#f92672">.</span><span style="color:#111">elu</span><span style="color:#111">(</span><span style="color:#111">h_prime</span><span style="color:#111">)</span>
+        <span style="color:#00a8c8">else</span><span style="color:#111">:</span>
+            <span style="color:#00a8c8">return</span> <span style="color:#111">h_prime</span></code></pre></td></tr></table>
+</div>
+</div>
 <!-- ## Implementing GAT on Citation Datasets using PyTorch Geometric -->
 <h1><center>Implementing GAT on Citation Datasets using PyTorch Geometric</center></h1>
 <h3 id="pyg-imports">PyG Imports</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> torch_geometric.data <span style="color:#f92672">import</span> Data
-<span style="color:#f92672">from</span> torch_geometric.nn <span style="color:#f92672">import</span> GATConv
-<span style="color:#f92672">from</span> torch_geometric.datasets <span style="color:#f92672">import</span> Planetoid
-<span style="color:#f92672">import</span> torch_geometric.transforms <span style="color:#f92672">as</span> T
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> <span style="color:#111">torch_geometric.data</span> <span style="color:#f92672">import</span> <span style="color:#111">Data</span>
+<span style="color:#f92672">from</span> <span style="color:#111">torch_geometric.nn</span> <span style="color:#f92672">import</span> <span style="color:#111">GATConv</span>
+<span style="color:#f92672">from</span> <span style="color:#111">torch_geometric.datasets</span> <span style="color:#f92672">import</span> <span style="color:#111">Planetoid</span>
+<span style="color:#f92672">import</span> <span style="color:#111">torch_geometric.transforms</span> <span style="color:#f92672">as</span> <span style="color:#111">T</span>
 
-<span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#f92672">as</span> plt
-<span style="color:#f92672">%</span>matplotlib notebook
+<span style="color:#f92672">import</span> <span style="color:#111">matplotlib.pyplot</span> <span style="color:#f92672">as</span> <span style="color:#111">plt</span>
+<span style="color:#f92672">%</span><span style="color:#111">matplotlib</span> <span style="color:#111">notebook</span>
 
-<span style="color:#f92672">import</span> warnings
-warnings<span style="color:#f92672">.</span>filterwarnings(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">ignore</span><span style="color:#e6db74">&#34;</span>)
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">name_data <span style="color:#f92672">=</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">Cora</span><span style="color:#e6db74">&#39;</span>
-dataset <span style="color:#f92672">=</span> Planetoid(root<span style="color:#f92672">=</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">/tmp/</span><span style="color:#e6db74">&#39;</span> <span style="color:#f92672">+</span> name_data, name <span style="color:#f92672">=</span> name_data)
-dataset<span style="color:#f92672">.</span>transform <span style="color:#f92672">=</span> T<span style="color:#f92672">.</span>NormalizeFeatures()
+<span style="color:#f92672">import</span> <span style="color:#111">warnings</span>
+<span style="color:#111">warnings</span><span style="color:#f92672">.</span><span style="color:#111">filterwarnings</span><span style="color:#111">(</span><span style="color:#d88200"></span><span style="color:#d88200">&#34;</span><span style="color:#d88200">ignore</span><span style="color:#d88200">&#34;</span><span style="color:#111">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#111">name_data</span> <span style="color:#f92672">=</span> <span style="color:#d88200"></span><span style="color:#d88200">&#39;</span><span style="color:#d88200">Cora</span><span style="color:#d88200">&#39;</span>
+<span style="color:#111">dataset</span> <span style="color:#f92672">=</span> <span style="color:#111">Planetoid</span><span style="color:#111">(</span><span style="color:#111">root</span><span style="color:#f92672">=</span> <span style="color:#d88200"></span><span style="color:#d88200">&#39;</span><span style="color:#d88200">/tmp/</span><span style="color:#d88200">&#39;</span> <span style="color:#f92672">+</span> <span style="color:#111">name_data</span><span style="color:#111">,</span> <span style="color:#111">name</span> <span style="color:#f92672">=</span> <span style="color:#111">name_data</span><span style="color:#111">)</span>
+<span style="color:#111">dataset</span><span style="color:#f92672">.</span><span style="color:#111">transform</span> <span style="color:#f92672">=</span> <span style="color:#111">T</span><span style="color:#f92672">.</span><span style="color:#111">NormalizeFeatures</span><span style="color:#111">(</span><span style="color:#111">)</span>
 
-<span style="color:#66d9ef">print</span>(f<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">Number of Classes in {name_data}:</span><span style="color:#e6db74">&#34;</span>, dataset<span style="color:#f92672">.</span>num_classes)
-<span style="color:#66d9ef">print</span>(f<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">Number of Node Features in {name_data}:</span><span style="color:#e6db74">&#34;</span>, dataset<span style="color:#f92672">.</span>num_node_features)
-</code></pre></div><h3 id="model">Model</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">GAT</span>(torch<span style="color:#f92672">.</span>nn<span style="color:#f92672">.</span>Module):
-    <span style="color:#66d9ef">def</span> __init__(self):
-        super(GAT, self)<span style="color:#f92672">.</span>__init__()
-        self<span style="color:#f92672">.</span>hid <span style="color:#f92672">=</span> <span style="color:#ae81ff">8</span>
-        self<span style="color:#f92672">.</span>in_head <span style="color:#f92672">=</span> <span style="color:#ae81ff">8</span>
-        self<span style="color:#f92672">.</span>out_head <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+<span style="color:#00a8c8">print</span><span style="color:#111">(</span><span style="color:#111">f</span><span style="color:#d88200"></span><span style="color:#d88200">&#34;</span><span style="color:#d88200">Number of Classes in {name_data}:</span><span style="color:#d88200">&#34;</span><span style="color:#111">,</span> <span style="color:#111">dataset</span><span style="color:#f92672">.</span><span style="color:#111">num_classes</span><span style="color:#111">)</span>
+<span style="color:#00a8c8">print</span><span style="color:#111">(</span><span style="color:#111">f</span><span style="color:#d88200"></span><span style="color:#d88200">&#34;</span><span style="color:#d88200">Number of Node Features in {name_data}:</span><span style="color:#d88200">&#34;</span><span style="color:#111">,</span> <span style="color:#111">dataset</span><span style="color:#f92672">.</span><span style="color:#111">num_node_features</span><span style="color:#111">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="model">Model</h3>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#00a8c8">class</span> <span style="color:#75af00">GAT</span><span style="color:#111">(</span><span style="color:#111">torch</span><span style="color:#f92672">.</span><span style="color:#111">nn</span><span style="color:#f92672">.</span><span style="color:#111">Module</span><span style="color:#111">)</span><span style="color:#111">:</span>
+    <span style="color:#00a8c8">def</span> <span style="color:#111">__init__</span><span style="color:#111">(</span><span style="color:#111">self</span><span style="color:#111">)</span><span style="color:#111">:</span>
+        <span style="color:#111">super</span><span style="color:#111">(</span><span style="color:#111">GAT</span><span style="color:#111">,</span> <span style="color:#111">self</span><span style="color:#111">)</span><span style="color:#f92672">.</span><span style="color:#111">__init__</span><span style="color:#111">(</span><span style="color:#111">)</span>
+        <span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">hid</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">8</span>
+        <span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">in_head</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">8</span>
+        <span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">out_head</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
         
-        self<span style="color:#f92672">.</span>conv1 <span style="color:#f92672">=</span> GATConv(dataset<span style="color:#f92672">.</span>num_features, self<span style="color:#f92672">.</span>hid, heads<span style="color:#f92672">=</span>self<span style="color:#f92672">.</span>in_head, dropout<span style="color:#f92672">=</span><span style="color:#ae81ff">0.6</span>)
-        self<span style="color:#f92672">.</span>conv2 <span style="color:#f92672">=</span> GATConv(self<span style="color:#f92672">.</span>hid<span style="color:#f92672">*</span>self<span style="color:#f92672">.</span>in_head, dataset<span style="color:#f92672">.</span>num_classes, concat<span style="color:#f92672">=</span>False,
-                             heads<span style="color:#f92672">=</span>self<span style="color:#f92672">.</span>out_head, dropout<span style="color:#f92672">=</span><span style="color:#ae81ff">0.6</span>)
+        <span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">conv1</span> <span style="color:#f92672">=</span> <span style="color:#111">GATConv</span><span style="color:#111">(</span><span style="color:#111">dataset</span><span style="color:#f92672">.</span><span style="color:#111">num_features</span><span style="color:#111">,</span> <span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">hid</span><span style="color:#111">,</span> <span style="color:#111">heads</span><span style="color:#f92672">=</span><span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">in_head</span><span style="color:#111">,</span> <span style="color:#111">dropout</span><span style="color:#f92672">=</span><span style="color:#ae81ff">0.6</span><span style="color:#111">)</span>
+        <span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">conv2</span> <span style="color:#f92672">=</span> <span style="color:#111">GATConv</span><span style="color:#111">(</span><span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">hid</span><span style="color:#f92672">*</span><span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">in_head</span><span style="color:#111">,</span> <span style="color:#111">dataset</span><span style="color:#f92672">.</span><span style="color:#111">num_classes</span><span style="color:#111">,</span> <span style="color:#111">concat</span><span style="color:#f92672">=</span><span style="color:#111">False</span><span style="color:#111">,</span>
+                             <span style="color:#111">heads</span><span style="color:#f92672">=</span><span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">out_head</span><span style="color:#111">,</span> <span style="color:#111">dropout</span><span style="color:#f92672">=</span><span style="color:#ae81ff">0.6</span><span style="color:#111">)</span>
 
-    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">forward</span>(self, data):
-        x, edge_index <span style="color:#f92672">=</span> data<span style="color:#f92672">.</span>x, data<span style="color:#f92672">.</span>edge_index
+    <span style="color:#00a8c8">def</span> <span style="color:#75af00">forward</span><span style="color:#111">(</span><span style="color:#111">self</span><span style="color:#111">,</span> <span style="color:#111">data</span><span style="color:#111">)</span><span style="color:#111">:</span>
+        <span style="color:#111">x</span><span style="color:#111">,</span> <span style="color:#111">edge_index</span> <span style="color:#f92672">=</span> <span style="color:#111">data</span><span style="color:#f92672">.</span><span style="color:#111">x</span><span style="color:#111">,</span> <span style="color:#111">data</span><span style="color:#f92672">.</span><span style="color:#111">edge_index</span>
         
         <span style="color:#75715e"># Dropout before the GAT layer is used to avoid overfitting in small datasets like Cora.</span>
         <span style="color:#75715e"># One can skip them if the dataset is sufficiently large.</span>
         
-        x <span style="color:#f92672">=</span> F<span style="color:#f92672">.</span>dropout(x, p<span style="color:#f92672">=</span><span style="color:#ae81ff">0.6</span>, training<span style="color:#f92672">=</span>self<span style="color:#f92672">.</span>training)
-        x <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>conv1(x, edge_index)
-        x <span style="color:#f92672">=</span> F<span style="color:#f92672">.</span>elu(x)
-        x <span style="color:#f92672">=</span> F<span style="color:#f92672">.</span>dropout(x, p<span style="color:#f92672">=</span><span style="color:#ae81ff">0.6</span>, training<span style="color:#f92672">=</span>self<span style="color:#f92672">.</span>training)
-        x <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>conv2(x, edge_index)
+        <span style="color:#111">x</span> <span style="color:#f92672">=</span> <span style="color:#111">F</span><span style="color:#f92672">.</span><span style="color:#111">dropout</span><span style="color:#111">(</span><span style="color:#111">x</span><span style="color:#111">,</span> <span style="color:#111">p</span><span style="color:#f92672">=</span><span style="color:#ae81ff">0.6</span><span style="color:#111">,</span> <span style="color:#111">training</span><span style="color:#f92672">=</span><span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">training</span><span style="color:#111">)</span>
+        <span style="color:#111">x</span> <span style="color:#f92672">=</span> <span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">conv1</span><span style="color:#111">(</span><span style="color:#111">x</span><span style="color:#111">,</span> <span style="color:#111">edge_index</span><span style="color:#111">)</span>
+        <span style="color:#111">x</span> <span style="color:#f92672">=</span> <span style="color:#111">F</span><span style="color:#f92672">.</span><span style="color:#111">elu</span><span style="color:#111">(</span><span style="color:#111">x</span><span style="color:#111">)</span>
+        <span style="color:#111">x</span> <span style="color:#f92672">=</span> <span style="color:#111">F</span><span style="color:#f92672">.</span><span style="color:#111">dropout</span><span style="color:#111">(</span><span style="color:#111">x</span><span style="color:#111">,</span> <span style="color:#111">p</span><span style="color:#f92672">=</span><span style="color:#ae81ff">0.6</span><span style="color:#111">,</span> <span style="color:#111">training</span><span style="color:#f92672">=</span><span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">training</span><span style="color:#111">)</span>
+        <span style="color:#111">x</span> <span style="color:#f92672">=</span> <span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">conv2</span><span style="color:#111">(</span><span style="color:#111">x</span><span style="color:#111">,</span> <span style="color:#111">edge_index</span><span style="color:#111">)</span>
         
-        <span style="color:#66d9ef">return</span> F<span style="color:#f92672">.</span>log_softmax(x, dim<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
-</code></pre></div><h3 id="train">Train</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">device <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>device(<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">cuda</span><span style="color:#e6db74">&#39;</span> <span style="color:#66d9ef">if</span> torch<span style="color:#f92672">.</span>cuda<span style="color:#f92672">.</span>is_available() <span style="color:#66d9ef">else</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">cpu</span><span style="color:#e6db74">&#39;</span>)
+        <span style="color:#00a8c8">return</span> <span style="color:#111">F</span><span style="color:#f92672">.</span><span style="color:#111">log_softmax</span><span style="color:#111">(</span><span style="color:#111">x</span><span style="color:#111">,</span> <span style="color:#111">dim</span><span style="color:#f92672">=</span><span style="color:#ae81ff">1</span><span style="color:#111">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="train">Train</h3>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#111">device</span> <span style="color:#f92672">=</span> <span style="color:#111">torch</span><span style="color:#f92672">.</span><span style="color:#111">device</span><span style="color:#111">(</span><span style="color:#d88200"></span><span style="color:#d88200">&#39;</span><span style="color:#d88200">cuda</span><span style="color:#d88200">&#39;</span> <span style="color:#00a8c8">if</span> <span style="color:#111">torch</span><span style="color:#f92672">.</span><span style="color:#111">cuda</span><span style="color:#f92672">.</span><span style="color:#111">is_available</span><span style="color:#111">(</span><span style="color:#111">)</span> <span style="color:#00a8c8">else</span> <span style="color:#d88200"></span><span style="color:#d88200">&#39;</span><span style="color:#d88200">cpu</span><span style="color:#d88200">&#39;</span><span style="color:#111">)</span>
 
-model <span style="color:#f92672">=</span> GAT()<span style="color:#f92672">.</span>to(device)
+<span style="color:#111">model</span> <span style="color:#f92672">=</span> <span style="color:#111">GAT</span><span style="color:#111">(</span><span style="color:#111">)</span><span style="color:#f92672">.</span><span style="color:#111">to</span><span style="color:#111">(</span><span style="color:#111">device</span><span style="color:#111">)</span>
 
-data <span style="color:#f92672">=</span> dataset[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">.</span>to(device)
-optimizer <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>optim<span style="color:#f92672">.</span>Adam(model<span style="color:#f92672">.</span>parameters(), lr<span style="color:#f92672">=</span><span style="color:#ae81ff">0.005</span>, weight_decay<span style="color:#f92672">=</span><span style="color:#ae81ff">5e-4</span>)
+<span style="color:#111">data</span> <span style="color:#f92672">=</span> <span style="color:#111">dataset</span><span style="color:#111">[</span><span style="color:#ae81ff">0</span><span style="color:#111">]</span><span style="color:#f92672">.</span><span style="color:#111">to</span><span style="color:#111">(</span><span style="color:#111">device</span><span style="color:#111">)</span>
+<span style="color:#111">optimizer</span> <span style="color:#f92672">=</span> <span style="color:#111">torch</span><span style="color:#f92672">.</span><span style="color:#111">optim</span><span style="color:#f92672">.</span><span style="color:#111">Adam</span><span style="color:#111">(</span><span style="color:#111">model</span><span style="color:#f92672">.</span><span style="color:#111">parameters</span><span style="color:#111">(</span><span style="color:#111">)</span><span style="color:#111">,</span> <span style="color:#111">lr</span><span style="color:#f92672">=</span><span style="color:#ae81ff">0.005</span><span style="color:#111">,</span> <span style="color:#111">weight_decay</span><span style="color:#f92672">=</span><span style="color:#ae81ff">5e-4</span><span style="color:#111">)</span>
 
-model<span style="color:#f92672">.</span>train()
-<span style="color:#66d9ef">for</span> epoch <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">1000</span>):
-    model<span style="color:#f92672">.</span>train()
-    optimizer<span style="color:#f92672">.</span>zero_grad()
-    out <span style="color:#f92672">=</span> model(data)
-    loss <span style="color:#f92672">=</span> F<span style="color:#f92672">.</span>nll_loss(out[data<span style="color:#f92672">.</span>train_mask], data<span style="color:#f92672">.</span>y[data<span style="color:#f92672">.</span>train_mask])
+<span style="color:#111">model</span><span style="color:#f92672">.</span><span style="color:#111">train</span><span style="color:#111">(</span><span style="color:#111">)</span>
+<span style="color:#00a8c8">for</span> <span style="color:#111">epoch</span> <span style="color:#f92672">in</span> <span style="color:#111">range</span><span style="color:#111">(</span><span style="color:#ae81ff">1000</span><span style="color:#111">)</span><span style="color:#111">:</span>
+    <span style="color:#111">model</span><span style="color:#f92672">.</span><span style="color:#111">train</span><span style="color:#111">(</span><span style="color:#111">)</span>
+    <span style="color:#111">optimizer</span><span style="color:#f92672">.</span><span style="color:#111">zero_grad</span><span style="color:#111">(</span><span style="color:#111">)</span>
+    <span style="color:#111">out</span> <span style="color:#f92672">=</span> <span style="color:#111">model</span><span style="color:#111">(</span><span style="color:#111">data</span><span style="color:#111">)</span>
+    <span style="color:#111">loss</span> <span style="color:#f92672">=</span> <span style="color:#111">F</span><span style="color:#f92672">.</span><span style="color:#111">nll_loss</span><span style="color:#111">(</span><span style="color:#111">out</span><span style="color:#111">[</span><span style="color:#111">data</span><span style="color:#f92672">.</span><span style="color:#111">train_mask</span><span style="color:#111">]</span><span style="color:#111">,</span> <span style="color:#111">data</span><span style="color:#f92672">.</span><span style="color:#111">y</span><span style="color:#111">[</span><span style="color:#111">data</span><span style="color:#f92672">.</span><span style="color:#111">train_mask</span><span style="color:#111">]</span><span style="color:#111">)</span>
     
-    <span style="color:#66d9ef">if</span> epoch<span style="color:#f92672">%</span><span style="color:#ae81ff">200</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>:
-        <span style="color:#66d9ef">print</span>(loss)
+    <span style="color:#00a8c8">if</span> <span style="color:#111">epoch</span><span style="color:#f92672">%</span><span style="color:#ae81ff">200</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span><span style="color:#111">:</span>
+        <span style="color:#00a8c8">print</span><span style="color:#111">(</span><span style="color:#111">loss</span><span style="color:#111">)</span>
     
-    loss<span style="color:#f92672">.</span>backward()
-    optimizer<span style="color:#f92672">.</span>step()
-</code></pre></div><h3 id="evaluate">Evaluate</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">model<span style="color:#f92672">.</span>eval()
-_, pred <span style="color:#f92672">=</span> model(data)<span style="color:#f92672">.</span>max(dim<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
-correct <span style="color:#f92672">=</span> float(pred[data<span style="color:#f92672">.</span>test_mask]<span style="color:#f92672">.</span>eq(data<span style="color:#f92672">.</span>y[data<span style="color:#f92672">.</span>test_mask])<span style="color:#f92672">.</span>sum()<span style="color:#f92672">.</span>item())
-acc <span style="color:#f92672">=</span> correct <span style="color:#f92672">/</span> data<span style="color:#f92672">.</span>test_mask<span style="color:#f92672">.</span>sum()<span style="color:#f92672">.</span>item()
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">Accuracy: {:.4f}</span><span style="color:#e6db74">&#39;</span><span style="color:#f92672">.</span>format(acc))
-</code></pre></div><h2 id="references">References</h2>
+    <span style="color:#111">loss</span><span style="color:#f92672">.</span><span style="color:#111">backward</span><span style="color:#111">(</span><span style="color:#111">)</span>
+    <span style="color:#111">optimizer</span><span style="color:#f92672">.</span><span style="color:#111">step</span><span style="color:#111">(</span><span style="color:#111">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="evaluate">Evaluate</h3>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#111">model</span><span style="color:#f92672">.</span><span style="color:#111">eval</span><span style="color:#111">(</span><span style="color:#111">)</span>
+<span style="color:#111">_</span><span style="color:#111">,</span> <span style="color:#111">pred</span> <span style="color:#f92672">=</span> <span style="color:#111">model</span><span style="color:#111">(</span><span style="color:#111">data</span><span style="color:#111">)</span><span style="color:#f92672">.</span><span style="color:#111">max</span><span style="color:#111">(</span><span style="color:#111">dim</span><span style="color:#f92672">=</span><span style="color:#ae81ff">1</span><span style="color:#111">)</span>
+<span style="color:#111">correct</span> <span style="color:#f92672">=</span> <span style="color:#111">float</span><span style="color:#111">(</span><span style="color:#111">pred</span><span style="color:#111">[</span><span style="color:#111">data</span><span style="color:#f92672">.</span><span style="color:#111">test_mask</span><span style="color:#111">]</span><span style="color:#f92672">.</span><span style="color:#111">eq</span><span style="color:#111">(</span><span style="color:#111">data</span><span style="color:#f92672">.</span><span style="color:#111">y</span><span style="color:#111">[</span><span style="color:#111">data</span><span style="color:#f92672">.</span><span style="color:#111">test_mask</span><span style="color:#111">]</span><span style="color:#111">)</span><span style="color:#f92672">.</span><span style="color:#111">sum</span><span style="color:#111">(</span><span style="color:#111">)</span><span style="color:#f92672">.</span><span style="color:#111">item</span><span style="color:#111">(</span><span style="color:#111">)</span><span style="color:#111">)</span>
+<span style="color:#111">acc</span> <span style="color:#f92672">=</span> <span style="color:#111">correct</span> <span style="color:#f92672">/</span> <span style="color:#111">data</span><span style="color:#f92672">.</span><span style="color:#111">test_mask</span><span style="color:#f92672">.</span><span style="color:#111">sum</span><span style="color:#111">(</span><span style="color:#111">)</span><span style="color:#f92672">.</span><span style="color:#111">item</span><span style="color:#111">(</span><span style="color:#111">)</span>
+<span style="color:#00a8c8">print</span><span style="color:#111">(</span><span style="color:#d88200"></span><span style="color:#d88200">&#39;</span><span style="color:#d88200">Accuracy: {:.4f}</span><span style="color:#d88200">&#39;</span><span style="color:#f92672">.</span><span style="color:#111">format</span><span style="color:#111">(</span><span style="color:#111">acc</span><span style="color:#111">)</span><span style="color:#111">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="references">References</h2>
 <p><a href="https://arxiv.org/abs/1710.10903">Graph Attention Networks</a></p>
 <p><a href="https://docs.dgl.ai/tutorials/models/1_gnn/9_gat.html">Graph attention network, DGL by Zhang et al.</a></p>
 <p><a href="https://arxiv.org/pdf/1706.03762.pdf">Attention Is All You Need</a></p>

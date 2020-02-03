@@ -179,7 +179,19 @@ Because of infinite weightage on square of coefficients, anything less than zero
 </li>
 </ul>
 <p>A snippet explaining how to execute Ridge Regression in <strong>Python</strong> is shown below. For further clarification on the syntax, one can visit <a href="http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Ridge.html">Sklearn</a>.</p>
-<pre><code>from sklearn.linear_model import Ridge
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">from sklearn.linear_model import Ridge
 import numpy as np
 n_samples, n_features = 10, 5
 np.random.seed(0)
@@ -187,7 +199,9 @@ y = np.random.randn(n_samples)
 X = np.random.randn(n_samples, n_features)
 clf = Ridge(alpha=1.0)
 clf.fit(X, y)
-</code></pre><hr>
+</code></pre></td></tr></table>
+</div>
+</div><hr>
 <h1 id="lasso-regression">Lasso Regression</h1>
 <p>LASSO stands for <strong><em>Least Absolute Shrinkage and Selection Operator</em></strong>. I know it doesn’t give much of an idea but there are 2 key words here - <em>absolute</em> and <em>selection</em>.</p>
 <p>Lasso regression performs <strong>L1 regularization</strong>, i.e. it adds a factor of sum of absolute value of coefficients in the optimisation objective.</p>
@@ -197,14 +211,27 @@ clf.fit(X, y)
 <p>Here, α (alpha) works similar to that of ridge. Like that of ridge, α can take various values and provide a trade-off between balancing RSS and magnitude of coefficients.</p>
 <p>So till now its *appearing to be very similar to Ridge, *but hold on you’ll know the difference by the time we finish. Like before, snippet follows.
 For further clarification you can again visit <a href="http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Lasso.html">Sklearn</a>.</p>
-<pre><code>from sklearn import linear_model
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">from sklearn import linear_model
 clf = linear_model.Lasso(alpha=0.1)
 clf.fit([[0,0], [1, 1], [2, 2]], [0, 1, 2])
 
 print(clf.coef_)
 
 print(clf.intercept_)
-</code></pre><h4 id="selection-of-">Selection of α</h4>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="selection-of-">Selection of α</h4>
 <p>Alpha can be adjusted to help you find a good fit for your model.</p>
 <ul>
 <li>
