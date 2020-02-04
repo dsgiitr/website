@@ -120,7 +120,7 @@
                 </div>
                 
                 <div class="post-content">
-                    <p>As a part of this blog series and continuing with the tradition of extracting useful graph features by considering the topology of the network graph using machine learning, this blog deals with Deep Walk. This is a simple unsupervised online learning approach, very similar to language modeling used in <strong>NLP</strong>, where the goal is to generate word embeddings. In this case, generalizing the same concept, it merely tries to learn latent representations of nodes/vertices of a given graph. These graph embeddings, which capture neighborhood similarity and community membership, can then be used for learning downstream tasks on the graph.</p>
+                    <p>This is the first in this blog series <font color="green"><b>Explained: Graph Representation Learning</b></font> and to discuss extraction useful graph features and node embeddings by considering the topology of the network graph using machine learning, this blog deals with Deep Walk. This is a simple unsupervised online learning approach, very similar to language modeling used in <strong>NLP</strong>, where the goal is to generate word embeddings. In this case, generalizing the same concept, it merely tries to learn latent representations of nodes/vertices of a given graph. These graph embeddings, which capture neighborhood similarity and community membership, can then be used for learning downstream tasks on the graph.</p>
 <center><img src="/images/blogs/DeepWalk/karate_to_embedding.jpg" width=500x/></center>
 <br>
 <h2><font color="red" >Motivation</font></h2>
@@ -577,8 +577,12 @@ In this example, leaf nodes represent the original nodes of our graph. The highl
 20.0 26.0 25.0 27.0 6.0 3.0 0.0 90.0 
 </code></pre>
 <hr/>
+<p>You can find our implementation made using PyTorch in the following notebook <b><font color="red"><a href="https://github.com/dsgiitr/graph_nets/blob/master/DeepWalk/DeepWalk_Blog+Code.ipynb">Deep Walk</a></font></b>. <a href="https://github.com/dsgiitr/graph_nets">graph_nets</a></p>
 <h3>References</h3>
 <ul>
+<li>
+<p><a href="https://github.com/dsgiitr/graph_nets">Code &amp; GitHub Repository</a></p>
+</li>
 <li>
 <p><a href="http://www.perozzi.net/publications/14_kdd_deepwalk.pdf">DeepWalk: Online Learning of Social Representations</a></p>
 </li>

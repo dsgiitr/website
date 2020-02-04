@@ -6,10 +6,19 @@
     <description>Recent content in Graph Representation Learning on DSG | IIT Roorkee</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 01 Jan 2020 23:40:49 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 01 Feb 2020 23:40:49 +0000</lastBuildDate>
     
 	<atom:link href="/tags/graph-representation-learning/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>ChebNet: CNN on Graphs with Fast Localized Spectral Filtering</title>
+      <link>/blogs/chebnet/</link>
+      <pubDate>Sat, 01 Feb 2020 23:40:49 +0000</pubDate>
+      
+      <guid>/blogs/chebnet/</guid>
+      <description>Motivation As a part of this blog series, this time we&#39;ll be looking at a spectral convolution technique introduced in the paper by M.</description>
+    </item>
     
     <item>
       <title>A Review : Graph Convolutional Networks (GCN)</title>
@@ -21,7 +30,7 @@
     </item>
     
     <item>
-      <title>GraphSAGE (SAmple and aggreGatE) : Inductive Learning on Graphs</title>
+      <title>Graph SAGE(SAmple and aggreGatE) : Inductive Learning on Graphs</title>
       <link>/blogs/graphsage/</link>
       <pubDate>Wed, 01 Jan 2020 23:40:49 +0000</pubDate>
       
@@ -35,7 +44,7 @@
       <pubDate>Wed, 01 Jan 2020 23:40:49 +0000</pubDate>
       
       <guid>/blogs/deepwalk/</guid>
-      <description>As a part of this blog series and continuing with the tradition of extracting useful graph features by considering the topology of the network graph using machine learning, this blog deals with Deep Walk.</description>
+      <description>This is the first in this blog series Explained: Graph Representation Learning and to discuss extraction useful graph features and node embeddings by considering the topology of the network graph using machine learning, this blog deals with Deep Walk.</description>
     </item>
     
     <item>
@@ -44,7 +53,7 @@
       <pubDate>Wed, 01 Jan 2020 23:40:49 +0000</pubDate>
       
       <guid>/blogs/gat/</guid>
-      <description>Understanding Graph Attention Networks (GAT) -- This is 4th in the series of blogs Explained: Graph Representation Learning.</description>
+      <description>Understanding Graph Attention Networks (GAT) This is 4th in the series of blogs Explained: Graph Representation Learning.</description>
     </item>
     
   </channel>
