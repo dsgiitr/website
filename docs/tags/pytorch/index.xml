@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>PyTorch on DSG | IIT Roorkee</title>
+    <link>/tags/pytorch/</link>
+    <description>Recent content in PyTorch on DSG | IIT Roorkee</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 01 Dec 2019 23:40:49 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/pytorch/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>d2l-pytorch</title>
+      <link>/work/project1/</link>
+      <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
+      
+      <guid>/work/project1/</guid>
+      <description>d2l-pytorch This project is adapted from the original Dive Into Deep Learning book by Aston Zhang, Zachary C.</description>
+    </item>
+    
+  </channel>
+</rss>

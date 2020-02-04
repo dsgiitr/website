@@ -39,11 +39,29 @@
     </item>
     
     <item>
+      <title>Deep Learning</title>
+      <link>/tags/deep-learning/</link>
+      <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
+      
+      <guid>/tags/deep-learning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>design</title>
       <link>/tags/design/</link>
       <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
       
       <guid>/tags/design/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>DL</title>
+      <link>/tags/dl/</link>
+      <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
+      
+      <guid>/tags/dl/</guid>
       <description></description>
     </item>
     
@@ -102,6 +120,15 @@
     </item>
     
     <item>
+      <title>PyTorch</title>
+      <link>/tags/pytorch/</link>
+      <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
+      
+      <guid>/tags/pytorch/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>RL</title>
       <link>/tags/rl/</link>
       <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
@@ -125,15 +152,6 @@
       <pubDate>Sun, 04 Aug 2019 23:40:49 +0000</pubDate>
       
       <guid>/tags/beginner/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Deep Learning</title>
-      <link>/tags/deep-learning/</link>
-      <pubDate>Wed, 27 Mar 2019 23:40:49 +0000</pubDate>
-      
-      <guid>/tags/deep-learning/</guid>
       <description></description>
     </item>
     

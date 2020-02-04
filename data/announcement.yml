@@ -1,31 +1,31 @@
 enable  : true
 title   : Announcements
 subtitle: >
-  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed, <br> quasi dolores numquam dolor vero ex, tempora commodi      repellendus quod laborum.
+  Lorem ipsum dol
 item    :
+
   item1    :
     - name  : UPCOMING EVENT
-      title : DSG - Intro Talk
+      title : Shristi Talk
+      order : 3
+      linkName : View Details->
+      url : 
+      description : >
+        DSG annual talk on Shrishti, IIT Roorkee
+  item2    :
+    - name  : NEW BLOG
+      title : Understanding Graph Attention Networks (GAT)
+      order : 2
+      linkName : Read->
+      url : https://dsgiitr.com/blogs/gat/
+      description : >
+        5th blog in the series Explained: Graph Representation Learning
+
+  item3    :
+    - name  : Past EVENT
+      title : Kaggle Days
       order : 1
       linkName : View Details->
       url : /events
       description : >
-        Cupidatat laboris mollit reprehenderita laboris sint do velit quis consectetur.
-
-  item2    :
-    - name  : NEW BLOG
-      title : Data Science
-      order : 2
-      linkName : Read->
-      url : /blogs
-      description : >
-        Cupidatat laboris mollit reprehenderit sint do velit quis consectetur.
-
-  item3    :
-    - name  : UPCOMING EVENT
-      title : ML workshop
-      order : 3
-      linkName : View Details->
-      url : /events
-      description : >
-        Cupidatat laboris mollit reprehenderita laboris sint do velit quis consectetur.
+        DSG in collaboration with E-Summit IIT R organizing Kaggle Days.
