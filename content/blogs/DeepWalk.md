@@ -8,7 +8,7 @@ author: Ajit Pant, Shubham Chandel, Anirudh Dagar, Shashank Gupta
 tags: ["Graph Representation Learning"]
 ---
 
-As a part of this blog series and continuing with the tradition of extracting useful graph features by considering the topology of the network graph using machine learning, this blog deals with Deep Walk. This is a simple unsupervised online learning approach, very similar to language modeling used in <strong>NLP</strong>, where the goal is to generate word embeddings. In this case, generalizing the same concept, it merely tries to learn latent representations of nodes/vertices of a given graph. These graph embeddings, which capture neighborhood similarity and community membership, can then be used for learning downstream tasks on the graph. 
+This is the first in this blog series <font color="green"><b>Explained: Graph Representation Learning</b></font> and to discuss extraction useful graph features and node embeddings by considering the topology of the network graph using machine learning, this blog deals with Deep Walk. This is a simple unsupervised online learning approach, very similar to language modeling used in <strong>NLP</strong>, where the goal is to generate word embeddings. In this case, generalizing the same concept, it merely tries to learn latent representations of nodes/vertices of a given graph. These graph embeddings, which capture neighborhood similarity and community membership, can then be used for learning downstream tasks on the graph. 
 
 
 <center><img src="/images/blogs/DeepWalk/karate_to_embedding.jpg" width=500x/></center>
@@ -377,7 +377,12 @@ for i in range(8):
     20.0 26.0 25.0 27.0 6.0 3.0 0.0 90.0 
 
 <hr/>
+
+You can find our implementation made using PyTorch in the following notebook <b><font color="red">[Deep Walk](https://github.com/dsgiitr/graph_nets/blob/master/DeepWalk/DeepWalk_Blog+Code.ipynb)</font></b>. [graph_nets](https://github.com/dsgiitr/graph_nets)
+
 <h3>References</h3>
+
+- [Code & GitHub Repository](https://github.com/dsgiitr/graph_nets)
 
 - [DeepWalk: Online Learning of Social Representations](http://www.perozzi.net/publications/14_kdd_deepwalk.pdf)
 

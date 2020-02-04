@@ -12,9 +12,6 @@ tags: ["Graph Representation Learning"]
 <!-- # Understanding Graph Attention Networks (GAT) -->
 <h1><center>Understanding Graph Attention Networks (GAT)</center></h1>
 
-<!-- ![GAT Cover](GAT_Cover.jpg) -->
-<!-- <img src="images/blogs/GAT/GAT_Cover.jpg" width=700x/> -->
-
 This is 4th in the series of blogs <font color="green"><b>Explained: Graph Representation Learning</b></font>. Let's dive right in, assuming you have read the first three. GAT (Graph Attention Network), is a novel neural network architecture that operate on graph-structured data, leveraging masked self-attentional layers to address the shortcomings of prior methods based on graph convolutions or their approximations. By stacking layers in which nodes are able to attend over their neighborhoods’ features, the method enables (implicitly) specifying different weights to different nodes in a neighborhood, without requiring any kind of costly matrix operation (such as inversion) or depending on knowing the graph structure upfront. In this way, GAT addresses several key challenges of spectral-based graph neural networks simultaneously, and make the model readily applicable to inductive as well as transductive problems.
 
 Analyzing and Visualizing the learned attentional weights also lead to a more interpretable model in terms of importance of neighbors.
@@ -36,13 +33,11 @@ where $\mathcal{N}(i)$ is the set of its one-hop neighbors (to include $v_{i}$ i
 
 GAT introduces the attention mechanism as a substitute for the statically normalized convolution operation. The figure below clearly illustrates the key difference.
 
-<!-- {{< figure src="/images/blogs/GAT/GCN_vs_GAT.jpg" title="GCN vs GAT" width=800x class="floatcenter">}} -->
 <center><strong>GCN vs GAT</strong></center>
 <img src="/images/blogs/GAT/GCN_vs_GAT.jpg" width=800x/>
 
 <hr/>
 
-<!-- ## How does the attention work in GAT layer? -->
 <h1><center>How does the GAT layer work?</center></h1>
 
 The particular attentional setup utilized by GAT closely follows the work of `Bahdanau et al. (2015)` i.e <i>Additive Attention</i>, but the framework is agnostic to the particular choice of attention mechanism.
@@ -285,7 +280,11 @@ acc = correct / data.test_mask.sum().item()
 print('Accuracy: {:.4f}'.format(acc))
 ```
 
+You can find our implementation made using PyTorch Geometric at<b><font color="red">[GAT_PyG](https://github.com/dsgiitr/graph_nets/blob/master/GAT/GAT_PyG.py)</font></b> with GAT trained on a Citation Network, the Cora Dataset.
+
 ## References
+
+[Code & GitHub Repository](https://github.com/dsgiitr/graph_nets)
 
 [Graph Attention Networks](https://arxiv.org/abs/1710.10903)
 
