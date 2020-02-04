@@ -7,7 +7,7 @@ item    :
   item1    :
     - name  : UPCOMING EVENT
       title : Shristi Talk
-      order : 3
+      order : 1
       linkName : View Details->
       url : 
       description : >
@@ -24,7 +24,7 @@ item    :
   item3    :
     - name  : Past EVENT
       title : Kaggle Days
-      order : 1
+      order : 3
       linkName : View Details->
       url : /events
       description : >
