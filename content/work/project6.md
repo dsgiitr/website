@@ -1,7 +1,7 @@
 ---
 title: "Project-6"
 type: work
-date: 2019-12-01T23:40:49+00:00
+date: 2017-12-01T23:40:49+00:00
 description : "This is meta description"
 caption: Totam rem aperiam eaque ipsa quae illo inventore veritatis et quasi architebetea...
 image: images/work/item-6.svg

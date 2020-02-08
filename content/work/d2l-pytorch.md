@@ -4,7 +4,7 @@ type: work
 date: 2019-12-01T23:40:49+00:00
 description : "This is meta description"
 caption: This project reproduces the book Dive Into Deep Learning (www.d2l.ai), adapting the code from MXNet into PyTorch.
-image: https://drive.google.com/uc?export=view&id=1r8JrBO8m-eeHtOL-dYNDWEhJC26nuqhz
+image: images/work/d2l-pytorch.png
 author: Team DSG
 tags: ["Deep Learning", "PyTorch"]
 submitDate: Present
