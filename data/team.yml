@@ -1,26 +1,9 @@
 enable  : true
 title   : Team
 members  :
+
   - name  : Subham Sahoo
     image : images/team/team-1.svg
-    fbicon      : ion-social-facebook
-    fburl       : https://www.facebook.com/subham.sahoo.3910
-    githubicon : ion-social-github
-    githuburl  : https://www.github.com/subham103
-    linkedInicon: ion-social-linkedin
-    linkedInurl : https://www.linkedin.com/in/subham-sahoo-8066b9171/
-  
-  - name  : Shubham Chandel
-    image : images/team/team-2.svg
-    fbicon      : ion-social-facebook
-    fburl       : https://www.facebook.com/subham.sahoo.3910
-    githubicon : ion-social-github
-    githuburl  : https://www.github.com/subham103
-    linkedInicon: ion-social-linkedin
-    linkedInurl : https://www.linkedin.com/in/subham-sahoo-8066b9171/
-  
-  - name  : Saswat Das
-    image : images/team/team-3.svg
     fbicon      : ion-social-facebook
     fburl       : https://www.facebook.com/subham.sahoo.3910
     githubicon : ion-social-github
@@ -36,6 +19,24 @@ members  :
     githuburl  : https://www.github.com/anirudhdagar
     linkedInicon: ion-social-linkedin
     linkedInurl : https://www.linkedin.com/in/anirudh-dagar-19518a140/
+  
+  - name  : Prabhat Sharma
+    image : images/team/Prabhat_Sharma.jpeg
+    fbicon      : ion-social-facebook
+    fburl       : https://www.facebook.com/subham.sahoo.3910
+    githubicon : ion-social-github
+    githuburl  : https://www.github.com/subham103
+    linkedInicon: ion-social-linkedin
+    linkedInurl : https://www.linkedin.com/in/subham-sahoo-8066b9171/
+
+  - name  : Harshal Mittal
+    image : images/team/Harshal_Mittal.jpg
+    fbicon      : ion-social-facebook
+    fburl       : https://www.facebook.com/subham.sahoo.3910
+    githubicon : ion-social-github
+    githuburl  : https://www.github.com/subham103
+    linkedInicon: ion-social-linkedin
+    linkedInurl : https://www.linkedin.com/in/subham-sahoo-8066b9171/
 
   - name  : Shiva Gupta
     image : images/team/team-4.svg
@@ -54,9 +55,9 @@ members  :
     githuburl  : https://www.github.com/subham103
     linkedInicon: ion-social-linkedin
     linkedInurl : https://www.linkedin.com/in/subham-sahoo-8066b9171/
-  
-  - name  : Prabhat Sharma
-    image : images/team/team-3.svg
+
+  - name  : Ankit Biswas
+    image : images/team/Ankit_Biswas.jpg
     fbicon      : ion-social-facebook
     fburl       : https://www.facebook.com/subham.sahoo.3910
     githubicon : ion-social-github
@@ -64,8 +65,71 @@ members  :
     linkedInicon: ion-social-linkedin
     linkedInurl : https://www.linkedin.com/in/subham-sahoo-8066b9171/
 
-  - name  : Harshal Mittal
-    image : images/team/team-4.svg
+  - name  : Shashwat Gupta
+    image : images/team/Shashwat_Gupta.jpg
+    fbicon      : ion-social-facebook
+    fburl       : https://www.facebook.com/subham.sahoo.3910
+    githubicon : ion-social-github
+    githuburl  : https://www.github.com/subham103
+    linkedInicon: ion-social-linkedin
+    linkedInurl : https://www.linkedin.com/in/subham-sahoo-8066b9171/
+
+  - name  : YashVardhan Sharma
+    image : images/team/YashVardhan_Sharma.jpg
+    fbicon      : ion-social-facebook
+    fburl       : https://www.facebook.com/subham.sahoo.3910
+    githubicon : ion-social-github
+    githuburl  : https://www.github.com/subham103
+    linkedInicon: ion-social-linkedin
+    linkedInurl : https://www.linkedin.com/in/subham-sahoo-8066b9171/
+
+  - name  : Aaryan Garg
+    image : images/team/Aaryan_Garg.jpg
+    fbicon      : ion-social-facebook
+    fburl       : https://www.facebook.com/subham.sahoo.3910
+    githubicon : ion-social-github
+    githuburl  : https://www.github.com/subham103
+    linkedInicon: ion-social-linkedin
+    linkedInurl : https://www.linkedin.com/in/subham-sahoo-8066b9171/
+
+  - name  : Sahil Goyal
+    image : images/team/sahil_goyal.jpg
+    fbicon      : ion-social-facebook
+    fburl       : https://www.facebook.com/subham.sahoo.3910
+    githubicon : ion-social-github
+    githuburl  : https://www.github.com/subham103
+    linkedInicon: ion-social-linkedin
+    linkedInurl : https://www.linkedin.com/in/subham-sahoo-8066b9171/
+
+  - name  : Shikhar Saxena
+    image : images/team/SHIKHAR_SAXENA.jpg
+    fbicon      : ion-social-facebook
+    fburl       : https://www.facebook.com/subham.sahoo.3910
+    githubicon : ion-social-github
+    githuburl  : https://www.github.com/subham103
+    linkedInicon: ion-social-linkedin
+    linkedInurl : https://www.linkedin.com/in/subham-sahoo-8066b9171/
+
+  - name  : Akshit Mittal
+    image : images/team/akshit_mittal.jpg
+    fbicon      : ion-social-facebook
+    fburl       : https://www.facebook.com/subham.sahoo.3910
+    githubicon : ion-social-github
+    githuburl  : https://www.github.com/subham103
+    linkedInicon: ion-social-linkedin
+    linkedInurl : https://www.linkedin.com/in/subham-sahoo-8066b9171/
+  
+  - name  : Shubham Chandel
+    image : images/team/team-2.svg
+    fbicon      : ion-social-facebook
+    fburl       : https://www.facebook.com/subham.sahoo.3910
+    githubicon : ion-social-github
+    githuburl  : https://www.github.com/subham103
+    linkedInicon: ion-social-linkedin
+    linkedInurl : https://www.linkedin.com/in/subham-sahoo-8066b9171/
+  
+  - name  : Saswat Das
+    image : images/team/team-3.svg
     fbicon      : ion-social-facebook
     fburl       : https://www.facebook.com/subham.sahoo.3910
     githubicon : ion-social-github
