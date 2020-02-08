@@ -56,5 +56,14 @@
       <description>Understanding Graph Attention Networks (GAT) This is 4th in the series of blogs Explained: Graph Representation Learning.</description>
     </item>
     
+    <item>
+      <title>Explained: Graph Representation Learning</title>
+      <link>/work/graph_nets/</link>
+      <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
+      
+      <guid>/work/graph_nets/</guid>
+      <description>This project is a supplement to our blog series Explained: Graph Representation Learning. The following major papers and corresponding blogs have been covered as part of the series and we look to add blogs on a few other significant works in the field.</description>
+    </item>
+    
   </channel>
 </rss>

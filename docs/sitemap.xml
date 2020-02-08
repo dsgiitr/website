@@ -43,17 +43,22 @@
   </url>
   
   <url>
-    <loc>/tags/3d-model/</loc>
-    <lastmod>2019-12-01T23:40:49+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/about/</loc>
     <lastmod>2019-12-01T23:40:49+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/bag/</loc>
+    <loc>/work/adversarial_lab/</loc>
+    <lastmod>2019-12-01T23:40:49+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/adversarial-ml/</loc>
+    <lastmod>2019-12-01T23:40:49+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/bert/</loc>
     <lastmod>2019-12-01T23:40:49+00:00</lastmod>
   </url>
   
@@ -63,17 +68,12 @@
   </url>
   
   <url>
-    <loc>/work/project1/</loc>
+    <loc>/work/d2l-pytorch/</loc>
     <lastmod>2019-12-01T23:40:49+00:00</lastmod>
   </url>
   
   <url>
     <loc>/tags/deep-learning/</loc>
-    <lastmod>2019-12-01T23:40:49+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/design/</loc>
     <lastmod>2019-12-01T23:40:49+00:00</lastmod>
   </url>
   
@@ -118,12 +118,27 @@
   </url>
   
   <url>
+    <loc>/work/graph_nets/</loc>
+    <lastmod>2019-12-01T23:40:49+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/work/eye-in-the-sky-image_segmentation_challenge/</loc>
+    <lastmod>2019-12-01T23:40:49+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/tags/fashion/</loc>
     <lastmod>2019-12-01T23:40:49+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/letters/</loc>
+    <loc>/tags/image-segmentation/</loc>
+    <lastmod>2019-12-01T23:40:49+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/keras/</loc>
     <lastmod>2019-12-01T23:40:49+00:00</lastmod>
   </url>
   
@@ -133,7 +148,12 @@
   </url>
   
   <url>
-    <loc>/tags/mockup/</loc>
+    <loc>/tags/nlp/</loc>
+    <lastmod>2019-12-01T23:40:49+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/work/number_plate_detection/</loc>
     <lastmod>2019-12-01T23:40:49+00:00</lastmod>
   </url>
   
@@ -143,67 +163,17 @@
   </url>
   
   <url>
-    <loc>/tags/product/</loc>
-    <lastmod>2019-12-01T23:40:49+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/work/project10/</loc>
-    <lastmod>2019-12-01T23:40:49+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/work/project11/</loc>
-    <lastmod>2019-12-01T23:40:49+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/work/project12/</loc>
-    <lastmod>2019-12-01T23:40:49+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/work/project2/</loc>
-    <lastmod>2019-12-01T23:40:49+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/work/project3/</loc>
-    <lastmod>2019-12-01T23:40:49+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/work/project4/</loc>
-    <lastmod>2019-12-01T23:40:49+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/work/project5/</loc>
-    <lastmod>2019-12-01T23:40:49+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/work/project6/</loc>
-    <lastmod>2019-12-01T23:40:49+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/work/project7/</loc>
-    <lastmod>2019-12-01T23:40:49+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/work/project8/</loc>
-    <lastmod>2019-12-01T23:40:49+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/work/project9/</loc>
-    <lastmod>2019-12-01T23:40:49+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/tags/pytorch/</loc>
+    <lastmod>2019-12-01T23:40:49+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/reinforcement-learning/</loc>
+    <lastmod>2019-12-01T23:40:49+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/work/rl_2048/</loc>
     <lastmod>2019-12-01T23:40:49+00:00</lastmod>
   </url>
   
@@ -213,7 +183,7 @@
   </url>
   
   <url>
-    <loc>/tags/typography/</loc>
+    <loc>/work/sarcasm_detection/</loc>
     <lastmod>2019-12-01T23:40:49+00:00</lastmod>
   </url>
   
@@ -235,6 +205,51 @@
   <url>
     <loc>/blogs/godnet/</loc>
     <lastmod>2019-03-27T23:40:49+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/loss-functions/</loc>
+    <lastmod>2018-12-01T23:40:49+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/visualization/</loc>
+    <lastmod>2018-12-01T23:40:49+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/work/visualizing-loss-functions/</loc>
+    <lastmod>2018-12-01T23:40:49+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/3d-model/</loc>
+    <lastmod>2017-12-01T23:40:49+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/work/neural_style_transfer/</loc>
+    <lastmod>2017-12-01T23:40:49+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/product/</loc>
+    <lastmod>2017-12-01T23:40:49+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/work/project6/</loc>
+    <lastmod>2017-12-01T23:40:49+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/work/project7/</loc>
+    <lastmod>2017-12-01T23:40:49+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/work/project8/</loc>
+    <lastmod>2017-12-01T23:40:49+00:00</lastmod>
   </url>
   
   <url>

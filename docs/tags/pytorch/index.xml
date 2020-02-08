@@ -12,12 +12,30 @@
     
     
     <item>
-      <title>d2l-pytorch</title>
-      <link>/work/project1/</link>
+      <title>Adversarial Lab</title>
+      <link>/work/adversarial_lab/</link>
       <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
       
-      <guid>/work/project1/</guid>
+      <guid>/work/adversarial_lab/</guid>
+      <description>Adversarial Lab This project is a Web-based Tool for visualisation and generation of adversarial examples by attacking ImageNet Models like VGG, AlexNet, ResNet etc.</description>
+    </item>
+    
+    <item>
+      <title>d2l-pytorch</title>
+      <link>/work/d2l-pytorch/</link>
+      <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
+      
+      <guid>/work/d2l-pytorch/</guid>
       <description>d2l-pytorch This project is adapted from the original Dive Into Deep Learning book by Aston Zhang, Zachary C.</description>
+    </item>
+    
+    <item>
+      <title>Explained: Graph Representation Learning</title>
+      <link>/work/graph_nets/</link>
+      <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
+      
+      <guid>/work/graph_nets/</guid>
+      <description>This project is a supplement to our blog series Explained: Graph Representation Learning. The following major papers and corresponding blogs have been covered as part of the series and we look to add blogs on a few other significant works in the field.</description>
     </item>
     
   </channel>

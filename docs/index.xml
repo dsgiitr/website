@@ -57,11 +57,20 @@
     </item>
     
     <item>
-      <title>d2l-pytorch</title>
-      <link>/work/project1/</link>
+      <title>Adversarial Lab</title>
+      <link>/work/adversarial_lab/</link>
       <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
       
-      <guid>/work/project1/</guid>
+      <guid>/work/adversarial_lab/</guid>
+      <description>Adversarial Lab This project is a Web-based Tool for visualisation and generation of adversarial examples by attacking ImageNet Models like VGG, AlexNet, ResNet etc.</description>
+    </item>
+    
+    <item>
+      <title>d2l-pytorch</title>
+      <link>/work/d2l-pytorch/</link>
+      <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
+      
+      <guid>/work/d2l-pytorch/</guid>
       <description>d2l-pytorch This project is adapted from the original Dive Into Deep Learning book by Aston Zhang, Zachary C.</description>
     </item>
     
@@ -120,102 +129,48 @@
     </item>
     
     <item>
-      <title>Project-10</title>
-      <link>/work/project10/</link>
+      <title>Explained: Graph Representation Learning</title>
+      <link>/work/graph_nets/</link>
       <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
       
-      <guid>/work/project10/</guid>
-      <description>Consectur in Bibendum Totam rem aperiam eaque ipsa quae illo inventore veritatis et quasi architebetea.vitae dicta sunt explicabo.</description>
+      <guid>/work/graph_nets/</guid>
+      <description>This project is a supplement to our blog series Explained: Graph Representation Learning. The following major papers and corresponding blogs have been covered as part of the series and we look to add blogs on a few other significant works in the field.</description>
     </item>
     
     <item>
-      <title>Project-11</title>
-      <link>/work/project11/</link>
+      <title>Eye In The Sky: Image Segmentation Challenge Inter IIT 2019</title>
+      <link>/work/eye-in-the-sky-image_segmentation_challenge/</link>
       <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
       
-      <guid>/work/project11/</guid>
-      <description>Consectur in Bibendum Totam rem aperiam eaque ipsa quae illo inventore veritatis et quasi architebetea.vitae dicta sunt explicabo.</description>
+      <guid>/work/eye-in-the-sky-image_segmentation_challenge/</guid>
+      <description>This is the winning code for &amp;ldquo;Eye In The Sky&amp;rdquo; Satellite Image Segmentation Competetion as a part of Inter-IIT Tech Meet 2019 hosted by IIT Bombay.</description>
     </item>
     
     <item>
-      <title>Project-12</title>
-      <link>/work/project12/</link>
+      <title>Number Plate Detection</title>
+      <link>/work/number_plate_detection/</link>
       <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
       
-      <guid>/work/project12/</guid>
-      <description>Consectur in Bibendum Totam rem aperiam eaque ipsa quae illo inventore veritatis et quasi architebetea.vitae dicta sunt explicabo.</description>
+      <guid>/work/number_plate_detection/</guid>
+      <description>Number Plate Detection System This project aims to detect vehicles entering the campus of IIT Roorkee, recording the Number Plates for security purposes.</description>
     </item>
     
     <item>
-      <title>Project-2</title>
-      <link>/work/project2/</link>
+      <title>Reinforcement Learning 2048</title>
+      <link>/work/rl_2048/</link>
       <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
       
-      <guid>/work/project2/</guid>
-      <description>Consectur in Bibendum Totam rem aperiam eaque ipsa quae illo inventore veritatis et quasi architebetea.vitae dicta sunt explicabo.</description>
+      <guid>/work/rl_2048/</guid>
+      <description>Q Learning Agent to Play 2048 Implementation of deep Q-network to play the game 2048 using Keras.</description>
     </item>
     
     <item>
-      <title>Project-3</title>
-      <link>/work/project3/</link>
+      <title>Sarcasm Detection</title>
+      <link>/work/sarcasm_detection/</link>
       <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
       
-      <guid>/work/project3/</guid>
-      <description>Consectur in Bibendum Totam rem aperiam eaque ipsa quae illo inventore veritatis et quasi architebetea.vitae dicta sunt explicabo.</description>
-    </item>
-    
-    <item>
-      <title>Project-4</title>
-      <link>/work/project4/</link>
-      <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
-      
-      <guid>/work/project4/</guid>
-      <description>Consectur in Bibendum Totam rem aperiam eaque ipsa quae illo inventore veritatis et quasi architebetea.vitae dicta sunt explicabo.</description>
-    </item>
-    
-    <item>
-      <title>Project-5</title>
-      <link>/work/project5/</link>
-      <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
-      
-      <guid>/work/project5/</guid>
-      <description>Consectur in Bibendum Totam rem aperiam eaque ipsa quae illo inventore veritatis et quasi architebetea.vitae dicta sunt explicabo.</description>
-    </item>
-    
-    <item>
-      <title>Project-6</title>
-      <link>/work/project6/</link>
-      <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
-      
-      <guid>/work/project6/</guid>
-      <description>Consectur in Bibendum Totam rem aperiam eaque ipsa quae illo inventore veritatis et quasi architebetea.vitae dicta sunt explicabo.</description>
-    </item>
-    
-    <item>
-      <title>Project-7</title>
-      <link>/work/project7/</link>
-      <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
-      
-      <guid>/work/project7/</guid>
-      <description>Consectur in Bibendum Totam rem aperiam eaque ipsa quae illo inventore veritatis et quasi architebetea.vitae dicta sunt explicabo.</description>
-    </item>
-    
-    <item>
-      <title>Project-8</title>
-      <link>/work/project8/</link>
-      <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
-      
-      <guid>/work/project8/</guid>
-      <description>Consectur in Bibendum Totam rem aperiam eaque ipsa quae illo inventore veritatis et quasi architebetea.vitae dicta sunt explicabo.</description>
-    </item>
-    
-    <item>
-      <title>Project-9</title>
-      <link>/work/project9/</link>
-      <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
-      
-      <guid>/work/project9/</guid>
-      <description>Consectur in Bibendum Totam rem aperiam eaque ipsa quae illo inventore veritatis et quasi architebetea.vitae dicta sunt explicabo.</description>
+      <guid>/work/sarcasm_detection/</guid>
+      <description></description>
     </item>
     
     <item>
@@ -234,6 +189,51 @@
       
       <guid>/blogs/godnet/</guid>
       <description>“Have you ever questioned the nature of your reality, Dolores?” — Westworld. “Are you living in a computer simulation?</description>
+    </item>
+    
+    <item>
+      <title>Visualizing Loss Functions</title>
+      <link>/work/visualizing-loss-functions/</link>
+      <pubDate>Sat, 01 Dec 2018 23:40:49 +0000</pubDate>
+      
+      <guid>/work/visualizing-loss-functions/</guid>
+      <description>Visualising different loss and optimisation functions using Autoencoder. The aim of the project was to reconstruct images with the help of Autoencoders to visualise the difference in output when different loss or optimisation functions are used.</description>
+    </item>
+    
+    <item>
+      <title>Neural Style Transfer</title>
+      <link>/work/neural_style_transfer/</link>
+      <pubDate>Fri, 01 Dec 2017 23:40:49 +0000</pubDate>
+      
+      <guid>/work/neural_style_transfer/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Project-6</title>
+      <link>/work/project6/</link>
+      <pubDate>Fri, 01 Dec 2017 23:40:49 +0000</pubDate>
+      
+      <guid>/work/project6/</guid>
+      <description>Consectur in Bibendum Totam rem aperiam eaque ipsa quae illo inventore veritatis et quasi architebetea.vitae dicta sunt explicabo.</description>
+    </item>
+    
+    <item>
+      <title>Project-7</title>
+      <link>/work/project7/</link>
+      <pubDate>Fri, 01 Dec 2017 23:40:49 +0000</pubDate>
+      
+      <guid>/work/project7/</guid>
+      <description>Consectur in Bibendum Totam rem aperiam eaque ipsa quae illo inventore veritatis et quasi architebetea.vitae dicta sunt explicabo.</description>
+    </item>
+    
+    <item>
+      <title>Project-8</title>
+      <link>/work/project8/</link>
+      <pubDate>Fri, 01 Dec 2017 23:40:49 +0000</pubDate>
+      
+      <guid>/work/project8/</guid>
+      <description>Consectur in Bibendum Totam rem aperiam eaque ipsa quae illo inventore veritatis et quasi architebetea.vitae dicta sunt explicabo.</description>
     </item>
     
     <item>

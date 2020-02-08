@@ -21,20 +21,20 @@
     </item>
     
     <item>
-      <title>3d-model</title>
-      <link>/tags/3d-model/</link>
+      <title>Adversarial ML</title>
+      <link>/tags/adversarial-ml/</link>
       <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
       
-      <guid>/tags/3d-model/</guid>
+      <guid>/tags/adversarial-ml/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>bag</title>
-      <link>/tags/bag/</link>
+      <title>BERT</title>
+      <link>/tags/bert/</link>
       <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
       
-      <guid>/tags/bag/</guid>
+      <guid>/tags/bert/</guid>
       <description></description>
     </item>
     
@@ -44,15 +44,6 @@
       <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
       
       <guid>/tags/deep-learning/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>design</title>
-      <link>/tags/design/</link>
-      <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
-      
-      <guid>/tags/design/</guid>
       <description></description>
     </item>
     
@@ -75,11 +66,20 @@
     </item>
     
     <item>
-      <title>letters</title>
-      <link>/tags/letters/</link>
+      <title>Image Segmentation</title>
+      <link>/tags/image-segmentation/</link>
       <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
       
-      <guid>/tags/letters/</guid>
+      <guid>/tags/image-segmentation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Keras</title>
+      <link>/tags/keras/</link>
+      <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
+      
+      <guid>/tags/keras/</guid>
       <description></description>
     </item>
     
@@ -93,11 +93,11 @@
     </item>
     
     <item>
-      <title>mockup</title>
-      <link>/tags/mockup/</link>
+      <title>NLP</title>
+      <link>/tags/nlp/</link>
       <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
       
-      <guid>/tags/mockup/</guid>
+      <guid>/tags/nlp/</guid>
       <description></description>
     </item>
     
@@ -111,20 +111,20 @@
     </item>
     
     <item>
-      <title>product</title>
-      <link>/tags/product/</link>
-      <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
-      
-      <guid>/tags/product/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>PyTorch</title>
       <link>/tags/pytorch/</link>
       <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
       
       <guid>/tags/pytorch/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Reinforcement Learning</title>
+      <link>/tags/reinforcement-learning/</link>
+      <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
+      
+      <guid>/tags/reinforcement-learning/</guid>
       <description></description>
     </item>
     
@@ -138,20 +138,47 @@
     </item>
     
     <item>
-      <title>typography</title>
-      <link>/tags/typography/</link>
-      <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
-      
-      <guid>/tags/typography/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Beginner</title>
       <link>/tags/beginner/</link>
       <pubDate>Sun, 04 Aug 2019 23:40:49 +0000</pubDate>
       
       <guid>/tags/beginner/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Loss Functions</title>
+      <link>/tags/loss-functions/</link>
+      <pubDate>Sat, 01 Dec 2018 23:40:49 +0000</pubDate>
+      
+      <guid>/tags/loss-functions/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Visualization</title>
+      <link>/tags/visualization/</link>
+      <pubDate>Sat, 01 Dec 2018 23:40:49 +0000</pubDate>
+      
+      <guid>/tags/visualization/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>3d-model</title>
+      <link>/tags/3d-model/</link>
+      <pubDate>Fri, 01 Dec 2017 23:40:49 +0000</pubDate>
+      
+      <guid>/tags/3d-model/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>product</title>
+      <link>/tags/product/</link>
+      <pubDate>Fri, 01 Dec 2017 23:40:49 +0000</pubDate>
+      
+      <guid>/tags/product/</guid>
       <description></description>
     </item>
     

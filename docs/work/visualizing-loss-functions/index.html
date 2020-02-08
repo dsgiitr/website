@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en-us"><head>
+  <!-- Basic Page Needs -->
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  
+  <meta name="description" content="This is meta description">
+  <meta name="author" content="DSG">
+  <meta name="generator" content="Hugo 0.61.0" />
+  
+  <!-- Mobile Specific Metas -->
+  <meta name="format-detection" content="telephone=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Visualizing Loss Functions</title>
+  <link rel="icon" href="/images/dsg.ico">
+
+  <!-- Twitter Bootstrs CSS -->
+  <link rel="stylesheet" href="/plugins/bootstrap/bootstrap.min.css">
+  <!-- Ionicons Fonts Css -->
+  <link rel="stylesheet" href="/plugins/ionicons/ionicons.min.css">
+  <!-- animate css -->
+  <link rel="stylesheet" href="/plugins/animate-css/animate.css">
+  <!-- Hero area slider css-->
+  <link rel="stylesheet" href="/plugins/slider/slider.css">
+  <!-- slick slider -->
+  <link rel="stylesheet" href="/plugins/slick/slick.css">
+  <!-- Fancybox -->
+  <link rel="stylesheet" href="/plugins/facncybox/jquery.fancybox.css">
+  <!-- hover -->
+  <link rel="stylesheet" href="/plugins/hover/hover-min.css">
+  <!-- template main css file -->
+  
+  <link rel="stylesheet" href="/css/style.min.css" integrity="" media="screen">
+</head><body><section class="top-bar animated-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <a class="navbar-brand" href="/">
+                        <img id="logo" src="/images/dsg.png" alt="logo">
+                        <span class="logoText">DSG</span>
+                    </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
+                        aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navigation">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item">
+                                <a class="nav-link"
+                                    href="/">Home
+                                </a>
+                            </li>
+                            
+                            <li class="nav-item">
+                                
+                                    <a class="nav-link" href="/#works">Work</a>
+                                
+                                
+                                
+                            </li>
+                            
+                            <li class="nav-item">
+                                
+                                
+                                    <a class="nav-link" href="/events">Events</a>
+                                
+                                
+                            </li>
+                            
+                            <li class="nav-item">
+                                
+                                
+                                    <a class="nav-link" href="/blogs">Blogs</a>
+                                
+                                
+                            </li>
+                            
+                            <li class="nav-item">
+                                
+                                
+                                    <a class="nav-link" href="/about">About</a>
+                                
+                                
+                            </li>
+                            
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="global-page-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="block">
+                    <h2>Visualizing Loss Functions</h2>
+                    <div class="portfolio-meta">
+                        <span>Saturday, Dec 1, 2018</span>|
+                        <span> Tags:
+                            Deep Learning, Visualization, Loss Functions
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="single-post">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                
+                <div class="post-img">
+                    <img class="img-fluid-work" alt="" src="/images/work/item-5.svg">
+                </div>
+                
+                <div class="post-content">
+                    <h1 id="visualising-different-loss-and-optimisation-functions-using-autoencoder">Visualising different loss and optimisation functions using Autoencoder.</h1>
+<p>The aim of the project was to reconstruct images with the help of Autoencoders to visualise the difference
+in output when different loss or optimisation functions are used.
+A very simple dataset, MNIST dataset was used for this purpose.</p>
+<p>While training a neural network, gradient is calculated according to a given loss function. I compared the results of three
+regression criterion functions.</p>
+<ol>
+<li>Absolute criterion</li>
+<li>Mean Square Error criterion</li>
+<li>Smooth L1 criterion</li>
+</ol>
+<p><img src="/Results_loss.jpg?raw=true" alt="Results of loss functions" title="Results using different loss function"></p>
+<p>While the Absolute error just calculated the mean absolute value between of the pixel-wise difference, Mean Square error uses
+mean squared error. Thus it is more sensitive to outliers and pushes pixel value towards 1 (in our case, white as can be seen in image
+after first epoch itself)</p>
+<p>Smooth L1 error can be thought of as a smooth version of the Absolute error.
+It uses a squared term if the squared element-wise error falls below 1 and L1 distance otherwise.
+It is less sensitive to outliers than the Mean Squared Error and in some cases prevents exploding gradients.</p>
+<p>Optimization algorithms helps us to minimize the Loss functions by updating Weights and Biases and reach
+to the global minima. Some algorithms give faster and slightly better results based on the dataset.
+We used three first order optimisation functions:</p>
+<ol>
+<li>Stochastic Gradient Decent</li>
+<li>Adagrad</li>
+<li>Adam</li>
+</ol>
+<p>Gradient Descent calcultes gradient for the whole dataset and updates values in direction opposite to the gradients until we find a local minima.
+Stochastic Gradient Descent performs a parameter update for each training example unlike normal Gradient Descent which performs only
+one update. Thus it is much faster.
+Gradient Decent algorithms can further be improved by tuning important parametes like momentum, learning rate etc.</p>
+<p>Adagrad is more preferrable for a sparse data set as it makes big updates for infrequent parameters and small updates for frequent
+parameters. It uses a different learning Rate for every parameter θ at a time step based on the past gradients which were computed for that parameter. Thus we do not need to manually tune the learning rate.</p>
+<p>Adam stands for Adaptive Moment Estimation. It also calculates different learning rate. Adam works well in practice, is faster, and outperforms other techniques.</p>
+<p><img src="/result_optimiser.jpg?raw=true" alt="Results of optimisers" title="Results using different loss function"></p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer Section Start -->
+<footer id="footer">
+    <div class="container" id="footer-container">
+        <div class="row content-justify-between">
+            <div style="width: 100%;">
+                <p class="copyright">
+                    Contact Us
+                </p>
+            </div>
+            <div class="col-md-7 col-12 text-lg-left text-md-left">
+                <!-- Social Media -->
+                <ul class="social">
+                    
+                    <li><a href="https://www.facebook.com/dsgiitr/"><i class="ion-social-facebook"></i></a></li>
+                    
+                    <li><a href="https://github.com/dsgiitr"><i class="ion-social-github"></i></a></li>
+                    
+                    <li><a href="https://www.linkedin.com/company/26638705/"><i class="ion-social-linkedin"></i></a></li>
+                    
+                    
+                    <li style="float: right; color: #FFFFFF;"><i class="ion-closed-captioning"></i> DSG IITR</li>
+                    
+                </ul>
+            </div>
+            <div class="col-md-5 col-12 text-lg-left text-md-left location-foot">
+                
+                <div style="float: right; color: #FFFFFF;">
+                    <i class="ion-ios-location" style="color: #000;"></i> New Sac Building, IIT Roorkee
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    
+    <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+  });
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+
+  MathJax.Hub.Config({
+  
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+  });
+</script>
+</footer>
+<!-- footer section end -->
+
+
+<!-- jquery -->
+<script src="/plugins/jQurey/jquery.min.js"></script>
+<!-- Form Validation -->
+<script src="/plugins/form-validation/jquery.form.js"></script>
+<script src="/plugins/form-validation/jquery.validate.min.js"></script>
+<!-- slick slider -->
+<script src="/plugins/slick/slick.min.js"></script>
+<!-- bootstrap js -->
+<script src="/plugins/bootstrap/bootstrap.min.js"></script>
+<!-- wow js -->
+<script src="/plugins/wow-js/wow.min.js"></script>
+<!-- slider js -->
+<script src="/plugins/slider/slider.js"></script>
+<!-- Fancybox -->
+<script src="/plugins/facncybox/jquery.fancybox.js"></script>
+<!-- template main js -->
+
+<script src="/js/script.min.js"></script>
+<!-- google analitycs -->
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', '', 'auto');
+    ga('send', 'pageview');
+</script>
+<script type="text/javascript" src="/plugins/particlesjs/particles.min.js"></script>
+<script type="text/javascript" src="/plugins/particlesjs/demo/js/app.js"></script></body>
+</html>
