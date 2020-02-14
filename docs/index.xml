@@ -291,6 +291,15 @@
     </item>
     
     <item>
+      <title>Logistic Regression. Simplified.</title>
+      <link>/blogs/logistic_regression/</link>
+      <pubDate>Thu, 18 May 2017 23:40:49 +0000</pubDate>
+      
+      <guid>/blogs/logistic_regression/</guid>
+      <description>After the basics of Regression, it’s time for basics of Classification. And, what can be easier than Logistic Regression!</description>
+    </item>
+    
+    <item>
       <title>Singular Value Decomposition. Elucidated.</title>
       <link>/blogs/svd/</link>
       <pubDate>Thu, 18 May 2017 23:40:49 +0000</pubDate>
