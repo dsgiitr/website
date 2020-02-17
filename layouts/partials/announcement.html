@@ -9,7 +9,7 @@
             {{ range $index, $elemrnt := .Site.Data.announcement.item }}
             <div class="ann-content">
                 {{ $delay := 300 }}
-                <div class="media wow fadeInUp animated" data-wow-duration="500ms" data-wow-delay="{{ $delay }}ms">
+                <div class="media wow fadeInUp animated announcement-flex" data-wow-duration="500ms" data-wow-delay="{{ $delay }}ms">
                     {{ range $index, $ele := $elemrnt }}
                         {{ $val := add 1 $index }}
                         {{ $top := print "media-top" $val }}
@@ -18,20 +18,20 @@
                         {{ $link := print "media-link" $val }}
 
                         {{ if eq .order 1 }}
-                            <div class="first-Section {{ $top }}">
+                            <div class="first-Section {{ $top }}" style='margin: 1.5rem 2rem;'>
                                 {{ with .name }}<p>{{ . }}</p>{{ end }}
                             </div>
                         {{ end }}
                         {{ if ne .order 1 }}
-                            <div class="{{ $top }}">
+                            <div class="{{ $top }}" style='margin: 1.5rem 2rem;'>
                                 {{ with .name }}<p>{{ . }}</p>{{ end }}
                             </div>
                         {{ end }}
 
-                        <div class="{{ $middle }}">
+                        <div class="{{ $middle }}" style="margin: 0 0.5rem 0 1rem; height: max-content;">
                             {{ with .title }}<p>{{ . }}</p>{{ end }}
                         </div>
-                        <div class="{{ $bottom }}">
+                        <div class="{{ $bottom }}" style="margin: 0 1rem;">
                             {{ with .description }}<p style="font-size: 15px;">{{ . }}</p>{{ end }}
                         </div>
                         <div class="{{ $link }}">
