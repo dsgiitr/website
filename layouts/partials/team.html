@@ -9,7 +9,7 @@
             {{ range $index, $element:= .Site.Data.team.members }}
             <div class="col-md-3 col-sm-6">
                 {{ $delay := mul $index 300 }}
-                <figure class="wow fadeInLeft animated team-item" data-wow-duration="500ms" data-wow-delay="{{ $delay }}ms">
+                <figure class="wow fadeInLeft animated team-item zoomIn" data-wow-duration="500ms" data-wow-delay="{{ $delay }}ms">
                     <div class="img-wrapper-team">
                         <div class="social-btn">
                             <a href="{{ .fburl }}" class="social-link"><i class="{{ with .fbicon }} {{ . }} {{ end }}"></i></a>
@@ -40,7 +40,7 @@
             {{ range $index, $element:= .Site.Data.alumni.members }}
             <div class="col-md-3 col-sm-6">
                 {{ $delay := mul $index 300 }}
-                <figure class="wow fadeInLeft animated team-item" data-wow-duration="500ms" data-wow-delay="{{ $delay }}ms">
+                <figure class="wow fadeInLeft animated team-item zoomIn" data-wow-duration="500ms" data-wow-delay="{{ $delay }}ms">
                     <div class="img-wrapper-team">
                         <div class="social-btn">
                             <a href="{{ .fburl }}" class="social-link"><i class="{{ with .fbicon }} {{ . }} {{ end }}"></i></a>
