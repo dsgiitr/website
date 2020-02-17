@@ -4,7 +4,7 @@ type: work
 date: 2019-12-01T23:40:49+00:00
 description : "This is meta description"
 caption: Totam rem aperiam eaque ipsa quae illo inventore veritatis et quasi architebetea...
-image: https://github.com/dsgiitr/np_detection/blob/master/photos/sample.png
+image: images/work/npDetection.jpg
 author: Subham Sahoo, Vipul Bansal, Ankit Aharwal
 tags: ["fashion","package"]
 submitDate: November 20, 2017

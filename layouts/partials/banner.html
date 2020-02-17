@@ -14,7 +14,7 @@
                     </section>
                     {{ with .Site.Params.banner.description }}<h2 id="landing-text" class="wow fadeInUp animated inter" data-wow-delay=".6s">{{ . }}</h2>{{ end }}
                         <h2 id="landing-subText" class="typewrite typewriteStl" data-period="2000" data-type='[ "Code", "Train", "Predict" ]'>
-                        <span class="wrap"></span>
+                        <span class="wrap">_</span>
                         </h2>
                     <div class="div-project">
                         <span class="view-project"><a href="{{ .Site.Params.banner.projectLink }}">View & Explore</a></span>
@@ -51,7 +51,7 @@
         this.txt = fullTxt.substring(0, this.txt.length + 1);
         }
 
-        this.el.innerHTML = '<span class="wrap">'+this.txt+'</span>';
+        this.el.innerHTML = '<span class="wrap">'+this.txt+'_</span>';
 
         var that = this;
         var delta = 200 - Math.random() * 100;
