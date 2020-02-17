@@ -6,7 +6,7 @@
   
   <meta name="description" content="Machine Learning / Graph Representation Learning">
   <meta name="author" content="DSG">
-  <meta name="generator" content="Hugo 0.61.0" />
+  <meta name="generator" content="Hugo 0.64.1" />
   
   <!-- Mobile Specific Metas -->
   <meta name="format-detection" content="telephone=no">
@@ -122,9 +122,9 @@
                 <div class="post-content">
                     <!-- # Understanding Graph Attention Networks (GAT) -->
 <h1><center>Understanding Graph Attention Networks (GAT)</center></h1>
-<p>This is 4th in the series of blogs <font color="green"><b>Explained: Graph Representation Learning</b></font>. Let's dive right in, assuming you have read the first three. GAT (Graph Attention Network), is a novel neural network architecture that operate on graph-structured data, leveraging masked self-attentional layers to address the shortcomings of prior methods based on graph convolutions or their approximations. By stacking layers in which nodes are able to attend over their neighborhoods’ features, the method enables (implicitly) specifying different weights to different nodes in a neighborhood, without requiring any kind of costly matrix operation (such as inversion) or depending on knowing the graph structure upfront. In this way, GAT addresses several key challenges of spectral-based graph neural networks simultaneously, and make the model readily applicable to inductive as well as transductive problems.</p>
+<p>This is 4th in the series of blogs <font color="green"><b>Explained: Graph Representation Learning</b></font>. Let&rsquo;s dive right in, assuming you have read the first three. GAT (Graph Attention Network), is a novel neural network architecture that operate on graph-structured data, leveraging masked self-attentional layers to address the shortcomings of prior methods based on graph convolutions or their approximations. By stacking layers in which nodes are able to attend over their neighborhoods’ features, the method enables (implicitly) specifying different weights to different nodes in a neighborhood, without requiring any kind of costly matrix operation (such as inversion) or depending on knowing the graph structure upfront. In this way, GAT addresses several key challenges of spectral-based graph neural networks simultaneously, and make the model readily applicable to inductive as well as transductive problems.</p>
 <p>Analyzing and Visualizing the learned attentional weights also lead to a more interpretable model in terms of importance of neighbors.</p>
-<p>But before getting into the meat of this method, I want you to be familiar and thorough with the Attention Mechanism, because we'll be building GATs on the concept of <b>Self Attention</b> and <b>Multi-Head Attention</b> introduced by <b><i>Vaswani et al.</i></b>
+<p>But before getting into the meat of this method, I want you to be familiar and thorough with the Attention Mechanism, because we&rsquo;ll be building GATs on the concept of <b>Self Attention</b> and <b>Multi-Head Attention</b> introduced by <b><i>Vaswani et al.</i></b>
 If not, you may read this blog, <a href="http://jalammar.github.io/illustrated-transformer/">The Illustrated Transformer</a> by Jay Alamar.</p>
 <hr/>
 <h1><center>Can we do better than GCNs?</center></h1>

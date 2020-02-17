@@ -6,7 +6,7 @@
   
   <meta name="description" content="Machine Learning / Graph Representation Learning">
   <meta name="author" content="DSG">
-  <meta name="generator" content="Hugo 0.61.0" />
+  <meta name="generator" content="Hugo 0.64.1" />
   
   <!-- Mobile Specific Metas -->
   <meta name="format-detection" content="telephone=no">
@@ -128,7 +128,7 @@ In the (GCN or DeepWalk) model, the graph was fixed beforehand, let's say the <b
 <center><img src="/images/blogs/GraphSAGE/karate_club.png" width=800x/></center>
 <center><strong>Zachary Karate Club</strong></center>
 <br/>
-<p>In this problem, the nodes in this graph were fixed from the beginning, and all the predictions were to be made on these fixed nodes only. In contrast to this, take an example where &lsquo;Youtube&rsquo; videos are the nodes and assume there is an edge between the related videos, and say we need to classify these videos depending on the content. If we take the same model as in the previous dataset, we can classify all these videos, but whenever a new video is added to &lsquo;YouTube&rsquo;, we'll have to re-train the model on the entire new dataset again to classify it. Due to too many videos or nodes being added, it is not computationaly feasible for us to re-train everytime.</p>
+<p>In this problem, the nodes in this graph were fixed from the beginning, and all the predictions were to be made on these fixed nodes only. In contrast to this, take an example where &lsquo;Youtube&rsquo; videos are the nodes and assume there is an edge between the related videos, and say we need to classify these videos depending on the content. If we take the same model as in the previous dataset, we can classify all these videos, but whenever a new video is added to &lsquo;YouTube&rsquo;, we&rsquo;ll have to re-train the model on the entire new dataset again to classify it. Due to too many videos or nodes being added, it is not computationaly feasible for us to re-train everytime.</p>
 <p>To solve this issue, what we can do is not to learn embeddings for each node but to learn a function which, given the features and edges joining this node, will give the embeddings for the node.</p>
 <hr/>
 <h1><center>Aggregating Neighbours</center></h1>
@@ -147,7 +147,7 @@ In the (GCN or DeepWalk) model, the graph was fixed beforehand, let's say the <b
 <center><strong>Simple Neighbours</strong></center>
 <br/>
 <p>Here The Box joining A with B, C, D represents some function of the A, B, C, D. ( In the animation above, it was the &lsquo;mean&rsquo; function). We can replace this box by any function like &lsquo;sum&rsquo; or &lsquo;max&rsquo;. This function is known as the <b>aggregator function</b>.</p>
-<p>Now let's try to generalize the notion by using not only the neighbours of a node but also the neighbours of the neighbours. The first question is how to make use of neighbours of neighbours. The way which we will be using here is to first generate each node's embedding in the first step by using only its neighbours just like we did above, and then in the second step, we will use these embeddings to generate the new embeddings.</p>
+<p>Now let&rsquo;s try to generalize the notion by using not only the neighbours of a node but also the neighbours of the neighbours. The first question is how to make use of neighbours of neighbours. The way which we will be using here is to first generate each node&rsquo;s embedding in the first step by using only its neighbours just like we did above, and then in the second step, we will use these embeddings to generate the new embeddings.</p>
 <hr/>
 Take a look at the following One Layer Aggregation:
 <img src="/images/blogs/GraphSAGE/aggregation_1.png">
@@ -174,7 +174,7 @@ Repeating the same procedure on this new graph, we get (try verifying yourself) 
 <p>$$A^{(2)} = \frac{(A^{(1)} + B^{(1)} + C^{(1)} + D^{(1)})}{4}$$</p>
 <p>Writing all the value in the RHS in terms of initial values of embeddings we get</p>
 <p>$$A^{(2)} = \frac{\frac{(A^{(0)} + B^{(0)} + C^{(0)} + D^{(0)})}{4} + \frac{A^{(0)}+B^{(0)}+C^{(0)}}{3} + \frac{A^{(0)}+B^{(0)}+C^{(0)}+E^{(0)} +F^{(0)}}{5} + \frac{A^{(0)}+D^{(0)}}{2}}{4}$$</p>
-<p>If you look closely, you will see that all the nodes that were either neighbour of A or neighbour of some neighbour of A are present in this term. It is equivalent to saying that all nodes that have a distance of less than or equal to 2 edges from A are influencing this term. Had there been a node G connected only to node F. then it is clearly at a distance of 3 from A and hence won't be influencing this term.</p>
+<p>If you look closely, you will see that all the nodes that were either neighbour of A or neighbour of some neighbour of A are present in this term. It is equivalent to saying that all nodes that have a distance of less than or equal to 2 edges from A are influencing this term. Had there been a node G connected only to node F. then it is clearly at a distance of 3 from A and hence won&rsquo;t be influencing this term.</p>
 <p>Generalizing this we can say that if we repeat this produce N times, then all the nodes ( and only those nodes) that are at a within a distance N from the node will be influencing the value of the terms.</p>
 <p>If we replace the mean function, with some other function, lets say $F$, then, in this case, we can write,</p>
 <p>$$A^{(1)} = F(A^{(0)} , B^{(0)} , C^{(0)} , D^{(0)})$$</p>
@@ -187,10 +187,10 @@ Repeating the same procedure on this new graph, we get (try verifying yourself) 
 <center><strong>Showing one</strong></center>
 <p>This method is quite effective in generating node embeddings. But there is an issue if a new node is added to the graph how can get its embeddings? This is an issue that cannot be tackled with this type of model. Clearly, something new is needed, but what?</p>
 <p>One alternative that we can try is to replace the function F by multiple functions such that in the first layer it is
-F1, in second layer F2 and so on, and then fixing the number of layers that we want, let's say k.</p>
+F1, in second layer F2 and so on, and then fixing the number of layers that we want, let&rsquo;s say k.</p>
 <p>So our embedding generator would be like this,
 <img src="/images/blogs/GraphSAGE/showing_2.png"></p>
-<p>Let's formalize our notation a bit now so that it is easy to understand things.</p>
+<p>Let&rsquo;s formalize our notation a bit now so that it is easy to understand things.</p>
 <ol>
 <li>Instead of writing $A^{(k)}$  we will be writing $h_{A}^{k}$</li>
 <li>Rename the functions $F1$, $F2$ and so on as, $AGGREGATE_{1}$, $AGGREGATE_{2}$ and so on. i.e, $Fk$ becomes $AGGREGATE_{k}$.</li>
@@ -253,7 +253,7 @@ In other words, we can average embeddings of all nodes in the neighbourhood to c
 <p>We know that our old methods like DeepWalk were not able to generalise to a new unseen graph. So if any new node gets added to the graph, we had to train our model from scratch, but since our new method is generalised to the unseen graphs, so to predict the embeddings of the new node we have to make the computational graph of the new node, transfer the parameters to the unseen part of the graph and we can make predictions.</p>
 <img src="/images/blogs/GraphSAGE/new_node.png">
 <center><strong>new node</strong></center>
-<p>We can use this property in social-networks (like Facebook). Consider the first graph in the above figure, users in a social-network are represented by the nodes of the graph. Initially, we would train our model on this graph. After some time suppose another user is added in the network, now we don't have to train our model from scratch on the second graph, we will create the computational graph of the new node, borrow the parameters from the already trained model and then we can find the embeddings of the newly added user.</p>
+<p>We can use this property in social-networks (like Facebook). Consider the first graph in the above figure, users in a social-network are represented by the nodes of the graph. Initially, we would train our model on this graph. After some time suppose another user is added in the network, now we don&rsquo;t have to train our model from scratch on the second graph, we will create the computational graph of the new node, borrow the parameters from the already trained model and then we can find the embeddings of the newly added user.</p>
 <hr/>
 <h1><center> Implementation in PyTorch </center></h1>
 <div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
