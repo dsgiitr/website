@@ -17,7 +17,7 @@
       <pubDate>Sat, 01 Feb 2020 23:40:49 +0000</pubDate>
       
       <guid>/blogs/chebnet/</guid>
-      <description>Motivation As a part of this blog series, this time we&#39;ll be looking at a spectral convolution technique introduced in the paper by M.</description>
+      <description>MotivationAs a part of this blog series, this time we&amp;rsquo;ll be looking at a spectral convolution technique introduced in the paper by M.</description>
     </item>
     
     <item>
@@ -26,7 +26,16 @@
       <pubDate>Wed, 01 Jan 2020 23:40:49 +0000</pubDate>
       
       <guid>/blogs/gcn/</guid>
-      <description>Introduction Graphs Whom are we kidding! You may skip this section if you know what graphs are.</description>
+      <description>IntroductionGraphsWhom are we kidding! You may skip this section if you know what graphs are.</description>
+    </item>
+    
+    <item>
+      <title>Clustering Described</title>
+      <link>/blogs/clustering/</link>
+      <pubDate>Wed, 01 Jan 2020 23:40:49 +0000</pubDate>
+      
+      <guid>/blogs/clustering/</guid>
+      <description>After Supervised Learning algorithms, it’s time to have a look at the most popular Unsupervised method.</description>
     </item>
     
     <item>
@@ -35,7 +44,7 @@
       <pubDate>Wed, 01 Jan 2020 23:40:49 +0000</pubDate>
       
       <guid>/blogs/graphsage/</guid>
-      <description>Introduction In the previous blogs, we covered GCN and DeepWalk, which are methods to generate node embeddings.</description>
+      <description>IntroductionIn the previous blogs, we covered GCN and DeepWalk, which are methods to generate node embeddings.</description>
     </item>
     
     <item>
@@ -53,7 +62,7 @@
       <pubDate>Wed, 01 Jan 2020 23:40:49 +0000</pubDate>
       
       <guid>/blogs/gat/</guid>
-      <description>Understanding Graph Attention Networks (GAT) This is 4th in the series of blogs Explained: Graph Representation Learning.</description>
+      <description>Understanding Graph Attention Networks (GAT)This is 4th in the series of blogs Explained: Graph Representation Learning.</description>
     </item>
     
     <item>

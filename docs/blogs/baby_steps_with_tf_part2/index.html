@@ -6,7 +6,7 @@
   
   <meta name="description" content="Computer Vision / Deep Learning">
   <meta name="author" content="DSG">
-  <meta name="generator" content="Hugo 0.61.0" />
+  <meta name="generator" content="Hugo 0.64.1" />
   
   <!-- Mobile Specific Metas -->
   <meta name="format-detection" content="telephone=no">
@@ -131,7 +131,7 @@
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Generate X_data of shape [1000, 4]</span>
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Generate X_data of shape [1000, 4]</span>
 <span style="color:#111">X_data</span> <span style="color:#f92672">=</span> <span style="color:#111">np</span><span style="color:#f92672">.</span><span style="color:#111">random</span><span style="color:#f92672">.</span><span style="color:#111">normal</span><span style="color:#111">(</span><span style="color:#111">loc</span><span style="color:#f92672">=</span><span style="color:#ae81ff">10</span><span style="color:#111">,</span> <span style="color:#111">scale</span><span style="color:#f92672">=</span><span style="color:#ae81ff">10</span><span style="color:#111">,</span> <span style="color:#111">size</span><span style="color:#f92672">=</span><span style="color:#111">(</span><span style="color:#ae81ff">1000</span><span style="color:#111">,</span><span style="color:#ae81ff">4</span><span style="color:#111">)</span><span style="color:#111">)</span>
 </code></pre></td></tr></table>
 </div>
@@ -209,7 +209,7 @@
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 <pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#111">sess</span> <span style="color:#f92672">=</span> <span style="color:#111">tf</span><span style="color:#f92672">.</span><span style="color:#111">Session</span><span style="color:#111">(</span><span style="color:#111">)</span>
-<span style="color:#75715e"># Initialize all the variables</span>
+<span style="color:#75715e"># Initialize all the variables</span>
 <span style="color:#111">sess</span><span style="color:#f92672">.</span><span style="color:#111">run</span><span style="color:#111">(</span><span style="color:#111">tf</span><span style="color:#f92672">.</span><span style="color:#111">global_variables_initializer</span><span style="color:#111">(</span><span style="color:#111">)</span><span style="color:#111">)</span>
 </code></pre></td></tr></table>
 </div>
@@ -248,8 +248,8 @@
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># We have three classes, we will merge class = 1 and class = 2.</span>
-<span style="color:#75715e"># So, now we will have binary classification problem (0, 1)</span>
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># We have three classes, we will merge class = 1 and class = 2.</span>
+<span style="color:#75715e"># So, now we will have binary classification problem (0, 1)</span>
 
 <span style="color:#111">X_train_data</span> <span style="color:#f92672">=</span> <span style="color:#111">training_set</span><span style="color:#f92672">.</span><span style="color:#111">data</span>
 <span style="color:#111">Y_train</span> <span style="color:#f92672">=</span> <span style="color:#111">training_set</span><span style="color:#f92672">.</span><span style="color:#111">target</span>
@@ -282,21 +282,21 @@
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># tf.placeholder is used for data</span>
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># tf.placeholder is used for data</span>
 <span style="color:#111">X</span> <span style="color:#f92672">=</span> <span style="color:#111">tf</span><span style="color:#f92672">.</span><span style="color:#111">placeholder</span><span style="color:#111">(</span><span style="color:#111">tf</span><span style="color:#f92672">.</span><span style="color:#111">float32</span><span style="color:#111">,</span> <span style="color:#111">shape</span> <span style="color:#f92672">=</span> <span style="color:#111">[</span><span style="color:#111">None</span><span style="color:#111">,</span> <span style="color:#ae81ff">4</span><span style="color:#111">]</span><span style="color:#111">)</span>
 <span style="color:#111">Y</span> <span style="color:#f92672">=</span> <span style="color:#111">tf</span><span style="color:#f92672">.</span><span style="color:#111">placeholder</span><span style="color:#111">(</span><span style="color:#111">tf</span><span style="color:#f92672">.</span><span style="color:#111">float32</span><span style="color:#111">,</span> <span style="color:#111">shape</span> <span style="color:#f92672">=</span> <span style="color:#111">[</span><span style="color:#111">None</span><span style="color:#111">]</span><span style="color:#111">)</span>
 
-<span style="color:#75715e"># tf.Variable is used for Variable</span>
+<span style="color:#75715e"># tf.Variable is used for Variable</span>
 <span style="color:#111">W</span> <span style="color:#f92672">=</span> <span style="color:#111">tf</span><span style="color:#f92672">.</span><span style="color:#111">Variable</span><span style="color:#111">(</span><span style="color:#111">tf</span><span style="color:#f92672">.</span><span style="color:#111">random_normal</span><span style="color:#111">(</span><span style="color:#111">[</span><span style="color:#ae81ff">4</span><span style="color:#111">,</span><span style="color:#ae81ff">1</span><span style="color:#111">]</span><span style="color:#111">)</span><span style="color:#111">,</span> <span style="color:#111">name</span><span style="color:#f92672">=</span><span style="color:#d88200"></span><span style="color:#d88200">&#34;</span><span style="color:#d88200">weights</span><span style="color:#d88200">&#34;</span> <span style="color:#111">)</span>
 <span style="color:#111">b</span> <span style="color:#f92672">=</span> <span style="color:#111">tf</span><span style="color:#f92672">.</span><span style="color:#111">Variable</span><span style="color:#111">(</span><span style="color:#111">tf</span><span style="color:#f92672">.</span><span style="color:#111">random_normal</span><span style="color:#111">(</span><span style="color:#111">[</span><span style="color:#ae81ff">1</span><span style="color:#111">]</span><span style="color:#111">)</span><span style="color:#111">,</span> <span style="color:#111">name</span> <span style="color:#f92672">=</span> <span style="color:#d88200"></span><span style="color:#d88200">&#34;</span><span style="color:#d88200">bias</span><span style="color:#d88200">&#34;</span><span style="color:#111">)</span>
 
-<span style="color:#75715e"># Hypothesis</span>
+<span style="color:#75715e"># Hypothesis</span>
 <span style="color:#111">hypothesis</span> <span style="color:#f92672">=</span> <span style="color:#111">tf</span><span style="color:#f92672">.</span><span style="color:#111">sigmoid</span><span style="color:#111">(</span><span style="color:#111">tf</span><span style="color:#f92672">.</span><span style="color:#111">matmul</span><span style="color:#111">(</span><span style="color:#111">X</span><span style="color:#111">,</span> <span style="color:#111">W</span><span style="color:#111">)</span> <span style="color:#f92672">+</span> <span style="color:#111">b</span><span style="color:#111">)</span>
 
-<span style="color:#75715e"># Use categorical cross entropy loss (or log loss)</span>
+<span style="color:#75715e"># Use categorical cross entropy loss (or log loss)</span>
 <span style="color:#111">cost</span> <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#111">tf</span><span style="color:#f92672">.</span><span style="color:#111">reduce_mean</span><span style="color:#111">(</span><span style="color:#111">Y</span> <span style="color:#f92672">*</span> <span style="color:#111">tf</span><span style="color:#f92672">.</span><span style="color:#111">log</span><span style="color:#111">(</span><span style="color:#111">hypothesis</span><span style="color:#111">)</span> <span style="color:#f92672">+</span> <span style="color:#111">(</span><span style="color:#ae81ff">1</span> <span style="color:#f92672">-</span> <span style="color:#111">Y</span><span style="color:#111">)</span><span style="color:#f92672">*</span><span style="color:#111">tf</span><span style="color:#f92672">.</span><span style="color:#111">log</span><span style="color:#111">(</span><span style="color:#ae81ff">1</span> <span style="color:#f92672">-</span> <span style="color:#111">hypothesis</span><span style="color:#111">)</span><span style="color:#111">)</span>
 
-<span style="color:#75715e"># We will define an optimizer (Gradient Descent Optimizer)</span>
+<span style="color:#75715e"># We will define an optimizer (Gradient Descent Optimizer)</span>
 <span style="color:#111">optimizer</span> <span style="color:#f92672">=</span> <span style="color:#111">tf</span><span style="color:#f92672">.</span><span style="color:#111">train</span><span style="color:#f92672">.</span><span style="color:#111">GradientDescentOptimizer</span><span style="color:#111">(</span><span style="color:#111">learning_rate</span><span style="color:#f92672">=</span> <span style="color:#ae81ff">0.001</span><span style="color:#111">)</span>
 <span style="color:#111">train</span> <span style="color:#f92672">=</span> <span style="color:#111">optimizer</span><span style="color:#f92672">.</span><span style="color:#111">minimize</span><span style="color:#111">(</span><span style="color:#111">cost</span><span style="color:#111">)</span>
 </code></pre></td></tr></table>
@@ -312,10 +312,10 @@
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Predict if output probability &gt; 0.5</span>
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Predict if output probability &gt; 0.5</span>
 <span style="color:#111">predicted</span> <span style="color:#f92672">=</span> <span style="color:#111">tf</span><span style="color:#f92672">.</span><span style="color:#111">cast</span><span style="color:#111">(</span><span style="color:#111">hypothesis</span> <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0.5</span><span style="color:#111">,</span> <span style="color:#111">dtype</span><span style="color:#f92672">=</span> <span style="color:#111">tf</span><span style="color:#f92672">.</span><span style="color:#111">float32</span><span style="color:#111">)</span>
 
-<span style="color:#75715e">#Define accuracy</span>
+<span style="color:#75715e">#Define accuracy</span>
 <span style="color:#111">accuracy</span> <span style="color:#f92672">=</span> <span style="color:#111">tf</span><span style="color:#f92672">.</span><span style="color:#111">reduce_mean</span><span style="color:#111">(</span><span style="color:#111">tf</span><span style="color:#f92672">.</span><span style="color:#111">cast</span><span style="color:#111">(</span><span style="color:#111">tf</span><span style="color:#f92672">.</span><span style="color:#111">equal</span><span style="color:#111">(</span><span style="color:#111">predicted</span><span style="color:#111">,</span> <span style="color:#111">Y</span><span style="color:#111">)</span><span style="color:#111">,</span> <span style="color:#111">dtype</span> <span style="color:#f92672">=</span> <span style="color:#111">tf</span><span style="color:#f92672">.</span><span style="color:#111">float32</span><span style="color:#111">)</span><span style="color:#111">)</span>
 </code></pre></td></tr></table>
 </div>
@@ -351,11 +351,11 @@
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 <pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> <span style="color:#111">sklearn.linear_model</span> <span style="color:#f92672">import</span> <span style="color:#111">LogisticRegression</span>
 
-<span style="color:#75715e"># Define a logistic regression</span>
-<span style="color:#75715e"># We will use very small C value because we are not adding any    #  penalty</span>
+<span style="color:#75715e"># Define a logistic regression</span>
+<span style="color:#75715e"># We will use very small C value because we are not adding any    #  penalty</span>
 <span style="color:#111">logistic_regression</span> <span style="color:#f92672">=</span> <span style="color:#111">LogisticRegression</span><span style="color:#111">(</span><span style="color:#111">max_iter</span><span style="color:#f92672">=</span><span style="color:#ae81ff">20000</span><span style="color:#111">,</span> <span style="color:#111">C</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1e-9</span><span style="color:#111">,</span> <span style="color:#111">verbose</span> <span style="color:#f92672">=</span> <span style="color:#111">True</span><span style="color:#111">)</span>
 
-<span style="color:#75715e"># fit on training data</span>
+<span style="color:#75715e"># fit on training data</span>
 <span style="color:#111">logistic_regression</span><span style="color:#f92672">.</span><span style="color:#111">fit</span><span style="color:#111">(</span><span style="color:#111">X_train_data</span><span style="color:#111">,</span> <span style="color:#111">Y_train</span><span style="color:#111">)</span>
 
 <span style="color:#00a8c8">print</span><span style="color:#111">(</span><span style="color:#d88200"></span><span style="color:#d88200">&#34;</span><span style="color:#d88200">test accuracy using sklearn is </span><span style="color:#d88200">&#34;</span><span style="color:#111">,</span> <span style="color:#111">logistic_regression</span><span style="color:#f92672">.</span><span style="color:#111">score</span><span style="color:#111">(</span><span style="color:#111">X_test_data</span><span style="color:#111">,</span> <span style="color:#111">Y_test</span><span style="color:#111">)</span><span style="color:#111">)</span>

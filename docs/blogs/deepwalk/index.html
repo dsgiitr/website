@@ -6,7 +6,7 @@
   
   <meta name="description" content="Machine Learning / Graph Representation Learning">
   <meta name="author" content="DSG">
-  <meta name="generator" content="Hugo 0.61.0" />
+  <meta name="generator" content="Hugo 0.64.1" />
   
   <!-- Mobile Specific Metas -->
   <meta name="format-detection" content="telephone=no">
@@ -124,7 +124,7 @@
 <center><img src="/images/blogs/DeepWalk/karate_to_embedding.jpg" width=500x/></center>
 <br>
 <h2><font color="red" >Motivation</font></h2>
-<p>Assume a setting, given a graph G where you wish to convert the nodes into embedding vectors, and the only information about a node are the indices of the nodes to which it is connected (adjacency matrix). Since there is no initial feature matrix corresponding to the data, we construct a feature matrix which will have all the randomly selected nodes. There can be multiple methods to select these, but here we are assuming that they are normally sampled (though it won't make much of a difference even if they are taken from some other distribution).</p>
+<p>Assume a setting, given a graph G where you wish to convert the nodes into embedding vectors, and the only information about a node are the indices of the nodes to which it is connected (adjacency matrix). Since there is no initial feature matrix corresponding to the data, we construct a feature matrix which will have all the randomly selected nodes. There can be multiple methods to select these, but here we are assuming that they are normally sampled (though it won&rsquo;t make much of a difference even if they are taken from some other distribution).</p>
 <h1><font color="black" >Random Walks </font></h1>
 Random walk rooted at vertex $v_i$ as $W_{v_i}$. It is a stochastic process with random variables ${W^1}_{v_i}$, ${W^2}_{v_i}$, $. . .$, ${W^k}_{v_i}$ such that ${W^{k+1}}{v_i}$ is a vertex chosen at random from the
 neighbors of vertex $v_k$. Random Walk distances are good features for many problems. We'll be discussing how these short random walks are analogous to the sentences in the language modeling setting and how we can carry the concept of context windows to graphs as well.
@@ -149,26 +149,26 @@ Social networks, including collaboration networks, computer networks, financial 
 <hr/>
 <h1><font ><center>Intuition with SkipGram </font></center></h1>
 Think about the below unrelated problem for now:-
-<p>Given, some english sentences (could be any other language, doesn't matter) you need to find a vector corresponding to each word appearing at least once in the sentence such that the words having similar meaning appear close to each other in their vector space, and the opposite must hold for words which are dissimilar.</p>
+<p>Given, some english sentences (could be any other language, doesn&rsquo;t matter) you need to find a vector corresponding to each word appearing at least once in the sentence such that the words having similar meaning appear close to each other in their vector space, and the opposite must hold for words which are dissimilar.</p>
 <p>Suppose the sentences are</p>
 <ol>
 <li>Hi, I am Bert.</li>
 <li>Hello, this is Bert.</li>
 </ol>
-<p>From the above sentences you can see that 1 and 2 are related to each other, so even if someone does'nt know the language, one can make out that the words &lsquo;Hi&rsquo; and &lsquo;Hello&rsquo; have roughly the same meaning. We will be using a technique similar to what a human uses while trying to find out related words. Yes! We'll be guessing the meaning based on the words which are common between the sentences. Mathematically, learning a representation in word-2-vec means learning a mapping function from the word co-occurences, and that is exactly what we are heading for.</p>
+<p>From the above sentences you can see that 1 and 2 are related to each other, so even if someone does&rsquo;nt know the language, one can make out that the words &lsquo;Hi&rsquo; and &lsquo;Hello&rsquo; have roughly the same meaning. We will be using a technique similar to what a human uses while trying to find out related words. Yes! We&rsquo;ll be guessing the meaning based on the words which are common between the sentences. Mathematically, learning a representation in word-2-vec means learning a mapping function from the word co-occurences, and that is exactly what we are heading for.</p>
 <!-- #### But, How? -->
 <h4><font color="black" >But, How? </font></h4>
 First, let's get rid of the punctuations and assign a random vector to each word. Now since these vectors are assigned randomly, it implies the current representation is useless. We'll use our good old friend, *probability*, to convert these into meaningful representations. The aim is to increase the probability of a word occurring, considering the terms around it. Let's assume the probability is given by $P(x|y)$, where $y$ is the set of words that appear in the same sentence in which $x$ occurs. Remember we are only taking one sentence at a time, so first we'll maximize the probability of <font color="green">'Hi'</font> given <font color="green">{'I', 'am', 'Bert'} </font>, then we'll maximize the probability of <font color="green">'I'</font> given <font color="green">{'Hi', 'am', 'Bert'}</font>. We will do it for each word in the first sentence, and then for the second sentence. Repeat this procedure for all the sentences over and over again until the feature vectors have converged. 
-<p>One question that may arise now is, &lsquo;How do these feature vectors relate with the probability?'. The answer is that in the probability function, we'll utilize the word vectors assigned to them. But, aren't those vectors random? Ahh, they are at the start, but we promise you by the end of the blog they would have converged to the values, which gives some meaning to those seemingly random numbers.</p>
+<p>One question that may arise now is, &lsquo;How do these feature vectors relate with the probability?'. The answer is that in the probability function, we&rsquo;ll utilize the word vectors assigned to them. But, aren&rsquo;t those vectors random? Ahh, they are at the start, but we promise you by the end of the blog they would have converged to the values, which gives some meaning to those seemingly random numbers.</p>
 <h3><font  >So, What exactly the probability function helps us with? </font></h3>
 What does it mean to find the probability of a vector given other vectors? This is a simple question with a pretty simple answer, take it as a fill in the blank problem that you may have dealt with in the primary school,
 <p><font color= "red">Roses ____ red.</font></p>
-<p>What is the most likely guess? Most people will fill it with an &lsquo;are&rsquo;. (Unless you are pretending to be over smart in an attempt to prove how cool you are). You were able to fill that because you've seen some examples of the word &lsquo;are&rsquo; previously in life, which help you with the context. The probability function is also trying to do the same; it is finding out the word which is most likely to occur given the words that are surrounding it.</p>
+<p>What is the most likely guess? Most people will fill it with an &lsquo;are&rsquo;. (Unless you are pretending to be over smart in an attempt to prove how cool you are). You were able to fill that because you&rsquo;ve seen some examples of the word &lsquo;are&rsquo; previously in life, which help you with the context. The probability function is also trying to do the same; it is finding out the word which is most likely to occur given the words that are surrounding it.</p>
 <h4>But but this still doesn't explain how it's going to do that.</h4>
 In case you guessed 'Neural Network', you are correct. In this blog we'll be using neural nets (feeling sleepy now, so let's wrap this up)
-<p>It is not necessary to use neural nets to estimate the probability function, but it works and looks cool :P, frankly, the authors used it, so we'll follow them.</p>
+<p>It is not necessary to use neural nets to estimate the probability function, but it works and looks cool :P, frankly, the authors used it, so we&rsquo;ll follow them.</p>
 <p>The input layer will have |V| neurons, where |V| is the number of words that are interesting to us. We will be using only one hidden layer for simplicity. It can have as many neurons as you want, but it is suggested to keep a number that is less than the number of words in the vocabulary. The output layer will also have the |V| neurons.</p>
-<p>Now let's move on to the interpretation of input and output layers (don't care about the hidden layer).
+<p>Now let&rsquo;s move on to the interpretation of input and output layers (don&rsquo;t care about the hidden layer).
 Lets suppose the words in the vocabulary are $V_1$, $V_2$, $&hellip;$ $V_i$, $&hellip;.$ $V_n$. Assume that out of these V4, V7, V9 appears along with the word whose probability we are trying to maximize. So the input layers will have the 4th, 7th, and the 9th neuron with value 1, and all others will have the value 0. The hidden layer will then have some function of these values. The hidden layer has no non-linear activation. The |V| neuron in the output layer will have a score; the higher it is, the higher the chances of that word appearing along with the surrounding words. Apply <strong>Sigmoid, boom! we got the probabilities.</strong></p>
 <p>So a simple neural network will help us solve the fill in the blank problem.</p>
 <hr/>
@@ -211,24 +211,24 @@ These random walks can be thought of as short sentences and phrases in a special
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 <pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#111">adj_list</span> <span style="color:#f92672">=</span> <span style="color:#111">[</span><span style="color:#111">[</span><span style="color:#ae81ff">1</span><span style="color:#111">,</span><span style="color:#ae81ff">2</span><span style="color:#111">,</span><span style="color:#ae81ff">3</span><span style="color:#111">]</span><span style="color:#111">,</span> <span style="color:#111">[</span><span style="color:#ae81ff">0</span><span style="color:#111">,</span><span style="color:#ae81ff">2</span><span style="color:#111">,</span><span style="color:#ae81ff">3</span><span style="color:#111">]</span><span style="color:#111">,</span> <span style="color:#111">[</span><span style="color:#ae81ff">0</span><span style="color:#111">,</span> <span style="color:#ae81ff">1</span><span style="color:#111">,</span> <span style="color:#ae81ff">3</span><span style="color:#111">]</span><span style="color:#111">,</span> <span style="color:#111">[</span><span style="color:#ae81ff">0</span><span style="color:#111">,</span> <span style="color:#ae81ff">1</span><span style="color:#111">,</span> <span style="color:#ae81ff">2</span><span style="color:#111">]</span><span style="color:#111">,</span> <span style="color:#111">[</span><span style="color:#ae81ff">5</span><span style="color:#111">,</span> <span style="color:#ae81ff">6</span><span style="color:#111">]</span><span style="color:#111">,</span> <span style="color:#111">[</span><span style="color:#ae81ff">4</span><span style="color:#111">,</span><span style="color:#ae81ff">6</span><span style="color:#111">]</span><span style="color:#111">,</span> <span style="color:#111">[</span><span style="color:#ae81ff">4</span><span style="color:#111">,</span> <span style="color:#ae81ff">5</span><span style="color:#111">]</span><span style="color:#111">,</span> <span style="color:#111">[</span><span style="color:#ae81ff">1</span><span style="color:#111">,</span> <span style="color:#ae81ff">3</span><span style="color:#111">]</span><span style="color:#111">]</span>
-<span style="color:#111">size_vertex</span> <span style="color:#f92672">=</span> <span style="color:#111">len</span><span style="color:#111">(</span><span style="color:#111">adj_list</span><span style="color:#111">)</span>  <span style="color:#75715e"># number of vertices</span>
+<span style="color:#111">size_vertex</span> <span style="color:#f92672">=</span> <span style="color:#111">len</span><span style="color:#111">(</span><span style="color:#111">adj_list</span><span style="color:#111">)</span>  <span style="color:#75715e"># number of vertices</span>
 
-<span style="color:#75715e">## Imports</span>
+<span style="color:#75715e">## Imports</span>
 
 <span style="color:#f92672">import</span> <span style="color:#111">torch</span>
 <span style="color:#f92672">import</span> <span style="color:#111">torch.nn</span> <span style="color:#f92672">as</span> <span style="color:#111">nn</span>
 <span style="color:#f92672">import</span> <span style="color:#111">random</span>
 
-<span style="color:#75715e">## Hyperparameters</span>
+<span style="color:#75715e">## Hyperparameters</span>
 <span style="color:#f92672">&lt;</span><span style="color:#111">h2</span><span style="color:#f92672">&gt;</span><span style="color:#111">Hyperparameters</span><span style="color:#f92672">&lt;</span><span style="color:#f92672">/</span><span style="color:#111">h2</span><span style="color:#f92672">&gt;</span>
 
-<span style="color:#111">w</span><span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>            <span style="color:#75715e"># window size</span>
-<span style="color:#111">d</span><span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>            <span style="color:#75715e"># embedding size</span>
-<span style="color:#111">y</span><span style="color:#f92672">=</span><span style="color:#ae81ff">200</span>          <span style="color:#75715e"># walks per vertex</span>
-<span style="color:#111">t</span><span style="color:#f92672">=</span><span style="color:#ae81ff">6</span>            <span style="color:#75715e"># walk length </span>
-<span style="color:#111">lr</span><span style="color:#f92672">=</span><span style="color:#ae81ff">0.025</span>       <span style="color:#75715e"># learning rate</span>
+<span style="color:#111">w</span><span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>            <span style="color:#75715e"># window size</span>
+<span style="color:#111">d</span><span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>            <span style="color:#75715e"># embedding size</span>
+<span style="color:#111">y</span><span style="color:#f92672">=</span><span style="color:#ae81ff">200</span>          <span style="color:#75715e"># walks per vertex</span>
+<span style="color:#111">t</span><span style="color:#f92672">=</span><span style="color:#ae81ff">6</span>            <span style="color:#75715e"># walk length </span>
+<span style="color:#111">lr</span><span style="color:#f92672">=</span><span style="color:#ae81ff">0.025</span>       <span style="color:#75715e"># learning rate</span>
 
-<span style="color:#111">v</span><span style="color:#f92672">=</span><span style="color:#111">[</span><span style="color:#ae81ff">0</span><span style="color:#111">,</span><span style="color:#ae81ff">1</span><span style="color:#111">,</span><span style="color:#ae81ff">2</span><span style="color:#111">,</span><span style="color:#ae81ff">3</span><span style="color:#111">,</span><span style="color:#ae81ff">4</span><span style="color:#111">,</span><span style="color:#ae81ff">5</span><span style="color:#111">,</span><span style="color:#ae81ff">6</span><span style="color:#111">,</span><span style="color:#ae81ff">7</span><span style="color:#111">]</span> <span style="color:#75715e"># labels of available vertices</span>
+<span style="color:#111">v</span><span style="color:#f92672">=</span><span style="color:#111">[</span><span style="color:#ae81ff">0</span><span style="color:#111">,</span><span style="color:#ae81ff">1</span><span style="color:#111">,</span><span style="color:#ae81ff">2</span><span style="color:#111">,</span><span style="color:#ae81ff">3</span><span style="color:#111">,</span><span style="color:#ae81ff">4</span><span style="color:#111">,</span><span style="color:#ae81ff">5</span><span style="color:#111">,</span><span style="color:#ae81ff">6</span><span style="color:#111">,</span><span style="color:#ae81ff">7</span><span style="color:#111">]</span> <span style="color:#75715e"># labels of available vertices</span>
 </code></pre></td></tr></table>
 </div>
 </div><!-- ## Random Walk -->
@@ -246,7 +246,7 @@ These random walks can be thought of as short sentences and phrases in a special
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 <pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#00a8c8">def</span> <span style="color:#75af00">RandomWalk</span><span style="color:#111">(</span><span style="color:#111">node</span><span style="color:#111">,</span><span style="color:#111">t</span><span style="color:#111">)</span><span style="color:#111">:</span>
-    <span style="color:#111">walk</span> <span style="color:#f92672">=</span> <span style="color:#111">[</span><span style="color:#111">node</span><span style="color:#111">]</span>        <span style="color:#75715e"># Walk starts from this node</span>
+    <span style="color:#111">walk</span> <span style="color:#f92672">=</span> <span style="color:#111">[</span><span style="color:#111">node</span><span style="color:#111">]</span>        <span style="color:#75715e"># Walk starts from this node</span>
     
     <span style="color:#00a8c8">for</span> <span style="color:#111">i</span> <span style="color:#f92672">in</span> <span style="color:#111">range</span><span style="color:#111">(</span><span style="color:#111">t</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span><span style="color:#111">)</span><span style="color:#111">:</span>
         <span style="color:#111">node</span> <span style="color:#f92672">=</span> <span style="color:#111">adj_list</span><span style="color:#111">[</span><span style="color:#111">node</span><span style="color:#111">]</span><span style="color:#111">[</span><span style="color:#111">random</span><span style="color:#f92672">.</span><span style="color:#111">randint</span><span style="color:#111">(</span><span style="color:#ae81ff">0</span><span style="color:#111">,</span><span style="color:#111">len</span><span style="color:#111">(</span><span style="color:#111">adj_list</span><span style="color:#111">[</span><span style="color:#111">node</span><span style="color:#111">]</span><span style="color:#111">)</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span><span style="color:#111">)</span><span style="color:#111">]</span>
@@ -258,8 +258,8 @@ These random walks can be thought of as short sentences and phrases in a special
 </div><!-- ## Skipgram -->
 <h2>Skipgram</h2>
 The skipgram model is closely related to the <strong>CBOW</strong> model that we just covered. In the CBOW model, we have to maximize the probability of the word given its surrounding word using a neural network. And when the probability is maximized, the weights learned from the input to the hidden layer are the word vectors of the given words. In the skipgram word, we will be using a single word to maximize the probability of the surrounding words. This can be done by using a neural network that looks like the mirror image of the network that we used for the CBOW. And in the end, the weights of the input to the hidden layer will be the corresponding word vectors.
-<p>Now let's analyze the complexity. There are |V| words in the vocabulary, so for each iteration, we will be modifying a total of |V| vectors. This is very complex; usually, the vocabulary size is in millions, and since we usually need millions of iteration before convergence, this can take a long, long time to run.</p>
-<p>We will soon be discussing some methods like Hierarchical Softmax or negative sampling to reduce this complexity. But, first, we'll code for a simple skipgram model. The class defines the model, whereas the function &lsquo;skip_gram&rsquo; takes care of the training loop.</p>
+<p>Now let&rsquo;s analyze the complexity. There are |V| words in the vocabulary, so for each iteration, we will be modifying a total of |V| vectors. This is very complex; usually, the vocabulary size is in millions, and since we usually need millions of iteration before convergence, this can take a long, long time to run.</p>
+<p>We will soon be discussing some methods like Hierarchical Softmax or negative sampling to reduce this complexity. But, first, we&rsquo;ll code for a simple skipgram model. The class defines the model, whereas the function &lsquo;skip_gram&rsquo; takes care of the training loop.</p>
 <div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
@@ -311,7 +311,7 @@ The skipgram model is closely related to the <strong>CBOW</strong> model that we
     <span style="color:#00a8c8">for</span> <span style="color:#111">j</span> <span style="color:#f92672">in</span> <span style="color:#111">range</span><span style="color:#111">(</span><span style="color:#111">len</span><span style="color:#111">(</span><span style="color:#111">wvi</span><span style="color:#111">)</span><span style="color:#111">)</span><span style="color:#111">:</span>
         <span style="color:#00a8c8">for</span> <span style="color:#111">k</span> <span style="color:#f92672">in</span> <span style="color:#111">range</span><span style="color:#111">(</span><span style="color:#111">max</span><span style="color:#111">(</span><span style="color:#ae81ff">0</span><span style="color:#111">,</span><span style="color:#111">j</span><span style="color:#f92672">-</span><span style="color:#111">w</span><span style="color:#111">)</span> <span style="color:#111">,</span> <span style="color:#111">min</span><span style="color:#111">(</span><span style="color:#111">j</span><span style="color:#f92672">+</span><span style="color:#111">w</span><span style="color:#111">,</span> <span style="color:#111">len</span><span style="color:#111">(</span><span style="color:#111">wvi</span><span style="color:#111">)</span><span style="color:#111">)</span><span style="color:#111">)</span><span style="color:#111">:</span>
             
-            <span style="color:#75715e">#generate one hot vector</span>
+            <span style="color:#75715e">#generate one hot vector</span>
             <span style="color:#111">one_hot</span>          <span style="color:#f92672">=</span> <span style="color:#111">torch</span><span style="color:#f92672">.</span><span style="color:#111">zeros</span><span style="color:#111">(</span><span style="color:#111">size_vertex</span><span style="color:#111">)</span>
             <span style="color:#111">one_hot</span><span style="color:#111">[</span><span style="color:#111">wvi</span><span style="color:#111">[</span><span style="color:#111">j</span><span style="color:#111">]</span><span style="color:#111">]</span>  <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
             
@@ -340,7 +340,7 @@ The skipgram model is closely related to the <strong>CBOW</strong> model that we
         <span style="color:#111">skip_gram</span><span style="color:#111">(</span><span style="color:#111">wvi</span><span style="color:#111">,</span> <span style="color:#111">w</span><span style="color:#111">)</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>i'th row of the model.phi corresponds to the vector of the i'th node. As you can see, the vectors of [0, 1, 2, 3, 7] are very close, whereas their vectors are much different from the vectors corresponding to [4, 5, 6].</p>
+</div><p>i&rsquo;th row of the model.phi corresponds to the vector of the i&rsquo;th node. As you can see, the vectors of [0, 1, 2, 3, 7] are very close, whereas their vectors are much different from the vectors corresponding to [4, 5, 6].</p>
 <div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
@@ -362,7 +362,7 @@ tensor([[ 1.2371,  0.3519],
 <p>Now we will be discussing a variant of the above using Hierarchical softmax.</p>
 <!-- ## Hierarchical Softmax -->
 <h1><center>Hierarchical Softmax<center></h1>
-<p>As we have seen in the skipgram model that the probability of any outcome depends on the total outcomes of our model. If you haven't noticed this yet, let us explain to you how!</p>
+<p>As we have seen in the skipgram model that the probability of any outcome depends on the total outcomes of our model. If you haven&rsquo;t noticed this yet, let us explain to you how!</p>
 <p>When we calculate the probability of an outcome using softmax, this probability depends on the number of model parameters via the normalization constant(denominator term) in the softmax.</p>
 <p>$\text{Softmax}(x_{i}) = \frac{\exp(x_i)}{\sum_j \exp(x_j)}$</p>
 <p>And the number of such parameters is linear in the total number of outcomes. It means that if we are dealing with a huge graphical structure, it can be computationally costly and taking much time.</p>
@@ -373,7 +373,7 @@ Obviously, Yes! (because we're asking at this stage).
 <p><b>Enter &ldquo;Hierarchical Softmax(HS)&ldquo;</b>.</p>
 <p>HS is an alternative approximation to the softmax in which the probability of any one outcome depends on several model parameters that is only logarithmic in the total number of outcomes.</p>
 <p>Hierarchical softmax uses a binary tree to represent all the words(nodes) in the vocabulary. Each leaf of the tree is a node of our graph, and there is a unique path from the root to the leaf. Each intermediate node of the tree explicitly represents the relative probabilities of its child nodes. So these nodes are associated to different vectors which our model is going to learn.</p>
-<p>The idea behind decomposing the output layer into a binary tree is to reduce the time complexity to obtain
+<p>The idea behind decomposing the output layer into a binary tree is to reduce the time complexity to obtain 
 probability distribution from $O(V)$ to $O(log(V))$</p>
 <p>Let us understand the process with an example.</p>
 <!-- ![binary tree](tree.png) -->
@@ -382,9 +382,9 @@ In this example, leaf nodes represent the original nodes of our graph. The highl
 <p>Here, length of the path $L(w_{2}) = 4$.</p>
 <p>$n(w, j)$ means the $j^{th}$ node on the path from root to a leaf node $w$.</p>
 <p>Now, view this tree as a decision process or a random walk that begins at the root of the tree and descents towards the leaf nodes at each step. It turns out that the probability of each outcome in the original distribution uniquely determines the transition probabilities of this random walk. If you want to go from root node to $w_2$(say), first, you have to take a left turn, again left turn and then right turn.</p>
-<p>Let's denote the probability of going left at an intermediate node $n$ as $p(n,left)$ and probability of going right as $p(n,right)$. So we can define the probability of going to $w_2$ as follows.</p>
+<p>Let&rsquo;s denote the probability of going left at an intermediate node $n$ as $p(n,left)$ and probability of going right as $p(n,right)$. So we can define the probability of going to $w_2$ as follows.</p>
 <p><b> $P(w2|wi) = p(n(w_{2}, 1), left) . p(n(w_{2}, 2),left) . p(n(w_{2}, 3), right)$ </b></p>
-<p>The above process implies that the cost for computing the loss function and its gradient will be proportional to the number of nodes $(V)$ in the intermediate path between the root node and the output node, which on average, is no higher than $log(V)$. That's nice! Isn't it? In the case where we deal with a large number of outcomes, there will be a massive difference in the computational cost of &lsquo;vanilla&rsquo; softmax and hierarchical softmax.</p>
+<p>The above process implies that the cost for computing the loss function and its gradient will be proportional to the number of nodes $(V)$ in the intermediate path between the root node and the output node, which on average, is no higher than $log(V)$. That&rsquo;s nice! Isn&rsquo;t it? In the case where we deal with a large number of outcomes, there will be a massive difference in the computational cost of &lsquo;vanilla&rsquo; softmax and hierarchical softmax.</p>
 <p>Implementation remains similar to the vanilla, except that we will only need to change the Model class by HierarchicalModel class, which is defined below.</p>
 <div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
@@ -407,14 +407,14 @@ In this example, leaf nodes represent the original nodes of our graph. The highl
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 <pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#00a8c8">def</span> <span style="color:#75af00">func_L</span><span style="color:#111">(</span><span style="color:#111">w</span><span style="color:#111">)</span><span style="color:#111">:</span>
-    <span style="color:#d88200"></span><span style="color:#d88200">&#34;&#34;&#34;</span><span style="color:#d88200">
-</span><span style="color:#d88200"></span><span style="color:#d88200">    Parameters</span><span style="color:#d88200">
-</span><span style="color:#d88200"></span><span style="color:#d88200">    ----------</span><span style="color:#d88200">
-</span><span style="color:#d88200"></span><span style="color:#d88200">    w: Leaf node.</span><span style="color:#d88200">
-</span><span style="color:#d88200"></span><span style="color:#d88200">    </span><span style="color:#d88200">
-</span><span style="color:#d88200"></span><span style="color:#d88200">    Returns</span><span style="color:#d88200">
-</span><span style="color:#d88200"></span><span style="color:#d88200">    -------</span><span style="color:#d88200">
-</span><span style="color:#d88200"></span><span style="color:#d88200">    count: The length of path from the root node to the given vertex.</span><span style="color:#d88200">
+    <span style="color:#d88200"></span><span style="color:#d88200">&#34;&#34;&#34;</span><span style="color:#d88200"></span><span style="color:#d88200">
+</span><span style="color:#d88200"></span><span style="color:#d88200">    Parameters</span><span style="color:#d88200">
+</span><span style="color:#d88200"></span><span style="color:#d88200">    ----------</span><span style="color:#d88200">
+</span><span style="color:#d88200"></span><span style="color:#d88200">    w: Leaf node.</span><span style="color:#d88200">
+</span><span style="color:#d88200"></span><span style="color:#d88200">    </span><span style="color:#d88200">
+</span><span style="color:#d88200"></span><span style="color:#d88200">    Returns</span><span style="color:#d88200">
+</span><span style="color:#d88200"></span><span style="color:#d88200">    -------</span><span style="color:#d88200">
+</span><span style="color:#d88200"></span><span style="color:#d88200">    count: The length of path from the root node to the given vertex.</span><span style="color:#d88200">
 </span><span style="color:#d88200"></span><span style="color:#d88200">    </span><span style="color:#d88200">&#34;&#34;&#34;</span>
     <span style="color:#111">count</span><span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
     <span style="color:#00a8c8">while</span><span style="color:#111">(</span><span style="color:#111">w</span><span style="color:#f92672">!=</span><span style="color:#ae81ff">1</span><span style="color:#111">)</span><span style="color:#111">:</span>
@@ -438,7 +438,7 @@ In this example, leaf nodes represent the original nodes of our graph. The highl
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># func_n returns the nth node in the path from the root node to the given vertex</span>
+<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># func_n returns the nth node in the path from the root node to the given vertex</span>
 <span style="color:#00a8c8">def</span> <span style="color:#75af00">func_n</span><span style="color:#111">(</span><span style="color:#111">w</span><span style="color:#111">,</span> <span style="color:#111">j</span><span style="color:#111">)</span><span style="color:#111">:</span>
     <span style="color:#111">li</span><span style="color:#f92672">=</span><span style="color:#111">[</span><span style="color:#111">w</span><span style="color:#111">]</span>
     <span style="color:#00a8c8">while</span><span style="color:#111">(</span><span style="color:#111">w</span><span style="color:#f92672">!=</span><span style="color:#ae81ff">1</span><span style="color:#111">)</span><span style="color:#111">:</span>
@@ -502,7 +502,7 @@ In this example, leaf nodes represent the original nodes of our graph. The highl
         <span style="color:#111">p</span> <span style="color:#f92672">=</span> <span style="color:#111">torch</span><span style="color:#f92672">.</span><span style="color:#111">tensor</span><span style="color:#111">(</span><span style="color:#111">[</span><span style="color:#ae81ff">1.0</span><span style="color:#111">]</span><span style="color:#111">)</span>
         <span style="color:#00a8c8">for</span> <span style="color:#111">j</span> <span style="color:#f92672">in</span> <span style="color:#111">range</span><span style="color:#111">(</span><span style="color:#ae81ff">1</span><span style="color:#111">,</span> <span style="color:#111">func_L</span><span style="color:#111">(</span><span style="color:#111">w</span><span style="color:#111">)</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span><span style="color:#111">)</span><span style="color:#111">:</span>
             <span style="color:#111">mult</span> <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>
-            <span style="color:#00a8c8">if</span><span style="color:#111">(</span><span style="color:#111">func_n</span><span style="color:#111">(</span><span style="color:#111">w</span><span style="color:#111">,</span> <span style="color:#111">j</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span><span style="color:#111">)</span><span style="color:#f92672">==</span><span style="color:#ae81ff">2</span><span style="color:#f92672">*</span><span style="color:#111">func_n</span><span style="color:#111">(</span><span style="color:#111">w</span><span style="color:#111">,</span> <span style="color:#111">j</span><span style="color:#111">)</span><span style="color:#111">)</span><span style="color:#111">:</span> <span style="color:#75715e"># Left child</span>
+            <span style="color:#00a8c8">if</span><span style="color:#111">(</span><span style="color:#111">func_n</span><span style="color:#111">(</span><span style="color:#111">w</span><span style="color:#111">,</span> <span style="color:#111">j</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span><span style="color:#111">)</span><span style="color:#f92672">==</span><span style="color:#ae81ff">2</span><span style="color:#f92672">*</span><span style="color:#111">func_n</span><span style="color:#111">(</span><span style="color:#111">w</span><span style="color:#111">,</span> <span style="color:#111">j</span><span style="color:#111">)</span><span style="color:#111">)</span><span style="color:#111">:</span> <span style="color:#75715e"># Left child</span>
                 <span style="color:#111">mult</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
         
             <span style="color:#111">p</span> <span style="color:#f92672">=</span> <span style="color:#111">p</span><span style="color:#f92672">*</span><span style="color:#111">sigmoid</span><span style="color:#111">(</span><span style="color:#111">mult</span><span style="color:#f92672">*</span><span style="color:#111">torch</span><span style="color:#f92672">.</span><span style="color:#111">matmul</span><span style="color:#111">(</span><span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">prob_tensor</span><span style="color:#111">[</span><span style="color:#111">func_n</span><span style="color:#111">(</span><span style="color:#111">w</span><span style="color:#111">,</span><span style="color:#111">j</span><span style="color:#111">)</span><span style="color:#111">]</span><span style="color:#111">,</span> <span style="color:#111">h</span><span style="color:#111">)</span><span style="color:#111">)</span>
@@ -546,7 +546,7 @@ In this example, leaf nodes represent the original nodes of our graph. The highl
    
     <span style="color:#00a8c8">for</span> <span style="color:#111">j</span> <span style="color:#f92672">in</span> <span style="color:#111">range</span><span style="color:#111">(</span><span style="color:#111">len</span><span style="color:#111">(</span><span style="color:#111">wvi</span><span style="color:#111">)</span><span style="color:#111">)</span><span style="color:#111">:</span>
         <span style="color:#00a8c8">for</span> <span style="color:#111">k</span> <span style="color:#f92672">in</span> <span style="color:#111">range</span><span style="color:#111">(</span><span style="color:#111">max</span><span style="color:#111">(</span><span style="color:#ae81ff">0</span><span style="color:#111">,</span><span style="color:#111">j</span><span style="color:#f92672">-</span><span style="color:#111">w</span><span style="color:#111">)</span> <span style="color:#111">,</span> <span style="color:#111">min</span><span style="color:#111">(</span><span style="color:#111">j</span><span style="color:#f92672">+</span><span style="color:#111">w</span><span style="color:#111">,</span> <span style="color:#111">len</span><span style="color:#111">(</span><span style="color:#111">wvi</span><span style="color:#111">)</span><span style="color:#111">)</span><span style="color:#111">)</span><span style="color:#111">:</span>
-            <span style="color:#75715e">#generate one hot vector</span>
+            <span style="color:#75715e">#generate one hot vector</span>
        
             <span style="color:#111">prob</span> <span style="color:#f92672">=</span> <span style="color:#111">hierarchicalModel</span><span style="color:#111">(</span><span style="color:#111">wvi</span><span style="color:#111">[</span><span style="color:#111">j</span><span style="color:#111">]</span><span style="color:#111">,</span> <span style="color:#111">wvi</span><span style="color:#111">[</span><span style="color:#111">k</span><span style="color:#111">]</span><span style="color:#111">)</span>
             <span style="color:#111">loss</span> <span style="color:#f92672">=</span> <span style="color:#f92672">-</span> <span style="color:#111">torch</span><span style="color:#f92672">.</span><span style="color:#111">log</span><span style="color:#111">(</span><span style="color:#111">prob</span><span style="color:#111">)</span>

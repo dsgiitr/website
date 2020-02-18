@@ -6,7 +6,7 @@
   
   <meta name="description" content="This is meta description">
   <meta name="author" content="DSG">
-  <meta name="generator" content="Hugo 0.61.0" />
+  <meta name="generator" content="Hugo 0.64.1" />
   
   <!-- Mobile Specific Metas -->
   <meta name="format-detection" content="telephone=no">
@@ -121,10 +121,10 @@
                 
                 <div class="post-content">
                     <h1 id="visualising-different-loss-and-optimisation-functions-using-autoencoder">Visualising different loss and optimisation functions using Autoencoder.</h1>
-<p>The aim of the project was to reconstruct images with the help of Autoencoders to visualise the difference
-in output when different loss or optimisation functions are used.
+<p>The aim of the project was to reconstruct images with the help of Autoencoders to visualise the difference 
+in output when different loss or optimisation functions are used. 
 A very simple dataset, MNIST dataset was used for this purpose.</p>
-<p>While training a neural network, gradient is calculated according to a given loss function. I compared the results of three
+<p>While training a neural network, gradient is calculated according to a given loss function. I compared the results of three 
 regression criterion functions.</p>
 <ol>
 <li>Absolute criterion</li>
@@ -133,13 +133,13 @@ regression criterion functions.</p>
 </ol>
 <p><img src="/Results_loss.jpg?raw=true" alt="Results of loss functions" title="Results using different loss function"></p>
 <p>While the Absolute error just calculated the mean absolute value between of the pixel-wise difference, Mean Square error uses
-mean squared error. Thus it is more sensitive to outliers and pushes pixel value towards 1 (in our case, white as can be seen in image
+mean squared error. Thus it is more sensitive to outliers and pushes pixel value towards 1 (in our case, white as can be seen in image 
 after first epoch itself)</p>
 <p>Smooth L1 error can be thought of as a smooth version of the Absolute error.
 It uses a squared term if the squared element-wise error falls below 1 and L1 distance otherwise.
 It is less sensitive to outliers than the Mean Squared Error and in some cases prevents exploding gradients.</p>
 <p>Optimization algorithms helps us to minimize the Loss functions by updating Weights and Biases and reach
-to the global minima. Some algorithms give faster and slightly better results based on the dataset.
+to the global minima. Some algorithms give faster and slightly better results based on the dataset. 
 We used three first order optimisation functions:</p>
 <ol>
 <li>Stochastic Gradient Decent</li>
@@ -148,7 +148,7 @@ We used three first order optimisation functions:</p>
 </ol>
 <p>Gradient Descent calcultes gradient for the whole dataset and updates values in direction opposite to the gradients until we find a local minima.
 Stochastic Gradient Descent performs a parameter update for each training example unlike normal Gradient Descent which performs only
-one update. Thus it is much faster.
+one update. Thus it is much faster. 
 Gradient Decent algorithms can further be improved by tuning important parametes like momentum, learning rate etc.</p>
 <p>Adagrad is more preferrable for a sparse data set as it makes big updates for infrequent parameters and small updates for frequent
 parameters. It uses a different learning Rate for every parameter θ at a time step based on the past gradients which were computed for that parameter. Thus we do not need to manually tune the learning rate.</p>
