@@ -6,15 +6,24 @@
     <description>Recent content in NLP on DSG | IIT Roorkee</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 01 Dec 2019 23:40:49 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 02 Feb 2020 23:40:49 +0000</lastBuildDate>
     
 	<atom:link href="/tags/nlp/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>Kaggle Meetup: E-Summit 20</title>
+      <link>/events/kaggle_meetup/</link>
+      <pubDate>Sun, 02 Feb 2020 23:40:49 +0000</pubDate>
+      
+      <guid>/events/kaggle_meetup/</guid>
+      <description>Data Science Group in collaboration with E-Summit IIT R, and Kaggle is organising the very first Data Enthusiasts Meetup in Roorkee.</description>
+    </item>
+    
+    <item>
       <title>Sarcasm Detection</title>
       <link>/work/sarcasm_detection/</link>
-      <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
+      <pubDate>Mon, 02 Dec 2019 23:40:49 +0000</pubDate>
       
       <guid>/work/sarcasm_detection/</guid>
       <description></description>

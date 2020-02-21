@@ -6,7 +6,7 @@
     <description>Recent content in Blogs on DSG | IIT Roorkee</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 01 Dec 2019 23:40:49 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 01 Jan 2020 23:40:49 +0000</lastBuildDate>
     
 	<atom:link href="/blogs/index.xml" rel="self" type="application/rss+xml" />
     
@@ -17,7 +17,25 @@
       <pubDate>Sat, 01 Feb 2020 23:40:49 +0000</pubDate>
       
       <guid>/blogs/chebnet/</guid>
-      <description>MotivationAs a part of this blog series, this time we&amp;rsquo;ll be looking at a spectral convolution technique introduced in the paper by M.</description>
+      <description>Motivation As a part of this blog series, this time we&#39;ll be looking at a spectral convolution technique introduced in the paper by M.</description>
+    </item>
+    
+    <item>
+      <title>Understanding Graph Attention Networks (GAT)</title>
+      <link>/blogs/gat/</link>
+      <pubDate>Tue, 21 Jan 2020 23:40:49 +0000</pubDate>
+      
+      <guid>/blogs/gat/</guid>
+      <description>Understanding Graph Attention Networks (GAT) This is 4th in the series of blogs Explained: Graph Representation Learning.</description>
+    </item>
+    
+    <item>
+      <title>Graph SAGE(SAmple and aggreGatE) : Inductive Learning on Graphs</title>
+      <link>/blogs/graphsage/</link>
+      <pubDate>Sat, 18 Jan 2020 23:40:49 +0000</pubDate>
+      
+      <guid>/blogs/graphsage/</guid>
+      <description>Introduction In the previous blogs, we covered GCN and DeepWalk, which are methods to generate node embeddings.</description>
     </item>
     
     <item>
@@ -26,52 +44,16 @@
       <pubDate>Wed, 01 Jan 2020 23:40:49 +0000</pubDate>
       
       <guid>/blogs/gcn/</guid>
-      <description>IntroductionGraphsWhom are we kidding! You may skip this section if you know what graphs are.</description>
-    </item>
-    
-    <item>
-      <title>Boosting Decrypted</title>
-      <link>/blogs/boosting/</link>
-      <pubDate>Wed, 01 Jan 2020 23:40:49 +0000</pubDate>
-      
-      <guid>/blogs/boosting/</guid>
-      <description>I know it’s getting arduous to catch up with out daily posts, but it’s just meant to be this.</description>
-    </item>
-    
-    <item>
-      <title>Clustering Described</title>
-      <link>/blogs/clustering/</link>
-      <pubDate>Wed, 01 Jan 2020 23:40:49 +0000</pubDate>
-      
-      <guid>/blogs/clustering/</guid>
-      <description>After Supervised Learning algorithms, it’s time to have a look at the most popular Unsupervised method.</description>
-    </item>
-    
-    <item>
-      <title>Graph SAGE(SAmple and aggreGatE) : Inductive Learning on Graphs</title>
-      <link>/blogs/graphsage/</link>
-      <pubDate>Wed, 01 Jan 2020 23:40:49 +0000</pubDate>
-      
-      <guid>/blogs/graphsage/</guid>
-      <description>IntroductionIn the previous blogs, we covered GCN and DeepWalk, which are methods to generate node embeddings.</description>
+      <description>Introduction Graphs Whom are we kidding! You may skip this section if you know what graphs are.</description>
     </item>
     
     <item>
       <title>Understanding Deepwalk</title>
       <link>/blogs/deepwalk/</link>
-      <pubDate>Wed, 01 Jan 2020 23:40:49 +0000</pubDate>
+      <pubDate>Fri, 20 Dec 2019 23:40:49 +0000</pubDate>
       
       <guid>/blogs/deepwalk/</guid>
       <description>This is the first in this blog series Explained: Graph Representation Learning and to discuss extraction useful graph features and node embeddings by considering the topology of the network graph using machine learning, this blog deals with Deep Walk.</description>
-    </item>
-    
-    <item>
-      <title>Understanding Graph Attention Networks (GAT)</title>
-      <link>/blogs/gat/</link>
-      <pubDate>Wed, 01 Jan 2020 23:40:49 +0000</pubDate>
-      
-      <guid>/blogs/gat/</guid>
-      <description>Understanding Graph Attention Networks (GAT)This is 4th in the series of blogs Explained: Graph Representation Learning.</description>
     </item>
     
     <item>
@@ -147,21 +129,21 @@
     </item>
     
     <item>
+      <title>Placement Experience.</title>
+      <link>/blogs/placement_experience/</link>
+      <pubDate>Wed, 24 May 2017 23:40:49 +0000</pubDate>
+      
+      <guid>/blogs/placement_experience/</guid>
+      <description>Placement season is like GOT, you never know what will happen in the next episode.</description>
+    </item>
+    
+    <item>
       <title>Logistic Regression. Simplified.</title>
       <link>/blogs/logistic_regression/</link>
       <pubDate>Thu, 18 May 2017 23:40:49 +0000</pubDate>
       
       <guid>/blogs/logistic_regression/</guid>
       <description>After the basics of Regression, it’s time for basics of Classification. And, what can be easier than Logistic Regression!</description>
-    </item>
-    
-    <item>
-      <title>Placement Experience.</title>
-      <link>/blogs/placement_experience/</link>
-      <pubDate>Thu, 18 May 2017 23:40:49 +0000</pubDate>
-      
-      <guid>/blogs/placement_experience/</guid>
-      <description>Placement season is like GOT, you never know what will happen in the next episode.</description>
     </item>
     
     <item>
@@ -194,6 +176,15 @@ Mathematics is building block of Machine learning. I know math is hard to unders
     </item>
     
     <item>
+      <title>Boosting Decrypted</title>
+      <link>/blogs/boosting/</link>
+      <pubDate>Wed, 22 Mar 2017 23:40:49 +0000</pubDate>
+      
+      <guid>/blogs/boosting/</guid>
+      <description>I know it’s getting arduous to catch up with out daily posts, but it’s just meant to be this.</description>
+    </item>
+    
+    <item>
       <title>Decision Trees. Decoded.</title>
       <link>/blogs/decision_trees_decoded/</link>
       <pubDate>Wed, 22 Mar 2017 23:40:49 +0000</pubDate>
@@ -209,6 +200,15 @@ Mathematics is building block of Machine learning. I know math is hard to unders
       
       <guid>/blogs/installation/</guid>
       <description>Install this template by following those simple steps: STEP-1 : Hugo installation Check this link below for install hugo on your computer.</description>
+    </item>
+    
+    <item>
+      <title>Clustering Described</title>
+      <link>/blogs/clustering/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/blogs/clustering/</guid>
+      <description>After Supervised Learning algorithms, it’s time to have a look at the most popular Unsupervised method.</description>
     </item>
     
   </channel>

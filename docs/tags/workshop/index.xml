@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Workshop on DSG | IIT Roorkee</title>
+    <link>/tags/workshop/</link>
+    <description>Recent content in Workshop on DSG | IIT Roorkee</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 02 Feb 2020 23:40:49 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/workshop/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Kaggle Meetup: E-Summit 20</title>
+      <link>/events/kaggle_meetup/</link>
+      <pubDate>Sun, 02 Feb 2020 23:40:49 +0000</pubDate>
+      
+      <guid>/events/kaggle_meetup/</guid>
+      <description>Data Science Group in collaboration with E-Summit IIT R, and Kaggle is organising the very first Data Enthusiasts Meetup in Roorkee.</description>
+    </item>
+    
+    <item>
+      <title>Workshop: Machine Learning 2019</title>
+      <link>/events/workshop_machinelearning2019/</link>
+      <pubDate>Wed, 23 Oct 2019 23:40:49 +0000</pubDate>
+      
+      <guid>/events/workshop_machinelearning2019/</guid>
+      <description>Greetings IIT R! We are back with our workshop on Machine Learning. The workshop is specifically designed for 1st-year students and it would help you get comfortable with basic ML algorithms, their explanation and implementation.</description>
+    </item>
+    
+    <item>
+      <title>Intro To Data Science Libraries</title>
+      <link>/events/intro_to_data_science_libraries/</link>
+      <pubDate>Wed, 04 Sep 2019 23:40:49 +0000</pubDate>
+      
+      <guid>/events/intro_to_data_science_libraries/</guid>
+      <description>Greetings IIT R!
+We are back with the first workshop of the semester. We would be introducing the basics of python and data science libraries such as numpy, pandas, matplotlib, scikit-learn and PyTorch.</description>
+    </item>
+    
+    <item>
+      <title>Workshop: Deep Learning 2018</title>
+      <link>/events/dl_workshop18/</link>
+      <pubDate>Wed, 31 Oct 2018 23:40:49 +0000</pubDate>
+      
+      <guid>/events/dl_workshop18/</guid>
+      <description>Meet us at our Deep Learning Workshop and learn from scratch implementation of how to teach machines to see, In order to understand things a little better, you may like to go through the study material shared here.</description>
+    </item>
+    
+  </channel>
+</rss>

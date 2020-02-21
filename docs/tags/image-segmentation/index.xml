@@ -6,7 +6,7 @@
     <description>Recent content in Image Segmentation on DSG | IIT Roorkee</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 01 Dec 2019 23:40:49 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 18 Dec 2018 23:40:49 +0000</lastBuildDate>
     
 	<atom:link href="/tags/image-segmentation/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>Eye In The Sky: Image Segmentation Challenge Inter IIT 2019</title>
       <link>/work/eye-in-the-sky-image_segmentation_challenge/</link>
-      <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
+      <pubDate>Tue, 18 Dec 2018 23:40:49 +0000</pubDate>
       
       <guid>/work/eye-in-the-sky-image_segmentation_challenge/</guid>
       <description>This is the winning code for &amp;ldquo;Eye In The Sky&amp;rdquo; Satellite Image Segmentation Competetion as a part of Inter-IIT Tech Meet 2019 hosted by IIT Bombay.</description>

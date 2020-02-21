@@ -6,12 +6,12 @@
   
   <meta name="description" content="This is meta description">
   <meta name="author" content="DSG">
-  <meta name="generator" content="Hugo 0.64.1" />
+  <meta name="generator" content="Hugo 0.61.0" />
   
   <!-- Mobile Specific Metas -->
   <meta name="format-detection" content="telephone=no">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Explained: Graph Representation Learning</title>
+  <title>Graph Representation Learning</title>
   <link rel="icon" href="/images/dsg.ico">
 
   <!-- Twitter Bootstrs CSS -->
@@ -64,7 +64,7 @@
                             <li class="nav-item">
                                 
                                 
-                                    <a class="nav-link" href="/events">Events</a>
+                                    <a class="nav-link" href="/events">News</a>
                                 
                                 
                             </li>
@@ -97,9 +97,9 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="block">
-                    <h2>Explained: Graph Representation Learning</h2>
+                    <h2>Graph Representation Learning</h2>
                     <div class="portfolio-meta">
-                        <span>Sunday, Dec 1, 2019</span>|
+                        <span>Wednesday, Jan 1, 2020</span>|
                         <span> Tags:
                             Graph Representation Learning, PyTorch
                         </span>
@@ -116,13 +116,16 @@
             <div class="col-md-12">
                 
                 <div class="post-img">
-                    <img class="img-fluid-work" alt="" src="/images/work/item-4.svg">
+                    <img class="img-fluid-work" alt="" src="/images/work/graph_nets.svg">
                 </div>
                 
                 <div class="post-content">
-                    <p>This project is a supplement to our blog series <em>Explained: Graph Representation Learning</em>. The following major papers and corresponding blogs have been covered as part of the series and we look to add blogs on a few other significant works in the field.</p>
+                    <hr/>
+<p>This project involves a simplified, yet exhaustive approach to implementation and explanation of various Graph Representation Learning techniques developed in the recent past. We cover major papers in the field as part of the review series and we aim to add blogs on many more significant papers in the field.</p>
+<br/>
 <h2 align="center"> 1. Understanding DeepWalk </h2>
-<img align="right" width="500x" height="120x" src="https://miro.medium.com/max/4005/1*j-P55wBp5PP9oqrxDxdDpw.png">
+<br/>
+<img align="right" width="500x" height="100x" src="https://miro.medium.com/max/4005/1*j-P55wBp5PP9oqrxDxdDpw.png" style="padding-left: 20px">
 <p>Unsupervised online learning approach, inspired from word2vec in NLP, but, here the goal is to generate node embeddings.</p>
 <ul>
 <li><a href="https://dsgiitr.com/blogs/deepwalk">DeepWalk Blog</a></li>
@@ -130,8 +133,10 @@
 <li><a href="https://github.com/dsgiitr/graph_nets/blob/master/DeepWalk/DeepWalk.py">Code</a></li>
 <li><a href="https://arxiv.org/abs/1403.6652">Paper -&gt; DeepWalk: Online Learning of Social Representations</a></li>
 </ul>
+<br/>
 <h2 align="center"> 2. A Review : Graph Convolutional Networks (GCN) </h2>
-<img align="right" width="500x" src="/GCN/img/gcn_architecture.png">
+<br/>
+<img align="right" width="500x" src="/images/work/gcn_architecture.png" style="padding-left: 20px">
 <p>GCNs draw on the idea of Convolution Neural Networks re-defining them for the non-euclidean data domain. They are  convolutional, because filter parameters are typically shared over all locations in the graph unlike typical GNNs.</p>
 <ul>
 <li><a href="https://dsgiitr.com/blogs/gcn">GCN Blog</a></li>
@@ -139,17 +144,21 @@
 <li><a href="https://github.com/dsgiitr/graph_nets/blob/master/GCN/GCN.py">Code</a></li>
 <li><a href="https://arxiv.org/abs/1609.02907">Paper -&gt; Semi-Supervised Classification with Graph Convolutional Networks</a></li>
 </ul>
+<br/>
 <h2 align="center"> 3. Graph SAGE(SAmple and aggreGatE) </h2>
-<img align="right" width="500x" src="/GraphSAGE/img/GraphSAGE_cover.jpg">
-<p>Previous approaches are transductive and don&rsquo;t naturally generalize to unseen nodes. GraphSAGE is an inductive framework leveraging node feature information to efficiently generate node embeddings.</p>
+<br/>
+<img align="right" width="500x" src="/images/work/GraphSAGE_cover.jpg" style="padding-left: 20px">
+<p>Previous approaches are transductive and don't naturally generalize to unseen nodes. GraphSAGE is an inductive framework leveraging node feature information to efficiently generate node embeddings.</p>
 <ul>
 <li><a href="https://dsgiitr.com/blogs/graphsage">GraphSAGE Blog</a></li>
 <li><a href="https://github.com/dsgiitr/graph_nets/blob/master/GraphSAGE/GraphSAGE_Code%2BBlog.ipynb">Jupyter Notebook</a></li>
 <li><a href="https://github.com/dsgiitr/graph_nets/blob/master/GraphSAGE/GraphSAGE.py">Code</a></li>
 <li><a href="https://arxiv.org/abs/1706.02216">Paper -&gt; Inductive Representation Learning on Large Graphs</a></li>
 </ul>
+<br/>
 <h2 align="center"> 4. ChebNet: CNN on Graphs with Fast Localized Spectral Filtering </h2>
-<img align="right" width="600x" src="https://storage.googleapis.com/groundai-web-prod/media/users/user_3036/project_14426/images/x1.png">
+<br/>
+<img align="right" width="600x" src="https://storage.googleapis.com/groundai-web-prod/media/users/user_3036/project_14426/images/x1.png" style="padding-left: 20px">
 <p>ChebNet is a formulation of CNNs in the context of spectral graph theory.</p>
 <ul>
 <li><a href="https://dsgiitr.com/blogs/chebnet/">ChebNet Blog</a></li>
@@ -159,7 +168,8 @@
 </ul>
 <br/>
 <h2 align="center"> 5. Understanding Graph Attention Networks </h2>
-<img align="right" width="500x" src="/GAT/img/GAT_Cover.jpg">
+<br/>
+<img align="right" width="500x" src="/images/work/GAT_Cover.jpg" style="padding-left: 20px">
 <p>GAT is able to attend over their neighborhoods’ features, implicitly specifying different weights to different nodes in a neighborhood, without requiring any kind of costly matrix operation or depending on knowing the graph structure upfront.</p>
 <ul>
 <li><a href="https://dsgiitr.com/blogs/gat">GAT Blog</a></li>

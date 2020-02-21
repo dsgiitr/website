@@ -6,10 +6,46 @@
     <description>Recent content in Works on DSG | IIT Roorkee</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 01 Dec 2019 23:40:49 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 01 Feb 2020 23:40:49 +0000</lastBuildDate>
     
 	<atom:link href="/work/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>d2l-pytorch</title>
+      <link>/work/d2l-pytorch/</link>
+      <pubDate>Sat, 01 Feb 2020 23:40:49 +0000</pubDate>
+      
+      <guid>/work/d2l-pytorch/</guid>
+      <description>d2l-pytorch This project is adapted from the original Dive Into Deep Learning book by Aston Zhang, Zachary C.</description>
+    </item>
+    
+    <item>
+      <title>Graph Representation Learning</title>
+      <link>/work/graph_nets/</link>
+      <pubDate>Wed, 01 Jan 2020 23:40:49 +0000</pubDate>
+      
+      <guid>/work/graph_nets/</guid>
+      <description>This project involves a simplified, yet exhaustive approach to implementation and explanation of various Graph Representation Learning techniques developed in the recent past.</description>
+    </item>
+    
+    <item>
+      <title>Reinforcement Learning 2048</title>
+      <link>/work/rl_2048/</link>
+      <pubDate>Sat, 07 Dec 2019 23:40:49 +0000</pubDate>
+      
+      <guid>/work/rl_2048/</guid>
+      <description>Q Learning Agent to Play 2048 Implementation of Deep Q-network to play the game 2048 using Keras.</description>
+    </item>
+    
+    <item>
+      <title>Sarcasm Detection</title>
+      <link>/work/sarcasm_detection/</link>
+      <pubDate>Mon, 02 Dec 2019 23:40:49 +0000</pubDate>
+      
+      <guid>/work/sarcasm_detection/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Adversarial Lab</title>
@@ -18,33 +54,6 @@
       
       <guid>/work/adversarial_lab/</guid>
       <description>Adversarial Lab This project is a Web-based Tool for visualisation and generation of adversarial examples by attacking ImageNet Models like VGG, AlexNet, ResNet etc.</description>
-    </item>
-    
-    <item>
-      <title>d2l-pytorch</title>
-      <link>/work/d2l-pytorch/</link>
-      <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
-      
-      <guid>/work/d2l-pytorch/</guid>
-      <description>d2l-pytorch This project is adapted from the original Dive Into Deep Learning book by Aston Zhang, Zachary C.</description>
-    </item>
-    
-    <item>
-      <title>Explained: Graph Representation Learning</title>
-      <link>/work/graph_nets/</link>
-      <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
-      
-      <guid>/work/graph_nets/</guid>
-      <description>This project is a supplement to our blog series Explained: Graph Representation Learning. The following major papers and corresponding blogs have been covered as part of the series and we look to add blogs on a few other significant works in the field.</description>
-    </item>
-    
-    <item>
-      <title>Eye In The Sky: Image Segmentation Challenge Inter IIT 2019</title>
-      <link>/work/eye-in-the-sky-image_segmentation_challenge/</link>
-      <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
-      
-      <guid>/work/eye-in-the-sky-image_segmentation_challenge/</guid>
-      <description>This is the winning code for &amp;ldquo;Eye In The Sky&amp;rdquo; Satellite Image Segmentation Competetion as a part of Inter-IIT Tech Meet 2019 hosted by IIT Bombay.</description>
     </item>
     
     <item>
@@ -57,21 +66,12 @@
     </item>
     
     <item>
-      <title>Reinforcement Learning 2048</title>
-      <link>/work/rl_2048/</link>
-      <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
+      <title>Eye In The Sky: Image Segmentation Challenge Inter IIT 2019</title>
+      <link>/work/eye-in-the-sky-image_segmentation_challenge/</link>
+      <pubDate>Tue, 18 Dec 2018 23:40:49 +0000</pubDate>
       
-      <guid>/work/rl_2048/</guid>
-      <description>Q Learning Agent to Play 2048 Implementation of deep Q-network to play the game 2048 using Keras.</description>
-    </item>
-    
-    <item>
-      <title>Sarcasm Detection</title>
-      <link>/work/sarcasm_detection/</link>
-      <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
-      
-      <guid>/work/sarcasm_detection/</guid>
-      <description></description>
+      <guid>/work/eye-in-the-sky-image_segmentation_challenge/</guid>
+      <description>This is the winning code for &amp;ldquo;Eye In The Sky&amp;rdquo; Satellite Image Segmentation Competetion as a part of Inter-IIT Tech Meet 2019 hosted by IIT Bombay.</description>
     </item>
     
     <item>
@@ -93,30 +93,12 @@
     </item>
     
     <item>
-      <title>Project-6</title>
-      <link>/work/project6/</link>
-      <pubDate>Fri, 01 Dec 2017 23:40:49 +0000</pubDate>
+      <title>Beginner Friendly Project: Traffic Sign Classification</title>
+      <link>/work/traffic_sign_classification/</link>
+      <pubDate>Tue, 21 Nov 2017 23:40:49 +0000</pubDate>
       
-      <guid>/work/project6/</guid>
-      <description>Consectur in Bibendum Totam rem aperiam eaque ipsa quae illo inventore veritatis et quasi architebetea.vitae dicta sunt explicabo.</description>
-    </item>
-    
-    <item>
-      <title>Project-7</title>
-      <link>/work/project7/</link>
-      <pubDate>Fri, 01 Dec 2017 23:40:49 +0000</pubDate>
-      
-      <guid>/work/project7/</guid>
-      <description>Consectur in Bibendum Totam rem aperiam eaque ipsa quae illo inventore veritatis et quasi architebetea.vitae dicta sunt explicabo.</description>
-    </item>
-    
-    <item>
-      <title>Project-8</title>
-      <link>/work/project8/</link>
-      <pubDate>Fri, 01 Dec 2017 23:40:49 +0000</pubDate>
-      
-      <guid>/work/project8/</guid>
-      <description>Consectur in Bibendum Totam rem aperiam eaque ipsa quae illo inventore veritatis et quasi architebetea.vitae dicta sunt explicabo.</description>
+      <guid>/work/traffic_sign_classification/</guid>
+      <description>This project involves tackling a beginner friendly computer vision based Deep Learning problem based on the dataset The German Traffic Sign Recognition Benchmark(GTSRB).</description>
     </item>
     
   </channel>

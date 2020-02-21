@@ -3,12 +3,42 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/</loc>
+    <lastmod>2020-02-02T23:40:49+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/events/kaggle_meetup/</loc>
+    <lastmod>2020-02-02T23:40:49+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/nlp/</loc>
+    <lastmod>2020-02-02T23:40:49+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
+    <lastmod>2020-02-02T23:40:49+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/workshop/</loc>
+    <lastmod>2020-02-02T23:40:49+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/blogs/chebnet/</loc>
     <lastmod>2020-02-01T23:40:49+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/</loc>
+    <loc>/work/d2l-pytorch/</loc>
+    <lastmod>2020-02-01T23:40:49+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/deep-learning/</loc>
     <lastmod>2020-02-01T23:40:49+00:00</lastmod>
   </url>
   
@@ -18,8 +48,48 @@
   </url>
   
   <url>
-    <loc>/tags/</loc>
+    <loc>/tags/pytorch/</loc>
     <lastmod>2020-02-01T23:40:49+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/work/</loc>
+    <lastmod>2020-02-01T23:40:49+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/blogs/gat/</loc>
+    <lastmod>2020-01-21T23:40:49+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/blogs/graphsage/</loc>
+    <lastmod>2020-01-18T23:40:49+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/events/roti_kapda_makaan/</loc>
+    <lastmod>2020-01-06T23:40:49+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/hackathon/</loc>
+    <lastmod>2020-01-06T23:40:49+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/machine-learning/</loc>
+    <lastmod>2020-01-06T23:40:49+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/events/roti_kapda_makaan-copy/</loc>
+    <lastmod>2020-01-06T23:40:49+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/recruitments/</loc>
+    <lastmod>2020-01-06T23:40:49+00:00</lastmod>
   </url>
   
   <url>
@@ -28,38 +98,43 @@
   </url>
   
   <url>
-    <loc>/tags/boosting/</loc>
+    <loc>/blogs/</loc>
     <lastmod>2020-01-01T23:40:49+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blogs/boosting/</loc>
-    <lastmod>2020-01-01T23:40:49+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/clustering-analysis/</loc>
-    <lastmod>2020-01-01T23:40:49+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/blogs/clustering/</loc>
-    <lastmod>2020-01-01T23:40:49+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/blogs/graphsage/</loc>
+    <loc>/work/graph_nets/</loc>
     <lastmod>2020-01-01T23:40:49+00:00</lastmod>
   </url>
   
   <url>
     <loc>/blogs/deepwalk/</loc>
-    <lastmod>2020-01-01T23:40:49+00:00</lastmod>
+    <lastmod>2019-12-20T23:40:49+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blogs/gat/</loc>
-    <lastmod>2020-01-01T23:40:49+00:00</lastmod>
+    <loc>/tags/keras/</loc>
+    <lastmod>2019-12-07T23:40:49+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/reinforcement-learning/</loc>
+    <lastmod>2019-12-07T23:40:49+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/work/rl_2048/</loc>
+    <lastmod>2019-12-07T23:40:49+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/bert/</loc>
+    <lastmod>2019-12-02T23:40:49+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/work/sarcasm_detection/</loc>
+    <lastmod>2019-12-02T23:40:49+00:00</lastmod>
   </url>
   
   <url>
@@ -78,97 +153,12 @@
   </url>
   
   <url>
-    <loc>/tags/bert/</loc>
-    <lastmod>2019-12-01T23:40:49+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/blogs/</loc>
-    <lastmod>2019-12-01T23:40:49+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/work/d2l-pytorch/</loc>
-    <lastmod>2019-12-01T23:40:49+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/deep-learning/</loc>
-    <lastmod>2019-12-01T23:40:49+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/dl/</loc>
-    <lastmod>2019-12-01T23:40:49+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/events/event1/</loc>
-    <lastmod>2019-12-01T23:40:49+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/events/event2/</loc>
-    <lastmod>2019-12-01T23:40:49+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/events/event3/</loc>
-    <lastmod>2019-12-01T23:40:49+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/events/event4/</loc>
-    <lastmod>2019-12-01T23:40:49+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/events/event5/</loc>
-    <lastmod>2019-12-01T23:40:49+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/events/event6/</loc>
-    <lastmod>2019-12-01T23:40:49+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/events/</loc>
     <lastmod>2019-12-01T23:40:49+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/work/graph_nets/</loc>
-    <lastmod>2019-12-01T23:40:49+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/work/eye-in-the-sky-image_segmentation_challenge/</loc>
-    <lastmod>2019-12-01T23:40:49+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/tags/fashion/</loc>
-    <lastmod>2019-12-01T23:40:49+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/image-segmentation/</loc>
-    <lastmod>2019-12-01T23:40:49+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/keras/</loc>
-    <lastmod>2019-12-01T23:40:49+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/ml/</loc>
-    <lastmod>2019-12-01T23:40:49+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/nlp/</loc>
     <lastmod>2019-12-01T23:40:49+00:00</lastmod>
   </url>
   
@@ -183,33 +173,58 @@
   </url>
   
   <url>
-    <loc>/tags/pytorch/</loc>
-    <lastmod>2019-12-01T23:40:49+00:00</lastmod>
+    <loc>/events/workshop_machinelearning2019/</loc>
+    <lastmod>2019-10-23T23:40:49+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/reinforcement-learning/</loc>
-    <lastmod>2019-12-01T23:40:49+00:00</lastmod>
+    <loc>/events/dolores/</loc>
+    <lastmod>2019-10-11T23:40:49+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/work/rl_2048/</loc>
-    <lastmod>2019-12-01T23:40:49+00:00</lastmod>
+    <loc>/events/intro_to_data_science_libraries/</loc>
+    <lastmod>2019-09-04T23:40:49+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/rl/</loc>
-    <lastmod>2019-12-01T23:40:49+00:00</lastmod>
+    <loc>/tags/cloudxlabs/</loc>
+    <lastmod>2019-08-30T23:40:49+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/work/sarcasm_detection/</loc>
-    <lastmod>2019-12-01T23:40:49+00:00</lastmod>
+    <loc>/events/sandeeo_giri_talk_cv/</loc>
+    <lastmod>2019-08-30T23:40:49+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/work/</loc>
-    <lastmod>2019-12-01T23:40:49+00:00</lastmod>
+    <loc>/tags/talk/</loc>
+    <lastmod>2019-08-30T23:40:49+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/data-science-framework-setup/</loc>
+    <lastmod>2019-08-25T23:40:49+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/linux/</loc>
+    <lastmod>2019-08-25T23:40:49+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/events/linux_party19/</loc>
+    <lastmod>2019-08-25T23:40:49+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/events/intro_talk_19/</loc>
+    <lastmod>2019-08-10T23:40:49+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/intro-talk/</loc>
+    <lastmod>2019-08-10T23:40:49+00:00</lastmod>
   </url>
   
   <url>
@@ -228,7 +243,47 @@
   </url>
   
   <url>
+    <loc>/events/shrishthi_2k19_talk/</loc>
+    <lastmod>2019-03-07T23:40:49+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/hackathons/</loc>
+    <lastmod>2019-01-19T23:40:49+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/events/recruitments19/</loc>
+    <lastmod>2019-01-19T23:40:49+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/events/cerebro-melodious-medley-19-results/</loc>
+    <lastmod>2019-01-16T23:40:49+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/hackathon-results/</loc>
+    <lastmod>2019-01-16T23:40:49+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/work/eye-in-the-sky-image_segmentation_challenge/</loc>
+    <lastmod>2018-12-18T23:40:49+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/image-segmentation/</loc>
+    <lastmod>2018-12-18T23:40:49+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/tags/loss-functions/</loc>
+    <lastmod>2018-12-01T23:40:49+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/lua/</loc>
     <lastmod>2018-12-01T23:40:49+00:00</lastmod>
   </url>
   
@@ -243,8 +298,33 @@
   </url>
   
   <url>
-    <loc>/tags/3d-model/</loc>
-    <lastmod>2017-12-01T23:40:49+00:00</lastmod>
+    <loc>/events/cerebro_launch_melodious_medley18/</loc>
+    <lastmod>2018-10-31T23:40:49+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/events/dl_workshop18/</loc>
+    <lastmod>2018-10-31T23:40:49+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/codefundo/</loc>
+    <lastmod>2018-10-20T23:40:49+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/microsoft/</loc>
+    <lastmod>2018-10-20T23:40:49+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/events/code_fun_do18/</loc>
+    <lastmod>2018-10-20T23:40:49+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/events/smp_talk_dsg/</loc>
+    <lastmod>2018-02-07T23:40:49+00:00</lastmod>
   </url>
   
   <url>
@@ -253,23 +333,18 @@
   </url>
   
   <url>
-    <loc>/tags/product/</loc>
-    <lastmod>2017-12-01T23:40:49+00:00</lastmod>
+    <loc>/work/traffic_sign_classification/</loc>
+    <lastmod>2017-11-21T23:40:49+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/work/project6/</loc>
-    <lastmod>2017-12-01T23:40:49+00:00</lastmod>
+    <loc>/tags/cnn/</loc>
+    <lastmod>2017-11-21T23:40:49+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/work/project7/</loc>
-    <lastmod>2017-12-01T23:40:49+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/work/project8/</loc>
-    <lastmod>2017-12-01T23:40:49+00:00</lastmod>
+    <loc>/events/gs_quantify17/</loc>
+    <lastmod>2017-11-09T23:40:49+00:00</lastmod>
   </url>
   
   <url>
@@ -280,6 +355,11 @@
   <url>
     <loc>/blogs/word_embeddings/</loc>
     <lastmod>2017-10-15T23:40:49+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/events/amex_analyze_this17/</loc>
+    <lastmod>2017-10-09T23:40:49+00:00</lastmod>
   </url>
   
   <url>
@@ -324,7 +404,12 @@
   
   <url>
     <loc>/tags/experience/</loc>
-    <lastmod>2017-05-18T23:40:49+00:00</lastmod>
+    <lastmod>2017-05-24T23:40:49+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/blogs/placement_experience/</loc>
+    <lastmod>2017-05-24T23:40:49+00:00</lastmod>
   </url>
   
   <url>
@@ -339,11 +424,6 @@
   
   <url>
     <loc>/tags/machine-learning-svd-dimensionality-reduction/</loc>
-    <lastmod>2017-05-18T23:40:49+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/blogs/placement_experience/</loc>
     <lastmod>2017-05-18T23:40:49+00:00</lastmod>
   </url>
   
@@ -373,12 +453,17 @@
   </url>
   
   <url>
-    <loc>/blogs/decision_trees_decoded/</loc>
+    <loc>/tags/boosting/</loc>
     <lastmod>2017-03-22T23:40:49+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/machine-learning/</loc>
+    <loc>/blogs/boosting/</loc>
+    <lastmod>2017-03-22T23:40:49+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/blogs/decision_trees_decoded/</loc>
     <lastmod>2017-03-22T23:40:49+00:00</lastmod>
   </url>
   
@@ -394,6 +479,18 @@
   
   <url>
     <loc>/categories/</loc>
+  </url>
+  
+  <url>
+    <loc>/tags/clustering-analysis/</loc>
+  </url>
+  
+  <url>
+    <loc>/blogs/clustering/</loc>
+  </url>
+  
+  <url>
+    <loc>/events/shrishthi_talk_2020/</loc>
   </url>
   
 </urlset>

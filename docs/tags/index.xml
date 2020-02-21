@@ -6,10 +6,37 @@
     <description>Recent content in Tags on DSG | IIT Roorkee</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 01 Feb 2020 23:40:49 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 02 Feb 2020 23:40:49 +0000</lastBuildDate>
     
 	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>NLP</title>
+      <link>/tags/nlp/</link>
+      <pubDate>Sun, 02 Feb 2020 23:40:49 +0000</pubDate>
+      
+      <guid>/tags/nlp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Workshop</title>
+      <link>/tags/workshop/</link>
+      <pubDate>Sun, 02 Feb 2020 23:40:49 +0000</pubDate>
+      
+      <guid>/tags/workshop/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Deep Learning</title>
+      <link>/tags/deep-learning/</link>
+      <pubDate>Sat, 01 Feb 2020 23:40:49 +0000</pubDate>
+      
+      <guid>/tags/deep-learning/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Graph Representation Learning</title>
@@ -21,20 +48,65 @@
     </item>
     
     <item>
-      <title>Boosting</title>
-      <link>/tags/boosting/</link>
-      <pubDate>Wed, 01 Jan 2020 23:40:49 +0000</pubDate>
+      <title>PyTorch</title>
+      <link>/tags/pytorch/</link>
+      <pubDate>Sat, 01 Feb 2020 23:40:49 +0000</pubDate>
       
-      <guid>/tags/boosting/</guid>
+      <guid>/tags/pytorch/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Clustering Analysis</title>
-      <link>/tags/clustering-analysis/</link>
-      <pubDate>Wed, 01 Jan 2020 23:40:49 +0000</pubDate>
+      <title>Hackathon</title>
+      <link>/tags/hackathon/</link>
+      <pubDate>Mon, 06 Jan 2020 23:40:49 +0000</pubDate>
       
-      <guid>/tags/clustering-analysis/</guid>
+      <guid>/tags/hackathon/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Machine Learning</title>
+      <link>/tags/machine-learning/</link>
+      <pubDate>Mon, 06 Jan 2020 23:40:49 +0000</pubDate>
+      
+      <guid>/tags/machine-learning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Recruitments</title>
+      <link>/tags/recruitments/</link>
+      <pubDate>Mon, 06 Jan 2020 23:40:49 +0000</pubDate>
+      
+      <guid>/tags/recruitments/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Keras</title>
+      <link>/tags/keras/</link>
+      <pubDate>Sat, 07 Dec 2019 23:40:49 +0000</pubDate>
+      
+      <guid>/tags/keras/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Reinforcement Learning</title>
+      <link>/tags/reinforcement-learning/</link>
+      <pubDate>Sat, 07 Dec 2019 23:40:49 +0000</pubDate>
+      
+      <guid>/tags/reinforcement-learning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>BERT</title>
+      <link>/tags/bert/</link>
+      <pubDate>Mon, 02 Dec 2019 23:40:49 +0000</pubDate>
+      
+      <guid>/tags/bert/</guid>
       <description></description>
     </item>
     
@@ -48,74 +120,11 @@
     </item>
     
     <item>
-      <title>BERT</title>
-      <link>/tags/bert/</link>
-      <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
-      
-      <guid>/tags/bert/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Deep Learning</title>
-      <link>/tags/deep-learning/</link>
-      <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
-      
-      <guid>/tags/deep-learning/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>DL</title>
-      <link>/tags/dl/</link>
-      <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
-      
-      <guid>/tags/dl/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>fashion</title>
       <link>/tags/fashion/</link>
       <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
       
       <guid>/tags/fashion/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Image Segmentation</title>
-      <link>/tags/image-segmentation/</link>
-      <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
-      
-      <guid>/tags/image-segmentation/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Keras</title>
-      <link>/tags/keras/</link>
-      <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
-      
-      <guid>/tags/keras/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>ML</title>
-      <link>/tags/ml/</link>
-      <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
-      
-      <guid>/tags/ml/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>NLP</title>
-      <link>/tags/nlp/</link>
-      <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
-      
-      <guid>/tags/nlp/</guid>
       <description></description>
     </item>
     
@@ -129,29 +138,47 @@
     </item>
     
     <item>
-      <title>PyTorch</title>
-      <link>/tags/pytorch/</link>
-      <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
+      <title>CloudXLabs</title>
+      <link>/tags/cloudxlabs/</link>
+      <pubDate>Fri, 30 Aug 2019 23:40:49 +0000</pubDate>
       
-      <guid>/tags/pytorch/</guid>
+      <guid>/tags/cloudxlabs/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Reinforcement Learning</title>
-      <link>/tags/reinforcement-learning/</link>
-      <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
+      <title>Talk</title>
+      <link>/tags/talk/</link>
+      <pubDate>Fri, 30 Aug 2019 23:40:49 +0000</pubDate>
       
-      <guid>/tags/reinforcement-learning/</guid>
+      <guid>/tags/talk/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>RL</title>
-      <link>/tags/rl/</link>
-      <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
+      <title>Data Science Framework Setup</title>
+      <link>/tags/data-science-framework-setup/</link>
+      <pubDate>Sun, 25 Aug 2019 23:40:49 +0000</pubDate>
       
-      <guid>/tags/rl/</guid>
+      <guid>/tags/data-science-framework-setup/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Linux</title>
+      <link>/tags/linux/</link>
+      <pubDate>Sun, 25 Aug 2019 23:40:49 +0000</pubDate>
+      
+      <guid>/tags/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Intro Talk</title>
+      <link>/tags/intro-talk/</link>
+      <pubDate>Sat, 10 Aug 2019 23:40:49 +0000</pubDate>
+      
+      <guid>/tags/intro-talk/</guid>
       <description></description>
     </item>
     
@@ -165,11 +192,47 @@
     </item>
     
     <item>
+      <title>Hackathons</title>
+      <link>/tags/hackathons/</link>
+      <pubDate>Sat, 19 Jan 2019 23:40:49 +0000</pubDate>
+      
+      <guid>/tags/hackathons/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hackathon Results</title>
+      <link>/tags/hackathon-results/</link>
+      <pubDate>Wed, 16 Jan 2019 23:40:49 +0000</pubDate>
+      
+      <guid>/tags/hackathon-results/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Image Segmentation</title>
+      <link>/tags/image-segmentation/</link>
+      <pubDate>Tue, 18 Dec 2018 23:40:49 +0000</pubDate>
+      
+      <guid>/tags/image-segmentation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Loss Functions</title>
       <link>/tags/loss-functions/</link>
       <pubDate>Sat, 01 Dec 2018 23:40:49 +0000</pubDate>
       
       <guid>/tags/loss-functions/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Lua</title>
+      <link>/tags/lua/</link>
+      <pubDate>Sat, 01 Dec 2018 23:40:49 +0000</pubDate>
+      
+      <guid>/tags/lua/</guid>
       <description></description>
     </item>
     
@@ -183,20 +246,29 @@
     </item>
     
     <item>
-      <title>3d-model</title>
-      <link>/tags/3d-model/</link>
-      <pubDate>Fri, 01 Dec 2017 23:40:49 +0000</pubDate>
+      <title>CodeFunDo</title>
+      <link>/tags/codefundo/</link>
+      <pubDate>Sat, 20 Oct 2018 23:40:49 +0000</pubDate>
       
-      <guid>/tags/3d-model/</guid>
+      <guid>/tags/codefundo/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>product</title>
-      <link>/tags/product/</link>
-      <pubDate>Fri, 01 Dec 2017 23:40:49 +0000</pubDate>
+      <title>Microsoft</title>
+      <link>/tags/microsoft/</link>
+      <pubDate>Sat, 20 Oct 2018 23:40:49 +0000</pubDate>
       
-      <guid>/tags/product/</guid>
+      <guid>/tags/microsoft/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>CNN</title>
+      <link>/tags/cnn/</link>
+      <pubDate>Tue, 21 Nov 2017 23:40:49 +0000</pubDate>
+      
+      <guid>/tags/cnn/</guid>
       <description></description>
     </item>
     
@@ -239,7 +311,7 @@
     <item>
       <title>Experience</title>
       <link>/tags/experience/</link>
-      <pubDate>Thu, 18 May 2017 23:40:49 +0000</pubDate>
+      <pubDate>Wed, 24 May 2017 23:40:49 +0000</pubDate>
       
       <guid>/tags/experience/</guid>
       <description></description>
@@ -282,11 +354,11 @@
     </item>
     
     <item>
-      <title>Machine Learning</title>
-      <link>/tags/machine-learning/</link>
+      <title>Boosting</title>
+      <link>/tags/boosting/</link>
       <pubDate>Wed, 22 Mar 2017 23:40:49 +0000</pubDate>
       
-      <guid>/tags/machine-learning/</guid>
+      <guid>/tags/boosting/</guid>
       <description></description>
     </item>
     
@@ -296,6 +368,15 @@
       <pubDate>Tue, 01 Dec 2015 23:40:49 +0000</pubDate>
       
       <guid>/tags/install/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Clustering Analysis</title>
+      <link>/tags/clustering-analysis/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/clustering-analysis/</guid>
       <description></description>
     </item>
     

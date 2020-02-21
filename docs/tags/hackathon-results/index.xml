@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hackathon Results on DSG | IIT Roorkee</title>
+    <link>/tags/hackathon-results/</link>
+    <description>Recent content in Hackathon Results on DSG | IIT Roorkee</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 16 Jan 2019 23:40:49 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/hackathon-results/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Cerebro: Melodious Medley &#39;19 Results</title>
+      <link>/events/cerebro-melodious-medley-19-results/</link>
+      <pubDate>Wed, 16 Jan 2019 23:40:49 +0000</pubDate>
+      
+      <guid>/events/cerebro-melodious-medley-19-results/</guid>
+      <description>#Melodious_Medley_19 #Results Congratulations to the winners of Melodious Medley and Beginner&#39;s Hypothesis!
+All the best for interview which will be conducted next week after 22nd January.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -4,9 +4,9 @@
   <meta charset="utf-8">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   
-  <meta name="description" content="This is meta description">
+  <meta name="description" content="RL 2048 Deployed">
   <meta name="author" content="DSG">
-  <meta name="generator" content="Hugo 0.64.1" />
+  <meta name="generator" content="Hugo 0.61.0" />
   
   <!-- Mobile Specific Metas -->
   <meta name="format-detection" content="telephone=no">
@@ -64,7 +64,7 @@
                             <li class="nav-item">
                                 
                                 
-                                    <a class="nav-link" href="/events">Events</a>
+                                    <a class="nav-link" href="/events">News</a>
                                 
                                 
                             </li>
@@ -99,7 +99,7 @@
                 <div class="block">
                     <h2>Reinforcement Learning 2048</h2>
                     <div class="portfolio-meta">
-                        <span>Sunday, Dec 1, 2019</span>|
+                        <span>Saturday, Dec 7, 2019</span>|
                         <span> Tags:
                             Reinforcement Learning, Keras
                         </span>
@@ -121,9 +121,9 @@
                 
                 <div class="post-content">
                     <h2 id="q-learning-agent-to-play-2048">Q Learning Agent to Play 2048</h2>
-<p>Implementation of deep Q-network to play the game 2048 using Keras.</p>
+<p>Implementation of Deep Q-network to play the game 2048 using Keras.</p>
 <h3 id="project-description">Project Description</h3>
-<p>For calculating the Q Values we used a Neural Network, rather than just showing the current state to the network, the next 4 possible states(left, right, up, down) were also shown. This intuition was inspired from Monte Carlo Tree Search where game is played till the end to determine the Q-Values. For data preprocessing log2 normalisation, training was done using the Bellman&rsquo;s Equation. The policy used was Epsilon greedy, to allow exploration the value of epsilon was annealed down by 5%.</p>
+<p>For calculating the Q Values we used a Neural Network, rather than just showing the current state to the network, the next 4 possible states(left, right, up, down) were also shown. This intuition was inspired from Monte Carlo Tree Search estimation where game is played till the end to determine the Q-Values. Instead of using a normal Q Network, a Double Q Network was used one for predicting Q values and other for predicting actions. Training was done using the Bellman's Equation. The policy used was Epsilon greedy, to allow exploration the value of epsilon was annealed down by 5%.</p>
 
                 </div>
             </div>

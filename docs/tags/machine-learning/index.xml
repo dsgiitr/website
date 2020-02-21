@@ -6,10 +6,69 @@
     <description>Recent content in Machine Learning on DSG | IIT Roorkee</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 22 Mar 2017 23:40:49 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 06 Jan 2020 23:40:49 +0000</lastBuildDate>
     
 	<atom:link href="/tags/machine-learning/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Cerebro Hackathon: Roti Kapda Makaan</title>
+      <link>/events/roti_kapda_makaan/</link>
+      <pubDate>Mon, 06 Jan 2020 23:40:49 +0000</pubDate>
+      
+      <guid>/events/roti_kapda_makaan/</guid>
+      <description>Let’s kickoff 2020 with our annual ML Competition.
+Beginners’ Hypothesis
+Starts at 6:00 PM, 6th Jan.</description>
+    </item>
+    
+    <item>
+      <title>Recruitment 2020 Results</title>
+      <link>/events/roti_kapda_makaan-copy/</link>
+      <pubDate>Mon, 06 Jan 2020 23:40:49 +0000</pubDate>
+      
+      <guid>/events/roti_kapda_makaan-copy/</guid>
+      <description>Data Science Group welcomes all the new recruits!!
+It was a very tough choice to select a few candidates from the pool of enthusiastic and talented freshers and sophomores who turned up.</description>
+    </item>
+    
+    <item>
+      <title>Workshop: Machine Learning 2019</title>
+      <link>/events/workshop_machinelearning2019/</link>
+      <pubDate>Wed, 23 Oct 2019 23:40:49 +0000</pubDate>
+      
+      <guid>/events/workshop_machinelearning2019/</guid>
+      <description>Greetings IIT R! We are back with our workshop on Machine Learning. The workshop is specifically designed for 1st-year students and it would help you get comfortable with basic ML algorithms, their explanation and implementation.</description>
+    </item>
+    
+    <item>
+      <title>Cerebro Hackathon: Dolores</title>
+      <link>/events/dolores/</link>
+      <pubDate>Fri, 11 Oct 2019 23:40:49 +0000</pubDate>
+      
+      <guid>/events/dolores/</guid>
+      <description>Hi Folks, DSG is launching ‘Dolores’, a 3-day competition on predictive modeling, open for freshers and sophomores, participate and grab this opportunity to enhance your knowledge of Machine Learning.</description>
+    </item>
+    
+    <item>
+      <title>Intro To Data Science Libraries</title>
+      <link>/events/intro_to_data_science_libraries/</link>
+      <pubDate>Wed, 04 Sep 2019 23:40:49 +0000</pubDate>
+      
+      <guid>/events/intro_to_data_science_libraries/</guid>
+      <description>Greetings IIT R!
+We are back with the first workshop of the semester. We would be introducing the basics of python and data science libraries such as numpy, pandas, matplotlib, scikit-learn and PyTorch.</description>
+    </item>
+    
+    <item>
+      <title>Hackathon: Melodious Medley</title>
+      <link>/events/cerebro_launch_melodious_medley18/</link>
+      <pubDate>Wed, 31 Oct 2018 23:40:49 +0000</pubDate>
+      
+      <guid>/events/cerebro_launch_melodious_medley18/</guid>
+      <description>Greetings IITR!
+Hold your breath as a new era of DS in IIT Roorkee begins. Tonight, we launch CEREBRO, a platform for hosting data hackathons exclusively in IITR developed by SDSLabs.</description>
+    </item>
     
     <item>
       <title>Decision Trees. Decoded.</title>

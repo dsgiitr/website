@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Lua on DSG | IIT Roorkee</title>
+    <link>/tags/lua/</link>
+    <description>Recent content in Lua on DSG | IIT Roorkee</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 01 Dec 2018 23:40:49 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/lua/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Visualizing Loss Functions</title>
+      <link>/work/visualizing-loss-functions/</link>
+      <pubDate>Sat, 01 Dec 2018 23:40:49 +0000</pubDate>
+      
+      <guid>/work/visualizing-loss-functions/</guid>
+      <description>Visualising different loss and optimisation functions using Autoencoder. The aim of the project was to reconstruct images with the help of Autoencoders to visualise the difference in output when different loss or optimisation functions are used.</description>
+    </item>
+    
+  </channel>
+</rss>
