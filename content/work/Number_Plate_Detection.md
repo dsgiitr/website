@@ -3,8 +3,8 @@ title: "Number Plate Detection"
 type: work
 date: 2019-12-01T23:40:49+00:00
 description : "This is meta description"
-caption: Totam rem aperiam eaque ipsa quae illo inventore veritatis et quasi architebetea...
-image: images/work/npDetection.jpg
+caption: This is a step towards automating the vehicles entering IIT Roorkee campus using state of the art Deep learning & Computer Vision. 
+image: images/work/np_detection.gif
 author: Subham Sahoo, Vipul Bansal, Ankit Aharwal
 tags: ["fashion","package"]
 submitDate: November 20, 2017

@@ -1,6 +1,6 @@
 ---
 title: "Understanding Deepwalk"
-date: 2020-01-01T23:40:49+00:00
+date: 2019-12-20T23:40:49+00:00
 description : "Machine Learning / Graph Representation Learning"
 type: post
 image: https://miro.medium.com/max/4005/1*j-P55wBp5PP9oqrxDxdDpw.png

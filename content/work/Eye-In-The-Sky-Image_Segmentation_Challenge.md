@@ -1,13 +1,13 @@
 ---
 title: "Eye In The Sky: Image Segmentation Challenge Inter IIT 2019"
 type: work
-date: 2019-12-01T23:40:49+00:00
-description : "This is meta description"
-caption: Totam rem aperiam eaque ipsa quae illo inventore veritatis et quasi architebetea...
+date: 2018-12-18T23:40:49+00:00
+description : "Inter IIT 2018 Winning Solution for Eye In The Sky"
+caption: Winning Solution in the Inter IIT Tech Meet 2018 Machine Learning Challenge, "Eye In The Sky".
 image: images/work/item-3.svg
 author: Prabhat Sharma, Shiva Gupta, Sanjay
 tags: ["Deep Learning", "Image Segmentation"]
-submitDate: December 20, 2019
+submitDate: December 18, 2018
 github: https://www.github.com/dsgiitr/
 ---
 

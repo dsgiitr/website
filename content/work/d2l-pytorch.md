@@ -1,10 +1,10 @@
 ---
 title: "d2l-pytorch"
 type: work
-date: 2019-12-01T23:40:49+00:00
-description : "This is meta description"
+date: 2020-02-01T23:40:49+00:00
+description : "Dive Into Deep Learning Book with PyTorch Implementation"
 caption: This project reproduces the book Dive Into Deep Learning (www.d2l.ai), adapting the code from MXNet into PyTorch.
-image: images/work/d2l-pytorch.png
+image: images/work/d2l_pytorch.svg
 author: Team DSG
 tags: ["Deep Learning", "PyTorch"]
 submitDate: Present

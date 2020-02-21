@@ -3,10 +3,10 @@ title: "Visualizing Loss Functions"
 type: work
 date: 2018-12-01T23:40:49+00:00
 description : "This is meta description"
-caption: Totam rem aperiam eaque ipsa quae illo inventore veritatis et quasi architebetea...
-image: images/work/item-5.svg
+caption: Visualising different loss and optimisation functions using Autoencoders.
+image: https://cdn-images-1.medium.com/max/1920/1*zbrYLZQa8w-C4y13Kh_ssA.jpeg
 author: Apoorva Agarwall
-tags: ["Deep Learning","Visualization", "Loss Functions"]
+tags: ["Deep Learning", "Visualization", "Loss Functions", "Lua"]
 submitDate: November 20, 2017
 github: https://github.com/dsgiitr/Visualizing-Loss-Functions
 ---
@@ -22,8 +22,6 @@ regression criterion functions.
 1) Absolute criterion
 2) Mean Square Error criterion
 3) Smooth L1 criterion
-
-![Results of loss functions](/Results_loss.jpg?raw=true "Results using different loss function")
 
 While the Absolute error just calculated the mean absolute value between of the pixel-wise difference, Mean Square error uses
 mean squared error. Thus it is more sensitive to outliers and pushes pixel value towards 1 (in our case, white as can be seen in image 
@@ -50,4 +48,5 @@ parameters. It uses a different learning Rate for every parameter θ at a time s
 
 Adam stands for Adaptive Moment Estimation. It also calculates different learning rate. Adam works well in practice, is faster, and outperforms other techniques. 
 
-![Results of optimisers](/result_optimiser.jpg?raw=true "Results using different loss function")
+<center><b>Results of Optimisers.</b></center>
+<center><img src="https://raw.githubusercontent.com/dsgiitr/Visualizing-Loss-Functions/master/result_optimiser.jpg"></center>

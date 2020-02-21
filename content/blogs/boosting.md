@@ -1,6 +1,6 @@
 ---
 title: "Boosting Decrypted"
-date: 2020-01-01T23:40:49+00:00
+date: 2017-03-22T23:40:49+00:00
 description : "Machine Learning / Boosting"
 type: post
 image: https://miro.medium.com/max/2936/1*jbncjeM4CfpobEnDO0ZTjw.png

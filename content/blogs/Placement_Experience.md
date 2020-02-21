@@ -1,6 +1,6 @@
 ---
 title: "Placement Experience."
-date: 2017-05-18T23:40:49+00:00
+date: 2017-05-24T23:40:49+00:00
 description : "Placement"
 type: post
 image: https://cdn-images-1.medium.com/max/1250/1*Q3P5vUvT9ed1qrPngElGDw.jpeg

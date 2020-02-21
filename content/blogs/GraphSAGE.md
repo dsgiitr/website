@@ -1,6 +1,6 @@
 ---
 title: "Graph SAGE(SAmple and aggreGatE) : Inductive Learning on Graphs"
-date: 2020-01-01T23:40:49+00:00
+date: 2020-01-18T23:40:49+00:00
 description : "Machine Learning / Graph Representation Learning"
 type: post
 image: images/blogs/GraphSAGE/GraphSAGE_cover.jpg
