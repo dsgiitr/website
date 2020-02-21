@@ -30,7 +30,7 @@ unsafe= true
         url     = "/#works"
         weight  = 2
     [[menu.nav]]
-        name    = "Events"
+        name    = "News"
         url     = "events"
         weight  = 3
     [[menu.nav]]
@@ -61,20 +61,20 @@ unsafe= true
         projectLink = "#works"
         scroll = "images/scroll.svg"
         down = "images/down.svg"
-        description = "A student organization Driving innovation via Machine Learning."
+        description = "A student organization driving innovation via Machine Learning."
 
     # Homepage About Section
     [params.about]
         enable  = true
         title   = "About"
-        content = "We are Data Science Group, IIT Roorkee. A student organizaton and a part of the umbrella organization Software Development Section. We aim to work on innovative open source projects in the domain of Machine Learning, bridging the gap between research and industry. In the process, we fullfil our mission of cultivating and evolving the technical community in Roorkee by organizing lectures, workshops, hackathons spanning across the field of Machine Learning, Deep Learning and Data Science in general."
+        content = "We are Data Science Group, IIT Roorkee. A student organizaton, part of the umbrella organization Software Development Section. We aim to work on innovative open source projects in the domain of Machine Learning, Deep Learning & Reinforcement Learning, bridging the gap between research and industry. In the process, we fullfil our mission of cultivating and evolving the technical community at IIT Roorkee by organizing lectures, workshops, hackathons spanning across the field of Data Science and AI."
         image   = "images/about/teamDSG.jpg"
 
     # work Section On Homepage
     [params.work]
         enable  = true
         title   = "Projects"
-        subtitle= "This just placeholder text. Write something here."
+        subtitle= ""
 
     [params.footer]
         [[params.footer.socialIcon]]
