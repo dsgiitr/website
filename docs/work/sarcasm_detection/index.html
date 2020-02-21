@@ -11,7 +11,7 @@
   <!-- Mobile Specific Metas -->
   <meta name="format-detection" content="telephone=no">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Sarcasm Detection</title>
+  <title>Sarcasm Detection using BERT</title>
   <link rel="icon" href="/images/dsg.ico">
 
   <!-- Twitter Bootstrs CSS -->
@@ -97,7 +97,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="block">
-                    <h2>Sarcasm Detection</h2>
+                    <h2>Sarcasm Detection using BERT</h2>
                     <div class="portfolio-meta">
                         <span>Monday, Dec 2, 2019</span>|
                         <span> Tags:
@@ -116,11 +116,25 @@
             <div class="col-md-12">
                 
                 <div class="post-img">
-                    <img class="img-fluid-work" alt="" src="/images/work/item-4.svg">
+                    <img class="img-fluid-work" alt="" src="https://img.buzzfeed.com/buzzfeed-static/static/2016-03/10/14/enhanced/webdr01/enhanced-11415-1457636668-6.png?output-quality=auto&amp;output-format=auto&amp;downsize=640">
                 </div>
                 
                 <div class="post-content">
-                    
+                    <h1 id="what-is-sarcasm">What Is Sarcasm?</h1>
+<p>Sarcasm, a sharp and ironic utterance designed to cut or to cause pain, is often used to express strong
+emotions, such as contempt, mockery or bitterness.</p>
+<h2 id="why">Why?</h2>
+<p>In order to correctly understand people’s true intention, being able to detect sarcasm is critical. Many previous models have been developed to detect sarcasm based on the utterances in isolation, meaning only the reply text itself. The main models used were SVMs
+and LSTMs with attention. In this project, we aim to improve accuracy of sarcasm detection by further exploring the role of contextual information in detecting sarcasm. We will investigate the performances of different models including LSTM models and BERT.</p>
+<p>Sarcasm detection is of great importance in understanding people’s true sentiments and opinions. Application of sarcasm detection can benefit many areas of interest of NLP applications, including marketing research, opinion mining and information categorization. However, sarcasm detection is also a very difficult task, as it’s largely dependent on context, prior knowledge and the tone in which the sentence was spoken or written.</p>
+<h2 id="dataset">Dataset</h2>
+<p>News Headlines Dataset.</p>
+<p>Each record consists of :</p>
+<p><code>is_sarcastic: 1 if the record is sarcastic otherwise 0</code></p>
+<p><code>headline: the headline of the news article</code></p>
+<p><code>article_link: link to the original news article. Useful in collecting supplementary data</code></p>
+<p>Pre-trained BERT and LSTM models in tensorflow used as the model takes in the headlines as input and, output the class.</p>
+
                 </div>
             </div>
         </div>

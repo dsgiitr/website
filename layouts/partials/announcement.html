@@ -28,11 +28,11 @@
                             </div>
                         {{ end }}
 
-                        <div class="{{ $middle }}" style="margin: 0 0.5rem 0 1rem; height: max-content;">
+                        <div class="{{ $middle }}" style="margin: 0 0.5rem 0 1rem; height: max-content; ">
                             {{ with .title }}<p>{{ . }}</p>{{ end }}
                         </div>
-                        <div class="{{ $bottom }}" style="margin: 0 1rem;">
-                            {{ with .description }}<p style="font-size: 15px;">{{ . }}</p>{{ end }}
+                        <div class="{{ $bottom }}" style="margin: 0 1rem; text-align: none;">
+                            {{ with .description }}<p style="font-size: 15px; text-align: none;">{{ . }}</p>{{ end }}
                         </div>
                         <div class="{{ $link }}">
                             <a href="{{ with .url }}{{ . }}{{ end }}">{{ with .linkName }}{{ . }}{{ end }}</a>

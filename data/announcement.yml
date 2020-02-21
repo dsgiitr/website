@@ -19,10 +19,10 @@ item    :
       linkName : Read->
       url : https://dsgiitr.com/blogs/gat/
       description : >
-        5th blog in the series Explained: Graph Representation Learning
+        GAT introduces a mechanism to attend over neighborhoods' features and weigh  different nodes accordingly.
 
   item3    :
-    - name  : Past EVENT
+    - name  : PAST EVENT
       title : Kaggle Days
       order : 3
       linkName : View Details->
