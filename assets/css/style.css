@@ -781,7 +781,7 @@ figure figcaption p {
 }
 
 .img-wrapper-team:hover{
-  filter: hue-rotate(190deg) saturate(100%);
+  /*filter: hue-rotate(190deg) saturate(100%);*/
   /*background: linear-gradient(0deg, rgba(80, 150, 255, 0.7);*/
 }
 
