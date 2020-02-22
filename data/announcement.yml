@@ -1,7 +1,7 @@
 enable  : true
 title   : Announcements
 subtitle: >
-  Lorem ipsum dol
+  
 item    :
 
   item1    :
@@ -9,7 +9,7 @@ item    :
       title : Shristi Talk
       order : 1
       linkName : View Details->
-      url : 
+      url : /events
       description : >
         DSG annual talk on Shrishti, IIT Roorkee
   item2    :

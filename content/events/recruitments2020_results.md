@@ -1,7 +1,7 @@
 ---
 title: "Recruitment 2020 Results"
 type: events
-date: 2020-01-06T23:40:49+00:00
+date: 2020-01-19T23:40:49+00:00
 description : "This is meta description"
 caption: 
 image: images/events/recruitment_20_results.jpeg

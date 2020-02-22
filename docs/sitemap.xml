@@ -63,6 +63,21 @@
   </url>
   
   <url>
+    <loc>/tags/machine-learning/</loc>
+    <lastmod>2020-01-19T23:40:49+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/events/recruitments2020_results/</loc>
+    <lastmod>2020-01-19T23:40:49+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/recruitments/</loc>
+    <lastmod>2020-01-19T23:40:49+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/blogs/graphsage/</loc>
     <lastmod>2020-01-18T23:40:49+00:00</lastmod>
   </url>
@@ -74,21 +89,6 @@
   
   <url>
     <loc>/tags/hackathon/</loc>
-    <lastmod>2020-01-06T23:40:49+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/machine-learning/</loc>
-    <lastmod>2020-01-06T23:40:49+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/events/recruitments2020_results/</loc>
-    <lastmod>2020-01-06T23:40:49+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/recruitments/</loc>
     <lastmod>2020-01-06T23:40:49+00:00</lastmod>
   </url>
   
@@ -248,16 +248,6 @@
   </url>
   
   <url>
-    <loc>/tags/hackathons/</loc>
-    <lastmod>2019-01-19T23:40:49+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/events/recruitments19/</loc>
-    <lastmod>2019-01-19T23:40:49+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/events/cerebro-melodious-medley-19-results/</loc>
     <lastmod>2019-01-16T23:40:49+00:00</lastmod>
   </url>
@@ -265,6 +255,16 @@
   <url>
     <loc>/tags/hackathon-results/</loc>
     <lastmod>2019-01-16T23:40:49+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/hackathons/</loc>
+    <lastmod>2019-01-06T23:40:49+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/events/recruitments19/</loc>
+    <lastmod>2019-01-06T23:40:49+00:00</lastmod>
   </url>
   
   <url>

@@ -1,7 +1,7 @@
 ---
 title: "Recruitments '19: Challenge Series"
 type: events
-date: 2019-01-19T23:40:49+00:00
+date: 2019-01-06T23:40:49+00:00
 description : "This is meta description"
 caption: SDS & DSG bring 2019 Challenge Series!
 image: images/events/recruitments_19_challenge.jpeg

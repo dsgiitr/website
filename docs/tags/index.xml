@@ -57,18 +57,9 @@
     </item>
     
     <item>
-      <title>Hackathon</title>
-      <link>/tags/hackathon/</link>
-      <pubDate>Mon, 06 Jan 2020 23:40:49 +0000</pubDate>
-      
-      <guid>/tags/hackathon/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Machine Learning</title>
       <link>/tags/machine-learning/</link>
-      <pubDate>Mon, 06 Jan 2020 23:40:49 +0000</pubDate>
+      <pubDate>Sun, 19 Jan 2020 23:40:49 +0000</pubDate>
       
       <guid>/tags/machine-learning/</guid>
       <description></description>
@@ -77,9 +68,18 @@
     <item>
       <title>Recruitments</title>
       <link>/tags/recruitments/</link>
-      <pubDate>Mon, 06 Jan 2020 23:40:49 +0000</pubDate>
+      <pubDate>Sun, 19 Jan 2020 23:40:49 +0000</pubDate>
       
       <guid>/tags/recruitments/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hackathon</title>
+      <link>/tags/hackathon/</link>
+      <pubDate>Mon, 06 Jan 2020 23:40:49 +0000</pubDate>
+      
+      <guid>/tags/hackathon/</guid>
       <description></description>
     </item>
     
@@ -192,20 +192,20 @@
     </item>
     
     <item>
-      <title>Hackathons</title>
-      <link>/tags/hackathons/</link>
-      <pubDate>Sat, 19 Jan 2019 23:40:49 +0000</pubDate>
-      
-      <guid>/tags/hackathons/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Hackathon Results</title>
       <link>/tags/hackathon-results/</link>
       <pubDate>Wed, 16 Jan 2019 23:40:49 +0000</pubDate>
       
       <guid>/tags/hackathon-results/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hackathons</title>
+      <link>/tags/hackathons/</link>
+      <pubDate>Sun, 06 Jan 2019 23:40:49 +0000</pubDate>
+      
+      <guid>/tags/hackathons/</guid>
       <description></description>
     </item>
     

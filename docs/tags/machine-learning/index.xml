@@ -6,10 +6,20 @@
     <description>Recent content in Machine Learning on DSG | IIT Roorkee</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 06 Jan 2020 23:40:49 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 19 Jan 2020 23:40:49 +0000</lastBuildDate>
     
 	<atom:link href="/tags/machine-learning/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Recruitment 2020 Results</title>
+      <link>/events/recruitments2020_results/</link>
+      <pubDate>Sun, 19 Jan 2020 23:40:49 +0000</pubDate>
+      
+      <guid>/events/recruitments2020_results/</guid>
+      <description>Data Science Group welcomes all the new recruits!!
+It was a very tough choice to select a few candidates from the pool of enthusiastic and talented freshers and sophomores who turned up.</description>
+    </item>
     
     <item>
       <title>Cerebro Hackathon: Roti Kapda Makaan</title>
@@ -20,16 +30,6 @@
       <description>Let’s kickoff 2020 with our annual ML Competition.
 Beginners’ Hypothesis
 Starts at 6:00 PM, 6th Jan.</description>
-    </item>
-    
-    <item>
-      <title>Recruitment 2020 Results</title>
-      <link>/events/recruitments2020_results/</link>
-      <pubDate>Mon, 06 Jan 2020 23:40:49 +0000</pubDate>
-      
-      <guid>/events/recruitments2020_results/</guid>
-      <description>Data Science Group welcomes all the new recruits!!
-It was a very tough choice to select a few candidates from the pool of enthusiastic and talented freshers and sophomores who turned up.</description>
     </item>
     
     <item>

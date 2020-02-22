@@ -51,6 +51,7 @@ unsafe= true
     dateFormat = "28 July 1999"
     # Meta data
     author = "DSG"
+    description = "A student organization driving innovation via Machine Learning @ IIT Roorkee. Code | Train | Predict"
 
     # Banner Section
     [params.banner]
