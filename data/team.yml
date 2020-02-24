@@ -20,14 +20,14 @@ members  :
     linkedInicon: ion-social-linkedin
     linkedInurl : https://www.linkedin.com/in/subham-sahoo-8066b9171/
 
-  - name  : Abhishek Kumar
-    image : images/team/person_8x10.png
-    fbicon      : ion-social-facebook
-    fburl       : https://www.facebook.com/subham.sahoo.3910
-    githubicon : ion-social-github
-    githuburl  : https://www.github.com/subham103
-    linkedInicon: ion-social-linkedin
-    linkedInurl : https://www.linkedin.com/in/subham-sahoo-8066b9171/
+  # - name  : Abhishek Kumar
+  #   image : images/team/person_8x10.png
+  #   fbicon      : ion-social-facebook
+  #   fburl       : https://www.facebook.com/subham.sahoo.3910
+  #   githubicon : ion-social-github
+  #   githuburl  : https://www.github.com/subham103
+  #   linkedInicon: ion-social-linkedin
+  #   linkedInurl : https://www.linkedin.com/in/subham-sahoo-8066b9171/
 
   - name  : Ajit Pant
     image : images/team/person_8x10.png
@@ -66,13 +66,13 @@ members  :
     linkedInurl : https://www.linkedin.com/in/anirudh-dagar-19518a140/
 
   - name  : Ayush Agarwal
-    image : images/team/person_8x10.png
+    image : images/team/ayush_agarwal.jpg
     fbicon      : ion-social-facebook
-    fburl       : https://www.facebook.com/subham.sahoo.3910
+    fburl       : https://www.facebook.com/profile.php?id=100012971167778
     githubicon : ion-social-github
-    githuburl  : https://www.github.com/subham103
+    githuburl  : https://www.github.com/
     linkedInicon: ion-social-linkedin
-    linkedInurl : https://www.linkedin.com/in/subham-sahoo-8066b9171/
+    linkedInurl : https://www.linkedin.com/
 
   - name  : Dhruv Kalsotra
     image : images/team/person_8x10.png
@@ -84,7 +84,7 @@ members  :
     linkedInurl : https://www.linkedin.com/in/subham-sahoo-8066b9171/
 
   - name  : Faraz Jamal Zaidi
-    image : images/team/Faraz_Zaidi.png
+    image : images/team/Faraz_Zaidi.jpg
     fbicon      : ion-social-facebook
     fburl       : https://www.facebook.com/subham.sahoo.3910
     githubicon : ion-social-github
@@ -102,13 +102,22 @@ members  :
     linkedInurl : https://www.linkedin.com/in/subham-sahoo-8066b9171/
 
   - name  : Hridibrata Pal
-    image : images/team/person_8x10.png
+    image : images/team/Hridibrata_Pal.jpg
     fbicon      : ion-social-facebook
-    fburl       : https://www.facebook.com/subham.sahoo.3910
+    fburl       : https://www.facebook.com/hridibrata.pal
     githubicon : ion-social-github
-    githuburl  : https://www.github.com/subham103
+    githuburl  : https://www.github.com/
     linkedInicon: ion-social-linkedin
-    linkedInurl : https://www.linkedin.com/in/subham-sahoo-8066b9171/
+    linkedInurl : https://www.linkedin.com/in/hridibrata-pal-23339616a/
+
+  - name  : Ishan Kumar
+    image : images/team/Ishan_kumar.jpg
+    fbicon      : ion-social-facebook
+    fburl       : https://www.facebook.com/ishan.kumar.790
+    githubicon : ion-social-github
+    githuburl  : https://www.github.com/
+    linkedInicon: ion-social-linkedin
+    linkedInurl : https://www.linkedin.com/in/ishan-kumar-a23807180/
 
   - name  : Kanha Goyal
     image : images/team/person_8x10.png
@@ -120,13 +129,22 @@ members  :
     linkedInurl : https://www.linkedin.com/in/subham-sahoo-8066b9171/
 
   - name  : Manjeet Singh
-    image : images/team/team-3.svg
+    image : images/team/person_8x10.png
     fbicon      : ion-social-facebook
     fburl       : https://www.facebook.com/subham.sahoo.3910
     githubicon : ion-social-github
     githuburl  : https://www.github.com/subham103
     linkedInicon: ion-social-linkedin
     linkedInurl : https://www.linkedin.com/in/subham-sahoo-8066b9171/
+
+  - name  : Purva Chiniya
+    image : images/team/purva_chiniya.jpg
+    fbicon      : ion-social-facebook
+    fburl       : https://www.facebook.com/
+    githubicon : ion-social-github
+    githuburl  : https://www.github.com/
+    linkedInicon: ion-social-linkedin
+    linkedInurl : https://www.linkedin.com/
 
   - name  : Prabhat Sharma
     image : images/team/Prabhat_Sharma.jpeg
@@ -138,7 +156,7 @@ members  :
     linkedInurl : https://www.linkedin.com/in/subham-sahoo-8066b9171/
 
   - name  : Rishabh Jain
-    image : images/team/team-3.svg
+    image : images/team/person_8x10.png
     fbicon      : ion-social-facebook
     fburl       : https://www.facebook.com/subham.sahoo.3910
     githubicon : ion-social-github
@@ -165,7 +183,7 @@ members  :
     linkedInurl : https://www.linkedin.com/in/subham-sahoo-8066b9171/
 
   - name  : Sanchit Minocha
-    image : images/team/team-3.svg
+    image : images/team/person_8x10.png
     fbicon      : ion-social-facebook
     fburl       : https://www.facebook.com/subham.sahoo.3910
     githubicon : ion-social-github
@@ -174,13 +192,22 @@ members  :
     linkedInurl : https://www.linkedin.com/in/subham-sahoo-8066b9171/
 
   - name  : Saswat Das
-    image : images/team/team-3.svg
+    image : images/team/Saswat_Das.jpg
     fbicon      : ion-social-facebook
-    fburl       : https://www.facebook.com/subham.sahoo.3910
+    fburl       : https://www.facebook.com/saswatdas.42
     githubicon : ion-social-github
-    githuburl  : https://www.github.com/subham103
+    githuburl  : https://www.github.com/saswatpp
     linkedInicon: ion-social-linkedin
     linkedInurl : https://www.linkedin.com/in/subham-sahoo-8066b9171/
+
+  - name  : Shashank Gupta
+    image : images/team/shashank_gupta.jpg
+    fbicon      : ion-social-facebook
+    fburl       : https://www.facebook.com/shashank.gupta.39395
+    githubicon : ion-social-github
+    githuburl  : https://github.com/gupta1912
+    linkedInicon: ion-social-linkedin
+    linkedInurl : https://www.linkedin.com/in/shashank-gupta-a65352153/ 
 
   - name  : Shashwat Gupta
     image : images/team/Shashwat_Gupta.jpg
@@ -218,8 +245,17 @@ members  :
     linkedInicon: ion-social-linkedin
     linkedInurl : https://www.linkedin.com/in/subham-sahoo-8066b9171/
 
+  - name  : Shruti Gour
+    image : images/team/Shruti_Gour.jpg
+    fbicon      : ion-social-facebook
+    fburl       : https://www.facebook.com/shruti.gour.7334
+    githubicon : ion-social-github
+    githuburl  : https://www.github.com/
+    linkedInicon: ion-social-linkedin
+    linkedInurl : https://www.linkedin.com/in/shruti-gour-3a751319b/
+
   - name  : Subham Sahoo
-    image : images/team/subham_sahoo.png
+    image : images/team/subham_sahoo.jpg
     fbicon      : ion-social-facebook
     fburl       : https://www.facebook.com/subham.sahoo.3910
     githubicon : ion-social-github
