@@ -84,6 +84,10 @@ a:hover {
   margin-left: -15px;
 }
 
+.row-ann p {
+  text-align: unset;
+}
+
 .ann-content {
   position: relative;
 }
@@ -172,7 +176,7 @@ a:hover {
   line-height: unset;
   margin: 2rem 17vh;
   font-size: 1.6rem;
-  color: #5096FF;
+  color: #007bff;
   font-weight: 420;
 }
 
@@ -226,7 +230,7 @@ a:hover {
 }
 
 .div-project {
-  margin-top: 15vh;
+  margin-top: 25vh;
 }
 
 .particles-js-canvas-el {
@@ -383,7 +387,7 @@ a:hover {
 }
 
 .navbar .nav-item .nav-link:hover {
-  color: #02bdd5 !important;
+  color: #0056b3 !important;
 }
 
 .navbar .nav-item:last-child .nav-link {
@@ -391,7 +395,7 @@ a:hover {
 }
 
 #logo {
-  width: 40px;
+  width: 50px;
 }
 
 .logoText {

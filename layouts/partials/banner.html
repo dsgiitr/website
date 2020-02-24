@@ -1,7 +1,7 @@
 {{ if .Site.Params.banner.enable }}
 {{ "<!-- Slider Section Start -->" | safeHTML }}
 <section id="hero-area">
-    <div class="container center-verticle" style="z-index: 9;">
+    <div class="container center-verticle" style="z-index: 9; height: 35%;">
         <div class="row">
             <div class="col-md-12 text-center">
                 <div class="block wow fadeInUp" data-wow-delay=".2s">
@@ -20,8 +20,10 @@
                         <span class="view-project"><a href="{{ .Site.Params.banner.projectLink }}">View & Explore</a></span>
                     </div>
                     <div class="scroll">
-                        <img src="{{ .Site.Params.banner.scroll | absURL }}" alt="scroll">
-                        <img src="{{ .Site.Params.banner.down | absURL }}" alt="scroll" style="margin-top: 1vh;">
+                        <a href="{{ .Site.Params.banner.nextLink }}" style="display: flex; flex-direction: column;">
+                            <img src="{{ .Site.Params.banner.scroll | absURL }}" alt="scroll">
+                            <img src="{{ .Site.Params.banner.down | absURL }}" alt="scroll" style="margin-top: 1vh;">
+                        </a>
                     </div>
                 </div>
             </div>
