@@ -60,6 +60,7 @@ unsafe= true
         heading = "Data Science Group"
         subHeading = "IIT Roorkee"
         projectLink = "#works"
+        nextLink = "#feature"
         scroll = "images/scroll.svg"
         down = "images/down.svg"
         description = "A student organization driving innovation via Machine Learning."
