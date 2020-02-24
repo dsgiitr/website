@@ -91,6 +91,10 @@ unsafe= true
             icon = "ion-social-linkedin"
             url = "https://www.linkedin.com/company/26638705/"
 
+        [[params.footer.socialIcon]]
+            icon = "ion-social-twitter"
+            url = "https://twitter.com/dsg_iitr"
+
         [[params.footer.ccIcon]]
             icon = "ion-closed-captioning"
             url = "#"
