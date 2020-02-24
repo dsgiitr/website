@@ -1,65 +1,129 @@
 enable  : true
 title   : Alumni
 members  :
-  - name  : Subham Sahoo
+
+  - name  : Akhil Gupta
+    image : images/team/team-3.svg
+    fbicon      : ion-social-facebook
+    fburl       : https://www.facebook.com/guptakhil12
+    githubicon : ion-social-github
+    githuburl  : https://github.com/guptakhil12?tab=followers
+    linkedInicon: ion-social-linkedin
+    linkedInurl : https://www.linkedin.com/in/guptakhil
+
+  - name  : Ankush Raut
+    image : images/team/team-4.svg
+    fbicon      : ion-social-facebook
+    fburl       : https://www.facebook.com/ankush.raut.733
+    githubicon : ion-social-github
+    githuburl  : https://github.com/Ankushr785
+    linkedInicon: ion-social-linkedin
+    linkedInurl : https://www.linkedin.com/in/ankush-raut-3ab09b113/
+
+  - name  : Ajay Unagar
+    image : images/team/team-2.svg
+    fbicon      : ion-social-facebook
+    fburl       : https://www.facebook.com/Ajay.unagar.17
+    githubicon : ion-social-github
+    githuburl  : https://github.com/aunagar
+    linkedInicon: ion-social-linkedin
+    linkedInurl : https://www.linkedin.com/in/unagar/
+
+  - name  : Apoorva Agarwall
     image : images/team/team-1.svg
     fbicon      : ion-social-facebook
-    fburl       : https://www.facebook.com/subham.sahoo.3910
+    fburl       : https://www.facebook.com/apoorva2107
     githubicon : ion-social-github
-    githuburl  : https://www.github.com/subham103
+    githuburl  : https://github.com/apoorvaagarwall
     linkedInicon: ion-social-linkedin
-    linkedInurl : https://www.linkedin.com/in/subham-sahoo-8066b9171/
-  
-  - name  : Shubham Chandel
-    image : images/team/team-2.svg
-    fbicon      : ion-social-facebook
-    fburl       : https://www.facebook.com/subham.sahoo.3910
-    githubicon : ion-social-github
-    githuburl  : https://www.github.com/subham103
-    linkedInicon: ion-social-linkedin
-    linkedInurl : https://www.linkedin.com/in/subham-sahoo-8066b9171/
-  
-  - name  : Shaswat Dash
-    image : images/team/team-3.svg
-    fbicon      : ion-social-facebook
-    fburl       : https://www.facebook.com/subham.sahoo.3910
-    githubicon : ion-social-github
-    githuburl  : https://www.github.com/subham103
-    linkedInicon: ion-social-linkedin
-    linkedInurl : https://www.linkedin.com/in/subham-sahoo-8066b9171/
+    linkedInurl : https://www.linkedin.com/in/apoorva-agarwal-455a69145/
 
-  - name  : Shaswat Dash
+  - name  : Archit Umrao
     image : images/team/team-4.svg
     fbicon      : ion-social-facebook
-    fburl       : https://www.facebook.com/subham.sahoo.3910
+    fburl       : https://www.facebook.com/architumrao11
     githubicon : ion-social-github
     githuburl  : https://www.github.com/subham103
     linkedInicon: ion-social-linkedin
     linkedInurl : https://www.linkedin.com/in/subham-sahoo-8066b9171/
 
-  - name  : Shaswat Dash
-    image : images/team/team-2.svg
-    fbicon      : ion-social-facebook
-    fburl       : https://www.facebook.com/subham.sahoo.3910
-    githubicon : ion-social-github
-    githuburl  : https://www.github.com/subham103
-    linkedInicon: ion-social-linkedin
-    linkedInurl : https://www.linkedin.com/in/subham-sahoo-8066b9171/
-  
-  - name  : Shaswat Dash
+  - name  : Gaurav Jindal
     image : images/team/team-3.svg
     fbicon      : ion-social-facebook
-    fburl       : https://www.facebook.com/subham.sahoo.3910
+    fburl       : https://www.facebook.com/gaurav.agarwal.9674227
     githubicon : ion-social-github
-    githuburl  : https://www.github.com/subham103
+    githuburl  : https://www.github.com/gauravjindal2309
+    linkedInicon: ion-social-linkedin
+    linkedInurl : https://www.linkedin.com/in/gaurav-jindal-5a2345110/
+
+  - name  : Harsh Singhal
+    image : images/team/team-2.svg
+    fbicon      : ion-social-facebook
+    fburl       : https://www.facebook.com/harsh.singhal.961
+    githubicon : ion-social-github
+    githuburl  : https://github.com/SinghalHarsh
+    linkedInicon: ion-social-linkedin
+    linkedInurl : https://in.linkedin.com/in/harshsinghal726
+
+  - name  : Hardik Chauhan
+    image : images/team/team-4.svg
+    fbicon      : ion-social-facebook
+    fburl       : https://www.facebook.com/backpropagater
+    githubicon : ion-social-github
+    githuburl  : https://www.github.com/hardik2396
     linkedInicon: ion-social-linkedin
     linkedInurl : https://www.linkedin.com/in/subham-sahoo-8066b9171/
 
-  - name  : Shaswat Dash
+  - name  : Humair Raj
     image : images/team/team-4.svg
     fbicon      : ion-social-facebook
-    fburl       : https://www.facebook.com/subham.sahoo.3910
+    fburl       : https://www.facebook.com/khumairraj
+    githubicon : ion-social-github
+    githuburl  : https://www.github.com/khumairraj
+    linkedInicon: ion-social-linkedin
+    linkedInurl : https://www.linkedin.com/in/khumairraj/
+
+  - name  : Karan Desai
+    image : images/team/team-4.svg
+    fbicon      : ion-social-facebook
+    fburl       : https://www.facebook.com/
+    githubicon : ion-social-github
+    githuburl  : https://github.com/kdexd
+    linkedInicon: ion-social-linkedin
+    linkedInurl : https://www.linkedin.com/in/kdexd
+
+  - name  : Mahika Bansal
+    image : images/team/team-4.svg
+    fbicon      : ion-social-facebook
+    fburl       : https://www.facebook.com/mahika.bansal
     githubicon : ion-social-github
     githuburl  : https://www.github.com/subham103
     linkedInicon: ion-social-linkedin
-    linkedInurl : https://www.linkedin.com/in/subham-sahoo-8066b9171/
+    linkedInurl : https://www.linkedin.com/in/mahika-bansal-9aa815106/
+
+  - name  : Nishant Raj
+    image : images/team/team-4.svg
+    fbicon      : ion-social-facebook
+    fburl       : https://www.facebook.com/nishant.connect
+    githubicon : ion-social-github
+    githuburl  : https://www.github.com/Nishant3815
+    linkedInicon: ion-social-linkedin
+    linkedInurl : https://www.linkedin.com/in/nishant-raj-iitr/
+
+  - name  : Roopkishor Singh
+    image : images/team/team-4.svg
+    fbicon      : ion-social-facebook
+    fburl       : https://www.facebook.com/roopkishor.singh
+    githubicon : ion-social-github
+    githuburl  : https://github.com/thedarkparking
+    linkedInicon: ion-social-linkedin
+    linkedInurl : https://in.linkedin.com/in/roopkishor-singh-2a2315118
+
+  - name  : Utkarsh Gupta
+    image : images/team/team-4.svg
+    fbicon      : ion-social-facebook
+    fburl       : https://www.facebook.com/roopkishor.singh
+    githubicon : ion-social-github
+    githuburl  : https://github.com/utkarsh2198
+    linkedInicon: ion-social-linkedin
+    linkedInurl : https://www.linkedin.com/in/utkarsh-gupta2198
