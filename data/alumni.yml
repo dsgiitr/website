@@ -7,7 +7,7 @@ members  :
     fbicon      : ion-social-facebook
     fburl       : https://www.facebook.com/guptakhil12
     githubicon : ion-social-github
-    githuburl  : https://github.com/guptakhil12?tab=followers
+    githuburl  : https://github.com/guptakhil12
     linkedInicon: ion-social-linkedin
     linkedInurl : https://www.linkedin.com/in/guptakhil
 
@@ -46,6 +46,15 @@ members  :
     githuburl  : https://www.github.com/
     linkedInicon: ion-social-linkedin
     linkedInurl : https://www.linkedin.com/in/subham-sahoo-8066b9171/
+
+  - name  : Ashutosh Shukla
+    image : images/team/ashutosh_shukla.jpg
+    fbicon      : ion-social-facebook
+    fburl       : https://www.facebook.com/profile.php?id=100011255383771
+    githubicon : ion-social-github
+    githuburl  : https://github.com/ashutoshshukla2894
+    linkedInicon: ion-social-linkedin
+    linkedInurl : https://www.linkedin.com/in/ashutosh-shukla-98362685/
 
   - name  : Gaurav Jindal
     image : images/team/gaurav_jindal.jpg
@@ -136,3 +145,12 @@ members  :
     githuburl  : https://github.com/utkarsh2198
     linkedInicon: ion-social-linkedin
     linkedInurl : https://www.linkedin.com/in/utkarsh-gupta2198
+
+  - name  : Yash Sharma
+    image : images/team/yash_sharma.jpg
+    fbicon      : ion-social-facebook
+    fburl       : https://www.facebook.com/yash.sharma810
+    githubicon : ion-social-github
+    githuburl  : https://github.com/YashSharma
+    linkedInicon: ion-social-linkedin
+    linkedInurl : https://www.linkedin.com/in/yashsharma0906/
