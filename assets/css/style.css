@@ -749,6 +749,15 @@ figure figcaption h4 a {
   color: #111111;
 }
 
+figure figcaption h5 {
+  margin: 0;
+  display: block;
+}
+
+figure figcaption h5 a {
+  color: #111111;
+}
+
 figure figcaption p {
   font-size: 14px;
   margin-bottom: 0;
@@ -774,6 +783,7 @@ figure figcaption p {
 .teamIMG {
   width: 95%;
   height: auto;
+  border-radius: 2px;
 }
 
 .about-center {
@@ -793,7 +803,7 @@ figure figcaption p {
   visibility: visible;
   opacity: 1;
   z-index: 2;
-  left: 24%;
+  left: 14%;
 }
 
 .sister {
@@ -849,8 +859,9 @@ figure figcaption p {
 }
 
 .team-item {
-  box-shadow: none;
-  width: fit-content;
+  box-shadow: true;
+  width: 188px;
+  border-radius: 5px;
 }
 
 /* .team-item:before {
@@ -1037,6 +1048,7 @@ article {
   position: relative;
   overflow: hidden;
   filter: grayscale(100%);
+  border-radius: 5px;
 }
 
 .fig-team {
@@ -1049,7 +1061,7 @@ article {
   color: #000000;
   padding: 20px 10px 10px 2px;
   margin-bottom: 45px;
-  box-shadow: none;
+  box-shadow: true;
   text-align: center;
 }
 
@@ -1322,8 +1334,8 @@ article {
   transition: visibility 0.5s, opacity 0.5s linear;
   position: absolute;
   z-index: 2;
-  top: 95px;
-  left: 24%;
+  top: 135px;
+  left: 14%;
 }
 
 .portfolio-meta span {
