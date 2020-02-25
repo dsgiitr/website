@@ -1768,21 +1768,63 @@ article {
   transform: translateY(-50%);
 }
 
-.ion-social-facebook:before {
+.ion-social-facebook{
   content: "\f231";
   color: black;
   font-size: 2rem;
 }
 
-.ion-social-github:before {
+.ion-social-facebook:hover {
+  content: "\f231";
+  color: #4267B2;
+  font-size: 2rem;
+}
+
+.ion-social-github {
   content: "\f233";
   color: black;
   font-size: 2rem;
 }
 
-.ion-social-linkedin:before {
+.ion-social-github:hover {
+  content: "\f233";
+  color: #333;
+  font-size: 2rem;
+}
+
+.ion-social-linkedin {
   content: "\f239";
   color: black;
+  font-size: 2rem;
+}
+
+.ion-social-linkedin:hover {
+  content: "\f239";
+  color: #2867B2;
+  font-size: 2rem;
+}
+
+.ion-social-twitter {
+  content: "\f243";
+  color: black;
+  font-size: 2rem;
+}
+
+.ion-social-twitter:hover {
+  content: "\f243";
+  color: #02bdd5;
+  font-size: 2rem;
+}
+
+.ion-android-mail {
+  content: "\f2eb";
+  color: black;
+  font-size: 2rem;
+}
+
+.ion-android-mail:hover {
+  content: "\f2eb";
+  color: #D44638;
   font-size: 2rem;
 }
 

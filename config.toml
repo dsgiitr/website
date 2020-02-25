@@ -79,6 +79,11 @@ unsafe= true
         subtitle= ""
 
     [params.footer]
+
+        [[params.footer.socialIcon]]
+            icon = "ion-android-mail"
+            url = "mailto:dsg@iitr.ac.in"
+
         [[params.footer.socialIcon]]
             icon = "ion-social-facebook"
             url = "https://www.facebook.com/dsgiitr/"
