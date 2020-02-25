@@ -4,7 +4,7 @@ type: work
 date: 2019-12-01T23:40:49+00:00
 description : "This is meta description"
 caption: This project builds on a demo for several Adversarial Attacks on ImageNet Classifier Models.
-image: images/work/item-4.svg
+image: images/work/adversarial_example.gif
 author: Saswat Das
 tags: ["Deep Learning", "PyTorch", "Adversarial ML"]
 submitDate: Present
