@@ -188,11 +188,11 @@ For supervised learning, either we can learn the embeddings first and then use t
 One of the critical difference between GCN and Graphsage is the generalisation of the aggregation function, which was the mean aggregator in GCN. So rather than only taking the average, we use generalised aggregation function in GraphSAGE.
 <br/>
 <br/>
-<center><font color="#12CAD6"><b>GraphSAGE owes its inductivity to its aggregator functions.</font></b></center>
+<center><font color="#527318"><b>GraphSAGE owes its inductivity to its aggregator functions.</font></b></center>
 
 <hr/>
 
-<h2><center><font color="#12CAD6"> Mean Aggregator </font></center></h2>
+<h2><center><font color="#527318"> Mean Aggregator </font></center></h2>
 
 Mean aggregator is as simple as you thought it would be. Simply take the elementwise mean of the vectors in **{h<sub>u</sub><sup>k-1</sup>     ∀u ∈ N (v)}**.
 In other words, we can average embeddings of all nodes in the neighbourhood to construct the neighbourhood embedding. 
@@ -201,7 +201,7 @@ In other words, we can average embeddings of all nodes in the neighbourhood to c
 
 <hr/>
 
-<h2><center><font color="#12CAD6"> Pool Aggregator </font></center></h2>
+<h2><center><font color="#527318"> Pool Aggregator </font></center></h2>
 
 Until now, we were using a weighted average type of approach. But we could also use pooling type of approach; for example, we can do elementwise 'min' or 'max' pooling. So this would be another option where in we are taking the messages from the neighbours, transforming them and applying some pooling technique ( max-pooling or min pooling ).
 
@@ -211,7 +211,7 @@ In the above equation, 'max' denotes the elementwise max operator, and $\sigma$ 
 
 <hr/>
 
-<h2><center><font color="#12CAD6"> LSTM Aggregator </font></center></h2>
+<h2><center><font color="#527318"> LSTM Aggregator </font></center></h2>
 
 We could also use a deep neural network like Long Short Term Memory RNNs to learn how to aggregate the neighbours. Order invariance is important in the aggregator function, but since LSTM is not order invariant, one would have to train the LSTM over several random orderings or permutation of neighbours to make it invariant of sequence.
 

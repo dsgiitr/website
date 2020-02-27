@@ -229,19 +229,19 @@ that the representations of disparate nodes are highly distinct.</p>
 One of the critical difference between GCN and Graphsage is the generalisation of the aggregation function, which was the mean aggregator in GCN. So rather than only taking the average, we use generalised aggregation function in GraphSAGE.
 <br/>
 <br/>
-<center><font color="#12CAD6"><b>GraphSAGE owes its inductivity to its aggregator functions.</font></b></center>
+<center><font color="#527318"><b>GraphSAGE owes its inductivity to its aggregator functions.</font></b></center>
 <hr/>
-<h2><center><font color="#12CAD6"> Mean Aggregator </font></center></h2>
+<h2><center><font color="#527318"> Mean Aggregator </font></center></h2>
 <p>Mean aggregator is as simple as you thought it would be. Simply take the elementwise mean of the vectors in <strong>{h<sub>u</sub><sup>k-1</sup>     ∀u ∈ N (v)}</strong>.
 In other words, we can average embeddings of all nodes in the neighbourhood to construct the neighbourhood embedding.</p>
 <center><img src="/images/blogs/GraphSAGE/ma.png"></center>
 <hr/>
-<h2><center><font color="#12CAD6"> Pool Aggregator </font></center></h2>
+<h2><center><font color="#527318"> Pool Aggregator </font></center></h2>
 <p>Until now, we were using a weighted average type of approach. But we could also use pooling type of approach; for example, we can do elementwise &lsquo;min&rsquo; or &lsquo;max&rsquo; pooling. So this would be another option where in we are taking the messages from the neighbours, transforming them and applying some pooling technique ( max-pooling or min pooling ).</p>
 <center><img src="/images/blogs/GraphSAGE/pa.png"></center>
 <p>In the above equation, &lsquo;max&rsquo; denotes the elementwise max operator, and $\sigma$ is a nonlinear activation function (yes you are right it can be ReLU). Please note that the function applied before the max-pooling can be an arbitrarily deep multi-layer perceptron, but in the original paper, simple single-layer architectures is preferred.</p>
 <hr/>
-<h2><center><font color="#12CAD6"> LSTM Aggregator </font></center></h2>
+<h2><center><font color="#527318"> LSTM Aggregator </font></center></h2>
 <p>We could also use a deep neural network like Long Short Term Memory RNNs to learn how to aggregate the neighbours. Order invariance is important in the aggregator function, but since LSTM is not order invariant, one would have to train the LSTM over several random orderings or permutation of neighbours to make it invariant of sequence.</p>
 <hr/>
 <h1><center> Inductive capability </center></h1>

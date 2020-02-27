@@ -52,7 +52,7 @@ So let's get into the real deal. Looking around us, we can observe that most of 
     B) To publish the 'said' novelty in a top tier conference?
     C) To you know what every other paper aims to achieve? 
 
-No! No! No! Not because *Kipf and Welling* wanted to sound cool and publish yet another paper in a top tier conference. You see, not everything is an Alchemy :P. On that note, I'd suggest watching this super interesting, my favourite [talk](https://www.youtube.com/watch?v=x7psGHgatGM) by Ali Rahimi, which is really relevant today in the ML world.
+No! No! No! You see, not everything is an Alchemy :P. On that note, I'd suggest watching this [talk](https://www.youtube.com/watch?v=x7psGHgatGM) by Ali Rahimi, which is really relevant today in the ML world.
 
 So getting back to the topic, obviously I'm joking about these things, and surely this is a really nice contribution and GCNs are really powerful, Ok! Honestly, take the last part with a pinch of salt and <b><font color="red">remember</font></b> to ask me at the end.
 
@@ -385,12 +385,3 @@ We strongly recommend reading up these references as well to make your understan
 * [PyTorch Geometric](https://github.com/rusty1s/pytorch_geometric)
 
 <hr/>
-
-
-<h1> Written By </h1>
-<ul>
-
-<li> Ajit Pant</li>
-<li> Shubham Chandel</li>
-<li> Anirudh Dagar</li>
-<li> Shashank Gupta</li>
