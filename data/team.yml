@@ -5,11 +5,11 @@ members  :
   # - name  : Aaryan Garg
   #   image : images/team/Aaryan_Garg.jpg
   #   fbicon      : ion-social-facebook
-  #   fburl       : https://www.facebook.com/subham.sahoo.3910
+  #   fburl       : https://www.facebook.com/
   #   githubicon : ion-social-github
-  #   githuburl  : https://www.github.com/subham103
+  #   githuburl  : https://www.github.com/
   #   linkedInicon: ion-social-linkedin
-  #   linkedInurl : https://www.linkedin.com/in/subham-sahoo-8066b9171/
+  #   linkedInurl : https://www.linkedin.com/
 
   - name  : Abhinav Saini
     image : images/team/Abhinav_Saini.jpg
@@ -23,11 +23,11 @@ members  :
   # - name  : Abhishek Kumar
   #   image : images/team/person_8x10.png
   #   fbicon      : ion-social-facebook
-  #   fburl       : https://www.facebook.com/subham.sahoo.3910
+  #   fburl       : https://www.facebook.com/
   #   githubicon : ion-social-github
-  #   githuburl  : https://www.github.com/subham103
+  #   githuburl  : https://www.github.com/
   #   linkedInicon: ion-social-linkedin
-  #   linkedInurl : https://www.linkedin.com/in/subham-sahoo-8066b9171/
+  #   linkedInurl : https://www.linkedin.com/in/
 
   - name  : Ajit Pant
     image : images/team/person_8x10.png
@@ -44,6 +44,15 @@ members  :
     fburl       : https://www.facebook.com/akshitmittal6
     githubicon : ion-social-github
     githuburl  : https://github.com/akshitmittal1
+    linkedInicon: ion-social-linkedin
+    linkedInurl : https://www.linkedin.com/
+
+  - name  : Ankit Aharwal
+    image : images/team/ankit_aharwal.jpg
+    fbicon      : ion-social-facebook
+    fburl       : https://www.facebook.com/
+    githubicon : ion-social-github
+    githuburl  : https://www.github.com/
     linkedInicon: ion-social-linkedin
     linkedInurl : https://www.linkedin.com/
 
@@ -262,6 +271,15 @@ members  :
     githuburl  : https://www.github.com/subham103
     linkedInicon: ion-social-linkedin
     linkedInurl : https://www.linkedin.com/in/subham-sahoo-8066b9171/
+
+  - name  : Vivek Kumar
+    image : images/team/vivek.jpg
+    fbicon      : ion-social-facebook
+    fburl       : https://www.facebook.com/
+    githubicon : ion-social-github
+    githuburl  : https://www.github.com/
+    linkedInicon: ion-social-linkedin
+    linkedInurl : https://www.linkedin.com/
 
   - name  : Yashvardhan Sharma
     image : images/team/YashVardhan_Sharma.jpg
