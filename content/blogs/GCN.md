@@ -200,7 +200,7 @@ We are now ready to put all of the tools together to deploy our very first fully
 
 <center><h2><u> Zachary Karate Club </u></h2></center>
 
-During the period from 1970-1972, Wayne W. Zachary observed the people belonging to a local karate club. He represented these people as nodes in a graph. And added an edge between a pair of people if they interacted with each other. The result was the graph shown below.
+During the period from 1970-1972, Wayne W. Zachary observed the people belonging to a local karate club. He represented these people as nodes in a graph and added an edge between a pair of people if they interacted with each other. The result was the graph shown below.
 
 <center><img src="/images/blogs/GCN/karate_club.png" width="800x"></center>
 
