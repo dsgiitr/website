@@ -1,10 +1,10 @@
 ---
 title: "Cerebro Hackathon: Lockdown Mania"
 type: events
-date: 2020-04-14T23:40:49+00:00
+date: 2020-14-04T23:40:49+00:00
 description : "This is meta description"
-caption: Cerebro: Lockdown Mania Covid-19
-image: images/events/lockdown_mania.png
+caption: Cerebro Lockdown Mania Covid-19
+image: images/events/lockdown_mania.jpeg
 DateOfEvent: Apr 17, 2020
 Location: 
 tags: ["Hackathon", "Machine Learning"]

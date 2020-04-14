@@ -59,5 +59,15 @@ Hold your breath as a new era of DS in IIT Roorkee begins. Tonight, we launch CE
       <description>DSG bags 3rd Place Congratulations Team Data_Targaryens ( Harsh Singhal and Gaurav Jindal) for securing third position in Pan IIT Data Science Competition Analyze This by American Express.</description>
     </item>
     
+    <item>
+      <title>Cerebro Hackathon: Lockdown Mania</title>
+      <link>/events/lockdown_mania/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/events/lockdown_mania/</guid>
+      <description>Let’s work towards building solutions to the Covid-19 Pandemic applying your Data Science skills.
+Lockdown Mania</description>
+    </item>
+    
   </channel>
 </rss>
