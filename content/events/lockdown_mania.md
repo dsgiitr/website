@@ -8,7 +8,7 @@ image: images/events/lockdown_mania.jpeg
 DateOfEvent: Apr 17, 2020
 Location: 
 tags: ["Hackathon", "Machine Learning"]
-subtype: past
+subtype: upcoming
 ---
 
 Let’s work towards building solutions to the Covid-19 Pandemic applying your Data Science skills.
@@ -20,7 +20,7 @@ Ends at 11:59 PM, 20th Apr.
 
 Goes live on https://cerebro.sdslabs.co
 
-The competition is open to all, and is a small way to motivate the young minds to bring their A game at tackling the COVID-19 situation applying their Machine Learning skills.
+The competition is open to all, and is a small way to motivate the young minds to bring their A game at tackling the COVID-19 situation applying their Machine Learning skills to predict the disease.
 
 "Time to predict the positive cases.”
 

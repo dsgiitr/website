@@ -6,12 +6,12 @@ item    :
 
   item1    :
     - name  : UPCOMING EVENT
-      title : Shristi Talk
+      title : Lockdown Mania Covid 19
       order : 1
       linkName : View Details->
-      url : /events
+      url : https://dsgiitr.com/events/lockdown_mania
       description : >
-        DSG annual talk on Shrishti, IIT Roorkee
+        Build solutions to the Covid-19 Pandemic applying Machine Learning skills.
   item2    :
     - name  : NEW BLOG
       title : Understanding Graph Attention Networks (GAT)
