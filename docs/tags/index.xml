@@ -6,10 +6,37 @@
     <description>Recent content in Tags on DSG | IIT Roorkee</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 02 Feb 2020 23:40:49 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 14 Apr 2020 23:40:49 +0000</lastBuildDate>
     
 	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Hackathon</title>
+      <link>/tags/hackathon/</link>
+      <pubDate>Tue, 14 Apr 2020 23:40:49 +0000</pubDate>
+      
+      <guid>/tags/hackathon/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Machine Learning</title>
+      <link>/tags/machine-learning/</link>
+      <pubDate>Tue, 14 Apr 2020 23:40:49 +0000</pubDate>
+      
+      <guid>/tags/machine-learning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Deep Learning</title>
+      <link>/tags/deep-learning/</link>
+      <pubDate>Fri, 20 Mar 2020 23:40:49 +0000</pubDate>
+      
+      <guid>/tags/deep-learning/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>NLP</title>
@@ -26,15 +53,6 @@
       <pubDate>Sun, 02 Feb 2020 23:40:49 +0000</pubDate>
       
       <guid>/tags/workshop/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Deep Learning</title>
-      <link>/tags/deep-learning/</link>
-      <pubDate>Sat, 01 Feb 2020 23:40:49 +0000</pubDate>
-      
-      <guid>/tags/deep-learning/</guid>
       <description></description>
     </item>
     
@@ -57,29 +75,11 @@
     </item>
     
     <item>
-      <title>Machine Learning</title>
-      <link>/tags/machine-learning/</link>
-      <pubDate>Sun, 19 Jan 2020 23:40:49 +0000</pubDate>
-      
-      <guid>/tags/machine-learning/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Recruitments</title>
       <link>/tags/recruitments/</link>
       <pubDate>Sun, 19 Jan 2020 23:40:49 +0000</pubDate>
       
       <guid>/tags/recruitments/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Hackathon</title>
-      <link>/tags/hackathon/</link>
-      <pubDate>Mon, 06 Jan 2020 23:40:49 +0000</pubDate>
-      
-      <guid>/tags/hackathon/</guid>
       <description></description>
     </item>
     

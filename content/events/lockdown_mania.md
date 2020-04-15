@@ -1,22 +1,23 @@
 ---
 title: "Cerebro Hackathon: Lockdown Mania"
 type: events
-date: 2020-14-04T23:40:49+00:00
+date: 2020-04-14T23:40:49+00:00
 description : "This is meta description"
 caption: Cerebro Lockdown Mania Covid-19
 image: images/events/lockdown_mania.jpeg
-DateOfEvent: Apr 17, 2020
+DateOfEvent: Apr 14, 2020
 Location: 
 tags: ["Hackathon", "Machine Learning"]
 subtype: upcoming
 ---
 
-Let’s work towards building solutions to the Covid-19 Pandemic applying your Data Science skills.
+Let’s work towards building solutions to the COVID-19 Pandemic applying your Data Science skills.
 
 **Lockdown Mania**
 
-Starts at 6:00 PM, 17th Apr.
-Ends at 11:59 PM, 20th Apr.
+* Starts at 6:00 PM, 17th Apr.
+
+* Ends at 11:59 PM, 20th Apr.
 
 Goes live on https://cerebro.sdslabs.co
 

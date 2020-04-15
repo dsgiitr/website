@@ -6,10 +6,20 @@
     <description>Recent content in Deep Learning on DSG | IIT Roorkee</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 01 Feb 2020 23:40:49 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 20 Mar 2020 23:40:49 +0000</lastBuildDate>
     
 	<atom:link href="/tags/deep-learning/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>DSG Shrishti: Talk</title>
+      <link>/events/shrishthi_talk_2020/</link>
+      <pubDate>Fri, 20 Mar 2020 23:40:49 +0000</pubDate>
+      
+      <guid>/events/shrishthi_talk_2020/</guid>
+      <description>NOTE: We may need to postpone this event due to the ongoing COVID-19 pandemic.
+Details of the event to be announced soon.</description>
+    </item>
     
     <item>
       <title>d2l-pytorch</title>
@@ -81,15 +91,6 @@
       
       <guid>/work/traffic_sign_classification/</guid>
       <description>This project involves tackling a beginner friendly computer vision based Deep Learning problem based on the dataset The German Traffic Sign Recognition Benchmark(GTSRB).</description>
-    </item>
-    
-    <item>
-      <title>DSG Shrishti: Talk</title>
-      <link>/events/shrishthi_talk_2020/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/events/shrishthi_talk_2020/</guid>
-      <description>Details of the event to be announced soon.</description>
     </item>
     
   </channel>
