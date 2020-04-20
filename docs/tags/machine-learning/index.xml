@@ -6,10 +6,19 @@
     <description>Recent content in Machine Learning on DSG | IIT Roorkee</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 14 Apr 2020 23:40:49 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 19 Apr 2020 23:40:49 +0000</lastBuildDate>
     
 	<atom:link href="/tags/machine-learning/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Accurate Prediction Of COVID-19 Using Chest X-Ray Images Through Deep Feature Learning Model With SMOTE And Machine Learning Classifiers</title>
+      <link>/events/covid19_vipul_research/</link>
+      <pubDate>Sun, 19 Apr 2020 23:40:49 +0000</pubDate>
+      
+      <guid>/events/covid19_vipul_research/</guid>
+      <description>Our member Vipul Bansal was involved in building a AI based prediction model using Chest X-Rays.</description>
+    </item>
     
     <item>
       <title>Cerebro Hackathon: Lockdown Mania</title>

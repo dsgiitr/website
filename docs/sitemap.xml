@@ -3,27 +3,37 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/events/covid19_vipul_research/</loc>
+    <lastmod>2020-04-19T23:40:49+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/</loc>
+    <lastmod>2020-04-19T23:40:49+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/machine-learning/</loc>
+    <lastmod>2020-04-19T23:40:49+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/research/</loc>
+    <lastmod>2020-04-19T23:40:49+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
+    <lastmod>2020-04-19T23:40:49+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/events/lockdown_mania/</loc>
     <lastmod>2020-04-14T23:40:49+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/</loc>
-    <lastmod>2020-04-14T23:40:49+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/tags/hackathon/</loc>
-    <lastmod>2020-04-14T23:40:49+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/machine-learning/</loc>
-    <lastmod>2020-04-14T23:40:49+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/</loc>
     <lastmod>2020-04-14T23:40:49+00:00</lastmod>
   </url>
   

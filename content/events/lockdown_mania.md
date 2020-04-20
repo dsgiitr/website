@@ -8,7 +8,7 @@ image: images/events/lockdown_mania.jpeg
 DateOfEvent: Apr 14, 2020
 Location: 
 tags: ["Hackathon", "Machine Learning"]
-subtype: upcoming
+subtype: past
 ---
 
 Let’s work towards building solutions to the COVID-19 Pandemic applying your Data Science skills.
