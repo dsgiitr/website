@@ -56,6 +56,15 @@ members  :
     linkedInicon: ion-social-linkedin
     linkedInurl : https://www.linkedin.com/in/ashutosh-shukla-98362685/
 
+  - name  : Ayush Agarwal
+    image : images/team/ayush_agarwal.jpg
+    fbicon      : ion-social-facebook
+    fburl       : https://www.facebook.com/profile.php?id=100012971167778
+    githubicon : ion-social-github
+    githuburl  : https://www.github.com/mrayush18
+    linkedInicon: ion-social-linkedin
+    linkedInurl : https://www.linkedin.com/
+
   - name  : Gaurav Jindal
     image : images/team/gaurav_jindal.jpg
     fbicon      : ion-social-facebook
@@ -92,6 +101,15 @@ members  :
     linkedInicon: ion-social-linkedin
     linkedInurl : https://www.linkedin.com/in/khumairraj/
 
+  - name  : Kanha Goyal
+    image : images/team/kanha_goyal.jpg
+    fbicon      : ion-social-facebook
+    fburl       : https://www.facebook.com/kanha.goyal.12
+    githubicon : ion-social-github
+    githuburl  : https://www.github.com/
+    linkedInicon: ion-social-linkedin
+    linkedInurl : https://www.linkedin.com/in/kanhagoyal/
+
   - name  : Karan Desai
     image : images/team/person_8x10.png
     fbicon      : ion-social-facebook
@@ -109,6 +127,15 @@ members  :
     githuburl  : https://www.github.com/subham103
     linkedInicon: ion-social-linkedin
     linkedInurl : https://www.linkedin.com/in/mahika-bansal-9aa815106/
+
+  - name  : Manjeet Singh
+    image : images/team/person_8x10.png
+    fbicon      : ion-social-facebook
+    fburl       : https://www.facebook.com/
+    githubicon : ion-social-github
+    githuburl  : https://www.github.com/
+    linkedInicon: ion-social-linkedin
+    linkedInurl : https://www.linkedin.com/
 
   - name  : Mihir Rana
     image : images/team/mihir_rana.jpg
@@ -128,6 +155,33 @@ members  :
     linkedInicon: ion-social-linkedin
     linkedInurl : https://www.linkedin.com/in/nishant-raj-iitr/
 
+  - name  : Prabhat Sharma
+    image : images/team/Prabhat_Sharma.jpeg
+    fbicon      : ion-social-facebook
+    fburl       : https://www.facebook.com/prabhat.sharma.39948856
+    githubicon : ion-social-github
+    githuburl  : https://github.com/Prabhat-IIT
+    linkedInicon: ion-social-linkedin
+    linkedInurl : https://www.linkedin.com/
+
+  - name  : Rishabh Jain
+    image : images/team/person_8x10.png
+    fbicon      : ion-social-facebook
+    fburl       : https://www.facebook.com/
+    githubicon : ion-social-github
+    githuburl  : https://www.github.com/
+    linkedInicon: ion-social-linkedin
+    linkedInurl : https://www.linkedin.com/
+
+  - name  : Rohit Singhal
+    image : images/team/rohit_singhal.jpg
+    fbicon      : ion-social-facebook
+    fburl       : https://www.facebook.com/
+    githubicon : ion-social-github
+    githuburl  : https://github.com/rsinghal757
+    linkedInicon: ion-social-linkedin
+    linkedInurl : https://www.linkedin.com/in/rsinghal757/
+
   - name  : Roopkishor Singh
     image : images/team/rk.jpg
     fbicon      : ion-social-facebook
@@ -136,6 +190,24 @@ members  :
     githuburl  : https://github.com/thedarkparking
     linkedInicon: ion-social-linkedin
     linkedInurl : https://in.linkedin.com/in/roopkishor-singh-2a2315118
+
+  - name  : Sanchit Minocha
+    image : images/team/sanchit_minocha.jpg
+    fbicon      : ion-social-facebook
+    fburl       : https://www.facebook.com/
+    githubicon : ion-social-github
+    githuburl  : https://www.github.com/
+    linkedInicon: ion-social-linkedin
+    linkedInurl : https://www.linkedin.com/
+
+  - name  : Shiva Gupta
+    image : images/team/shiva_gupta.jpg
+    fbicon      : ion-social-facebook
+    fburl       : https://www.facebook.com/shiva.gandhi.5
+    githubicon : ion-social-github
+    githuburl  : https://github.com/SHIVA-sopho
+    linkedInicon: ion-social-linkedin
+    linkedInurl : https://www.linkedin.com/
 
   - name  : Utkarsh Gupta
     image : images/team/person_8x10.png
