@@ -6,17 +6,35 @@
     <description>Recent content in Tags on DSG | IIT Roorkee</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 19 Apr 2020 23:40:49 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 26 Aug 2020 23:40:49 +0000</lastBuildDate>
     
 	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>Deep Learning</title>
+      <link>/tags/deep-learning/</link>
+      <pubDate>Wed, 26 Aug 2020 23:40:49 +0000</pubDate>
+      
+      <guid>/tags/deep-learning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Machine Learning</title>
       <link>/tags/machine-learning/</link>
-      <pubDate>Sun, 19 Apr 2020 23:40:49 +0000</pubDate>
+      <pubDate>Wed, 26 Aug 2020 23:40:49 +0000</pubDate>
       
       <guid>/tags/machine-learning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Visualization</title>
+      <link>/tags/visualization/</link>
+      <pubDate>Wed, 26 Aug 2020 23:40:49 +0000</pubDate>
+      
+      <guid>/tags/visualization/</guid>
       <description></description>
     </item>
     
@@ -35,15 +53,6 @@
       <pubDate>Tue, 14 Apr 2020 23:40:49 +0000</pubDate>
       
       <guid>/tags/hackathon/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Deep Learning</title>
-      <link>/tags/deep-learning/</link>
-      <pubDate>Fri, 20 Mar 2020 23:40:49 +0000</pubDate>
-      
-      <guid>/tags/deep-learning/</guid>
       <description></description>
     </item>
     
@@ -242,15 +251,6 @@
       <pubDate>Sat, 01 Dec 2018 23:40:49 +0000</pubDate>
       
       <guid>/tags/lua/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Visualization</title>
-      <link>/tags/visualization/</link>
-      <pubDate>Sat, 01 Dec 2018 23:40:49 +0000</pubDate>
-      
-      <guid>/tags/visualization/</guid>
       <description></description>
     </item>
     

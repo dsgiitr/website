@@ -6,10 +6,19 @@
     <description>Recent content on DSG | IIT Roorkee</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 19 Apr 2020 23:40:49 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 26 Aug 2020 23:40:49 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Visual ML</title>
+      <link>/work/visual-ml/</link>
+      <pubDate>Wed, 26 Aug 2020 23:40:49 +0000</pubDate>
+      
+      <guid>/work/visual-ml/</guid>
+      <description>Visual ML VisualML aims to visualise Machine Learning Algorithms. Interactive Visualisations help build intuition, and thus, better understanding of the algorithm&#39;s working.</description>
+    </item>
     
     <item>
       <title>Accurate Prediction Of COVID-19 Using Chest X-Ray Images Through Deep Feature Learning Model With SMOTE And Machine Learning Classifiers</title>
@@ -55,7 +64,7 @@ Details of the event to be announced soon.</description>
       <pubDate>Sat, 01 Feb 2020 23:40:49 +0000</pubDate>
       
       <guid>/blogs/chebnet/</guid>
-      <description>Motivation As a part of this blog series, this time we&amp;rsquo;ll be looking at a spectral convolution technique introduced in the paper by M.</description>
+      <description>Motivation As a part of this blog series, this time we&#39;ll be looking at a spectral convolution technique introduced in the paper by M.</description>
     </item>
     
     <item>
@@ -257,7 +266,7 @@ We are back with the first workshop of the semester. We would be introducing the
       <pubDate>Wed, 16 Jan 2019 23:40:49 +0000</pubDate>
       
       <guid>/events/cerebro-melodious-medley-19-results/</guid>
-      <description>#Melodious_Medley_19 #Results Congratulations to the winners of Melodious Medley and Beginner&amp;rsquo;s Hypothesis!
+      <description>#Melodious_Medley_19 #Results Congratulations to the winners of Melodious Medley and Beginner&#39;s Hypothesis!
 All the best for interview which will be conducted next week after 22nd January.</description>
     </item>
     
@@ -331,7 +340,7 @@ Hold your breath as a new era of DS in IIT Roorkee begins. Tonight, we launch CE
       <pubDate>Fri, 01 Dec 2017 23:40:49 +0000</pubDate>
       
       <guid>/work/neural_style_transfer/</guid>
-      <description>It&amp;rsquo;s all about cool stuff with Neural Style.
+      <description>It&#39;s all about cool stuff with Neural Style.
 This is a Keras implementation of neural style described in the paper by Gatys et.</description>
     </item>
     
