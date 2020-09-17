@@ -3,7 +3,7 @@ title: "ChebNet: CNN on Graphs with Fast Localized Spectral Filtering"
 date: 2020-02-01T23:40:49+00:00
 description : "Machine Learning / Graph Representation Learning"
 type: post
-image: https://storage.googleapis.com/groundai-web-prod/media/users/user_3036/project_14426/images/x1.png
+image: https://i.ibb.co/QcfhJRJ/Screenshot-2020-09-17-at-6-50-27-AM.jpg
 author: Shashank Gupta
 tags: ["Graph Representation Learning"]
 ---
