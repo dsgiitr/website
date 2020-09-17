@@ -206,18 +206,18 @@ members  :
     fbicon      : ion-social-facebook
     fburl       : https://www.facebook.com/vipul.bansal.714
     githubicon : ion-social-github
-    githuburl  : https://www.github.com/
+    githuburl  : https://github.com/vipul2001
     linkedInicon: ion-social-linkedin
-    linkedInurl : https://www.linkedin.com/
+    linkedInurl : https://www.linkedin.com/in/vipul-bansal-b8183b17a/
 
   - name  : Vivek Kumar
     image : images/team/vivek.jpg
     fbicon      : ion-social-facebook
-    fburl       : https://www.facebook.com/
+    fburl       : https://www.facebook.com/100005095754987
     githubicon : ion-social-github
-    githuburl  : https://github.com/vipul2001
+    githuburl  : https://github.com/vivekkumar7089
     linkedInicon: ion-social-linkedin
-    linkedInurl : https://www.linkedin.com/in/vipul-bansal-b8183b17a/
+    linkedInurl : https://www.linkedin.com/in/vivek-kumar-b819b3193/
 
   - name  : Yashvardhan Sharma
     image : images/team/YashVardhan_Sharma.jpg
