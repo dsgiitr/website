@@ -6,7 +6,7 @@
   
   <meta name="description" content="Machine Learning">
   <meta name="author" content="DSG">
-  <meta name="generator" content="Hugo 0.61.0" />
+  <meta name="generator" content="Hugo 0.75.1" />
   
   <!-- Mobile Specific Metas -->
   <meta name="format-detection" content="telephone=no">
@@ -154,7 +154,7 @@ In comes Regularization, which is a powerful mathematical tool for reducing over
 <p><strong>_Objective = RSS + α _ (sum of square of coefficients)*</strong></p>
 </blockquote>
 <p>Here, <em>α(alpha)</em> is the tuning parameter which balances the amount of emphasis given to minimising RSS vs minimising sum of square of coefficients. It can take various values:</p>
-<h4 id="--0"><strong>α = 0:</strong></h4>
+<h4 id="α--0"><strong>α = 0:</strong></h4>
 <ul>
 <li>
 <p>The objective becomes same as simple linear regression.</p>
@@ -163,12 +163,12 @@ In comes Regularization, which is a powerful mathematical tool for reducing over
 <p>We’ll get the same coefficients as simple linear regression.</p>
 </li>
 </ul>
-<h4 id="--"><strong>α = ∞:</strong></h4>
+<h4 id="α--"><strong>α = ∞:</strong></h4>
 <ul>
 <li>The coefficients will be <strong><em>zero</em></strong>. Why?
 Because of infinite weightage on square of coefficients, anything less than zero will make the objective infinite.</li>
 </ul>
-<h4 id="0----"><strong>0 &lt; α &lt; ∞:</strong></h4>
+<h4 id="0--α--"><strong>0 &lt; α &lt; ∞:</strong></h4>
 <ul>
 <li>
 <p>The magnitude of α will decide the weightage given to different parts of objective.</p>
@@ -230,7 +230,7 @@ print(clf.coef_)
 print(clf.intercept_)
 </code></pre></td></tr></table>
 </div>
-</div><h4 id="selection-of-">Selection of α</h4>
+</div><h4 id="selection-of-α">Selection of α</h4>
 <p>Alpha can be adjusted to help you find a good fit for your model.</p>
 <ul>
 <li>

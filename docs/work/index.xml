@@ -6,18 +6,14 @@
     <description>Recent content in Works on DSG | IIT Roorkee</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 26 Aug 2020 23:40:49 +0000</lastBuildDate>
-    
-	<atom:link href="/work/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Wed, 26 Aug 2020 23:40:49 +0000</lastBuildDate><atom:link href="/work/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Visual ML</title>
       <link>/work/visual-ml/</link>
       <pubDate>Wed, 26 Aug 2020 23:40:49 +0000</pubDate>
       
       <guid>/work/visual-ml/</guid>
-      <description>Visual ML VisualML aims to visualise Machine Learning Algorithms. Interactive Visualisations help build intuition, and thus, better understanding of the algorithm&#39;s working.</description>
+      <description>Visual ML VisualML aims to visualise Machine Learning Algorithms. Interactive Visualisations help build intuition, and thus, better understanding of the algorithm&amp;rsquo;s working.</description>
     </item>
     
     <item>
@@ -98,7 +94,7 @@
       <pubDate>Fri, 01 Dec 2017 23:40:49 +0000</pubDate>
       
       <guid>/work/neural_style_transfer/</guid>
-      <description>It&#39;s all about cool stuff with Neural Style.
+      <description>It&amp;rsquo;s all about cool stuff with Neural Style.
 This is a Keras implementation of neural style described in the paper by Gatys et.</description>
     </item>
     

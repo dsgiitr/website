@@ -20,14 +20,14 @@ members  :
     linkedInicon: ion-social-linkedin
     linkedInurl : https://www.linkedin.com/
 
-  # - name  : Abhishek Kumar
-  #   image : images/team/person_8x10.png
-  #   fbicon      : ion-social-facebook
-  #   fburl       : https://www.facebook.com/
-  #   githubicon : ion-social-github
-  #   githuburl  : https://www.github.com/
-  #   linkedInicon: ion-social-linkedin
-  #   linkedInurl : https://www.linkedin.com/in/
+    name  : Abhishek Kumar
+    image : images/team/Abhishek.jpg
+    fbicon      : ion-social-facebook
+    fburl       : https://www.facebook.com/profile.php?id=100009432403334
+    githubicon : ion-social-github
+    githuburl  : https://github.com/abhi9716
+    linkedInicon: ion-social-linkedin
+    linkedInurl : https://www.linkedin.com/in/ab971631/
 
   - name  : Ajit Pant
     image : images/team/person_8x10.png

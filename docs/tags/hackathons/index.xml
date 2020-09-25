@@ -6,11 +6,7 @@
     <description>Recent content in Hackathons on DSG | IIT Roorkee</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 06 Jan 2019 23:40:49 +0000</lastBuildDate>
-    
-	<atom:link href="/tags/hackathons/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sun, 06 Jan 2019 23:40:49 +0000</lastBuildDate><atom:link href="/tags/hackathons/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Recruitments &#39;19: Challenge Series</title>
       <link>/events/recruitments19/</link>

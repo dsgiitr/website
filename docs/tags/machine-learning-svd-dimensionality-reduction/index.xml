@@ -6,11 +6,7 @@
     <description>Recent content in Machine learning, SVD, Dimensionality Reduction on DSG | IIT Roorkee</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 18 May 2017 23:40:49 +0000</lastBuildDate>
-    
-	<atom:link href="/tags/machine-learning-svd-dimensionality-reduction/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Thu, 18 May 2017 23:40:49 +0000</lastBuildDate><atom:link href="/tags/machine-learning-svd-dimensionality-reduction/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Singular Value Decomposition. Elucidated.</title>
       <link>/blogs/svd/</link>

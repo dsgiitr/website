@@ -6,11 +6,7 @@
     <description>Recent content in Talk on DSG | IIT Roorkee</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 30 Aug 2019 23:40:49 +0000</lastBuildDate>
-    
-	<atom:link href="/tags/talk/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Fri, 30 Aug 2019 23:40:49 +0000</lastBuildDate><atom:link href="/tags/talk/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Open Lecture: Computer Vision</title>
       <link>/events/sandeep_giri_talk_cv/</link>

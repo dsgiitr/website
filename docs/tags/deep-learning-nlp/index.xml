@@ -6,11 +6,7 @@
     <description>Recent content in Deep Learning, NLP on DSG | IIT Roorkee</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 15 Oct 2017 23:40:49 +0000</lastBuildDate>
-    
-	<atom:link href="/tags/deep-learning-nlp/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sun, 15 Oct 2017 23:40:49 +0000</lastBuildDate><atom:link href="/tags/deep-learning-nlp/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Word Embedding</title>
       <link>/blogs/word_embeddings/</link>

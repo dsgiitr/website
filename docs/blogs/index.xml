@@ -6,18 +6,14 @@
     <description>Recent content in Blogs on DSG | IIT Roorkee</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 01 Jan 2020 23:40:49 +0000</lastBuildDate>
-    
-	<atom:link href="/blogs/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Wed, 01 Jan 2020 23:40:49 +0000</lastBuildDate><atom:link href="/blogs/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>ChebNet: CNN on Graphs with Fast Localized Spectral Filtering</title>
       <link>/blogs/chebnet/</link>
       <pubDate>Sat, 01 Feb 2020 23:40:49 +0000</pubDate>
       
       <guid>/blogs/chebnet/</guid>
-      <description>Motivation As a part of this blog series, this time we&#39;ll be looking at a spectral convolution technique introduced in the paper by M.</description>
+      <description>Motivation As a part of this blog series, this time we&amp;rsquo;ll be looking at a spectral convolution technique introduced in the paper by M.</description>
     </item>
     
     <item>

@@ -6,11 +6,7 @@
     <description>Recent content in BERT on DSG | IIT Roorkee</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 02 Dec 2019 23:40:49 +0000</lastBuildDate>
-    
-	<atom:link href="/tags/bert/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Mon, 02 Dec 2019 23:40:49 +0000</lastBuildDate><atom:link href="/tags/bert/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Sarcasm Detection using BERT</title>
       <link>/work/sarcasm_detection/</link>
