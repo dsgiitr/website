@@ -836,7 +836,7 @@ figure figcaption p {
 .grps {
   position: relative;
   overflow: hidden;
-  height: 240px;
+  /* height: 240px; */
   width: 32%;
   margin: 0 auto 70px auto;
   text-align: center;
