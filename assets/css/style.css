@@ -94,7 +94,7 @@ a:hover {
 
 .ann-content:nth-child(1) {
   width: 50%;
-  height: 359px;
+  /* height: 359px; */
   background: #FFFFFF;
   border-radius: 4px;
   margin: 0 20px;
@@ -106,7 +106,7 @@ a:hover {
 
 .ann-content:nth-child(2) {
   width: 25%;
-  height: 359px;
+  /* height: 359px; */
   background: #FFFFFF;
   border-radius: 4px;
   margin: 0 20px;
@@ -114,13 +114,25 @@ a:hover {
 
 .ann-content:nth-child(3) {
   width: 25%;
-  height: 359px;
+  /* height: 359px; */
   background: #FFFFFF;
   border-radius: 4px;
   margin: 0 20px;
 }
 
 @media (max-width: 768px) {
+  .ann-content:nth-child(1) .media-link1 {
+    left: 10%;
+  }
+
+  .ann-content:nth-child(2) .media-link1 {
+    left: 10%;
+  }
+  
+  .ann-content:nth-child(3) .media-link1 {
+    left: 10%;
+  }
+
   .row-ann {
     display: flex;
     flex-direction: column;
@@ -130,21 +142,21 @@ a:hover {
 
   div.ann-content:nth-child(3) {
     width: 80%;
-    height: 359px;
+    /* height: 359px; */
     background: #FFFFFF;
     border-radius: 4px;
     margin: 20px;
   }
   div.ann-content:nth-child(2) {
     width: 80%;
-    height: 359px;
+    /* height: 359px; */
     background: #FFFFFF;
     border-radius: 4px;
     margin: 0 20px;
   }
   div.ann-content:nth-child(1) {
     width: 80%;
-    height: 359px;
+    /* height: 359px; */
     background: #FFFFFF;
     border-radius: 4px;
     margin: 0 20px 20px 20px;
@@ -1400,7 +1412,7 @@ article {
 .media-middle1 {
   width: auto;
   padding: 5px 15px;
-  height: 30px;
+  height: max-content;
   border-radius: 2px;
 }
 
@@ -1432,7 +1444,7 @@ article {
 .media-bottom1 {
   width: auto;
   padding: 5px 0 5px 15px;
-  height: 30px;
+  height: max-content;
 }
 
 .media-bottom2 {
@@ -1447,7 +1459,7 @@ article {
   padding: 5px 15px 5px 5px;
   height: 30px;
   left: 10%;
-  top: 310px;
+  bottom: 4%;
   color: #3C85F3;
 }
 

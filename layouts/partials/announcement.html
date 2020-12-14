@@ -9,7 +9,7 @@
             {{ range $index, $elemrnt := .Site.Data.announcement.item }}
             <div class="ann-content">
                 {{ $delay := 300 }}
-                <div class="media wow fadeInUp animated announcement-flex" data-wow-duration="500ms" data-wow-delay="{{ $delay }}ms">
+                <div class="media wow fadeInUp animated announcement-flex" data-wow-duration="500ms" data-wow-delay="{{ $delay }}ms" style="height: max-content;">
                     {{ range $index, $ele := $elemrnt }}
                         {{ $val := add 1 $index }}
                         {{ $top := print "media-top" $val }}
@@ -31,7 +31,7 @@
                         <div class="{{ $middle }}" style="margin: 0 0.5rem 0 1rem; height: max-content; ">
                             {{ with .title }}<p>{{ . }}</p>{{ end }}
                         </div>
-                        <div class="{{ $bottom }}" style="margin: 0 1rem; text-align: none;">
+                        <div class="{{ $bottom }}" style="margin: 2rem 1rem; text-align: none;">
                             {{ with .description }}<p style="font-size: 15px; text-align: none;">{{ . }}</p>{{ end }}
                         </div>
                         <div class="{{ $link }}">
