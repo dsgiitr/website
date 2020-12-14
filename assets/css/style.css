@@ -192,11 +192,11 @@ a:hover {
   font-weight: 420;
 }
 
-.scroll {
+/* .scroll {
   display: flex;
   flex-direction: column;
   margin-top: 2vh;
-}
+} */
 
 @media (max-width: 425px) {
   .intro-landing {
@@ -891,6 +891,31 @@ figure figcaption p {
   background-color: rgba(0,0,0,.5);
   opacity: 0.6;
 } */
+
+/* @supports (-ms-ime-align: auto) {
+  .scroll {
+    display: flex;
+    flex-direction: column;
+    max-width: fit-content;
+    margin: 2vh auto;
+  }
+
+  #arrow-down {
+    max-width: fit-content;
+    margin: 1vh auto;
+  }
+} */
+.scroll {
+  display: flex;
+  flex-direction: column;
+  max-width: fit-content;
+  margin: 2vh auto;
+}
+
+#arrow_down {
+  max-width: fit-content;
+  margin: 1vh auto;
+}
 
 .img-fluid {
   width: 100%;
