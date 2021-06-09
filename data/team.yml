@@ -182,6 +182,15 @@ members  :
     linkedInicon: ion-social-linkedin
     linkedInurl : https://www.linkedin.com/in/subham-sahoo-8066b9171/
 
+  - name  : Subodh Kumar
+    image : images/team/Subodh_Kumar.jpg
+    fbicon      : ion-social-facebook
+    fburl       : https://www.facebook.com/profile.php?id=100057930481936
+    githubicon : ion-social-github
+    githuburl  : https://github.com/subodh2702
+    linkedInicon: ion-social-linkedin
+    linkedInurl : https://www.linkedin.com/in/subodh-kumar-b51b7620a/
+
   - name  : Vipul Bansal
     image : images/team/person_8x10.png
     fbicon      : ion-social-facebook
