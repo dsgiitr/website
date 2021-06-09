@@ -118,6 +118,15 @@ members  :
     githuburl  : https://github.com/sahilg06
     linkedInicon: ion-social-linkedin
     linkedInurl : https://www.linkedin.com/
+    
+  - name  : Huzaib Ul Hassan
+    image : images/team/Huzaib.png
+    fbicon      : ion-social-facebook
+    fburl       : https://www.facebook.com/huzaibul.hassan.9
+    githubicon : ion-social-github
+    githuburl  : https://github.com/Huzaib
+    linkedInicon: ion-social-linkedin
+    linkedInurl : https://www.linkedin.com/in/huzaib-ul-hassan/
 
   - name  : Saswat Das
     image : images/team/Saswat_Das.jpg
