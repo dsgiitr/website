@@ -145,6 +145,15 @@ members  :
     githuburl  : https://github.com/shikhar2402
     linkedInicon: ion-social-linkedin
     linkedInurl : https://www.linkedin.com/
+
+  - name  : Shreshtha Misra
+    image : images/team/Shreshtha_Misra.jpg
+    fbicon      : ion-social-facebook
+    fburl       : https://www.facebook.com/shreshtha.misra.585/
+    githubicon : ion-social-github
+    githuburl  : https://github.com/Shreshtha13
+    linkedInicon: ion-social-linkedin
+    linkedInurl : https://www.linkedin.com/in/shreshtha-misra-9a6319207/
   
   - name  : Shubham Chandel
     image : images/team/person_8x10.png
