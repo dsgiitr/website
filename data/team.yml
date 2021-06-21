@@ -199,6 +199,15 @@ members:
     githuburl: https://github.com/Huzaib
     linkedInicon: ion-social-linkedin
     linkedInurl: https://www.linkedin.com/in/huzaib-ul-hassan/
+    
+  - name: Sarthak Gupta
+    image: images/team/Sarthak_Gupta.jpg
+    fbicon: ion-social-facebook
+    fburl: https://www.facebook.com/sarthakgupta46
+    githubicon: ion-social-github
+    githuburl: https://www.github.com/mr-sarthakgupta
+    linkedInicon: ion-social-linkedin
+    linkedInurl: https://www.linkedin.com/in/sarthak-gupta-130045202/
 
   - name: Saswat Das
     image: images/team/Saswat_Das.jpg
