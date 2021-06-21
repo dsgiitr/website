@@ -74,7 +74,7 @@ members:
     linkedInurl: https://www.linkedin.com/in/apoorvaverma31/
 
   - name: Arnav Arora
-    image: images/team/Arnav_Arora.jpg
+    image: images/team/Arnav_Arora.jpeg
     fbicon: ion-social-facebook
     fburl: https://www.facebook.com/eigen.arnav
     githubicon: ion-social-github
@@ -136,16 +136,16 @@ members:
     githuburl: https://github.com/xypherhead
     linkedInicon: ion-social-linkedin
     linkedInurl: https://www.linkedin.com/in/kshitij-lakade-08544b1b9/
- 
-  - name: Manas Misra 
-    image: images/team/manas_misra.jpg
+
+  - name: Manas Misra
+    image: images/team/manas_misra.jpeg
     fbicon: ion-social-facebook
     fburl: https://www.facebook.com/manas.misra.16906
     githubicon: ion-social-github
     githuburl: https://github.com/Bluesky9-create
     linkedInicon: ion-social-linkedin
     linkedInurl: https://www.linkedin.com/in/manas-m-4479bb137/
-    
+
   - name: Pranjal Gulati
     image: images/team/Pranjal.jpg
     fbicon: ion-social-facebook
