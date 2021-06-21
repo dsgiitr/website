@@ -21,6 +21,9 @@ jobs:
           hugo-version: 'latest'
           # extended: true
 
+      - name: Clean Docs
+        run: rm -rf docs
+
       - name: Build
         run: hugo
 
@@ -30,4 +33,4 @@ jobs:
         with:
           deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
           publish_branch: master
-          publish_dir: ./public
+          publish_dir: ./docs
