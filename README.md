@@ -4,23 +4,11 @@
   * Clone the repository.
   * Run `hugo server -D` in the directory.
 
-## Deploy
-
-Run `hugo` in the directory and commit the `docs/` for the changes to be deployed onto the website.
-
-
-## How to add a blog?
-
-
-
-
 ## Requirements
   * Hugo
 
-
 ## TODO
 
-- [ ] Fix website private issue with chrome browser.
 - [ ] Change B/W image to blue filtered for team page
 - [ ] Add velocity JS to scroll icon
 - [ ] Refactor Events to News everywhere.
