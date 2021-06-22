@@ -1084,6 +1084,10 @@ article {
   border-radius: 5px;
 }
 
+.img-wrapper-team:hover{
+  /* filter: sepia(100%) hue-rotate(190deg) saturate(500%); */
+}
+
 .fig-team {
   font-family: "Inter", "Roboto", sans-serif;
   font-style: normal;
