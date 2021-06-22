@@ -9,11 +9,19 @@
             <div class="col-md-3 col-sm-6" style="width: 100%; display:contents;">
                 {{ $delay := 300 }}
                 <div class="wow fadeInLeft animated sistergp" data-wow-duration="500ms" data-wow-delay="{{ $delay }}ms">
-                        {{ range $index, $elemrnt := .Site.Data.sisterGroup.details }}
-                        <div class="grps">
-                            {{ with .name }} <h2>{{ . }}</h2> {{ end }}
-                            {{ with .description }}<p>{{ . }}</p>{{ end }}
-                        </div>
+                    {{ range $index, $element := .Site.Data.sisterGroup.details }}
+                    <div class="grps">
+                        <a href="{{ $element.link }}" class="zoomIn">
+                            {{ with .image }}
+                            <img src="{{ . | absURL }}" class="sistergroup-logo">
+                            {{ end }}
+                        </a>
+                        {{ with .name }}
+                        <a href="{{ $element.link }}">
+                            <h2>{{ . }}</h2>
+                        </a> {{ end }}
+                        {{ with .description }}<p>{{ . }}</p>{{ end }}
+                    </div>
                     {{ end }}
                 </div>
             </div>
