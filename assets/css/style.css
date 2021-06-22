@@ -1959,7 +1959,7 @@ ul.social-icons li {
 }
 .img-wrapper-team span.overlay{
   background: rgba(41, 117, 231, 0.7);
-  transition: opacity 100ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
 }
 
 .img-wrapper-team:hover{
