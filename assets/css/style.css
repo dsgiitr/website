@@ -128,7 +128,7 @@ a:hover {
   .ann-content:nth-child(2) .media-link1 {
     left: 10%;
   }
-  
+
   .ann-content:nth-child(3) .media-link1 {
     left: 10%;
   }
@@ -1930,4 +1930,11 @@ ul.social-icons li {
 
 #copyright a:hover {
   text-decoration: none;
+}
+
+.sistergroup-logo {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  margin-top: 5%;
 }

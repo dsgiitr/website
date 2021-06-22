@@ -4,9 +4,17 @@ details:
   - name        : SDSLabs
     description : >
       A student-run technical group at IIT Roorkee, which aims to encourage the development of technology and innovation in the campus and beyond. SDS Labs strongly believes in learning and sharing knowledge; collaboration and experimentation; and human interaction that matters the most.
+    image       : images/sistergroups/sds.png
+    link        : https://sdslabs.co/
+
   - name        : PAG
     description : >
       Programming and Algorithms Group strives to nurture the competitive coding culture of IIT Roorkee. As a bunch of enthusiastic programmers, PAG is always looking to compete at National and International Competitive Coding Competitions and Hackathons.
+    image       : images/sistergroups/pag.png
+    link        : https://www.facebook.com/groups/sdspag
+
   - name        : INFOSEC IITR
     description : >
       InfoSecIITR is the information security club of IIT Roorkee and an enthusiast CTF participant. It is an open group run entirely by IIT R students and alumni. A bunch of self-motivated security enthusiasts who love learning and sharing their knowledge with everyone genuinely interested in information security.
+    image       : images/sistergroups/infosec.png
+    link        : https://www.facebook.com/groups/infoseciitr/
