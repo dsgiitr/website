@@ -1084,6 +1084,10 @@ article {
   border-radius: 5px;
 }
 
+.img-wrapper-team:hover{
+  /* filter: sepia(100%) hue-rotate(190deg) saturate(500%); */
+}
+
 .fig-team {
   font-family: "Inter", "Roboto", sans-serif;
   font-style: normal;
@@ -1953,10 +1957,9 @@ ul.social-icons li {
   height: 100px;
   margin-top: 5%;
 }
-
 .img-wrapper-team span.overlay{
   background: rgba(41, 117, 231, 0.7);
-  transition: opacity 200ms ease-in-out;
+  transition: opacity 100ms ease-in-out;
 }
 
 .img-wrapper-team:hover{
