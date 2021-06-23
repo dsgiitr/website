@@ -9,7 +9,6 @@
 
 ## TODO
 
-- [ ] Change B/W image to blue filtered for team page
 - [ ] Add velocity JS to scroll icon
 - [ ] Refactor Events to News everywhere.
 - [ ] Add buttons to project cards like project deployed website, github, details instead of hover mechanism. Take style from http://poloclub.github.io/
