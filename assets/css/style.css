@@ -806,10 +806,6 @@ figure figcaption p {
   transform: translateY(-50%);
 }
 
-.img-wrapper-team:hover{
-  /*filter: hue-rotate(190deg) saturate(100%);*/
-  /*background: linear-gradient(0deg, rgba(80, 150, 255, 0.7);*/
-}
 
 .img-wrapper-team:hover .social-btn {
   visibility: visible;
@@ -1371,7 +1367,7 @@ article {
   transition: visibility 0.5s, opacity 0.5s linear;
   position: absolute;
   z-index: 2;
-  top: 135px;
+  top: 75.5px;
   left: 14%;
 }
 
@@ -1817,15 +1813,35 @@ article {
   transform: translateY(-50%);
 }
 
+.social .ion-social-facebook:hover{
+  content: "\f231";
+  color: #4267B2;
+  font-size: 2rem;
+}
+
+.social .ion-social-github:hover {
+  content: "\f233";
+  color: #333;
+  font-size: 2rem;
+}
+
+.social .ion-social-linkedin:hover {
+  content: "\f239";
+  color: #2867B2;
+  font-size: 2rem;
+}
+
+
+
+
 .ion-social-facebook{
   content: "\f231";
-  color: black;
+  color: rgb(0,0,0);
   font-size: 2rem;
 }
 
 .ion-social-facebook:hover {
   content: "\f231";
-  color: #4267B2;
   font-size: 2rem;
 }
 
@@ -1837,7 +1853,6 @@ article {
 
 .ion-social-github:hover {
   content: "\f233";
-  color: #333;
   font-size: 2rem;
 }
 
@@ -1849,7 +1864,6 @@ article {
 
 .ion-social-linkedin:hover {
   content: "\f239";
-  color: #2867B2;
   font-size: 2rem;
 }
 
@@ -1886,6 +1900,7 @@ article {
   line-height: 53px;
   text-align: initial;
   color: #fff;
+  padding-left:13px;
 }
 
 #footer .copyright a {
@@ -1938,3 +1953,15 @@ ul.social-icons li {
   height: 100px;
   margin-top: 5%;
 }
+
+.img-wrapper-team span.overlay{
+  background: rgba(41, 117, 231, 0.7);
+  transition: opacity 200ms ease-in-out;
+}
+
+.img-wrapper-team:hover{
+  filter:none;
+  transition: 300ms ease-in-out;
+}
+
+
