@@ -1,0 +1,63 @@
+{{ define "main" }}
+
+<section class="single-page-header" id="blogs-back" style='box-shadow:none;position: fixed;width: 100%;top: 5rem;'>
+</section>
+
+<section id="blog-full-width">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2 side-panel">
+                <div class="fixed-tag">
+                    <section class="cd-intro">
+                        <h1 class="wow blogs fadeInUp animated cd-headline slide" data-wow-delay=".4s">
+                            <span>Blogs</span>
+                        </h1>
+                    </section>
+                </div>
+            </div>
+            <div class="col-md-10">
+                {{ $paginator := .Paginate (.Data.Pages) }}
+                {{ range $paginator.Pages }}
+                    <div class="sng-page">
+                        <div class="col-md-7 left">
+                            <article class="wow fadeInDown" data-wow-delay=".3s" data-wow-duration="500ms">
+                                <div class="blog-content">
+                                    <h2 class="blogpost-title">
+                                        <a href="{{ .Permalink }}" style="font-weight: bold;">{{ .Title }}</a>
+                                    </h2>
+                                    <div class="blog-meta">
+                                        <span>{{ dateFormat "Monday, Jan 2, 2006" .Date }}</span>
+                                        {{ with .Params.author }}<span>by
+                                            {{ . }}
+                                        </span>
+                                        {{ end }}
+                                        {{ with .Params.tags }}
+                                        <span>
+                                            {{ delimit . ", " }}
+                                        </span>
+                                        {{ end }}
+                                    </div>
+                                    <p>
+                                        {{ .Summary }}
+                                    </p>
+                                </div>
+                            </article>
+                        </div>
+                        <div class="col-md-5 right wow fadeInDown" data-wow-delay=".3s" data-wow-duration="500ms">
+                            <div class="blog-post-image">
+                                <a href="{{ .Permalink }}">
+                                    {{ with .Params.image }}<img class="img-fluid-work" src="{{ . | absURL }}" alt="post-image"/>{{ end }}
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                {{ end }}
+            </div>
+        </div>
+    </div>
+    <div>
+        {{ partial "pagination" . }}
+    </div>
+</section>
+
+{{ end }}

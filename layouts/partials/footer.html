@@ -1,0 +1,64 @@
+{{ "<!-- Footer Section Start -->" | safeHTML }}
+<footer id="footer">
+    <div class="container" id="footer-container">
+        <div class="row content-justify-between">
+            <div style="width: 100%;">
+                <p class="copyright">
+                    Contact Us
+                </p>
+            </div>
+            <div class="col-md-7 col-12 text-lg-left text-md-left">
+                {{ "<!-- Social Media -->" | safeHTML }}
+                <ul class="social">
+                    {{ range .Site.Params.footer.socialIcon }}
+                    <li><a href="{{ .url }}"><i class="{{ .icon }}"></i></a></li>
+                    {{ end }}
+                    {{ range .Site.Params.footer.ccIcon }}
+                    <li style="float: right; color: #FFFFFF;"><i class="{{ .icon }}"></i> DSG IITR</li>
+                    {{ end }}
+                </ul>
+            </div>
+            <div class="col-md-5 col-12 text-lg-left text-md-left location-foot">
+                {{ range .Site.Params.footer.locationIcon }}
+                <div style="float: right; color: #FFFFFF;">
+                    <i class="{{ .icon }}" style="color: #000;"></i> New Sac Building, IIT Roorkee
+                </div>
+                {{ end }}
+            </div>
+        </div>
+    </div>
+    <!-- Adding MathJax here as footer will always load. -->
+    {{ partial "mathjax_support.html" . }}
+</footer>
+{{ "<!-- footer section end -->" | safeHTML }}
+
+
+{{ "<!-- jquery -->" | safeHTML }}
+<script src="{{ "plugins/jQurey/jquery.min.js" | absURL }}"></script>
+{{ "<!-- Form Validation -->" | safeHTML }}
+<script src="{{ "plugins/form-validation/jquery.form.js" | absURL }}"></script>
+<script src="{{ "plugins/form-validation/jquery.validate.min.js" | absURL }}"></script>
+{{ "<!-- slick slider -->" | safeHTML }}
+<script src="{{ "plugins/slick/slick.min.js" | absURL }}"></script>
+{{ "<!-- bootstrap js -->" | safeHTML }}
+<script src="{{ "plugins/bootstrap/bootstrap.min.js" | absURL }}"></script>
+{{ "<!-- wow js -->" | safeHTML }}
+<script src="{{ "plugins/wow-js/wow.min.js" | absURL }}"></script>
+{{ "<!-- slider js -->" | safeHTML }}
+<script src="{{ "plugins/slider/slider.js" | absURL }}"></script>
+{{ "<!-- Fancybox -->" | safeHTML }}
+<script src="{{ "plugins/facncybox/jquery.fancybox.js" | absURL }}"></script>
+{{ "<!-- template main js -->" | safeHTML }}
+{{ $script := resources.Get "js/script.js" | minify}}
+<script src="{{ $script.Permalink }}"></script>
+{{ "<!-- google analitycs -->" | safeHTML }}
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', '{{ .Site.Params.googleAnalitycsID }}', 'auto');
+    ga('send', 'pageview');
+</script>
+<script type="text/javascript" src="{{ "plugins/particlesjs/particles.min.js" | absURL }}"></script>
+<script type="text/javascript" src="{{ "plugins/particlesjs/demo/js/app.js" | absURL }}"></script>

@@ -1,0 +1,48 @@
+{{ if .Site.Data.announcement.enable }}
+{{ "<!-- announcement Section Start -->" | safeHTML }}
+<section id="feature">
+    <div class="container">
+        <div class="section-heading">
+            {{ with .Site.Data.announcement.title }}<h1 class="title-announcement wow fadeInDown" data-wow-delay=".3s">{{ . }}</h1>{{ end }}
+        </div>
+        <div class="row-ann">
+            {{ range $index, $elemrnt := .Site.Data.announcement.item }}
+            <div class="ann-content">
+                {{ $delay := 300 }}
+                <div class="media wow fadeInUp animated announcement-flex" data-wow-duration="500ms" data-wow-delay="{{ $delay }}ms" style="height: max-content;">
+                    {{ range $index, $ele := $elemrnt }}
+                        {{ $val := add 1 $index }}
+                        {{ $top := print "media-top" $val }}
+                        {{ $middle := print "media-middle" $val }}
+                        {{ $bottom := print "media-bottom" $val }}
+                        {{ $link := print "media-link" $val }}
+
+                        {{ if eq .order 1 }}
+                            <div class="first-Section {{ $top }}" style='margin: 1.5rem 2rem;'>
+                                {{ with .name }}<p>{{ . }}</p>{{ end }}
+                            </div>
+                        {{ end }}
+                        {{ if ne .order 1 }}
+                            <div class="{{ $top }}" style='margin: 1.5rem 2rem;'>
+                                {{ with .name }}<p>{{ . }}</p>{{ end }}
+                            </div>
+                        {{ end }}
+
+                        <div class="{{ $middle }}" style="margin: 0 0.5rem 0 1rem; height: max-content; ">
+                            {{ with .title }}<p>{{ . }}</p>{{ end }}
+                        </div>
+                        <div class="{{ $bottom }}" style="margin: 2rem 1rem; text-align: none;">
+                            {{ with .description }}<p style="font-size: 15px; text-align: none;">{{ . }}</p>{{ end }}
+                        </div>
+                        <div class="{{ $link }}">
+                            <a href="{{ with .url }}{{ . }}{{ end }}">{{ with .linkName }}{{ . }}{{ end }}</a>
+                        </div>
+                    {{ end }}
+                </div>
+            </div>
+            {{ end }}
+        </div>
+    </div>
+</section>
+{{ "<!-- announcement Section End -->" | safeHTML }}
+{{ end }}
