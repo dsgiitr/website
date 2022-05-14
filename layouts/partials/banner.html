@@ -20,7 +20,7 @@
                         <span class="view-project"><a href="{{ .Site.Params.banner.projectLink }}">View & Explore</a></span>
                     </div>
                     <div class="scroll">
-                        <a href="{{ .Site.Params.banner.nextLink }}" style="display: flex; flex-direction: column;">
+                        <a class="scroll-a" href="{{ .Site.Params.banner.nextLink }}" style="display: flex; flex-direction: column;">
                             <img src="{{ .Site.Params.banner.scroll | absURL }}" alt="scroll">
                             <img src="{{ .Site.Params.banner.down | absURL }}" id="arrow_down" alt="scroll" style="margin-top: 1vh;">
                         </a>
@@ -33,6 +33,27 @@
 {{ "<!-- Slider Section End -->" | safeHTML }}
 {{ end }}
 
+
+<script src="{{ "plugins/jQurey/jquery.min.js" | absURL }}"></script>
+<script src="{{ "plugins/velocityJS/velocity.min.js" | absURL }}">
+  
+  
+	// $("#feature").velocity({ opacity: 0 }, function(){
+	// 	$(this)
+	// 		.velocity("scroll", 1000)
+	// 		.velocity({ opacity: 1 });
+	// });
+// });
+</script>
+<!-- <script>
+   $(".scroll").click(function(){
+	$("#feature").velocity({ opacity: 0 }, function(){
+		$(this)
+			.velocity("scroll", 1000)
+			.velocity({ opacity: 1 });
+	});
+});
+</script> -->
 <script type="text/javascript">var TxtType = function(el, toRotate, period) {
         this.toRotate = toRotate;
         this.el = el;
