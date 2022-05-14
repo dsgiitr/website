@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>CloudXLabs on DSG | IIT Roorkee</title>
+    <link>/tags/cloudxlabs/</link>
+    <description>Recent content in CloudXLabs on DSG | IIT Roorkee</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 30 Aug 2019 23:40:49 +0000</lastBuildDate><atom:link href="/tags/cloudxlabs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Open Lecture: Computer Vision</title>
+      <link>/events/sandeep_giri_talk_cv/</link>
+      <pubDate>Fri, 30 Aug 2019 23:40:49 +0000</pubDate>
+      
+      <guid>/events/sandeep_giri_talk_cv/</guid>
+      <description>Sandeep is a seasoned, hands-on machine learning scientist with 16+ years of strong experience in building world-class software products, Machine Learning and churning humongous data.</description>
+    </item>
+    
+  </channel>
+</rss>

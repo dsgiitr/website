@@ -1,0 +1,112 @@
+{{ if .Site.Params.banner.enable }}
+{{ "<!-- Slider Section Start -->" | safeHTML }}
+<section id="hero-area">
+    <div class="container center-verticle" style="z-index: 9; height: 35%;">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <div class="block wow fadeInUp" data-wow-delay=".2s">
+                    {{ "<!-- Slider -->" | safeHTML}}
+                    <section class="cd-intro intro-landing">
+                        <h1 class="wow fadeInUp animated cd-headline slide" data-wow-delay=".4s">
+                            {{ with .Site.Params.banner.heading }}<div class="inter">{{ . }}</div>{{ end }}
+                            {{ with .Site.Params.banner.subHeading }}<div class="inter">{{ . }}</div>{{ end }}
+                        </h1>
+                    </section>
+                    {{ with .Site.Params.banner.description }}<h2 id="landing-text" class="wow fadeInUp animated inter" data-wow-delay=".6s">{{ . }}</h2>{{ end }}
+                        <h2 id="landing-subText" class="typewrite typewriteStl" data-period="2000" data-type='[ "Code", "Train", "Predict" ]'>
+                        <span class="wrap">_</span>
+                        </h2>
+                    <div class="div-project">
+                        <span class="view-project"><a href="{{ .Site.Params.banner.projectLink }}">View & Explore</a></span>
+                    </div>
+                    <div class="scroll">
+                        <a class="scroll-a" href="{{ .Site.Params.banner.nextLink }}" style="display: flex; flex-direction: column;">
+                            <img src="{{ .Site.Params.banner.scroll | absURL }}" alt="scroll">
+                            <img src="{{ .Site.Params.banner.down | absURL }}" id="arrow_down" alt="scroll" style="margin-top: 1vh;">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{{ "<!-- Slider Section End -->" | safeHTML }}
+{{ end }}
+
+
+<script src="{{ "plugins/jQurey/jquery.min.js" | absURL }}"></script>
+<script src="{{ "plugins/velocityJS/velocity.min.js" | absURL }}">
+  
+  
+	// $("#feature").velocity({ opacity: 0 }, function(){
+	// 	$(this)
+	// 		.velocity("scroll", 1000)
+	// 		.velocity({ opacity: 1 });
+	// });
+// });
+</script>
+<!-- <script>
+   $(".scroll").click(function(){
+	$("#feature").velocity({ opacity: 0 }, function(){
+		$(this)
+			.velocity("scroll", 1000)
+			.velocity({ opacity: 1 });
+	});
+});
+</script> -->
+<script type="text/javascript">var TxtType = function(el, toRotate, period) {
+        this.toRotate = toRotate;
+        this.el = el;
+        this.loopNum = 0;
+        this.period = parseInt(period, 10) || 2000;
+        this.txt = '';
+        this.tick();
+        this.isDeleting = false;
+    };
+
+    TxtType.prototype.tick = function() {
+        var i = this.loopNum % this.toRotate.length;
+        var fullTxt = this.toRotate[i];
+
+        if (this.isDeleting) {
+        this.txt = fullTxt.substring(0, this.txt.length - 1);
+        } else {
+        this.txt = fullTxt.substring(0, this.txt.length + 1);
+        }
+
+        this.el.innerHTML = '<span class="wrap">'+this.txt+'_</span>';
+
+        var that = this;
+        var delta = 200 - Math.random() * 100;
+
+        if (this.isDeleting) { delta /= 2; }
+
+        if (!this.isDeleting && this.txt === fullTxt) {
+        delta = this.period;
+        this.isDeleting = true;
+        } else if (this.isDeleting && this.txt === '') {
+        this.isDeleting = false;
+        this.loopNum++;
+        delta = 500;
+        }
+
+        setTimeout(function() {
+        that.tick();
+        }, delta);
+    };
+
+    window.onload = function() {
+        var elements = document.getElementsByClassName('typewrite');
+        for (var i=0; i<elements.length; i++) {
+            var toRotate = elements[i].getAttribute('data-type');
+            var period = elements[i].getAttribute('data-period');
+            if (toRotate) {
+              new TxtType(elements[i], JSON.parse(toRotate), period);
+            }
+        }
+        // INJECT CSS
+        var css = document.createElement("style");
+        css.type = "text/css";
+        css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #fff}";
+        document.body.appendChild(css);
+    };</script>

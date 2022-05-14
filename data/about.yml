@@ -1,0 +1,13 @@
+enable  : true
+aboutItem:
+  - title : Why Choose Us
+    description: > 
+      We love what we do. We really do what we love. We are Data Science Group, IIT Roorkee.
+
+  - title : What You Get
+    description: > 
+       We are a bunch of skilled and passionate machine learning enthusiast students with experience in various domains spanning from Industrial application based Machine Learning to Research based Deep Learning and Reinforcement Learning.  
+
+  - title : Meet The Energy
+    description: > 
+       We bring the energy of learning with us. Being an undergraduate only group, our members are always looking to learn, collaborate and share our knowledge in every possible manner. This brings a positive vibe among the members generating a desire to grow.

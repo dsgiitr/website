@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Adversarial ML on DSG | IIT Roorkee</title>
+    <link>/tags/adversarial-ml/</link>
+    <description>Recent content in Adversarial ML on DSG | IIT Roorkee</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 01 Dec 2019 23:40:49 +0000</lastBuildDate><atom:link href="/tags/adversarial-ml/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Adversarial Lab</title>
+      <link>/work/adversarial_lab/</link>
+      <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
+      
+      <guid>/work/adversarial_lab/</guid>
+      <description>Adversarial Lab This project is a Web-based Tool for visualisation and generation of adversarial examples by attacking ImageNet Models like VGG, AlexNet, ResNet etc.</description>
+    </item>
+    
+  </channel>
+</rss>

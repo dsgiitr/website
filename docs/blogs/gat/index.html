@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en-us"><head>
+  <!-- Basic Page Needs -->
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  
+  <meta name="description" content="Machine Learning / Graph Representation Learning">
+  <meta name="author" content="DSG">
+  <meta name="generator" content="Hugo 0.98.0" />
+  
+  <!-- Mobile Specific Metas -->
+  <meta name="format-detection" content="telephone=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Understanding Graph Attention Networks (GAT)</title>
+  <link rel="icon" href="/images/dsg_new_square_logo.png">
+
+  <!-- Twitter Bootstrs CSS -->
+  <link rel="stylesheet" href="/plugins/bootstrap/bootstrap.min.css">
+  <!-- Ionicons Fonts Css -->
+  <link rel="stylesheet" href="/plugins/ionicons/ionicons.min.css">
+  <!-- animate css -->
+  <link rel="stylesheet" href="/plugins/animate-css/animate.css">
+  <!-- Hero area slider css-->
+  <link rel="stylesheet" href="/plugins/slider/slider.css">
+  <!-- slick slider -->
+  <link rel="stylesheet" href="/plugins/slick/slick.css">
+  <!-- Fancybox -->
+  <link rel="stylesheet" href="/plugins/facncybox/jquery.fancybox.css">
+  <!-- hover -->
+  <link rel="stylesheet" href="/plugins/hover/hover-min.css">
+  <!-- template main css file -->
+  
+  <link rel="stylesheet" href="/css/style.min.css" integrity="" media="screen">
+</head><body><section class="top-bar animated-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <a class="navbar-brand" href="/">
+                        <img id="logo" src="/images/dsg.png" alt="logo">
+                    </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
+                        aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navigation">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item">
+                                <a class="nav-link"
+                                    href="/">Home
+                                </a>
+                            </li>
+                            
+                            <li class="nav-item">
+                                
+                                    <a class="nav-link" href="/#works">Work</a>
+                                
+                                
+                                
+                            </li>
+                            
+                            <li class="nav-item">
+                                
+                                
+                                    <a class="nav-link" href="/events">News</a>
+                                
+                                
+                            </li>
+                            
+                            <li class="nav-item">
+                                
+                                
+                                    <a class="nav-link" href="/blogs">Blogs</a>
+                                
+                                
+                            </li>
+                            
+                            <li class="nav-item">
+                                
+                                
+                                    <a class="nav-link" href="/about">About</a>
+                                
+                                
+                            </li>
+                            
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="global-page-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="block">
+                    <h2>Understanding Graph Attention Networks (GAT)</h2>
+                    <div class="portfolio-meta">
+                        <span>Tuesday, Jan 21, 2020</span>|
+                        <span> Tags:
+                            Graph Representation Learning
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="single-post">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                
+                <div class="post-img">
+                    <img class="img-fluid-work" alt="" src="/images/blogs/GAT/GAT_Cover.jpg">
+                </div>
+                
+                <div class="post-content">
+                    <!-- # Understanding Graph Attention Networks (GAT) -->
+<h1><center>Understanding Graph Attention Networks (GAT)</center></h1>
+<p>This is 4th in the series of blogs <font color="green"><b>Explained: Graph Representation Learning</b></font>. Let&rsquo;s dive right in, assuming you have read the first three. GAT (Graph Attention Network), is a novel neural network architecture that operate on graph-structured data, leveraging masked self-attentional layers to address the shortcomings of prior methods based on graph convolutions or their approximations. By stacking layers in which nodes are able to attend over their neighborhoods’ features, the method enables (implicitly) specifying different weights to different nodes in a neighborhood, without requiring any kind of costly matrix operation (such as inversion) or depending on knowing the graph structure upfront. In this way, GAT addresses several key challenges of spectral-based graph neural networks simultaneously, and make the model readily applicable to inductive as well as transductive problems.</p>
+<p>Analyzing and Visualizing the learned attentional weights also lead to a more interpretable model in terms of importance of neighbors.</p>
+<p>But before getting into the meat of this method, I want you to be familiar and thorough with the Attention Mechanism, because we&rsquo;ll be building GATs on the concept of <b>Self Attention</b> and <b>Multi-Head Attention</b> introduced by <b><i>Vaswani et al.</i></b>
+If not, you may read this blog, <a href="http://jalammar.github.io/illustrated-transformer/">The Illustrated Transformer</a> by Jay Alamar.</p>
+<hr/>
+<h1><center>Can we do better than GCNs?</center></h1>
+<p>From Graph Convolutional Network (GCN), we learnt that combining local graph structure and node-level features yields good performance on node classification task. However, the way GCN aggregates messages is <b>structure-dependent</b>, which may hurt its generalizability.</p>
+<p>The fundamental novelty that GAT brings to the table is how the information from the one-hop neighborhood is aggregated. For GCN, a graph convolution operation produces the normalized sum of neighbors&rsquo; node features as follows:</p>
+<p>$$h_i^{(l+1)}=\sigma\left(\sum_{j\in \mathcal{N}(i)} {\frac{1}{c_{ij}} W^{(l)}h^{(l)}_j}\right)$$</p>
+<p>where $\mathcal{N}(i)$ is the set of its one-hop neighbors (to include $v_{i}$ in the set, we simply added a self-loop to each node), $c_{ij}=\sqrt{|\mathcal{N}(i)|}\sqrt{|\mathcal{N}(j)|}$ is a normalization constant based on graph structure, $\sigma$ is an activation function (GCN uses ReLU), and $W^{l}$ is a shared weight matrix for node-wise feature transformation.</p>
+<p>GAT introduces the attention mechanism as a substitute for the statically normalized convolution operation. The figure below clearly illustrates the key difference.</p>
+<center><strong>GCN vs GAT</strong></center>
+<img src="/images/blogs/GAT/GCN_vs_GAT.jpg" width=800x/>
+<hr/>
+<h1><center>How does the GAT layer work?</center></h1>
+<p>The particular attentional setup utilized by GAT closely follows the work of <code>Bahdanau et al. (2015)</code> i.e <i>Additive Attention</i>, but the framework is agnostic to the particular choice of attention mechanism.</p>
+<p>The input to the layer is a set of node features, $\mathbf{h} = {\vec{h}_1,\vec{h}_2,&hellip;,\vec{h}_N}, \vec{h}_i ∈ \mathbb{R}^{F}$ , where $N$ is the
+number of nodes, and $F$ is the number of features in each node. The layer produces a new set of node
+features (of potentially different cardinality $F&rsquo;$ ), $\mathbf{h} = {\vec{h&rsquo;}_1,\vec{h&rsquo;}_2,&hellip;,\vec{h&rsquo;}_N}, \vec{h&rsquo;}_i ∈ \mathbb{R}^{F&rsquo;}$, as its output.</p>
+<h3><font color="black" >The Attentional Layer broken into 4 separate parts:</font></h3>
+<hr/>
+<p><strong>1) <font color="red">Simple linear transformation:</font></strong> In order to obtain sufficient expressive power to transform the input features into higher level features, atleast one learnable linear transformation is required. To that end, as an initial step, a shared linear transformation, parametrized by a weight matrix, $W ∈ \mathbb{R}^{F′×F}$ , is applied to every node.</p>
+<p>$$\begin{split}\begin{align}
+z_i^{(l)}&amp;=W^{(l)}h_i^{(l)} \
+\end{align}\end{split}$$</p>
+<img style="float: right;" src="/images/blogs/GAT/Attentional_Layer.jpg" width=400x/>
+<hr/>
+<span>
+<strong>2) <font color="red">Attention Coefficients:</font> We then compute a pair-wise <font color="blue">un-normalized</font></strong>
+</span> attention score between two neighbors. Here, it first concatenates the $z$ embeddings of the two nodes, where $||$ denotes concatenation, then takes a dot product of it with a learnable weight vector $\vec a^{(l)}$, and applies a LeakyReLU in the end. This form of attention is usually called additive attention, in contrast with the dot-product attention used for the Transformer model. We then perform self-attention on the nodes, a shared attentional mechanism $a$ : $\mathbb{R}^{F′} × \mathbb{R}^{F′} → \mathbb{R}$ to compute attention coefficients 
+$$\begin{split}\begin{align}
+e_{ij}^{(l)}&=\text{LeakyReLU}(\vec a^{(l)^T}(z_i^{(l)}||z_j^{(l)}))\\
+\end{align}\end{split}$$
+<p><strong>Q. Is this step the most important step?</strong></p>
+<p><strong>Ans.</strong> Yes! This indicates the importance of node $j’s$ features to node $i$. This step allows every node to attend on every other node, dropping all structural information.</p>
+<p><strong>NOTE:</strong> The graph structure is injected into the mechanism by performing <b><em>masked attention</em></b>, we only compute $e_{ij}$ for nodes $j$ ∈ $N_{i}$, where $N_{i}$ is some neighborhood of node $i$ in the graph. In all the experiments, these will be exactly the first-order neighbors of $i$ (including $i$).</p>
+<hr/>
+<p><strong>3) <font color="red">Softmax:</font></strong> This makes coefficients easily comparable across different nodes, we normalize them across all choices of $j$ using the softmax function</p>
+<p>$$\begin{split}\begin{align}
+\alpha_{ij}^{(l)}&amp;=\frac{\exp(e_{ij}^{(l)})}{\sum_{k\in \mathcal{N}(i)}^{}\exp(e_{ik}^{(l)})}\
+\end{align}\end{split}$$</p>
+<hr/>
+<p><strong>4) <font color="red">Aggregation:</font></strong> This step is similar to GCN. The embeddings from neighbors are aggregated together, scaled by the attention scores.</p>
+<p>$$\begin{split}\begin{align}
+h_i^{(l+1)}&amp;=\sigma\left(\sum_{j\in \mathcal{N}(i)} {\alpha^{(l)}_{ij} z^{(l)}_j }\right)
+\end{align}\end{split}$$</p>
+<hr/>
+<!-- ![Attentional Layer](Attentional_Layer.jpg){:style="float: right;margin-right: 7px;margin-top: 7px;"} -->
+<!-- ![Attentional Layer](Attentional_Layer.jpg =250x) -->
+<!-- ### Multi-head Attention -->
+<h2><center>Multi-head Attention</center></h2>
+<figure>
+  <img style="float: right; width: 70%" src="/images/blogs/GAT/MultiHead_Attention.jpeg">
+  <figcaption>An illustration of multi-head attention (with K = 3 heads) by node 1 on its neighborhood. Different arrow styles and colors denote independent attention computations. The aggregated features from each head are concatenated or averaged to obtain $\vec{h'}_{1}$.</figcaption>
+</figure>
+<br clear=”both” />
+<p>Analogous to multiple channels in a Convolutional Net, GAT uses multi-head attention to enrich the model capacity and to stabilize the learning process. Specifically, K independent attention mechanisms execute the transformation of Equation 4, and then their outputs can be combined in 2 ways depending on the use:</p>
+<p>$$\textbf{$ \color{red}{Average} $}: h_{i}^{(l+1)}=\sigma\left(\frac{1}{K}\sum_{k=1}^{K}\sum_{j\in\mathcal{N}(i)}\alpha_{ij}^{k}W^{k}h^{(l)}<em>{j}\right)$$
+$$\textbf{$ \color{green}{Concatenation} $}: h^{(l+1)}</em>{i}=||<em>{k=1}^{K}\sigma\left(\sum</em>{j\in \mathcal{N}(i)}\alpha_{ij}^{k}W^{k}h^{(l)}_{j}\right)$$</p>
+<p><b>1) <font color="green">Concatenation</font></b>
+As can be seen in this setting, the final returned output, $h′$, will consist of $KF′$ features (rather than F′) for each node.</p>
+<p><b>2) <font color="red">Averaging</font></b></p>
+<p>If we perform multi-head attention on the final (prediction) layer of the network, concatenation is no longer sensible and instead, averaging is employed, and delay applying the final nonlinearity (usually a softmax or logistic sigmoid for classification problems).</p>
+<p><b>Thus <font color="green">concatenation for intermediary layers</font> and <font color="red">average for the final layer</font> are used.</b></p>
+<hr/>
+<!-- ## Implementing GAT Layer in PyTorch -->
+<h1><center>Implementing GAT Layer in PyTorch</center></h1>
+<h2 id="imports">Imports</h2>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> <span style="color:#111">numpy</span> <span style="color:#00a8c8">as</span> <span style="color:#111">np</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> <span style="color:#111">torch</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> <span style="color:#111">torch.nn</span> <span style="color:#00a8c8">as</span> <span style="color:#111">nn</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> <span style="color:#111">torch.nn.functional</span> <span style="color:#00a8c8">as</span> <span style="color:#111">F</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#111">torch</span><span style="color:#f92672">.</span><span style="color:#111">manual_seed</span><span style="color:#111">(</span><span style="color:#ae81ff">2020</span><span style="color:#111">)</span> <span style="color:#75715e"># seed for reproducible numbers</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="gat-layer">GAT Layer</h2>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python3" data-lang="python3"><span style="display:flex;"><span><span style="color:#00a8c8">class</span> <span style="color:#75af00">GATLayer</span><span style="color:#111">(</span><span style="color:#111">nn</span><span style="color:#f92672">.</span><span style="color:#111">Module</span><span style="color:#111">):</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#d88200">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#d88200">    Simple PyTorch Implementation of the Graph Attention layer.
+</span></span></span><span style="display:flex;"><span><span style="color:#d88200">    &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">def</span> <span style="color:#111">__init__</span><span style="color:#111">(</span><span style="color:#111">self</span><span style="color:#111">,</span> <span style="color:#111">in_features</span><span style="color:#111">,</span> <span style="color:#111">out_features</span><span style="color:#111">,</span> <span style="color:#111">dropout</span><span style="color:#111">,</span> <span style="color:#111">alpha</span><span style="color:#111">,</span> <span style="color:#111">concat</span><span style="color:#f92672">=</span><span style="color:#00a8c8">True</span><span style="color:#111">):</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">super</span><span style="color:#111">(</span><span style="color:#111">GATLayer</span><span style="color:#111">,</span> <span style="color:#111">self</span><span style="color:#111">)</span><span style="color:#f92672">.</span><span style="color:#111">__init__</span><span style="color:#111">()</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">dropout</span>       <span style="color:#f92672">=</span> <span style="color:#111">dropout</span>        <span style="color:#75715e"># drop prob = 0.6</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">in_features</span>   <span style="color:#f92672">=</span> <span style="color:#111">in_features</span>    <span style="color:#75715e"># </span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">out_features</span>  <span style="color:#f92672">=</span> <span style="color:#111">out_features</span>   <span style="color:#75715e"># </span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">alpha</span>         <span style="color:#f92672">=</span> <span style="color:#111">alpha</span>          <span style="color:#75715e"># LeakyReLU with negative input slope, alpha = 0.2</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">concat</span>        <span style="color:#f92672">=</span> <span style="color:#111">concat</span>         <span style="color:#75715e"># conacat = True for all layers except the output layer.</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Xavier Initialization of Weights</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Alternatively use weights_init to apply weights of choice </span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">W</span> <span style="color:#f92672">=</span> <span style="color:#111">nn</span><span style="color:#f92672">.</span><span style="color:#111">Parameter</span><span style="color:#111">(</span><span style="color:#111">torch</span><span style="color:#f92672">.</span><span style="color:#111">zeros</span><span style="color:#111">(</span><span style="color:#111">size</span><span style="color:#f92672">=</span><span style="color:#111">(</span><span style="color:#111">in_features</span><span style="color:#111">,</span> <span style="color:#111">out_features</span><span style="color:#111">)))</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">nn</span><span style="color:#f92672">.</span><span style="color:#111">init</span><span style="color:#f92672">.</span><span style="color:#111">xavier_uniform_</span><span style="color:#111">(</span><span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">W</span><span style="color:#f92672">.</span><span style="color:#111">data</span><span style="color:#111">,</span> <span style="color:#111">gain</span><span style="color:#f92672">=</span><span style="color:#ae81ff">1.414</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">a</span> <span style="color:#f92672">=</span> <span style="color:#111">nn</span><span style="color:#f92672">.</span><span style="color:#111">Parameter</span><span style="color:#111">(</span><span style="color:#111">torch</span><span style="color:#f92672">.</span><span style="color:#111">zeros</span><span style="color:#111">(</span><span style="color:#111">size</span><span style="color:#f92672">=</span><span style="color:#111">(</span><span style="color:#ae81ff">2</span><span style="color:#f92672">*</span><span style="color:#111">out_features</span><span style="color:#111">,</span> <span style="color:#ae81ff">1</span><span style="color:#111">)))</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">nn</span><span style="color:#f92672">.</span><span style="color:#111">init</span><span style="color:#f92672">.</span><span style="color:#111">xavier_uniform_</span><span style="color:#111">(</span><span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">a</span><span style="color:#f92672">.</span><span style="color:#111">data</span><span style="color:#111">,</span> <span style="color:#111">gain</span><span style="color:#f92672">=</span><span style="color:#ae81ff">1.414</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># LeakyReLU</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">leakyrelu</span> <span style="color:#f92672">=</span> <span style="color:#111">nn</span><span style="color:#f92672">.</span><span style="color:#111">LeakyReLU</span><span style="color:#111">(</span><span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">alpha</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">def</span> <span style="color:#75af00">forward</span><span style="color:#111">(</span><span style="color:#111">self</span><span style="color:#111">,</span> <span style="color:#111">input</span><span style="color:#111">,</span> <span style="color:#111">adj</span><span style="color:#111">):</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Linear Transformation</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">h</span> <span style="color:#f92672">=</span> <span style="color:#111">torch</span><span style="color:#f92672">.</span><span style="color:#111">mm</span><span style="color:#111">(</span><span style="color:#111">input</span><span style="color:#111">,</span> <span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">W</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">N</span> <span style="color:#f92672">=</span> <span style="color:#111">h</span><span style="color:#f92672">.</span><span style="color:#111">size</span><span style="color:#111">()[</span><span style="color:#ae81ff">0</span><span style="color:#111">]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Attention Mechanism</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">a_input</span> <span style="color:#f92672">=</span> <span style="color:#111">torch</span><span style="color:#f92672">.</span><span style="color:#111">cat</span><span style="color:#111">([</span><span style="color:#111">h</span><span style="color:#f92672">.</span><span style="color:#111">repeat</span><span style="color:#111">(</span><span style="color:#ae81ff">1</span><span style="color:#111">,</span> <span style="color:#111">N</span><span style="color:#111">)</span><span style="color:#f92672">.</span><span style="color:#111">view</span><span style="color:#111">(</span><span style="color:#111">N</span> <span style="color:#f92672">*</span> <span style="color:#111">N</span><span style="color:#111">,</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span><span style="color:#111">),</span> <span style="color:#111">h</span><span style="color:#f92672">.</span><span style="color:#111">repeat</span><span style="color:#111">(</span><span style="color:#111">N</span><span style="color:#111">,</span> <span style="color:#ae81ff">1</span><span style="color:#111">)],</span> <span style="color:#111">dim</span><span style="color:#f92672">=</span><span style="color:#ae81ff">1</span><span style="color:#111">)</span><span style="color:#f92672">.</span><span style="color:#111">view</span><span style="color:#111">(</span><span style="color:#111">N</span><span style="color:#111">,</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span><span style="color:#111">,</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> <span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">out_features</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">e</span>       <span style="color:#f92672">=</span> <span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">leakyrelu</span><span style="color:#111">(</span><span style="color:#111">torch</span><span style="color:#f92672">.</span><span style="color:#111">matmul</span><span style="color:#111">(</span><span style="color:#111">a_input</span><span style="color:#111">,</span> <span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">a</span><span style="color:#111">)</span><span style="color:#f92672">.</span><span style="color:#111">squeeze</span><span style="color:#111">(</span><span style="color:#ae81ff">2</span><span style="color:#111">))</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Masked Attention</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">zero_vec</span>  <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">9e15</span><span style="color:#f92672">*</span><span style="color:#111">torch</span><span style="color:#f92672">.</span><span style="color:#111">ones_like</span><span style="color:#111">(</span><span style="color:#111">e</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">attention</span> <span style="color:#f92672">=</span> <span style="color:#111">torch</span><span style="color:#f92672">.</span><span style="color:#111">where</span><span style="color:#111">(</span><span style="color:#111">adj</span> <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span><span style="color:#111">,</span> <span style="color:#111">e</span><span style="color:#111">,</span> <span style="color:#111">zero_vec</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#111">attention</span> <span style="color:#f92672">=</span> <span style="color:#111">F</span><span style="color:#f92672">.</span><span style="color:#111">softmax</span><span style="color:#111">(</span><span style="color:#111">attention</span><span style="color:#111">,</span> <span style="color:#111">dim</span><span style="color:#f92672">=</span><span style="color:#ae81ff">1</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">attention</span> <span style="color:#f92672">=</span> <span style="color:#111">F</span><span style="color:#f92672">.</span><span style="color:#111">dropout</span><span style="color:#111">(</span><span style="color:#111">attention</span><span style="color:#111">,</span> <span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">dropout</span><span style="color:#111">,</span> <span style="color:#111">training</span><span style="color:#f92672">=</span><span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">training</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">h_prime</span>   <span style="color:#f92672">=</span> <span style="color:#111">torch</span><span style="color:#f92672">.</span><span style="color:#111">matmul</span><span style="color:#111">(</span><span style="color:#111">attention</span><span style="color:#111">,</span> <span style="color:#111">h</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">if</span> <span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">concat</span><span style="color:#111">:</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#00a8c8">return</span> <span style="color:#111">F</span><span style="color:#f92672">.</span><span style="color:#111">elu</span><span style="color:#111">(</span><span style="color:#111">h_prime</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">else</span><span style="color:#111">:</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#00a8c8">return</span> <span style="color:#111">h_prime</span></span></span></code></pre></td></tr></table>
+</div>
+</div>
+<!-- ## Implementing GAT on Citation Datasets using PyTorch Geometric -->
+<h1><center>Implementing GAT on Citation Datasets using PyTorch Geometric</center></h1>
+<h3 id="pyg-imports">PyG Imports</h3>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> <span style="color:#111">torch_geometric.data</span> <span style="color:#f92672">import</span> <span style="color:#111">Data</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> <span style="color:#111">torch_geometric.nn</span> <span style="color:#f92672">import</span> <span style="color:#111">GATConv</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> <span style="color:#111">torch_geometric.datasets</span> <span style="color:#f92672">import</span> <span style="color:#111">Planetoid</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> <span style="color:#111">torch_geometric.transforms</span> <span style="color:#00a8c8">as</span> <span style="color:#111">T</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> <span style="color:#111">matplotlib.pyplot</span> <span style="color:#00a8c8">as</span> <span style="color:#111">plt</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">%</span><span style="color:#111">matplotlib</span> <span style="color:#111">notebook</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> <span style="color:#111">warnings</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">warnings</span><span style="color:#f92672">.</span><span style="color:#111">filterwarnings</span><span style="color:#111">(</span><span style="color:#d88200">&#34;ignore&#34;</span><span style="color:#111">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">name_data</span> <span style="color:#f92672">=</span> <span style="color:#d88200">&#39;Cora&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">dataset</span> <span style="color:#f92672">=</span> <span style="color:#111">Planetoid</span><span style="color:#111">(</span><span style="color:#111">root</span><span style="color:#f92672">=</span> <span style="color:#d88200">&#39;/tmp/&#39;</span> <span style="color:#f92672">+</span> <span style="color:#111">name_data</span><span style="color:#111">,</span> <span style="color:#111">name</span> <span style="color:#f92672">=</span> <span style="color:#111">name_data</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">dataset</span><span style="color:#f92672">.</span><span style="color:#111">transform</span> <span style="color:#f92672">=</span> <span style="color:#111">T</span><span style="color:#f92672">.</span><span style="color:#111">NormalizeFeatures</span><span style="color:#111">()</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#111">print</span><span style="color:#111">(</span><span style="color:#d88200">f</span><span style="color:#d88200">&#34;Number of Classes in </span><span style="color:#d88200">{</span><span style="color:#111">name_data</span><span style="color:#d88200">}</span><span style="color:#d88200">:&#34;</span><span style="color:#111">,</span> <span style="color:#111">dataset</span><span style="color:#f92672">.</span><span style="color:#111">num_classes</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">print</span><span style="color:#111">(</span><span style="color:#d88200">f</span><span style="color:#d88200">&#34;Number of Node Features in </span><span style="color:#d88200">{</span><span style="color:#111">name_data</span><span style="color:#d88200">}</span><span style="color:#d88200">:&#34;</span><span style="color:#111">,</span> <span style="color:#111">dataset</span><span style="color:#f92672">.</span><span style="color:#111">num_node_features</span><span style="color:#111">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="model">Model</h3>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#00a8c8">class</span> <span style="color:#75af00">GAT</span><span style="color:#111">(</span><span style="color:#111">torch</span><span style="color:#f92672">.</span><span style="color:#111">nn</span><span style="color:#f92672">.</span><span style="color:#111">Module</span><span style="color:#111">):</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">def</span> <span style="color:#111">__init__</span><span style="color:#111">(</span><span style="color:#111">self</span><span style="color:#111">):</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">super</span><span style="color:#111">(</span><span style="color:#111">GAT</span><span style="color:#111">,</span> <span style="color:#111">self</span><span style="color:#111">)</span><span style="color:#f92672">.</span><span style="color:#111">__init__</span><span style="color:#111">()</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">hid</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">8</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">in_head</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">8</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">out_head</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">conv1</span> <span style="color:#f92672">=</span> <span style="color:#111">GATConv</span><span style="color:#111">(</span><span style="color:#111">dataset</span><span style="color:#f92672">.</span><span style="color:#111">num_features</span><span style="color:#111">,</span> <span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">hid</span><span style="color:#111">,</span> <span style="color:#111">heads</span><span style="color:#f92672">=</span><span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">in_head</span><span style="color:#111">,</span> <span style="color:#111">dropout</span><span style="color:#f92672">=</span><span style="color:#ae81ff">0.6</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">conv2</span> <span style="color:#f92672">=</span> <span style="color:#111">GATConv</span><span style="color:#111">(</span><span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">hid</span><span style="color:#f92672">*</span><span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">in_head</span><span style="color:#111">,</span> <span style="color:#111">dataset</span><span style="color:#f92672">.</span><span style="color:#111">num_classes</span><span style="color:#111">,</span> <span style="color:#111">concat</span><span style="color:#f92672">=</span><span style="color:#00a8c8">False</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>                             <span style="color:#111">heads</span><span style="color:#f92672">=</span><span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">out_head</span><span style="color:#111">,</span> <span style="color:#111">dropout</span><span style="color:#f92672">=</span><span style="color:#ae81ff">0.6</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">def</span> <span style="color:#75af00">forward</span><span style="color:#111">(</span><span style="color:#111">self</span><span style="color:#111">,</span> <span style="color:#111">data</span><span style="color:#111">):</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">x</span><span style="color:#111">,</span> <span style="color:#111">edge_index</span> <span style="color:#f92672">=</span> <span style="color:#111">data</span><span style="color:#f92672">.</span><span style="color:#111">x</span><span style="color:#111">,</span> <span style="color:#111">data</span><span style="color:#f92672">.</span><span style="color:#111">edge_index</span>
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Dropout before the GAT layer is used to avoid overfitting in small datasets like Cora.</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># One can skip them if the dataset is sufficiently large.</span>
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#111">x</span> <span style="color:#f92672">=</span> <span style="color:#111">F</span><span style="color:#f92672">.</span><span style="color:#111">dropout</span><span style="color:#111">(</span><span style="color:#111">x</span><span style="color:#111">,</span> <span style="color:#111">p</span><span style="color:#f92672">=</span><span style="color:#ae81ff">0.6</span><span style="color:#111">,</span> <span style="color:#111">training</span><span style="color:#f92672">=</span><span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">training</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">x</span> <span style="color:#f92672">=</span> <span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">conv1</span><span style="color:#111">(</span><span style="color:#111">x</span><span style="color:#111">,</span> <span style="color:#111">edge_index</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">x</span> <span style="color:#f92672">=</span> <span style="color:#111">F</span><span style="color:#f92672">.</span><span style="color:#111">elu</span><span style="color:#111">(</span><span style="color:#111">x</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">x</span> <span style="color:#f92672">=</span> <span style="color:#111">F</span><span style="color:#f92672">.</span><span style="color:#111">dropout</span><span style="color:#111">(</span><span style="color:#111">x</span><span style="color:#111">,</span> <span style="color:#111">p</span><span style="color:#f92672">=</span><span style="color:#ae81ff">0.6</span><span style="color:#111">,</span> <span style="color:#111">training</span><span style="color:#f92672">=</span><span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">training</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">x</span> <span style="color:#f92672">=</span> <span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">conv2</span><span style="color:#111">(</span><span style="color:#111">x</span><span style="color:#111">,</span> <span style="color:#111">edge_index</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">return</span> <span style="color:#111">F</span><span style="color:#f92672">.</span><span style="color:#111">log_softmax</span><span style="color:#111">(</span><span style="color:#111">x</span><span style="color:#111">,</span> <span style="color:#111">dim</span><span style="color:#f92672">=</span><span style="color:#ae81ff">1</span><span style="color:#111">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="train">Train</h3>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">device</span> <span style="color:#f92672">=</span> <span style="color:#111">torch</span><span style="color:#f92672">.</span><span style="color:#111">device</span><span style="color:#111">(</span><span style="color:#d88200">&#39;cuda&#39;</span> <span style="color:#00a8c8">if</span> <span style="color:#111">torch</span><span style="color:#f92672">.</span><span style="color:#111">cuda</span><span style="color:#f92672">.</span><span style="color:#111">is_available</span><span style="color:#111">()</span> <span style="color:#00a8c8">else</span> <span style="color:#d88200">&#39;cpu&#39;</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#111">model</span> <span style="color:#f92672">=</span> <span style="color:#111">GAT</span><span style="color:#111">()</span><span style="color:#f92672">.</span><span style="color:#111">to</span><span style="color:#111">(</span><span style="color:#111">device</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#111">data</span> <span style="color:#f92672">=</span> <span style="color:#111">dataset</span><span style="color:#111">[</span><span style="color:#ae81ff">0</span><span style="color:#111">]</span><span style="color:#f92672">.</span><span style="color:#111">to</span><span style="color:#111">(</span><span style="color:#111">device</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">optimizer</span> <span style="color:#f92672">=</span> <span style="color:#111">torch</span><span style="color:#f92672">.</span><span style="color:#111">optim</span><span style="color:#f92672">.</span><span style="color:#111">Adam</span><span style="color:#111">(</span><span style="color:#111">model</span><span style="color:#f92672">.</span><span style="color:#111">parameters</span><span style="color:#111">(),</span> <span style="color:#111">lr</span><span style="color:#f92672">=</span><span style="color:#ae81ff">0.005</span><span style="color:#111">,</span> <span style="color:#111">weight_decay</span><span style="color:#f92672">=</span><span style="color:#ae81ff">5e-4</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#111">model</span><span style="color:#f92672">.</span><span style="color:#111">train</span><span style="color:#111">()</span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">for</span> <span style="color:#111">epoch</span> <span style="color:#f92672">in</span> <span style="color:#111">range</span><span style="color:#111">(</span><span style="color:#ae81ff">1000</span><span style="color:#111">):</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">model</span><span style="color:#f92672">.</span><span style="color:#111">train</span><span style="color:#111">()</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">optimizer</span><span style="color:#f92672">.</span><span style="color:#111">zero_grad</span><span style="color:#111">()</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">out</span> <span style="color:#f92672">=</span> <span style="color:#111">model</span><span style="color:#111">(</span><span style="color:#111">data</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">loss</span> <span style="color:#f92672">=</span> <span style="color:#111">F</span><span style="color:#f92672">.</span><span style="color:#111">nll_loss</span><span style="color:#111">(</span><span style="color:#111">out</span><span style="color:#111">[</span><span style="color:#111">data</span><span style="color:#f92672">.</span><span style="color:#111">train_mask</span><span style="color:#111">],</span> <span style="color:#111">data</span><span style="color:#f92672">.</span><span style="color:#111">y</span><span style="color:#111">[</span><span style="color:#111">data</span><span style="color:#f92672">.</span><span style="color:#111">train_mask</span><span style="color:#111">])</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">if</span> <span style="color:#111">epoch</span><span style="color:#f92672">%</span><span style="color:#ae81ff">200</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span><span style="color:#111">:</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">print</span><span style="color:#111">(</span><span style="color:#111">loss</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#111">loss</span><span style="color:#f92672">.</span><span style="color:#111">backward</span><span style="color:#111">()</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">optimizer</span><span style="color:#f92672">.</span><span style="color:#111">step</span><span style="color:#111">()</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="evaluate">Evaluate</h3>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">model</span><span style="color:#f92672">.</span><span style="color:#111">eval</span><span style="color:#111">()</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">_</span><span style="color:#111">,</span> <span style="color:#111">pred</span> <span style="color:#f92672">=</span> <span style="color:#111">model</span><span style="color:#111">(</span><span style="color:#111">data</span><span style="color:#111">)</span><span style="color:#f92672">.</span><span style="color:#111">max</span><span style="color:#111">(</span><span style="color:#111">dim</span><span style="color:#f92672">=</span><span style="color:#ae81ff">1</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">correct</span> <span style="color:#f92672">=</span> <span style="color:#111">float</span><span style="color:#111">(</span><span style="color:#111">pred</span><span style="color:#111">[</span><span style="color:#111">data</span><span style="color:#f92672">.</span><span style="color:#111">test_mask</span><span style="color:#111">]</span><span style="color:#f92672">.</span><span style="color:#111">eq</span><span style="color:#111">(</span><span style="color:#111">data</span><span style="color:#f92672">.</span><span style="color:#111">y</span><span style="color:#111">[</span><span style="color:#111">data</span><span style="color:#f92672">.</span><span style="color:#111">test_mask</span><span style="color:#111">])</span><span style="color:#f92672">.</span><span style="color:#111">sum</span><span style="color:#111">()</span><span style="color:#f92672">.</span><span style="color:#111">item</span><span style="color:#111">())</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">acc</span> <span style="color:#f92672">=</span> <span style="color:#111">correct</span> <span style="color:#f92672">/</span> <span style="color:#111">data</span><span style="color:#f92672">.</span><span style="color:#111">test_mask</span><span style="color:#f92672">.</span><span style="color:#111">sum</span><span style="color:#111">()</span><span style="color:#f92672">.</span><span style="color:#111">item</span><span style="color:#111">()</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">print</span><span style="color:#111">(</span><span style="color:#d88200">&#39;Accuracy: </span><span style="color:#d88200">{:.4f}</span><span style="color:#d88200">&#39;</span><span style="color:#f92672">.</span><span style="color:#111">format</span><span style="color:#111">(</span><span style="color:#111">acc</span><span style="color:#111">))</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>You can find our implementation made using PyTorch Geometric at<b><font color="red"><a href="https://github.com/dsgiitr/graph_nets/blob/master/GAT/GAT_PyG.py">GAT_PyG</a></font></b> with GAT trained on a Citation Network, the Cora Dataset.</p>
+<h2 id="references">References</h2>
+<p><a href="https://github.com/dsgiitr/graph_nets">Code &amp; GitHub Repository</a></p>
+<p><a href="https://arxiv.org/abs/1710.10903">Graph Attention Networks</a></p>
+<p><a href="https://docs.dgl.ai/tutorials/models/1_gnn/9_gat.html">Graph attention network, DGL by Zhang et al.</a></p>
+<p><a href="https://arxiv.org/pdf/1706.03762.pdf">Attention Is All You Need</a></p>
+<p><a href="http://jalammar.github.io/illustrated-transformer/">The Illustrated Transformer</a></p>
+<p><a href="https://jalammar.github.io/visualizing-neural-machine-translation-mechanics-of-seq2seq-models-with-attention/">Mechanics of Seq2seq Models With Attention</a></p>
+<p><a href="https://lilianweng.github.io/lil-log/2018/06/24/attention-attention.html">Attention? Attention!</a></p>
+<h3 id="written-by">Written By</h3>
+<ul>
+<li>Anirudh Dagar</li>
+</ul>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer Section Start -->
+<footer id="footer">
+    <div class="container" id="footer-container">
+        <div class="row content-justify-between">
+            <div style="width: 100%;">
+                <p class="copyright">
+                    Contact Us
+                </p>
+            </div>
+            <div class="col-md-7 col-12 text-lg-left text-md-left">
+                <!-- Social Media -->
+                <ul class="social">
+                    
+                    <li><a href="mailto:dsg@iitr.ac.in"><i class="ion-android-mail"></i></a></li>
+                    
+                    <li><a href="https://www.facebook.com/dsgiitr/"><i class="ion-social-facebook"></i></a></li>
+                    
+                    <li><a href="https://github.com/dsgiitr"><i class="ion-social-github"></i></a></li>
+                    
+                    <li><a href="https://www.linkedin.com/company/26638705/"><i class="ion-social-linkedin"></i></a></li>
+                    
+                    <li><a href="https://twitter.com/dsg_iitr"><i class="ion-social-twitter"></i></a></li>
+                    
+                    
+                    <li style="float: right; color: #FFFFFF;"><i class="ion-closed-captioning"></i> DSG IITR</li>
+                    
+                </ul>
+            </div>
+            <div class="col-md-5 col-12 text-lg-left text-md-left location-foot">
+                
+                <div style="float: right; color: #FFFFFF;">
+                    <i class="ion-ios-location" style="color: #000;"></i> New Sac Building, IIT Roorkee
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    
+    <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+  });
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+
+  MathJax.Hub.Config({
+  
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+  });
+</script>
+</footer>
+<!-- footer section end -->
+
+
+<!-- jquery -->
+<script src="/plugins/jQurey/jquery.min.js"></script>
+<!-- Form Validation -->
+<script src="/plugins/form-validation/jquery.form.js"></script>
+<script src="/plugins/form-validation/jquery.validate.min.js"></script>
+<!-- slick slider -->
+<script src="/plugins/slick/slick.min.js"></script>
+<!-- bootstrap js -->
+<script src="/plugins/bootstrap/bootstrap.min.js"></script>
+<!-- wow js -->
+<script src="/plugins/wow-js/wow.min.js"></script>
+<!-- slider js -->
+<script src="/plugins/slider/slider.js"></script>
+<!-- Fancybox -->
+<script src="/plugins/facncybox/jquery.fancybox.js"></script>
+<!-- template main js -->
+
+<script src="/js/script.min.js"></script>
+<!-- google analitycs -->
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', '', 'auto');
+    ga('send', 'pageview');
+</script>
+<script type="text/javascript" src="/plugins/particlesjs/particles.min.js"></script>
+<script type="text/javascript" src="/plugins/particlesjs/demo/js/app.js"></script></body>
+</html>

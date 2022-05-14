@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="en-us"><head>
+  <!-- Basic Page Needs -->
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  
+  <meta name="description" content="Machine Learning / Graph Representation Learning">
+  <meta name="author" content="DSG">
+  <meta name="generator" content="Hugo 0.98.0" />
+  
+  <!-- Mobile Specific Metas -->
+  <meta name="format-detection" content="telephone=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Graph SAGE(SAmple and aggreGatE) : Inductive Learning on Graphs</title>
+  <link rel="icon" href="/images/dsg_new_square_logo.png">
+
+  <!-- Twitter Bootstrs CSS -->
+  <link rel="stylesheet" href="/plugins/bootstrap/bootstrap.min.css">
+  <!-- Ionicons Fonts Css -->
+  <link rel="stylesheet" href="/plugins/ionicons/ionicons.min.css">
+  <!-- animate css -->
+  <link rel="stylesheet" href="/plugins/animate-css/animate.css">
+  <!-- Hero area slider css-->
+  <link rel="stylesheet" href="/plugins/slider/slider.css">
+  <!-- slick slider -->
+  <link rel="stylesheet" href="/plugins/slick/slick.css">
+  <!-- Fancybox -->
+  <link rel="stylesheet" href="/plugins/facncybox/jquery.fancybox.css">
+  <!-- hover -->
+  <link rel="stylesheet" href="/plugins/hover/hover-min.css">
+  <!-- template main css file -->
+  
+  <link rel="stylesheet" href="/css/style.min.css" integrity="" media="screen">
+</head><body><section class="top-bar animated-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <a class="navbar-brand" href="/">
+                        <img id="logo" src="/images/dsg.png" alt="logo">
+                    </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
+                        aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navigation">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item">
+                                <a class="nav-link"
+                                    href="/">Home
+                                </a>
+                            </li>
+                            
+                            <li class="nav-item">
+                                
+                                    <a class="nav-link" href="/#works">Work</a>
+                                
+                                
+                                
+                            </li>
+                            
+                            <li class="nav-item">
+                                
+                                
+                                    <a class="nav-link" href="/events">News</a>
+                                
+                                
+                            </li>
+                            
+                            <li class="nav-item">
+                                
+                                
+                                    <a class="nav-link" href="/blogs">Blogs</a>
+                                
+                                
+                            </li>
+                            
+                            <li class="nav-item">
+                                
+                                
+                                    <a class="nav-link" href="/about">About</a>
+                                
+                                
+                            </li>
+                            
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="global-page-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="block">
+                    <h2>Graph SAGE(SAmple and aggreGatE) : Inductive Learning on Graphs</h2>
+                    <div class="portfolio-meta">
+                        <span>Saturday, Jan 18, 2020</span>|
+                        <span> Tags:
+                            Graph Representation Learning
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="single-post">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                
+                <div class="post-img">
+                    <img class="img-fluid-work" alt="" src="/images/blogs/GraphSAGE/GraphSAGE_cover.jpg">
+                </div>
+                
+                <div class="post-content">
+                    <h1><center>Introduction</center></h1>
+<p>In the previous blogs, we covered GCN and DeepWalk, which are methods to generate node embeddings. The basic idea behind all node embedding approaches, is to use dimensionality reduction techniques to distill the high-dimensional information about a node’s neighborhood into a dense vector embedding. These node embeddings can then be fed to downstream machine learning systems and aid in tasks such as node classification, clustering, and link prediction. Let us move on to a slightly different problem. Now, we need the embeddings for each node of a graph where new nodes are continuously being added. A possible way to do this would be to rerun the entire model (GCN or DeepWalk) on the new graph, but it is computationally expensive. Today we will be covering GraphSAGE, a method that will allow us to get embeddings for such graphs in a much easier way. Unlike embedding approaches that are based on matrix factorization, GraphSAGE leverage node features (e.g., text attributes, node profile information, node degrees) in order to learn an embedding function that generalizes to unseen nodes. GraphSAGE is capable of learning structural information about a node’s role in a graph, despite the fact that it is inherently based on features.</p>
+<hr/>
+<h1><center>The Start</center></h1>
+In the (GCN or DeepWalk) model, the graph was fixed beforehand, let's say the <b>'Zachary Karate Club'</b>, some model was trained on it, and then we could make predictions about a person X, if he/she went to a particular part of the club after separation.
+<center><img src="/images/blogs/GraphSAGE/karate_club.png" width=800x/></center>
+<center><strong>Zachary Karate Club</strong></center>
+<br/>
+<p>In this problem, the nodes in this graph were fixed from the beginning, and all the predictions were to be made on these fixed nodes only. In contrast to this, take an example where &lsquo;Youtube&rsquo; videos are the nodes and assume there is an edge between the related videos, and say we need to classify these videos depending on the content. If we take the same model as in the previous dataset, we can classify all these videos, but whenever a new video is added to &lsquo;YouTube&rsquo;, we&rsquo;ll have to re-train the model on the entire new dataset again to classify it. Due to too many videos or nodes being added, it is not computationaly feasible for us to re-train everytime.</p>
+<p>To solve this issue, what we can do is not to learn embeddings for each node but to learn a function which, given the features and edges joining this node, will give the embeddings for the node.</p>
+<hr/>
+<h1><center>Aggregating Neighbours</center></h1>
+<p>The idea is to generate embeddings, based on the neighbourhood of a given node. In other words, the embedding of a node will depend upon the embedding of the nodes it is connected to. Like in the graph below, the node 1 and 2 are likely to be more similar than node 1 and 5.</p>
+<center><img src="/images/blogs/GraphSAGE/example_graph_1.png"></center>
+<center><strong>Simple Graph</strong></center>
+<br/>
+<p>How can this idea be formulated?</p>
+<p>First, we assign random values to the embeddings, and on each step, we will update the value of the embedding using the average of embeddings for all the nodes it is connected to directly .</p>
+<p>The following example shows the working on a simple linear graph.</p>
+<center><img src="/images/blogs/GraphSAGE/animation.gif"></center>
+<center><strong>Mean Embeddings</strong></center>
+<br/>
+<p>This is a straightforward idea, which can be generalized by representing it in the following way,</p>
+<img src="/images/blogs/GraphSAGE/simple_neighbours.png">
+<center><strong>Simple Neighbours</strong></center>
+<br/>
+<p>Here The Box joining A with B, C, D represents some function of the A, B, C, D. ( In the animation above, it was the &lsquo;mean&rsquo; function). We can replace this box by any function like &lsquo;sum&rsquo; or &lsquo;max&rsquo;. This function is known as the <b>aggregator function</b>.</p>
+<p>Now let&rsquo;s try to generalize the notion by using not only the neighbours of a node but also the neighbours of the neighbours. The first question is how to make use of neighbours of neighbours. The way which we will be using here is to first generate each node&rsquo;s embedding in the first step by using only its neighbours just like we did above, and then in the second step, we will use these embeddings to generate the new embeddings.</p>
+<hr/>
+Take a look at the following One Layer Aggregation:
+<img src="/images/blogs/GraphSAGE/aggregation_1.png">
+<!-- <center><strong><h2>One Layer Aggregation</h2></strong></center> -->
+<br/>
+<p>The numbers written along with the nodes are the value of embedding at the time, T=0.</p>
+<p>Values of embedding after one step are as follows:</p>
+<img src="/images/blogs/GraphSAGE/animation_2_bw.gif">
+<center><strong>Aggregation Layer 1</strong></center>
+<br/>
+<p>So after one iteration, the values are as follows:</p>
+<img src="/images/blogs/GraphSAGE/aggregation_2.png">
+<!-- <center><strong>Aggregation After One Layer</strong></center> -->
+<br/>
+<hr/>
+Repeating the same procedure on this new graph, we get (try verifying yourself) Aggregation After Two Layers: 
+<img src="/images/blogs/GraphSAGE/aggregation_3.png">
+<!-- <center><strong>Aggregation After Two Layer</strong></center> -->
+<br/>
+<p>Lets try to do some analysis of the aggregation. Represent by $A^{(0)}$ the initial value of embedding of A ( i.e. 0.1 ), by $A^{(1)}$ the value after one layer ( i.e. 0.25 ) similarly $A^{(2)}$, $B^{(0)}$, $B^{(1)}$ and all other values.</p>
+<p>Clearly</p>
+<p>$$A^{(1)} = \frac{(A^{(0)} + B^{(0)} + C^{(0)} + D^{(0)})}{4}$$</p>
+<p>Similarly</p>
+<p>$$A^{(2)} = \frac{(A^{(1)} + B^{(1)} + C^{(1)} + D^{(1)})}{4}$$</p>
+<p>Writing all the value in the RHS in terms of initial values of embeddings we get</p>
+<p>$$A^{(2)} = \frac{\frac{(A^{(0)} + B^{(0)} + C^{(0)} + D^{(0)})}{4} + \frac{A^{(0)}+B^{(0)}+C^{(0)}}{3} + \frac{A^{(0)}+B^{(0)}+C^{(0)}+E^{(0)} +F^{(0)}}{5} + \frac{A^{(0)}+D^{(0)}}{2}}{4}$$</p>
+<p>If you look closely, you will see that all the nodes that were either neighbour of A or neighbour of some neighbour of A are present in this term. It is equivalent to saying that all nodes that have a distance of less than or equal to 2 edges from A are influencing this term. Had there been a node G connected only to node F. then it is clearly at a distance of 3 from A and hence won&rsquo;t be influencing this term.</p>
+<p>Generalizing this we can say that if we repeat this produce N times, then all the nodes ( and only those nodes) that are at a within a distance N from the node will be influencing the value of the terms.</p>
+<p>If we replace the mean function, with some other function, lets say $F$, then, in this case, we can write,</p>
+<p>$$A^{(1)} = F(A^{(0)} , B^{(0)} , C^{(0)} , D^{(0)})$$</p>
+<p>Or more generally</p>
+<p>$$A^{(k)} = F(A^{(k-1)} , B^{(k-1)} , C^{(k-1)} , D^{(k-1)})$$</p>
+<p>If we denote by $N(v)$ the set of neighbours of $v$, so $N(A)={B, C, D}$ and $N(A)^{(k)}={B^{(k)}, C^{(k)}, D^{(k)}}$, the above equation can be simplified as</p>
+<p>$$A^{(k)} = F(A^{(k-1)}, N(A)^{(k-1)} )$$</p>
+<p>This process can be visualized as:</p>
+<img src="/images/blogs/GraphSAGE/showing_1.png">
+<center><strong>Showing one</strong></center>
+<p>This method is quite effective in generating node embeddings. But there is an issue if a new node is added to the graph how can get its embeddings? This is an issue that cannot be tackled with this type of model. Clearly, something new is needed, but what?</p>
+<p>One alternative that we can try is to replace the function F by multiple functions such that in the first layer it is
+F1, in second layer F2 and so on, and then fixing the number of layers that we want, let&rsquo;s say k.</p>
+<p>So our embedding generator would be like this,
+<img src="/images/blogs/GraphSAGE/showing_2.png"></p>
+<p>Let&rsquo;s formalize our notation a bit now so that it is easy to understand things.</p>
+<ol>
+<li>Instead of writing $A^{(k)}$  we will be writing $h_{A}^{k}$</li>
+<li>Rename the functions $F1$, $F2$ and so on as, $AGGREGATE_{1}$, $AGGREGATE_{2}$ and so on. i.e, $Fk$ becomes $AGGREGATE_{k}$.</li>
+<li>There are a total of $K$ aggregation functions.</li>
+<li>Let our graph be represented by $G(V, E)$ where $V$ is the set of vertices and $E$ is the set of edges.</li>
+</ol>
+<h2 id="what-graphsage-proposes">What GraphSAGE proposes?</h2>
+<p>We have been doing exactly this by now and it can be formally written as:</p>
+<font color="grey">
+Initialise($h_{v}^{0}$) $\forall v \in V$ <br>
+for $k=1..K$ do <br>
+&nbsp;&nbsp;&nbsp;&nbsp;for $v\in V$ do<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$h_{v}^{k}=AGGREGATE_{k}(h_{v}^{k-1}, \{h_{u}^{k-1} \forall u \in N(v)\})$
+<p>$h_{v}^{k}$ will now be containing the embeddings
+</font></p>
+<h3 id="some-issues-with-this-approach">Some issues with this approach:</h3>
+<p>Take a look at the sample graph that we discussed above, in this graph even though the initial embeddings for $E$ and $F$ were different, but because their neighbours were same, they ended with the same embeddings. This is not what we want our model to learn as there must be at least some difference between their embeddings.</p>
+<p>GraphSAGE proposes an interesting idea to deal with it. Rather than passing both of them into the same aggregating function, instead pass into aggregating function only the neighbours and then concatenating this vector with the vector of that node. This can be written as:</p>
+<p>$h_{v}^{k}=CONCAT(h_{v}^{k-1},AGGREGATE_{k}( {h_{u}^{k-1} \forall u \in N(v)}))$</p>
+<p>In this way, we can prevent two vectors from attaining exactly the same embedding.</p>
+<p>Lets now add some non-linearity to make it more expressive. So it becomes</p>
+<p>$h_{v}^{k}=\sigma[W^{(k)}.CONCAT(h_{v}^{k-1},AGGREGATE_{k}( {h_{u}^{k-1} \forall u \in N(v)}))]$</p>
+<p>Where $\sigma$ is some non-linear function (e.g. RELU, sigmoid, etc.) and $W^{(k)}$ is the weight matrix, each layer will have one such matrix. If you looked closely, you would have seen that there are no trainable parameters till now in our model. The $W$ matrix has been added to have something that the model can learn.</p>
+<p>One more thing we will add is to normalize the value of h after each iteration, i.e., divide them by their L2 norm, and hence our complete algorithm becomes:</p>
+<img src="/images/blogs/GraphSAGE/graphsage_algorithm.png">
+<center><strong>GraphSAGE_Algorithm</strong></center>
+<br/>
+<p>To get the model learning, we need the loss function. For the general unsupervised learning problem, the following loss problem serves pretty well.</p>
+<img src="/images/blogs/GraphSAGE/Loss_function.png">
+<center><strong>Loss Function</strong></center>
+<br/>
+<p>This graph-based loss function encourages nearby nodes to have similar representations, while enforcing
+that the representations of disparate nodes are highly distinct.</p>
+<p>For supervised learning, either we can learn the embeddings first and then use those embeddings for the downstream task or combine both the part of learning embeddings and the part of applying these embeddings in the task into a single end to end model and then use the loss for the final part, and backpropagate to learn the embeddings while solving the task simultaneously.</p>
+<hr/>
+<h1><center><font color="green"> Aggregator Architectures </font></center></h1>
+One of the critical difference between GCN and Graphsage is the generalisation of the aggregation function, which was the mean aggregator in GCN. So rather than only taking the average, we use generalised aggregation function in GraphSAGE.
+<br/>
+<br/>
+<center><font color="#527318"><b>GraphSAGE owes its inductivity to its aggregator functions.</font></b></center>
+<hr/>
+<h2><center><font color="#527318"> Mean Aggregator </font></center></h2>
+<p>Mean aggregator is as simple as you thought it would be. Simply take the elementwise mean of the vectors in <strong>{h<sub>u</sub><sup>k-1</sup>     ∀u ∈ N (v)}</strong>.
+In other words, we can average embeddings of all nodes in the neighbourhood to construct the neighbourhood embedding.</p>
+<center><img src="/images/blogs/GraphSAGE/ma.png"></center>
+<hr/>
+<h2><center><font color="#527318"> Pool Aggregator </font></center></h2>
+<p>Until now, we were using a weighted average type of approach. But we could also use pooling type of approach; for example, we can do elementwise &lsquo;min&rsquo; or &lsquo;max&rsquo; pooling. So this would be another option where in we are taking the messages from the neighbours, transforming them and applying some pooling technique ( max-pooling or min pooling ).</p>
+<center><img src="/images/blogs/GraphSAGE/pa.png"></center>
+<p>In the above equation, &lsquo;max&rsquo; denotes the elementwise max operator, and $\sigma$ is a nonlinear activation function (yes you are right it can be ReLU). Please note that the function applied before the max-pooling can be an arbitrarily deep multi-layer perceptron, but in the original paper, simple single-layer architectures is preferred.</p>
+<hr/>
+<h2><center><font color="#527318"> LSTM Aggregator </font></center></h2>
+<p>We could also use a deep neural network like Long Short Term Memory RNNs to learn how to aggregate the neighbours. Order invariance is important in the aggregator function, but since LSTM is not order invariant, one would have to train the LSTM over several random orderings or permutation of neighbours to make it invariant of sequence.</p>
+<hr/>
+<h1><center> Inductive capability </center></h1>
+<p>One interesting property of GraphSAGE is that we can train our model on one subset of the graph and apply this model on another subset of this graph. The reason we can do this is that we can do parameter sharing, i.e. those processing boxes are the same everywhere (W and B are shared across all the computational graphs or architectures). So when a new architecture comes into play, we can borrow the parameters (W and B), do a forward pass, and we get our prediction.</p>
+<img src="/images/blogs/GraphSAGE/sharing_param.png">
+<p>This property of GraphSAGE is advantageous in the prediction of protein interaction. For example, we can train our model on protein interaction graph from model organism A (left-hand side in the figure below) and generate embedding on newly collected data from other model organism say B (right-hand side in the figure).</p>
+<img src="/images/blogs/GraphSAGE/protein.png">
+<p>We know that our old methods like DeepWalk were not able to generalise to a new unseen graph. So if any new node gets added to the graph, we had to train our model from scratch, but since our new method is generalised to the unseen graphs, so to predict the embeddings of the new node we have to make the computational graph of the new node, transfer the parameters to the unseen part of the graph and we can make predictions.</p>
+<img src="/images/blogs/GraphSAGE/new_node.png">
+<center><strong>new node</strong></center>
+<p>We can use this property in social-networks (like Facebook). Consider the first graph in the above figure, users in a social-network are represented by the nodes of the graph. Initially, we would train our model on this graph. After some time suppose another user is added in the network, now we don&rsquo;t have to train our model from scratch on the second graph, we will create the computational graph of the new node, borrow the parameters from the already trained model and then we can find the embeddings of the newly added user.</p>
+<hr/>
+<h1><center> Implementation in PyTorch </center></h1>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 12
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 13
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 14
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 15
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 16
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 17
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 18
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 19
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 20
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 21
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 22
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 23
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 24
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 25
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 26
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 27
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 28
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 29
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 30
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 31
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 32
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 33
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 34
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 35
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 36
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 37
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 38
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 39
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 40
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 41
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 42
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 43
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 44
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 45
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 46
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 47
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 48
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 49
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 50
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 51
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 52
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 53
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 54
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 55
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 56
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 57
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 58
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 59
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 60
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 61
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 62
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 63
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 64
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 65
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 66
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 67
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 68
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 69
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 70
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 71
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 72
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 73
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 74
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 75
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 76
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 77
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 78
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 79
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 80
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 81
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 82
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 83
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 84
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 85
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 86
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 87
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 88
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 89
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 90
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 91
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 92
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 93
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 94
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 95
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 96
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 97
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 98
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 99
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">100
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">101
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">102
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">103
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">104
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">105
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">106
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">107
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">108
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">109
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">110
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">111
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">112
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">113
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">114
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">115
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">116
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">117
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">118
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">119
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">120
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">121
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">122
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">123
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">124
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">125
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">126
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">127
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">128
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">129
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">130
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">131
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">132
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">133
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">134
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">135
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">136
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">137
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">138
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">139
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">140
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">141
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">142
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">143
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">144
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">145
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">146
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">147
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">148
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">149
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">150
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">151
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">152
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">153
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">154
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">155
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">156
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">157
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">158
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">159
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">160
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">161
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">162
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">163
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">164
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">165
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">166
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">167
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">168
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">169
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">170
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">171
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">172
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">173
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">174
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">175
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">176
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">177
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">178
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">179
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">180
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">181
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">182
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">183
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">184
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">185
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">186
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">187
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">188
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">189
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">190
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">191
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">192
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">193
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">194
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">195
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">196
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">197
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">198
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">199
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">200
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">201
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">202
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">203
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">204
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">205
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">206
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">207
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">208
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">209
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">210
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">211
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">212
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">213
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">214
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">215
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">216
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">217
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">218
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">219
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">220
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">221
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">222
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## Imports</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> <span style="color:#111">torch</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> <span style="color:#111">torch.nn</span> <span style="color:#00a8c8">as</span> <span style="color:#111">nn</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> <span style="color:#111">torch.nn</span> <span style="color:#f92672">import</span> <span style="color:#111">init</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> <span style="color:#111">torch.autograd</span> <span style="color:#f92672">import</span> <span style="color:#111">Variable</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> <span style="color:#111">torch.nn.functional</span> <span style="color:#00a8c8">as</span> <span style="color:#111">F</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> <span style="color:#111">numpy</span> <span style="color:#00a8c8">as</span> <span style="color:#111">np</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> <span style="color:#111">time</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> <span style="color:#111">random</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> <span style="color:#111">sklearn.metrics</span> <span style="color:#f92672">import</span> <span style="color:#111">f1_score</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> <span style="color:#111">collections</span> <span style="color:#f92672">import</span> <span style="color:#111">defaultdict</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#d88200">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#d88200">Simple supervised GraphSAGE model as well as examples running the model
+</span></span></span><span style="display:flex;"><span><span style="color:#d88200">on the Cora and Pubmed datasets.
+</span></span></span><span style="display:flex;"><span><span style="color:#d88200">&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">class</span> <span style="color:#75af00">MeanAggregator</span><span style="color:#111">(</span><span style="color:#111">nn</span><span style="color:#f92672">.</span><span style="color:#111">Module</span><span style="color:#111">):</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#d88200">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#d88200">    Aggregates a node&#39;s embeddings using mean of neighbors&#39; embeddings
+</span></span></span><span style="display:flex;"><span><span style="color:#d88200">    &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">def</span> <span style="color:#111">__init__</span><span style="color:#111">(</span><span style="color:#111">self</span><span style="color:#111">,</span> <span style="color:#111">features</span><span style="color:#111">,</span> <span style="color:#111">cuda</span><span style="color:#f92672">=</span><span style="color:#00a8c8">False</span><span style="color:#111">,</span> <span style="color:#111">gcn</span><span style="color:#f92672">=</span><span style="color:#00a8c8">False</span><span style="color:#111">):</span> 
+</span></span><span style="display:flex;"><span>        <span style="color:#d88200">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#d88200">        Initializes the aggregator for a specific graph.
+</span></span></span><span style="display:flex;"><span><span style="color:#d88200">        features -- function mapping LongTensor of node ids to FloatTensor of feature values.
+</span></span></span><span style="display:flex;"><span><span style="color:#d88200">        cuda -- whether to use GPU
+</span></span></span><span style="display:flex;"><span><span style="color:#d88200">        gcn --- whether to perform concatenation GraphSAGE-style, or add self-loops GCN-style
+</span></span></span><span style="display:flex;"><span><span style="color:#d88200">        &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">super</span><span style="color:#111">(</span><span style="color:#111">MeanAggregator</span><span style="color:#111">,</span> <span style="color:#111">self</span><span style="color:#111">)</span><span style="color:#f92672">.</span><span style="color:#111">__init__</span><span style="color:#111">()</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">features</span> <span style="color:#f92672">=</span> <span style="color:#111">features</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">cuda</span> <span style="color:#f92672">=</span> <span style="color:#111">cuda</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">gcn</span> <span style="color:#f92672">=</span> <span style="color:#111">gcn</span>
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">def</span> <span style="color:#75af00">forward</span><span style="color:#111">(</span><span style="color:#111">self</span><span style="color:#111">,</span> <span style="color:#111">nodes</span><span style="color:#111">,</span> <span style="color:#111">to_neighs</span><span style="color:#111">,</span> <span style="color:#111">num_sample</span><span style="color:#f92672">=</span><span style="color:#ae81ff">10</span><span style="color:#111">):</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#d88200">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#d88200">        nodes --- list of nodes in a batch
+</span></span></span><span style="display:flex;"><span><span style="color:#d88200">        to_neighs --- list of sets, each set is the set of neighbors for node in batch
+</span></span></span><span style="display:flex;"><span><span style="color:#d88200">        num_sample --- number of neighbors to sample. No sampling if None.
+</span></span></span><span style="display:flex;"><span><span style="color:#d88200">        &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Local pointers to functions (speed hack)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">_set</span> <span style="color:#f92672">=</span> <span style="color:#111">set</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">if</span> <span style="color:#f92672">not</span> <span style="color:#111">num_sample</span> <span style="color:#f92672">is</span> <span style="color:#00a8c8">None</span><span style="color:#111">:</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#111">_sample</span> <span style="color:#f92672">=</span> <span style="color:#111">random</span><span style="color:#f92672">.</span><span style="color:#111">sample</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#111">samp_neighs</span> <span style="color:#f92672">=</span> <span style="color:#111">[</span><span style="color:#111">_set</span><span style="color:#111">(</span><span style="color:#111">_sample</span><span style="color:#111">(</span><span style="color:#111">to_neigh</span><span style="color:#111">,</span> 
+</span></span><span style="display:flex;"><span>                            <span style="color:#111">num_sample</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>                            <span style="color:#111">))</span> <span style="color:#00a8c8">if</span> <span style="color:#111">len</span><span style="color:#111">(</span><span style="color:#111">to_neigh</span><span style="color:#111">)</span> <span style="color:#f92672">&gt;=</span> <span style="color:#111">num_sample</span> <span style="color:#00a8c8">else</span> <span style="color:#111">to_neigh</span> <span style="color:#00a8c8">for</span> <span style="color:#111">to_neigh</span> <span style="color:#f92672">in</span> <span style="color:#111">to_neighs</span><span style="color:#111">]</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">else</span><span style="color:#111">:</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#111">samp_neighs</span> <span style="color:#f92672">=</span> <span style="color:#111">to_neighs</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">if</span> <span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">gcn</span><span style="color:#111">:</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#111">samp_neighs</span> <span style="color:#f92672">=</span> <span style="color:#111">[</span><span style="color:#111">samp_neigh</span> <span style="color:#f92672">+</span> <span style="color:#111">set</span><span style="color:#111">([</span><span style="color:#111">nodes</span><span style="color:#111">[</span><span style="color:#111">i</span><span style="color:#111">]])</span> <span style="color:#00a8c8">for</span> <span style="color:#111">i</span><span style="color:#111">,</span> <span style="color:#111">samp_neigh</span> <span style="color:#f92672">in</span> <span style="color:#111">enumerate</span><span style="color:#111">(</span><span style="color:#111">samp_neighs</span><span style="color:#111">)]</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">unique_nodes_list</span> <span style="color:#f92672">=</span> <span style="color:#111">list</span><span style="color:#111">(</span><span style="color:#111">set</span><span style="color:#f92672">.</span><span style="color:#111">union</span><span style="color:#111">(</span><span style="color:#f92672">*</span><span style="color:#111">samp_neighs</span><span style="color:#111">))</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">unique_nodes</span> <span style="color:#f92672">=</span> <span style="color:#111">{</span><span style="color:#111">n</span><span style="color:#111">:</span><span style="color:#111">i</span> <span style="color:#00a8c8">for</span> <span style="color:#111">i</span><span style="color:#111">,</span><span style="color:#111">n</span> <span style="color:#f92672">in</span> <span style="color:#111">enumerate</span><span style="color:#111">(</span><span style="color:#111">unique_nodes_list</span><span style="color:#111">)}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">mask</span> <span style="color:#f92672">=</span> <span style="color:#111">Variable</span><span style="color:#111">(</span><span style="color:#111">torch</span><span style="color:#f92672">.</span><span style="color:#111">zeros</span><span style="color:#111">(</span><span style="color:#111">len</span><span style="color:#111">(</span><span style="color:#111">samp_neighs</span><span style="color:#111">),</span> <span style="color:#111">len</span><span style="color:#111">(</span><span style="color:#111">unique_nodes</span><span style="color:#111">)))</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">column_indices</span> <span style="color:#f92672">=</span> <span style="color:#111">[</span><span style="color:#111">unique_nodes</span><span style="color:#111">[</span><span style="color:#111">n</span><span style="color:#111">]</span> <span style="color:#00a8c8">for</span> <span style="color:#111">samp_neigh</span> <span style="color:#f92672">in</span> <span style="color:#111">samp_neighs</span> <span style="color:#00a8c8">for</span> <span style="color:#111">n</span> <span style="color:#f92672">in</span> <span style="color:#111">samp_neigh</span><span style="color:#111">]</span>   
+</span></span><span style="display:flex;"><span>        <span style="color:#111">row_indices</span> <span style="color:#f92672">=</span> <span style="color:#111">[</span><span style="color:#111">i</span> <span style="color:#00a8c8">for</span> <span style="color:#111">i</span> <span style="color:#f92672">in</span> <span style="color:#111">range</span><span style="color:#111">(</span><span style="color:#111">len</span><span style="color:#111">(</span><span style="color:#111">samp_neighs</span><span style="color:#111">))</span> <span style="color:#00a8c8">for</span> <span style="color:#111">j</span> <span style="color:#f92672">in</span> <span style="color:#111">range</span><span style="color:#111">(</span><span style="color:#111">len</span><span style="color:#111">(</span><span style="color:#111">samp_neighs</span><span style="color:#111">[</span><span style="color:#111">i</span><span style="color:#111">]))]</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">mask</span><span style="color:#111">[</span><span style="color:#111">row_indices</span><span style="color:#111">,</span> <span style="color:#111">column_indices</span><span style="color:#111">]</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">if</span> <span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">cuda</span><span style="color:#111">:</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#111">mask</span> <span style="color:#f92672">=</span> <span style="color:#111">mask</span><span style="color:#f92672">.</span><span style="color:#111">cuda</span><span style="color:#111">()</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">num_neigh</span> <span style="color:#f92672">=</span> <span style="color:#111">mask</span><span style="color:#f92672">.</span><span style="color:#111">sum</span><span style="color:#111">(</span><span style="color:#ae81ff">1</span><span style="color:#111">,</span> <span style="color:#111">keepdim</span><span style="color:#f92672">=</span><span style="color:#00a8c8">True</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">mask</span> <span style="color:#f92672">=</span> <span style="color:#111">mask</span><span style="color:#f92672">.</span><span style="color:#111">div</span><span style="color:#111">(</span><span style="color:#111">num_neigh</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">if</span> <span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">cuda</span><span style="color:#111">:</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#111">embed_matrix</span> <span style="color:#f92672">=</span> <span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">features</span><span style="color:#111">(</span><span style="color:#111">torch</span><span style="color:#f92672">.</span><span style="color:#111">LongTensor</span><span style="color:#111">(</span><span style="color:#111">unique_nodes_list</span><span style="color:#111">)</span><span style="color:#f92672">.</span><span style="color:#111">cuda</span><span style="color:#111">())</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">else</span><span style="color:#111">:</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#111">embed_matrix</span> <span style="color:#f92672">=</span> <span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">features</span><span style="color:#111">(</span><span style="color:#111">torch</span><span style="color:#f92672">.</span><span style="color:#111">LongTensor</span><span style="color:#111">(</span><span style="color:#111">unique_nodes_list</span><span style="color:#111">))</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">to_feats</span> <span style="color:#f92672">=</span> <span style="color:#111">mask</span><span style="color:#f92672">.</span><span style="color:#111">mm</span><span style="color:#111">(</span><span style="color:#111">embed_matrix</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">return</span> <span style="color:#111">to_feats</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">class</span> <span style="color:#75af00">Encoder</span><span style="color:#111">(</span><span style="color:#111">nn</span><span style="color:#f92672">.</span><span style="color:#111">Module</span><span style="color:#111">):</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#d88200">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#d88200">    Encodes a node&#39;s using &#39;convolutional&#39; GraphSage approach
+</span></span></span><span style="display:flex;"><span><span style="color:#d88200">    &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">def</span> <span style="color:#111">__init__</span><span style="color:#111">(</span><span style="color:#111">self</span><span style="color:#111">,</span> <span style="color:#111">features</span><span style="color:#111">,</span> <span style="color:#111">feature_dim</span><span style="color:#111">,</span> 
+</span></span><span style="display:flex;"><span>            <span style="color:#111">embed_dim</span><span style="color:#111">,</span> <span style="color:#111">adj_lists</span><span style="color:#111">,</span> <span style="color:#111">aggregator</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#111">num_sample</span><span style="color:#f92672">=</span><span style="color:#ae81ff">10</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#111">base_model</span><span style="color:#f92672">=</span><span style="color:#00a8c8">None</span><span style="color:#111">,</span> <span style="color:#111">gcn</span><span style="color:#f92672">=</span><span style="color:#00a8c8">False</span><span style="color:#111">,</span> <span style="color:#111">cuda</span><span style="color:#f92672">=</span><span style="color:#00a8c8">False</span><span style="color:#111">,</span> 
+</span></span><span style="display:flex;"><span>            <span style="color:#111">feature_transform</span><span style="color:#f92672">=</span><span style="color:#00a8c8">False</span><span style="color:#111">):</span> 
+</span></span><span style="display:flex;"><span>        <span style="color:#111">super</span><span style="color:#111">(</span><span style="color:#111">Encoder</span><span style="color:#111">,</span> <span style="color:#111">self</span><span style="color:#111">)</span><span style="color:#f92672">.</span><span style="color:#111">__init__</span><span style="color:#111">()</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">features</span> <span style="color:#f92672">=</span> <span style="color:#111">features</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">feat_dim</span> <span style="color:#f92672">=</span> <span style="color:#111">feature_dim</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">adj_lists</span> <span style="color:#f92672">=</span> <span style="color:#111">adj_lists</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">aggregator</span> <span style="color:#f92672">=</span> <span style="color:#111">aggregator</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">num_sample</span> <span style="color:#f92672">=</span> <span style="color:#111">num_sample</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">if</span> <span style="color:#111">base_model</span> <span style="color:#f92672">!=</span> <span style="color:#00a8c8">None</span><span style="color:#111">:</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">base_model</span> <span style="color:#f92672">=</span> <span style="color:#111">base_model</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">gcn</span> <span style="color:#f92672">=</span> <span style="color:#111">gcn</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">embed_dim</span> <span style="color:#f92672">=</span> <span style="color:#111">embed_dim</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">cuda</span> <span style="color:#f92672">=</span> <span style="color:#111">cuda</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">aggregator</span><span style="color:#f92672">.</span><span style="color:#111">cuda</span> <span style="color:#f92672">=</span> <span style="color:#111">cuda</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">weight</span> <span style="color:#f92672">=</span> <span style="color:#111">nn</span><span style="color:#f92672">.</span><span style="color:#111">Parameter</span><span style="color:#111">(</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#111">torch</span><span style="color:#f92672">.</span><span style="color:#111">FloatTensor</span><span style="color:#111">(</span><span style="color:#111">embed_dim</span><span style="color:#111">,</span> <span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">feat_dim</span> <span style="color:#00a8c8">if</span> <span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">gcn</span> <span style="color:#00a8c8">else</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> <span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">feat_dim</span><span style="color:#111">))</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">init</span><span style="color:#f92672">.</span><span style="color:#111">xavier_uniform</span><span style="color:#111">(</span><span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">weight</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">def</span> <span style="color:#75af00">forward</span><span style="color:#111">(</span><span style="color:#111">self</span><span style="color:#111">,</span> <span style="color:#111">nodes</span><span style="color:#111">):</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#d88200">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#d88200">        Generates embeddings for a batch of nodes.
+</span></span></span><span style="display:flex;"><span><span style="color:#d88200">        nodes     -- list of nodes
+</span></span></span><span style="display:flex;"><span><span style="color:#d88200">        &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">neigh_feats</span> <span style="color:#f92672">=</span> <span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">aggregator</span><span style="color:#f92672">.</span><span style="color:#111">forward</span><span style="color:#111">(</span><span style="color:#111">nodes</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#111">[</span><span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">adj_lists</span><span style="color:#111">[</span><span style="color:#111">int</span><span style="color:#111">(</span><span style="color:#111">node</span><span style="color:#111">)]</span> <span style="color:#00a8c8">for</span> <span style="color:#111">node</span> <span style="color:#f92672">in</span> <span style="color:#111">nodes</span><span style="color:#111">],</span> <span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">num_sample</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">if</span> <span style="color:#f92672">not</span> <span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">gcn</span><span style="color:#111">:</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#00a8c8">if</span> <span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">cuda</span><span style="color:#111">:</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#111">self_feats</span> <span style="color:#f92672">=</span> <span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">features</span><span style="color:#111">(</span><span style="color:#111">torch</span><span style="color:#f92672">.</span><span style="color:#111">LongTensor</span><span style="color:#111">(</span><span style="color:#111">nodes</span><span style="color:#111">)</span><span style="color:#f92672">.</span><span style="color:#111">cuda</span><span style="color:#111">())</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#00a8c8">else</span><span style="color:#111">:</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#111">self_feats</span> <span style="color:#f92672">=</span> <span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">features</span><span style="color:#111">(</span><span style="color:#111">torch</span><span style="color:#f92672">.</span><span style="color:#111">LongTensor</span><span style="color:#111">(</span><span style="color:#111">nodes</span><span style="color:#111">))</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#111">combined</span> <span style="color:#f92672">=</span> <span style="color:#111">torch</span><span style="color:#f92672">.</span><span style="color:#111">cat</span><span style="color:#111">([</span><span style="color:#111">self_feats</span><span style="color:#111">,</span> <span style="color:#111">neigh_feats</span><span style="color:#111">],</span> <span style="color:#111">dim</span><span style="color:#f92672">=</span><span style="color:#ae81ff">1</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">else</span><span style="color:#111">:</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#111">combined</span> <span style="color:#f92672">=</span> <span style="color:#111">neigh_feats</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">combined</span> <span style="color:#f92672">=</span> <span style="color:#111">F</span><span style="color:#f92672">.</span><span style="color:#111">relu</span><span style="color:#111">(</span><span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">weight</span><span style="color:#f92672">.</span><span style="color:#111">mm</span><span style="color:#111">(</span><span style="color:#111">combined</span><span style="color:#f92672">.</span><span style="color:#111">t</span><span style="color:#111">()))</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">return</span> <span style="color:#111">combined</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">class</span> <span style="color:#75af00">SupervisedGraphSage</span><span style="color:#111">(</span><span style="color:#111">nn</span><span style="color:#f92672">.</span><span style="color:#111">Module</span><span style="color:#111">):</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">def</span> <span style="color:#111">__init__</span><span style="color:#111">(</span><span style="color:#111">self</span><span style="color:#111">,</span> <span style="color:#111">num_classes</span><span style="color:#111">,</span> <span style="color:#111">enc</span><span style="color:#111">):</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">super</span><span style="color:#111">(</span><span style="color:#111">SupervisedGraphSage</span><span style="color:#111">,</span> <span style="color:#111">self</span><span style="color:#111">)</span><span style="color:#f92672">.</span><span style="color:#111">__init__</span><span style="color:#111">()</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">enc</span> <span style="color:#f92672">=</span> <span style="color:#111">enc</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">xent</span> <span style="color:#f92672">=</span> <span style="color:#111">nn</span><span style="color:#f92672">.</span><span style="color:#111">CrossEntropyLoss</span><span style="color:#111">()</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">weight</span> <span style="color:#f92672">=</span> <span style="color:#111">nn</span><span style="color:#f92672">.</span><span style="color:#111">Parameter</span><span style="color:#111">(</span><span style="color:#111">torch</span><span style="color:#f92672">.</span><span style="color:#111">FloatTensor</span><span style="color:#111">(</span><span style="color:#111">num_classes</span><span style="color:#111">,</span> <span style="color:#111">enc</span><span style="color:#f92672">.</span><span style="color:#111">embed_dim</span><span style="color:#111">))</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">init</span><span style="color:#f92672">.</span><span style="color:#111">xavier_uniform</span><span style="color:#111">(</span><span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">weight</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">def</span> <span style="color:#75af00">forward</span><span style="color:#111">(</span><span style="color:#111">self</span><span style="color:#111">,</span> <span style="color:#111">nodes</span><span style="color:#111">):</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">embeds</span> <span style="color:#f92672">=</span> <span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">enc</span><span style="color:#111">(</span><span style="color:#111">nodes</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">scores</span> <span style="color:#f92672">=</span> <span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">weight</span><span style="color:#f92672">.</span><span style="color:#111">mm</span><span style="color:#111">(</span><span style="color:#111">embeds</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">return</span> <span style="color:#111">scores</span><span style="color:#f92672">.</span><span style="color:#111">t</span><span style="color:#111">()</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">def</span> <span style="color:#75af00">loss</span><span style="color:#111">(</span><span style="color:#111">self</span><span style="color:#111">,</span> <span style="color:#111">nodes</span><span style="color:#111">,</span> <span style="color:#111">labels</span><span style="color:#111">):</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">scores</span> <span style="color:#f92672">=</span> <span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">forward</span><span style="color:#111">(</span><span style="color:#111">nodes</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">return</span> <span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">xent</span><span style="color:#111">(</span><span style="color:#111">scores</span><span style="color:#111">,</span> <span style="color:#111">labels</span><span style="color:#f92672">.</span><span style="color:#111">squeeze</span><span style="color:#111">())</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## Load and Run</span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">def</span> <span style="color:#75af00">load_cora</span><span style="color:#111">():</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">num_nodes</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">2708</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">num_feats</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1433</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">feat_data</span> <span style="color:#f92672">=</span> <span style="color:#111">np</span><span style="color:#f92672">.</span><span style="color:#111">zeros</span><span style="color:#111">((</span><span style="color:#111">num_nodes</span><span style="color:#111">,</span> <span style="color:#111">num_feats</span><span style="color:#111">))</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">labels</span> <span style="color:#f92672">=</span> <span style="color:#111">np</span><span style="color:#f92672">.</span><span style="color:#111">empty</span><span style="color:#111">((</span><span style="color:#111">num_nodes</span><span style="color:#111">,</span><span style="color:#ae81ff">1</span><span style="color:#111">),</span> <span style="color:#111">dtype</span><span style="color:#f92672">=</span><span style="color:#111">np</span><span style="color:#f92672">.</span><span style="color:#111">int64</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">node_map</span> <span style="color:#f92672">=</span> <span style="color:#111">{}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">label_map</span> <span style="color:#f92672">=</span> <span style="color:#111">{}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">with</span> <span style="color:#111">open</span><span style="color:#111">(</span><span style="color:#d88200">&#34;./cora/cora.content&#34;</span><span style="color:#111">)</span> <span style="color:#00a8c8">as</span> <span style="color:#111">fp</span><span style="color:#111">:</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">for</span> <span style="color:#111">i</span><span style="color:#111">,</span><span style="color:#111">line</span> <span style="color:#f92672">in</span> <span style="color:#111">enumerate</span><span style="color:#111">(</span><span style="color:#111">fp</span><span style="color:#111">):</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#111">info</span> <span style="color:#f92672">=</span> <span style="color:#111">line</span><span style="color:#f92672">.</span><span style="color:#111">strip</span><span style="color:#111">()</span><span style="color:#f92672">.</span><span style="color:#111">split</span><span style="color:#111">()</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#111">feat_data</span><span style="color:#111">[</span><span style="color:#111">i</span><span style="color:#111">,:]</span> <span style="color:#f92672">=</span> <span style="color:#111">[</span><span style="color:#111">float</span><span style="color:#111">(</span><span style="color:#111">x</span><span style="color:#111">)</span> <span style="color:#00a8c8">for</span> <span style="color:#111">x</span> <span style="color:#f92672">in</span> <span style="color:#111">info</span><span style="color:#111">[</span><span style="color:#ae81ff">1</span><span style="color:#111">:</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span><span style="color:#111">]]</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#111">node_map</span><span style="color:#111">[</span><span style="color:#111">info</span><span style="color:#111">[</span><span style="color:#ae81ff">0</span><span style="color:#111">]]</span> <span style="color:#f92672">=</span> <span style="color:#111">i</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#00a8c8">if</span> <span style="color:#f92672">not</span> <span style="color:#111">info</span><span style="color:#111">[</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span><span style="color:#111">]</span> <span style="color:#f92672">in</span> <span style="color:#111">label_map</span><span style="color:#111">:</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#111">label_map</span><span style="color:#111">[</span><span style="color:#111">info</span><span style="color:#111">[</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span><span style="color:#111">]]</span> <span style="color:#f92672">=</span> <span style="color:#111">len</span><span style="color:#111">(</span><span style="color:#111">label_map</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#111">labels</span><span style="color:#111">[</span><span style="color:#111">i</span><span style="color:#111">]</span> <span style="color:#f92672">=</span> <span style="color:#111">label_map</span><span style="color:#111">[</span><span style="color:#111">info</span><span style="color:#111">[</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span><span style="color:#111">]]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">adj_lists</span> <span style="color:#f92672">=</span> <span style="color:#111">defaultdict</span><span style="color:#111">(</span><span style="color:#111">set</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">with</span> <span style="color:#111">open</span><span style="color:#111">(</span><span style="color:#d88200">&#34;./cora/cora.cites&#34;</span><span style="color:#111">)</span> <span style="color:#00a8c8">as</span> <span style="color:#111">fp</span><span style="color:#111">:</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">for</span> <span style="color:#111">i</span><span style="color:#111">,</span><span style="color:#111">line</span> <span style="color:#f92672">in</span> <span style="color:#111">enumerate</span><span style="color:#111">(</span><span style="color:#111">fp</span><span style="color:#111">):</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#111">info</span> <span style="color:#f92672">=</span> <span style="color:#111">line</span><span style="color:#f92672">.</span><span style="color:#111">strip</span><span style="color:#111">()</span><span style="color:#f92672">.</span><span style="color:#111">split</span><span style="color:#111">()</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#111">paper1</span> <span style="color:#f92672">=</span> <span style="color:#111">node_map</span><span style="color:#111">[</span><span style="color:#111">info</span><span style="color:#111">[</span><span style="color:#ae81ff">0</span><span style="color:#111">]]</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#111">paper2</span> <span style="color:#f92672">=</span> <span style="color:#111">node_map</span><span style="color:#111">[</span><span style="color:#111">info</span><span style="color:#111">[</span><span style="color:#ae81ff">1</span><span style="color:#111">]]</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#111">adj_lists</span><span style="color:#111">[</span><span style="color:#111">paper1</span><span style="color:#111">]</span><span style="color:#f92672">.</span><span style="color:#111">add</span><span style="color:#111">(</span><span style="color:#111">paper2</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#111">adj_lists</span><span style="color:#111">[</span><span style="color:#111">paper2</span><span style="color:#111">]</span><span style="color:#f92672">.</span><span style="color:#111">add</span><span style="color:#111">(</span><span style="color:#111">paper1</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">return</span> <span style="color:#111">feat_data</span><span style="color:#111">,</span> <span style="color:#111">labels</span><span style="color:#111">,</span> <span style="color:#111">adj_lists</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">def</span> <span style="color:#75af00">run_cora</span><span style="color:#111">():</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">np</span><span style="color:#f92672">.</span><span style="color:#111">random</span><span style="color:#f92672">.</span><span style="color:#111">seed</span><span style="color:#111">(</span><span style="color:#ae81ff">1</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">random</span><span style="color:#f92672">.</span><span style="color:#111">seed</span><span style="color:#111">(</span><span style="color:#ae81ff">1</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#111">num_nodes</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">2708</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">feat_data</span><span style="color:#111">,</span> <span style="color:#111">labels</span><span style="color:#111">,</span> <span style="color:#111">adj_lists</span> <span style="color:#f92672">=</span> <span style="color:#111">load_cora</span><span style="color:#111">()</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#111">features</span> <span style="color:#f92672">=</span> <span style="color:#111">nn</span><span style="color:#f92672">.</span><span style="color:#111">Embedding</span><span style="color:#111">(</span><span style="color:#ae81ff">2708</span><span style="color:#111">,</span> <span style="color:#ae81ff">1433</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">features</span><span style="color:#f92672">.</span><span style="color:#111">weight</span> <span style="color:#f92672">=</span> <span style="color:#111">nn</span><span style="color:#f92672">.</span><span style="color:#111">Parameter</span><span style="color:#111">(</span><span style="color:#111">torch</span><span style="color:#f92672">.</span><span style="color:#111">FloatTensor</span><span style="color:#111">(</span><span style="color:#111">feat_data</span><span style="color:#111">),</span>
+</span></span><span style="display:flex;"><span>                                   <span style="color:#111">requires_grad</span><span style="color:#f92672">=</span><span style="color:#00a8c8">False</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">agg1</span> <span style="color:#f92672">=</span> <span style="color:#111">MeanAggregator</span><span style="color:#111">(</span><span style="color:#111">features</span><span style="color:#111">,</span> <span style="color:#111">cuda</span><span style="color:#f92672">=</span><span style="color:#00a8c8">True</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#111">enc1</span> <span style="color:#f92672">=</span> <span style="color:#111">Encoder</span><span style="color:#111">(</span><span style="color:#111">features</span><span style="color:#111">,</span> <span style="color:#ae81ff">1433</span><span style="color:#111">,</span> <span style="color:#ae81ff">128</span><span style="color:#111">,</span> <span style="color:#111">adj_lists</span><span style="color:#111">,</span> <span style="color:#111">agg1</span><span style="color:#111">,</span> <span style="color:#111">gcn</span><span style="color:#f92672">=</span><span style="color:#00a8c8">True</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>                          <span style="color:#111">cuda</span><span style="color:#f92672">=</span><span style="color:#00a8c8">False</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">agg2</span> <span style="color:#f92672">=</span> <span style="color:#111">MeanAggregator</span><span style="color:#111">(</span><span style="color:#00a8c8">lambda</span> <span style="color:#111">nodes</span> <span style="color:#111">:</span> <span style="color:#111">enc1</span><span style="color:#111">(</span><span style="color:#111">nodes</span><span style="color:#111">)</span><span style="color:#f92672">.</span><span style="color:#111">t</span><span style="color:#111">(),</span>
+</span></span><span style="display:flex;"><span>                          <span style="color:#111">cuda</span><span style="color:#f92672">=</span><span style="color:#00a8c8">False</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">enc2</span> <span style="color:#f92672">=</span> <span style="color:#111">Encoder</span><span style="color:#111">(</span><span style="color:#00a8c8">lambda</span> <span style="color:#111">nodes</span> <span style="color:#111">:</span> <span style="color:#111">enc1</span><span style="color:#111">(</span><span style="color:#111">nodes</span><span style="color:#111">)</span><span style="color:#f92672">.</span><span style="color:#111">t</span><span style="color:#111">(),</span>
+</span></span><span style="display:flex;"><span>                   <span style="color:#111">enc1</span><span style="color:#f92672">.</span><span style="color:#111">embed_dim</span><span style="color:#111">,</span> <span style="color:#ae81ff">128</span><span style="color:#111">,</span> <span style="color:#111">adj_lists</span><span style="color:#111">,</span> <span style="color:#111">agg2</span><span style="color:#111">,</span> 
+</span></span><span style="display:flex;"><span>                   <span style="color:#111">base_model</span><span style="color:#f92672">=</span><span style="color:#111">enc1</span><span style="color:#111">,</span> <span style="color:#111">gcn</span><span style="color:#f92672">=</span><span style="color:#00a8c8">True</span><span style="color:#111">,</span> <span style="color:#111">cuda</span><span style="color:#f92672">=</span><span style="color:#00a8c8">False</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#111">enc1</span><span style="color:#f92672">.</span><span style="color:#111">num_samples</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">enc2</span><span style="color:#f92672">.</span><span style="color:#111">num_samples</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">graphsage</span> <span style="color:#f92672">=</span> <span style="color:#111">SupervisedGraphSage</span><span style="color:#111">(</span><span style="color:#ae81ff">7</span><span style="color:#111">,</span> <span style="color:#111">enc2</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">rand_indices</span> <span style="color:#f92672">=</span> <span style="color:#111">np</span><span style="color:#f92672">.</span><span style="color:#111">random</span><span style="color:#f92672">.</span><span style="color:#111">permutation</span><span style="color:#111">(</span><span style="color:#111">num_nodes</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">test</span> <span style="color:#f92672">=</span> <span style="color:#111">rand_indices</span><span style="color:#111">[:</span><span style="color:#ae81ff">1000</span><span style="color:#111">]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">val</span> <span style="color:#f92672">=</span> <span style="color:#111">rand_indices</span><span style="color:#111">[</span><span style="color:#ae81ff">1000</span><span style="color:#111">:</span><span style="color:#ae81ff">1500</span><span style="color:#111">]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">train</span> <span style="color:#f92672">=</span> <span style="color:#111">list</span><span style="color:#111">(</span><span style="color:#111">rand_indices</span><span style="color:#111">[</span><span style="color:#ae81ff">1500</span><span style="color:#111">:])</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">optimizer</span> <span style="color:#f92672">=</span> <span style="color:#111">torch</span><span style="color:#f92672">.</span><span style="color:#111">optim</span><span style="color:#f92672">.</span><span style="color:#111">SGD</span><span style="color:#111">(</span><span style="color:#111">filter</span><span style="color:#111">(</span><span style="color:#00a8c8">lambda</span> <span style="color:#111">p</span> <span style="color:#111">:</span> <span style="color:#111">p</span><span style="color:#f92672">.</span><span style="color:#111">requires_grad</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>                                       <span style="color:#111">graphsage</span><span style="color:#f92672">.</span><span style="color:#111">parameters</span><span style="color:#111">()),</span> <span style="color:#111">lr</span><span style="color:#f92672">=</span><span style="color:#ae81ff">0.7</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">times</span> <span style="color:#f92672">=</span> <span style="color:#111">[]</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">for</span> <span style="color:#111">batch</span> <span style="color:#f92672">in</span> <span style="color:#111">range</span><span style="color:#111">(</span><span style="color:#ae81ff">100</span><span style="color:#111">):</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">batch_nodes</span> <span style="color:#f92672">=</span> <span style="color:#111">train</span><span style="color:#111">[:</span><span style="color:#ae81ff">256</span><span style="color:#111">]</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">random</span><span style="color:#f92672">.</span><span style="color:#111">shuffle</span><span style="color:#111">(</span><span style="color:#111">train</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">start_time</span> <span style="color:#f92672">=</span> <span style="color:#111">time</span><span style="color:#f92672">.</span><span style="color:#111">time</span><span style="color:#111">()</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">optimizer</span><span style="color:#f92672">.</span><span style="color:#111">zero_grad</span><span style="color:#111">()</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">loss</span> <span style="color:#f92672">=</span> <span style="color:#111">graphsage</span><span style="color:#f92672">.</span><span style="color:#111">loss</span><span style="color:#111">(</span><span style="color:#111">batch_nodes</span><span style="color:#111">,</span> 
+</span></span><span style="display:flex;"><span>                <span style="color:#111">Variable</span><span style="color:#111">(</span><span style="color:#111">torch</span><span style="color:#f92672">.</span><span style="color:#111">LongTensor</span><span style="color:#111">(</span><span style="color:#111">labels</span><span style="color:#111">[</span><span style="color:#111">np</span><span style="color:#f92672">.</span><span style="color:#111">array</span><span style="color:#111">(</span><span style="color:#111">batch_nodes</span><span style="color:#111">)])))</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">loss</span><span style="color:#f92672">.</span><span style="color:#111">backward</span><span style="color:#111">()</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">optimizer</span><span style="color:#f92672">.</span><span style="color:#111">step</span><span style="color:#111">()</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">end_time</span> <span style="color:#f92672">=</span> <span style="color:#111">time</span><span style="color:#f92672">.</span><span style="color:#111">time</span><span style="color:#111">()</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">times</span><span style="color:#f92672">.</span><span style="color:#111">append</span><span style="color:#111">(</span><span style="color:#111">end_time</span><span style="color:#f92672">-</span><span style="color:#111">start_time</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">print</span> <span style="color:#111">(</span><span style="color:#111">batch</span><span style="color:#111">,</span> <span style="color:#111">loss</span><span style="color:#f92672">.</span><span style="color:#111">item</span><span style="color:#111">())</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">val_output</span> <span style="color:#f92672">=</span> <span style="color:#111">graphsage</span><span style="color:#f92672">.</span><span style="color:#111">forward</span><span style="color:#111">(</span><span style="color:#111">val</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#111">print</span> <span style="color:#111">(</span><span style="color:#d88200">&#34;Validation F1:&#34;</span><span style="color:#111">,</span> <span style="color:#111">f1_score</span><span style="color:#111">(</span><span style="color:#111">labels</span><span style="color:#111">[</span><span style="color:#111">val</span><span style="color:#111">],</span>
+</span></span><span style="display:flex;"><span>                            <span style="color:#111">val_output</span><span style="color:#f92672">.</span><span style="color:#111">data</span><span style="color:#f92672">.</span><span style="color:#111">numpy</span><span style="color:#111">()</span><span style="color:#f92672">.</span><span style="color:#111">argmax</span><span style="color:#111">(</span><span style="color:#111">axis</span><span style="color:#f92672">=</span><span style="color:#ae81ff">1</span><span style="color:#111">),</span>
+</span></span><span style="display:flex;"><span>                            <span style="color:#111">average</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;micro&#34;</span><span style="color:#111">))</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#111">print</span> <span style="color:#111">(</span><span style="color:#d88200">&#34;Average batch time:&#34;</span><span style="color:#111">,</span> <span style="color:#111">np</span><span style="color:#f92672">.</span><span style="color:#111">mean</span><span style="color:#111">(</span><span style="color:#111">times</span><span style="color:#111">))</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">if</span> <span style="color:#111">__name__</span> <span style="color:#f92672">==</span> <span style="color:#d88200">&#34;__main__&#34;</span><span style="color:#111">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">run_cora</span><span style="color:#111">()</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><hr/>
+<p>You can find our implementation made using PyTorch in the following <b><font color="red"><a href="https://github.com/dsgiitr/graph_nets/blob/master/GraphSAGE/GraphSAGE_Code+Blog.ipynb">GraphSAGE Notebook.</a></font></b></p>
+<h2 id="references">References</h2>
+<ul>
+<li>
+<p><a href="https://github.com/dsgiitr/graph_nets">Code &amp; GitHub Repository</a></p>
+</li>
+<li>
+<p><a href="https://cs.stanford.edu/people/jure/pubs/graphsage-nips17.pdf">https://cs.stanford.edu/people/jure/pubs/graphsage-nips17.pdf</a></p>
+</li>
+<li>
+<p><a href="https://www.youtube.com/watch?v=7JELX6DiUxQ">Graph Node Embedding Algorithms (Stanford - Fall 2019) by Jure Leskovec</a></p>
+</li>
+<li>
+<p><a href="https://www.youtube.com/watch?v=oQL4E1gK3VU">Jure Leskovec: &ldquo;Large-scale Graph Representation Learning&rdquo;</a></p>
+</li>
+<li>
+<p><a href="https://www.youtube.com/watch?v=MIAbDNAxChI">Jure Leskovec &ldquo;Deep Learning on Graphs&rdquo;</a></p>
+</li>
+</ul>
+<hr/>
+<h2 id="written-by">Written By</h2>
+<ul>
+<li> Ajit Pant</li>
+<li> Shubham Chandel</li>
+<li> Shashank Gupta</li>
+<li> Anirudh Dagar</li>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer Section Start -->
+<footer id="footer">
+    <div class="container" id="footer-container">
+        <div class="row content-justify-between">
+            <div style="width: 100%;">
+                <p class="copyright">
+                    Contact Us
+                </p>
+            </div>
+            <div class="col-md-7 col-12 text-lg-left text-md-left">
+                <!-- Social Media -->
+                <ul class="social">
+                    
+                    <li><a href="mailto:dsg@iitr.ac.in"><i class="ion-android-mail"></i></a></li>
+                    
+                    <li><a href="https://www.facebook.com/dsgiitr/"><i class="ion-social-facebook"></i></a></li>
+                    
+                    <li><a href="https://github.com/dsgiitr"><i class="ion-social-github"></i></a></li>
+                    
+                    <li><a href="https://www.linkedin.com/company/26638705/"><i class="ion-social-linkedin"></i></a></li>
+                    
+                    <li><a href="https://twitter.com/dsg_iitr"><i class="ion-social-twitter"></i></a></li>
+                    
+                    
+                    <li style="float: right; color: #FFFFFF;"><i class="ion-closed-captioning"></i> DSG IITR</li>
+                    
+                </ul>
+            </div>
+            <div class="col-md-5 col-12 text-lg-left text-md-left location-foot">
+                
+                <div style="float: right; color: #FFFFFF;">
+                    <i class="ion-ios-location" style="color: #000;"></i> New Sac Building, IIT Roorkee
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    
+    <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+  });
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+
+  MathJax.Hub.Config({
+  
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+  });
+</script>
+</footer>
+<!-- footer section end -->
+
+
+<!-- jquery -->
+<script src="/plugins/jQurey/jquery.min.js"></script>
+<!-- Form Validation -->
+<script src="/plugins/form-validation/jquery.form.js"></script>
+<script src="/plugins/form-validation/jquery.validate.min.js"></script>
+<!-- slick slider -->
+<script src="/plugins/slick/slick.min.js"></script>
+<!-- bootstrap js -->
+<script src="/plugins/bootstrap/bootstrap.min.js"></script>
+<!-- wow js -->
+<script src="/plugins/wow-js/wow.min.js"></script>
+<!-- slider js -->
+<script src="/plugins/slider/slider.js"></script>
+<!-- Fancybox -->
+<script src="/plugins/facncybox/jquery.fancybox.js"></script>
+<!-- template main js -->
+
+<script src="/js/script.min.js"></script>
+<!-- google analitycs -->
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', '', 'auto');
+    ga('send', 'pageview');
+</script>
+<script type="text/javascript" src="/plugins/particlesjs/particles.min.js"></script>
+<script type="text/javascript" src="/plugins/particlesjs/demo/js/app.js"></script></body>
+</html>

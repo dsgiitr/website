@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>CNN on DSG | IIT Roorkee</title>
+    <link>/tags/cnn/</link>
+    <description>Recent content in CNN on DSG | IIT Roorkee</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 21 Nov 2017 23:40:49 +0000</lastBuildDate><atom:link href="/tags/cnn/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Beginner Friendly Project: Traffic Sign Classification</title>
+      <link>/work/traffic_sign_classification/</link>
+      <pubDate>Tue, 21 Nov 2017 23:40:49 +0000</pubDate>
+      
+      <guid>/work/traffic_sign_classification/</guid>
+      <description>This project involves tackling a beginner friendly computer vision based Deep Learning problem based on the dataset The German Traffic Sign Recognition Benchmark(GTSRB).</description>
+    </item>
+    
+  </channel>
+</rss>

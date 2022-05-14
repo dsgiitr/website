@@ -1,0 +1,118 @@
+{{ define "main" }}
+<section class="single-page-header" id="blogs-back" style='box-shadow:none;position: fixed;width: 100%;top: 5rem;'>
+</section>
+
+<section id="blog-full-width">
+    <div class="container">
+        <h1 class="wow about upcoming fadeInUp animated cd-headline slide" data-wow-delay=".4s">
+            <span>Upcoming Events</span>
+        </h1>
+        <div class="row">
+            <div class="col-md-12">
+                {{ range .Data.Pages }}
+                    {{ if eq .Params.subtype "upcoming" }}
+                        <div class="sng-page">
+                            <div class="col-md-8 left">
+                                <article class="wow fadeInDown" data-wow-delay=".3s" data-wow-duration="500ms">
+                                    <div class="blog-content">
+                                        <h2 class="blogpost-title">
+                                            <a href="{{ .Permalink }}" style="font-weight: bold;">{{ .Title }}</a>
+                                        </h2>
+                                        <div class="blog-meta">
+                                            <span>{{ dateFormat "Monday, Jan 2, 2006" .Date }}</span>
+                                            {{ with .Params.Location }}<span>at
+                                                {{ . }}
+                                            </span>
+                                            {{ end }}
+                                            {{ with .Params.tags }}
+                                            <span>
+                                                {{ delimit . ", " }}
+                                            </span>
+                                            {{ end }}
+                                        </div>
+                                        <p>
+                                            {{ .Summary }}
+                                        </p>
+                                    </div>
+                                </article>
+                            </div>
+                            <div class="col-md-4 right wow fadeInDown" data-wow-delay=".3s" data-wow-duration="500ms">
+                                <div class="blog-post-image">
+                                    <a href="{{ .Permalink }}">
+                                        {{ with .Params.image }}<img class="img-fluid-work-event" src="{{ . | absURL }}" alt="post-image"/>{{ end }}
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    {{ end }}
+                {{ end }}
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <h1 class="wow about upcoming fadeInUp animated cd-headline slide" style="margin-top: 25vh;" data-wow-delay=".4s">
+            <span>Past Events</span>
+        </h1>
+        <div class="row">
+            <div class="col-md-12">
+                {{ range .Data.Pages }}
+                    {{ if ne .Params.subtype "upcoming" }}
+                        <div class="sng-page">
+                            <div class="col-md-8 left">
+                                <article class="wow fadeInDown" data-wow-delay=".3s" data-wow-duration="500ms">
+                                    <div class="blog-content">
+                                        <h2 class="blogpost-title">
+                                            <a href="{{ .Permalink }}">{{ .Title }}</a>
+                                        </h2>
+                                        <div class="blog-meta">
+                                            <span>{{ dateFormat "Monday, Jan 2, 2006" .Date }}</span>
+                                            {{ with .Params.Location }}<span>at
+                                                {{ . }}
+                                            </span>
+                                            {{ end }}
+                                            {{ with .Params.tags }}
+                                            <span>
+                                                {{ delimit . ", " }}
+                                            </span>
+                                            {{ end }}
+                                        </div>
+                                        <p>
+                                            {{ .Summary }}
+                                        </p>
+                                    </div>
+                                </article>
+                            </div>
+                            <div class="col-md-4 right wow fadeInDown" data-wow-delay=".3s" data-wow-duration="500ms">
+                                <div class="blog-post-image">
+                                    <a href="{{ .Permalink }}">
+                                        {{ with .Params.image }}<img class="img-fluid-work-event" src="{{ . | absURL }}" alt="post-image"/>{{ end }}
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    {{ end }}
+                {{ end }}
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- <section id="calender-full-width">
+    <div class="container">
+        <h1 class="wow about upcoming fadeInUp animated cd-headline slide" data-wow-delay=".4s">
+            <span>calendar</span>
+        </h1>
+        <div class="blog-meta">
+            <p>
+                Add calendar to your account to get notifications/updates about events. Use + button on bottom right corner for the same.
+            </p>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                    <iframe src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%23ffffff&amp;ctz=Asia%2FKolkata&amp;src=ZHNnQGlpdHIuYWMuaW4&amp;color=%235A9A08" style="border-width:0;margin:20px 0 100px;" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+            </div>
+        </div>
+    </div>
+</section> -->
+
+{{ end }}
