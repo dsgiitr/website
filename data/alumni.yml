@@ -11,6 +11,15 @@ members  :
     linkedInicon: ion-social-linkedin
     linkedInurl : https://www.linkedin.com/in/guptakhil
 
+  - name: Akshit Mittal
+    image: images/team/akshit_mittal.jpg
+    fbicon: ion-social-facebook
+    fburl: https://www.facebook.com/akshitmittal6
+    githubicon: ion-social-github
+    githuburl: https://github.com/akshitmittal1
+    linkedInicon: ion-social-linkedin
+    linkedInurl: https://www.linkedin.com/
+
   - name  : Anirudh Dagar
     image : images/team/anirudh_dagar.jpg
     fbicon      : ion-social-facebook
@@ -19,6 +28,15 @@ members  :
     githuburl  : https://www.github.com/anirudhdagar
     linkedInicon: ion-social-linkedin
     linkedInurl : https://www.linkedin.com/in/anirudhdagar
+
+  - name: Ankit Aharwal
+    image: images/team/ankit_aharwal.jpg
+    fbicon: ion-social-facebook
+    fburl: https://www.facebook.com/
+    githubicon: ion-social-github
+    githuburl: https://www.github.com/
+    linkedInicon: ion-social-linkedin
+    linkedInurl: https://www.linkedin.com/
 
   - name  : Ankush Raut
     image : images/team/ankush_raut.jpg
@@ -128,6 +146,15 @@ members  :
     linkedInicon: ion-social-linkedin
     linkedInurl : https://www.linkedin.com/in/khumairraj/
 
+- name: Ishan Kumar
+    image: images/team/Ishan_kumar.jpg
+    fbicon: ion-social-facebook
+    fburl: https://www.facebook.com/ishan.kumar.790
+    githubicon: ion-social-github
+    githuburl: https://www.github.com/Ishan-Kumar2
+    linkedInicon: ion-social-linkedin
+    linkedInurl: https://www.linkedin.com/in/ishan-kumar-a23807180/
+
   - name  : Kanha Goyal
     image : images/team/kanha_goyal.jpg
     fbicon      : ion-social-facebook
@@ -136,6 +163,15 @@ members  :
     githuburl  : https://www.github.com/
     linkedInicon: ion-social-linkedin
     linkedInurl : https://www.linkedin.com/in/kanhagoyal/
+
+  - name: Kanishk Agarwal
+    image: images/team/kanishk_agarwal.jpg
+    fbicon: ion-social-facebook
+    fburl: https://www.facebook.com/kanishk.agarwal.754
+    githubicon: ion-social-github
+    githuburl: https://www.github.com/kanisk27DH
+    linkedInicon: ion-social-linkedin
+    linkedInurl: https://www.linkedin.com/in/kanishkdabaav27/
 
   - name  : Karan Desai
     image : images/team/person_8x10.png
@@ -245,6 +281,15 @@ members  :
     linkedInicon: ion-social-linkedin
     linkedInurl : https://www.linkedin.com/in/shashank-gupta-a65352153/ 
 
+  - name: Shikhar Saxena
+    image: images/team/SHIKHAR_SAXENA.jpg
+    fbicon: ion-social-facebook
+    fburl: https://www.facebook.com/shikhar.saxena.904
+    githubicon: ion-social-github
+    githuburl: https://github.com/shikhar2402
+    linkedInicon: ion-social-linkedin
+    linkedInurl: https://www.linkedin.com/
+
   - name  : Shiva Gupta
     image : images/team/shiva_gupta.jpg
     fbicon      : ion-social-facebook
@@ -253,6 +298,24 @@ members  :
     githuburl  : https://github.com/SHIVA-sopho
     linkedInicon: ion-social-linkedin
     linkedInurl : https://www.linkedin.com/
+
+  - name: Shubham Chandel
+    image: images/team/person_8x10.png
+    fbicon: ion-social-facebook
+    fburl: https://www.facebook.com/profile.php?id=100027889764112
+    githubicon: ion-social-github
+    githuburl: https://github.com/shubhamgit1
+    linkedInicon: ion-social-linkedin
+    linkedInurl: https://www.linkedin.com/
+
+  - name: Subham Sahoo
+    image: images/team/subham_sahoo.jpg
+    fbicon: ion-social-facebook
+    fburl: https://www.facebook.com/subham.sahoo.3910
+    githubicon: ion-social-github
+    githuburl: https://www.github.com/subham103
+    linkedInicon: ion-social-linkedin
+    linkedInurl: https://www.linkedin.com/in/subham-sahoo-8066b9171/
 
   - name  : Utkarsh Gupta
     image : images/team/person_8x10.png
@@ -263,6 +326,15 @@ members  :
     linkedInicon: ion-social-linkedin
     linkedInurl : https://www.linkedin.com/in/utkarsh-gupta2198
 
+  - name: Vipul Bansal
+    image: images/team/person_8x10.png
+    fbicon: ion-social-facebook
+    fburl: https://www.facebook.com/vipul.bansal.714
+    githubicon: ion-social-github
+    githuburl: https://github.com/vipul2001
+    linkedInicon: ion-social-linkedin
+    linkedInurl: https://www.linkedin.com/in/vipul-bansal-b8183b17a/
+
   - name  : Yash Sharma
     image : images/team/yash_sharma.jpg
     fbicon      : ion-social-facebook
@@ -271,3 +343,12 @@ members  :
     githuburl  : https://github.com/YashSharma
     linkedInicon: ion-social-linkedin
     linkedInurl : https://www.linkedin.com/in/yashsharma0906/
+
+  - name: Yashvardhan Sharma
+    image: images/team/YashVardhan_Sharma.jpg
+    fbicon: ion-social-facebook
+    fburl: https://www.facebook.com/YashVardhanSharmaa
+    githubicon: ion-social-github
+    githuburl: https://www.github.com/Yash-Vardhan-Sharma
+    linkedInicon: ion-social-linkedin
+    linkedInurl: https://www.linkedin.com/
