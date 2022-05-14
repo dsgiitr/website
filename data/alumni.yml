@@ -1,0 +1,354 @@
+enable  : true
+title   : Alumni
+members  :
+
+  - name  : Akhil Gupta
+    image : images/team/akhil_gupta.jpg
+    fbicon      : ion-social-facebook
+    fburl       : https://www.facebook.com/guptakhil12
+    githubicon : ion-social-github
+    githuburl  : https://github.com/guptakhil
+    linkedInicon: ion-social-linkedin
+    linkedInurl : https://www.linkedin.com/in/guptakhil
+
+  - name: Akshit Mittal
+    image: images/team/akshit_mittal.jpg
+    fbicon: ion-social-facebook
+    fburl: https://www.facebook.com/akshitmittal6
+    githubicon: ion-social-github
+    githuburl: https://github.com/akshitmittal1
+    linkedInicon: ion-social-linkedin
+    linkedInurl: https://www.linkedin.com/
+
+  - name  : Anirudh Dagar
+    image : images/team/anirudh_dagar.jpg
+    fbicon      : ion-social-facebook
+    fburl       : https://www.facebook.com/gollum.here
+    githubicon : ion-social-github
+    githuburl  : https://www.github.com/anirudhdagar
+    linkedInicon: ion-social-linkedin
+    linkedInurl : https://www.linkedin.com/in/anirudhdagar
+
+  - name: Ankit Aharwal
+    image: images/team/ankit_aharwal.jpg
+    fbicon: ion-social-facebook
+    fburl: https://www.facebook.com/
+    githubicon: ion-social-github
+    githuburl: https://www.github.com/
+    linkedInicon: ion-social-linkedin
+    linkedInurl: https://www.linkedin.com/
+
+  - name  : Ankush Raut
+    image : images/team/ankush_raut.jpg
+    fbicon      : ion-social-facebook
+    fburl       : https://www.facebook.com/ankush.raut.733
+    githubicon : ion-social-github
+    githuburl  : https://github.com/Ankushr785
+    linkedInicon: ion-social-linkedin
+    linkedInurl : https://www.linkedin.com/in/ankush-raut-3ab09b113/
+
+  - name  : Ajay Unagar
+    image : images/team/ajay_unagar.jpg
+    fbicon      : ion-social-facebook
+    fburl       : https://www.facebook.com/Ajay.unagar.17
+    githubicon : ion-social-github
+    githuburl  : https://github.com/aunagar
+    linkedInicon: ion-social-linkedin
+    linkedInurl : https://www.linkedin.com/in/unagar/
+
+  - name  : Apoorva Agarwal
+    image : images/team/apoorva_agarwal.jpg
+    fbicon      : ion-social-facebook
+    fburl       : https://www.facebook.com/apoorva2107
+    githubicon : ion-social-github
+    githuburl  : https://github.com/apoorvaagarwall
+    linkedInicon: ion-social-linkedin
+    linkedInurl : https://www.linkedin.com/in/apoorva-agarwal-455a69145/
+
+  - name  : Archit Umrao
+    image : images/team/archit_umrao.jpg
+    fbicon      : ion-social-facebook
+    fburl       : https://www.facebook.com/architumrao11
+    githubicon : ion-social-github
+    githuburl  : https://www.github.com/
+    linkedInicon: ion-social-linkedin
+    linkedInurl : https://www.linkedin.com/in/subham-sahoo-8066b9171/
+
+  - name  : Ashutosh Shukla
+    image : images/team/ashutosh_shukla.jpg
+    fbicon      : ion-social-facebook
+    fburl       : https://www.facebook.com/profile.php?id=100011255383771
+    githubicon : ion-social-github
+    githuburl  : https://github.com/ashutoshshukla2894
+    linkedInicon: ion-social-linkedin
+    linkedInurl : https://www.linkedin.com/in/ashutosh-shukla-98362685/
+
+  - name  : Ayush Agarwal
+    image : images/team/ayush_agarwal.jpg
+    fbicon      : ion-social-facebook
+    fburl       : https://www.facebook.com/profile.php?id=100012971167778
+    githubicon : ion-social-github
+    githuburl  : https://www.github.com/mrayush18
+    linkedInicon: ion-social-linkedin
+    linkedInurl : https://www.linkedin.com/
+
+  - name  : Faraz Zaidi
+    image : images/team/Faraz_Zaidi.jpg
+    fbicon      : ion-social-facebook
+    fburl       : https://www.facebook.com/
+    githubicon : ion-social-github
+    githuburl  : https://www.github.com/
+    linkedInicon: ion-social-linkedin
+    linkedInurl : https://www.linkedin.com/
+
+  - name  : Gaurav Jindal
+    image : images/team/gaurav_jindal.jpg
+    fbicon      : ion-social-facebook
+    fburl       : https://www.facebook.com/gaurav.agarwal.9674227
+    githubicon : ion-social-github
+    githuburl  : https://www.github.com/gauravjindal2309
+    linkedInicon: ion-social-linkedin
+    linkedInurl : https://www.linkedin.com/in/gaurav-jindal-5a2345110/
+
+  - name  : Hardik Chauhan
+    image : images/team/person_8x10.png
+    fbicon      : ion-social-facebook
+    fburl       : https://www.facebook.com/backpropagater
+    githubicon : ion-social-github
+    githuburl  : https://www.github.com/hardik2396
+    linkedInicon: ion-social-linkedin
+    linkedInurl : https://www.linkedin.com/in/subham-sahoo-8066b9171/
+
+  - name  : Harsh Singhal
+    image : images/team/person_8x10.png
+    fbicon      : ion-social-facebook
+    fburl       : https://www.facebook.com/harsh.singhal.961
+    githubicon : ion-social-github
+    githuburl  : https://github.com/SinghalHarsh
+    linkedInicon: ion-social-linkedin
+    linkedInurl : https://in.linkedin.com/in/harshsinghal726
+
+  - name  : Harshal Mittal
+    image : images/team/Harshal_Mittal.jpg
+    fbicon      : ion-social-facebook
+    fburl       : https://www.facebook.com/harshal.mittal.1
+    githubicon : ion-social-github
+    githuburl  : https://www.github.com/harshalmittal4
+    linkedInicon: ion-social-linkedin
+    linkedInurl : https://www.linkedin.com/in/
+
+  - name  : Humair Raj
+    image : images/team/humair_raj.jpg
+    fbicon      : ion-social-facebook
+    fburl       : https://www.facebook.com/khumairraj
+    githubicon : ion-social-github
+    githuburl  : https://www.github.com/khumairraj
+    linkedInicon: ion-social-linkedin
+    linkedInurl : https://www.linkedin.com/in/khumairraj/
+
+  - name: Ishan Kumar
+    image: images/team/Ishan_kumar.jpg
+    fbicon: ion-social-facebook
+    fburl: https://www.facebook.com/ishan.kumar.790
+    githubicon: ion-social-github
+    githuburl: https://www.github.com/Ishan-Kumar2
+    linkedInicon: ion-social-linkedin
+    linkedInurl: https://www.linkedin.com/in/ishan-kumar-a23807180/
+
+  - name  : Kanha Goyal
+    image : images/team/kanha_goyal.jpg
+    fbicon      : ion-social-facebook
+    fburl       : https://www.facebook.com/kanha.goyal.12
+    githubicon : ion-social-github
+    githuburl  : https://www.github.com/
+    linkedInicon: ion-social-linkedin
+    linkedInurl : https://www.linkedin.com/in/kanhagoyal/
+
+  - name: Kanishk Agarwal
+    image: images/team/kanishk_agarwal.jpg
+    fbicon: ion-social-facebook
+    fburl: https://www.facebook.com/kanishk.agarwal.754
+    githubicon: ion-social-github
+    githuburl: https://www.github.com/kanisk27DH
+    linkedInicon: ion-social-linkedin
+    linkedInurl: https://www.linkedin.com/in/kanishkdabaav27/
+
+  - name  : Karan Desai
+    image : images/team/person_8x10.png
+    fbicon      : ion-social-facebook
+    fburl       : https://www.facebook.com/
+    githubicon : ion-social-github
+    githuburl  : https://github.com/kdexd
+    linkedInicon: ion-social-linkedin
+    linkedInurl : https://www.linkedin.com/in/kdexd
+
+  - name  : Mahika Bansal
+    image : images/team/person_8x10.png
+    fbicon      : ion-social-facebook
+    fburl       : https://www.facebook.com/mahika.bansal
+    githubicon : ion-social-github
+    githuburl  : https://www.github.com/subham103
+    linkedInicon: ion-social-linkedin
+    linkedInurl : https://www.linkedin.com/in/mahika-bansal-9aa815106/
+
+  - name  : Manjeet Singh
+    image : images/team/person_8x10.png
+    fbicon      : ion-social-facebook
+    fburl       : https://www.facebook.com/
+    githubicon : ion-social-github
+    githuburl  : https://www.github.com/
+    linkedInicon: ion-social-linkedin
+    linkedInurl : https://www.linkedin.com/
+
+  - name  : Mihir Rana
+    image : images/team/mihir_rana.jpg
+    fbicon      : ion-social-facebook
+    fburl       : https://www.facebook.com/ranamihir
+    githubicon : ion-social-github
+    githuburl  : https://www.github.com/ranamihir
+    linkedInicon: ion-social-linkedin
+    linkedInurl : https://www.linkedin.com/in/ranamihir/
+
+  - name  : Nishant Raj
+    image : images/team/person_8x10.png
+    fbicon      : ion-social-facebook
+    fburl       : https://www.facebook.com/nishant.connect
+    githubicon : ion-social-github
+    githuburl  : https://www.github.com/Nishant3815
+    linkedInicon: ion-social-linkedin
+    linkedInurl : https://www.linkedin.com/in/nishant-raj-iitr/
+
+  - name  : Prabhat Sharma
+    image : images/team/Prabhat_Sharma.jpeg
+    fbicon      : ion-social-facebook
+    fburl       : https://www.facebook.com/prabhat.sharma.39948856
+    githubicon : ion-social-github
+    githuburl  : https://github.com/Prabhat-IIT
+    linkedInicon: ion-social-linkedin
+    linkedInurl : https://www.linkedin.com/
+
+  - name  : Purva Chiniya
+    image : images/team/purva_chiniya.jpg
+    fbicon      : ion-social-facebook
+    fburl       : https://www.facebook.com/
+    githubicon : ion-social-github
+    githuburl  : https://www.github.com/
+    linkedInicon: ion-social-linkedin
+    linkedInurl : https://www.linkedin.com/
+
+  - name  : Rishabh Jain
+    image : images/team/person_8x10.png
+    fbicon      : ion-social-facebook
+    fburl       : https://www.facebook.com/
+    githubicon : ion-social-github
+    githuburl  : https://www.github.com/
+    linkedInicon: ion-social-linkedin
+    linkedInurl : https://www.linkedin.com/
+
+  - name  : Rohit Singhal
+    image : images/team/rohit_singhal.jpg
+    fbicon      : ion-social-facebook
+    fburl       : https://www.facebook.com/
+    githubicon : ion-social-github
+    githuburl  : https://github.com/rsinghal757
+    linkedInicon: ion-social-linkedin
+    linkedInurl : https://www.linkedin.com/in/rsinghal757/
+
+  - name  : Roopkishor Singh
+    image : images/team/rk.jpg
+    fbicon      : ion-social-facebook
+    fburl       : https://www.facebook.com/roopkishor.singh
+    githubicon : ion-social-github
+    githuburl  : https://github.com/thedarkparking
+    linkedInicon: ion-social-linkedin
+    linkedInurl : https://in.linkedin.com/in/roopkishor-singh-2a2315118
+
+  - name  : Sanchit Minocha
+    image : images/team/sanchit_minocha.jpg
+    fbicon      : ion-social-facebook
+    fburl       : https://www.facebook.com/
+    githubicon : ion-social-github
+    githuburl  : https://www.github.com/
+    linkedInicon: ion-social-linkedin
+    linkedInurl : https://www.linkedin.com/
+
+  - name  : Shashank Gupta
+    image : images/team/shashank_gupta.jpg
+    fbicon      : ion-social-facebook
+    fburl       : https://www.facebook.com/shashank.gupta.39395
+    githubicon : ion-social-github
+    githuburl  : https://github.com/gupta1912
+    linkedInicon: ion-social-linkedin
+    linkedInurl : https://www.linkedin.com/in/shashank-gupta-a65352153/ 
+
+  - name: Shikhar Saxena
+    image: images/team/SHIKHAR_SAXENA.jpg
+    fbicon: ion-social-facebook
+    fburl: https://www.facebook.com/shikhar.saxena.904
+    githubicon: ion-social-github
+    githuburl: https://github.com/shikhar2402
+    linkedInicon: ion-social-linkedin
+    linkedInurl: https://www.linkedin.com/
+
+  - name  : Shiva Gupta
+    image : images/team/shiva_gupta.jpg
+    fbicon      : ion-social-facebook
+    fburl       : https://www.facebook.com/shiva.gandhi.5
+    githubicon : ion-social-github
+    githuburl  : https://github.com/SHIVA-sopho
+    linkedInicon: ion-social-linkedin
+    linkedInurl : https://www.linkedin.com/
+
+  - name: Shubham Chandel
+    image: images/team/person_8x10.png
+    fbicon: ion-social-facebook
+    fburl: https://www.facebook.com/profile.php?id=100027889764112
+    githubicon: ion-social-github
+    githuburl: https://github.com/shubhamgit1
+    linkedInicon: ion-social-linkedin
+    linkedInurl: https://www.linkedin.com/
+
+  - name: Subham Sahoo
+    image: images/team/subham_sahoo.jpg
+    fbicon: ion-social-facebook
+    fburl: https://www.facebook.com/subham.sahoo.3910
+    githubicon: ion-social-github
+    githuburl: https://www.github.com/subham103
+    linkedInicon: ion-social-linkedin
+    linkedInurl: https://www.linkedin.com/in/subham-sahoo-8066b9171/
+
+  - name  : Utkarsh Gupta
+    image : images/team/person_8x10.png
+    fbicon      : ion-social-facebook
+    fburl       : https://www.facebook.com/roopkishor.singh
+    githubicon : ion-social-github
+    githuburl  : https://github.com/utkarsh2198
+    linkedInicon: ion-social-linkedin
+    linkedInurl : https://www.linkedin.com/in/utkarsh-gupta2198
+
+  - name: Vipul Bansal
+    image: images/team/person_8x10.png
+    fbicon: ion-social-facebook
+    fburl: https://www.facebook.com/vipul.bansal.714
+    githubicon: ion-social-github
+    githuburl: https://github.com/vipul2001
+    linkedInicon: ion-social-linkedin
+    linkedInurl: https://www.linkedin.com/in/vipul-bansal-b8183b17a/
+
+  - name  : Yash Sharma
+    image : images/team/yash_sharma.jpg
+    fbicon      : ion-social-facebook
+    fburl       : https://www.facebook.com/yash.sharma810
+    githubicon : ion-social-github
+    githuburl  : https://github.com/YashSharma
+    linkedInicon: ion-social-linkedin
+    linkedInurl : https://www.linkedin.com/in/yashsharma0906/
+
+  - name: Yashvardhan Sharma
+    image: images/team/YashVardhan_Sharma.jpg
+    fbicon: ion-social-facebook
+    fburl: https://www.facebook.com/YashVardhanSharmaa
+    githubicon: ion-social-github
+    githuburl: https://www.github.com/Yash-Vardhan-Sharma
+    linkedInicon: ion-social-linkedin
+    linkedInurl: https://www.linkedin.com/

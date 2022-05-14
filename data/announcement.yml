@@ -1,0 +1,39 @@
+enable  : true
+title   : Announcements
+subtitle: >
+  
+item    :
+
+  item1    :
+    - name  : NEWS
+      title : Accurate Prediction of COVID-19 using Chest X-Ray Images through Deep Feature Learning model with SMOTE and Machine Learning Classifiers
+      order : 1
+      linkName : View Details->
+      url : https://timesofindia.indiatimes.com/india/indian-scientists-devise-low-cost-ai-based-software-to-detect-covid-19/articleshow/75187192.cms
+      description : >
+        One of our members worked on COVID-19 predictions based on Chest XRays applying various Machine Learning algorithms. The research work received media recognition.
+  # item1    :
+  #   - name  : UPCOMING EVENT
+  #     title : Lockdown Mania Covid 19
+  #     order : 1
+  #     linkName : View Details->
+  #     url : https://dsgiitr.com/events/lockdown_mania
+  #     description : >
+  #       Build solutions to the Covid-19 Pandemic applying Machine Learning skills.
+  item2    :
+    - name  : NEW BLOG
+      title : Understanding Graph Attention Networks (GAT)
+      order : 2
+      linkName : Read->
+      url : https://dsgiitr.com/blogs/gat/
+      description : >
+        GAT introduces a mechanism to attend over neighborhoods' features and weigh  different nodes accordingly.
+
+  item3    :
+    - name  : PAST EVENT
+      title : Kaggle Days
+      order : 3
+      linkName : View Details->
+      url : /events
+      description : >
+        DSG in collaboration with E-Summit IIT R organizing Kaggle Days.

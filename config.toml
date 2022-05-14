@@ -1,0 +1,109 @@
+baseURL = "/"
+languageCode = "en-us"
+title = "DSG | IIT Roorkee"
+summaryLength = 15
+paginate = 7
+publishDir = "docs"
+
+# Use HTML Style within markdown.
+[markup]
+
+  [markup.highlight]
+    codeFences = true
+    guessSyntax = true
+    hl_Lines = ""
+    lineNoStart = 1
+    lineNos = true
+    lineNumbersInTable = true
+    noClasses = true
+    style = "monokailight"
+    tabWidth = 4
+
+[markup.goldmark.renderer]
+unsafe= true
+
+# Site Menu
+[menu]
+    # Navbar Menu
+    [[menu.nav]]
+        name    = "Work"
+        url     = "/#works"
+        weight  = 2
+    [[menu.nav]]
+        name    = "News"
+        url     = "events"
+        weight  = 3
+    [[menu.nav]]
+        name    = "Blogs"
+        url     = "blogs"
+        weight  = 4
+    [[menu.nav]]
+        name    = "About"
+        url     = "about"
+        weight  = 5
+
+# Site Params
+[params]
+    home = "Home"
+    logo = "images/dsg.png"
+    cerebro = "images/cerebro.png"
+    cerebroBack = "images/cerebroBack.svg"
+    dateFormat = "28 July 1999"
+    # Meta data
+    author = "DSG"
+    description = "A student organization driving innovation via Machine Learning @ IIT Roorkee. Code | Train | Predict"
+
+    # Banner Section
+    [params.banner]
+        enable  = true
+        bgImage = "images/slider.svg"
+        heading = "Data Science Group"
+        subHeading = "IIT Roorkee"
+        projectLink = "#works"
+        nextLink = "#feature"
+        scroll = "images/scroll.svg"
+        down = "images/down.svg"
+        description = "A student organization driving innovation via Machine Learning."
+
+    # Homepage About Section
+    [params.about]
+        enable  = true
+        title   = "About"
+        content = "We are Data Science Group, IIT Roorkee. A student organizaton, part of the umbrella organization Software Development Section. We aim to work on innovative open source projects in the domain of Machine Learning, Deep Learning & Reinforcement Learning, bridging the gap between research and industry. In the process, we fullfil our mission of cultivating and evolving the technical community at IIT Roorkee by organizing lectures, workshops, hackathons spanning the field of Data Science and AI."
+        image   = "images/about/teamDSG.jpg"
+
+    # work Section On Homepage
+    [params.work]
+        enable  = true
+        title   = "Projects"
+        subtitle= ""
+
+    [params.footer]
+
+        [[params.footer.socialIcon]]
+            icon = "ion-android-mail"
+            url = "mailto:dsg@iitr.ac.in"
+
+        [[params.footer.socialIcon]]
+            icon = "ion-social-facebook"
+            url = "https://www.facebook.com/dsgiitr/"
+
+        [[params.footer.socialIcon]]
+            icon = "ion-social-github"
+            url = "https://github.com/dsgiitr"
+
+        [[params.footer.socialIcon]]
+            icon = "ion-social-linkedin"
+            url = "https://www.linkedin.com/company/26638705/"
+
+        [[params.footer.socialIcon]]
+            icon = "ion-social-twitter"
+            url = "https://twitter.com/dsg_iitr"
+
+        [[params.footer.ccIcon]]
+            icon = "ion-closed-captioning"
+            url = "#"
+        
+        [[params.footer.locationIcon]]
+            icon = "ion-ios-location"
+            url = "https://goo.gl/maps/CX6KT39ivMidoyEe8"

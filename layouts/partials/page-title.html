@@ -1,0 +1,19 @@
+<section class="single-page-header" id="about-us">
+    <div class="container about-center">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="block wow fadeInUp" style="padding-right: 10vh;" data-wow-delay=".2s">
+                    <section class="cd-intro" style="margin-bottom: 2vh;">
+                        <h1 class="wow about fadeInUp animated cd-headline slide" data-wow-delay=".4s">
+                            {{ with .Site.Params.about.title }}<span>{{ . }}</span>{{ end }}
+                        </h1>
+                    </section>
+                    {{ with .Site.Params.about.content }}<p class="wow fadeInUp animated" style="font-weight: normal;" data-wow-delay=".6s">{{ . }}</p>{{ end }}
+                </div>
+            </div>
+            <div class="col-md-6" style="text-align: right;">
+                <img src="{{ .Site.Params.about.image | absURL }}" class="teamIMG wow fadeInUp animated" alt="DSG-team">
+            </div>
+        </div>
+    </div>
+</section>
