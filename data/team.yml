@@ -136,6 +136,15 @@ members:
     githuburl: https://github.com/HimankSehgal
     linkedInicon: ion-social-linkedin
     linkedInurl: https://www.linkedin.com/in/himank-sehgal-43786b192/
+    
+  - name: Kanishka
+    image: images/team/kanishka.jpeg
+    fbicon: ion-social-facebook
+    fburl: https://www.facebook.com/kanishka.k.16
+    githubicon: ion-social-github
+    githuburl: https://github.com/kanishka-006
+    linkedInicon: ion-social-linkedin
+    linkedInurl: https://www.linkedin.com/in/kanishka-pujara-4b435920a/
 
   - name: Kshitij Lakade
     image: images/team/Kshitij_lakade.jpg
