@@ -72,6 +72,15 @@ members:
     githuburl: https://www.github.com/guptaaryan16
     linkedInicon: ion-social-linkedin
     linkedInurl: https://www.linkedin.com/in/guptaaryan16
+    
+  - name: Aryan Khanuja
+    image: images/team/Aryan_Khanuja.jpg
+    fbicon: ion-social-facebook
+    fburl: https://www.facebook.com/aryan.asura.9
+    githubicon: ion-social-github
+    githuburl: https://github.com/aryanasura
+    linkedInicon: ion-social-linkedin
+    linkedInurl: https://www.linkedin.com/in/aryan-khanuja-4721a2206/
 
   - name: Devansh Bhardwaj
     image: images/team/devansh_bhardwaj.jpg
@@ -199,6 +208,15 @@ members:
     githuburl: https://www.github.com/r7rohan
     linkedInicon: ion-social-linkedin
     linkedInurl: https://www.linkedin.com/in/rohan-mallick
+
+  - name: Riya Saxena
+    image: images/team/Riya_Saxena.jpg
+    fbicon: ion-social-facebook
+    fburl: https://www.facebook.com/profile.php?id=100055547242487
+    githubicon: ion-social-github
+    githuburl: https://www.github.com/29riyasaxena
+    linkedInicon: ion-social-linkedin
+    linkedInurl: https://www.linkedin.com/in/29riyasaxena
 
   - name: Sahil Goyal
     image: images/team/sahil_goyal.jpg
