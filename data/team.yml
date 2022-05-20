@@ -271,6 +271,15 @@ members:
     githuburl: https://github.com/shashwat259
     linkedInicon: ion-social-linkedin
     linkedInurl: https://www.linkedin.com/in/shashwat-gupta-04ab651b5/
+    
+    name: Shashwat Sharma
+    image: images/team/Shashwat_Sharma.jpg
+    fbicon: ion-social-facebook
+    fburl: https://www.facebook.com/profile.php?id=100074883810446
+    githubicon : ion-social-github
+    githuburl: https://github.com/shashwhot
+    linkedInicon: ion-social-linkedin
+    linkedinurl: https://www.linkedin.com/in/shashwat-sharma-571584221/
 
   - name: Shivanshi Arora
     image: images/team/Shivanshi_Arora.jpg
