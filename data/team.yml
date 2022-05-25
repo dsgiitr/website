@@ -171,6 +171,15 @@ members:
     githuburl: https://github.com/Bluesky9-create
     linkedInicon: ion-social-linkedin
     linkedInurl: https://www.linkedin.com/in/manas-m-4479bb137/
+    
+  - name: Meghanath Reddy
+    image: images/team/Meghanath_Reddy.jpg
+    fbicon: ion-social-facebook
+    fburl: https://www.facebook.com/profile.php?id=100008691150691
+    githubicon: ion-social-github
+    githuburl: https://github.com/ImIronManYo
+    linkedInicon: ion-social-linkedin
+    linkedInurl: https://in.linkedin.com/in/meghanath-reddy-73a440213
 
   - name: Pranjal Gulati
     image: images/team/Pranjal.jpg
