@@ -916,6 +916,7 @@ figure figcaption p {
 .img-fluid {
   width: 100%;
   height: 185px;
+  object-fit: cover;
 }
 
 .left {
@@ -1795,6 +1796,7 @@ article {
 .team-member .social-icons .facebook {
   padding: 4px 12px;
 }
+
 
 #footer {
   background: #222222;
