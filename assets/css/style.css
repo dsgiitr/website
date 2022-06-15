@@ -1847,6 +1847,30 @@ article {
   font-size: 2rem;
 }
 
+.ion-social-instagram{
+  content: "\f231";
+  color: rgb(0,0,0);
+  font-size: 2rem; 
+}
+
+.social .ion-social-instagram:hover{
+  content: "\f231";
+  color: #cd486b;
+  font-size: 2rem;
+}
+
+.fab.fa-discord{
+  content: "\f231";
+  color: rgb(0,0,0);
+  font-size: 2rem;  
+} 
+
+.fab.fa-discord:hover{
+  content: "\f231";
+  color:rgba(41, 117, 231, 0.7);
+  font-size: 2rem;
+}
+
 .ion-social-github {
   content: "\f233";
   color: black;
