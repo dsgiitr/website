@@ -100,6 +100,14 @@ unsafe= true
             icon = "ion-social-twitter"
             url = "https://twitter.com/dsg_iitr"
 
+        [[params.footer.socialIcon]]
+            icon = "ion-social-instagram"
+            url  ="https://www.instagram.com/dsgiitr/"
+        
+        [[params.footer.socialIcon]]
+            icon = "fab fa-discord"
+            url  = "https://discord.com/invite/ATDN5D9M"
+
         [[params.footer.ccIcon]]
             icon = "ion-closed-captioning"
             url = "#"

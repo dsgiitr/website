@@ -916,6 +916,7 @@ figure figcaption p {
 .img-fluid {
   width: 100%;
   height: 185px;
+  object-fit: cover;
 }
 
 .left {
@@ -1796,6 +1797,7 @@ article {
   padding: 4px 12px;
 }
 
+
 #footer {
   background: #222222;
   padding: 25px 0;
@@ -1842,6 +1844,30 @@ article {
 
 .ion-social-facebook:hover {
   content: "\f231";
+  font-size: 2rem;
+}
+
+.ion-social-instagram{
+  content: "\f231";
+  color: rgb(0,0,0);
+  font-size: 2rem; 
+}
+
+.social .ion-social-instagram:hover{
+  content: "\f231";
+  color: #cd486b;
+  font-size: 2rem;
+}
+
+.fab.fa-discord{
+  content: "\f231";
+  color: rgb(0,0,0);
+  font-size: 2rem;  
+} 
+
+.fab.fa-discord:hover{
+  content: "\f231";
+  color:rgba(41, 117, 231, 0.7);
   font-size: 2rem;
 }
 
