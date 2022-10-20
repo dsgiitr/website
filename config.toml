@@ -101,7 +101,7 @@ unsafe= true
             url = "https://twitter.com/dsg_iitr"
 
         [[params.footer.socialIcon]]
-            icon = "ion-social-instagram"
+            icon = "fab fa-instagram"
             url  ="https://www.instagram.com/dsgiitr/"
         
         [[params.footer.socialIcon]]
