@@ -1847,13 +1847,13 @@ article {
   font-size: 2rem;
 }
 
-.ion-social-instagram{
+.fab.fa-instagram{
   content: "\f231";
   color: rgb(0,0,0);
   font-size: 2rem; 
 }
 
-.social .ion-social-instagram:hover{
+.fab.fa-instagram:hover{
   content: "\f231";
   color: #cd486b;
   font-size: 2rem;
