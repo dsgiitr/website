@@ -387,3 +387,13 @@ members:
     githuburl: https://www.github.com/praneeth6116
     linkedInicon: ion-social-linkedin
     linkedInurl: https://www.linkedin.com/in/venkat-praneeth-reddy-46ab6a1ba/
+    
+  - name: Janhavi Ghogare
+    image: static/images/team/Janhavi_Ghogare.jpg
+    fbicon: ion-social-facebook
+    fburl: https://www.facebook.com/janhavighogare17
+    githubicon: ion-social-github
+    githuburl: https://github.com/janhavighogare
+    linkedInicon: ion-social-linkedin
+    linkedInurl: https://www.linkedin.com/in/janhavi-ghogare-26b31122b/
+    
