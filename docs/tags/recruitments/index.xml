@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Recruitments on DSG | IIT Roorkee</title>
+    <link>/tags/recruitments/</link>
+    <description>Recent content in Recruitments on DSG | IIT Roorkee</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 19 Jan 2020 23:40:49 +0000</lastBuildDate><atom:link href="/tags/recruitments/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Recruitment 2020 Results</title>
+      <link>/events/recruitments2020_results/</link>
+      <pubDate>Sun, 19 Jan 2020 23:40:49 +0000</pubDate>
+      
+      <guid>/events/recruitments2020_results/</guid>
+      <description>Data Science Group welcomes all the new recruits!!
+It was a very tough choice to select a few candidates from the pool of enthusiastic and talented freshers and sophomores who turned up.</description>
+    </item>
+    
+    <item>
+      <title>Recruitments &#39;19: Challenge Series</title>
+      <link>/events/recruitments19/</link>
+      <pubDate>Sun, 06 Jan 2019 23:40:49 +0000</pubDate>
+      
+      <guid>/events/recruitments19/</guid>
+      <description>#Recruitments &amp;lsquo;19 With recruitments just around the corner, we begin with our annual recruitment competition series.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Graph Representation Learning on DSG | IIT Roorkee</title>
+    <link>/tags/graph-representation-learning/</link>
+    <description>Recent content in Graph Representation Learning on DSG | IIT Roorkee</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 01 Feb 2020 23:40:49 +0000</lastBuildDate><atom:link href="/tags/graph-representation-learning/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ChebNet: CNN on Graphs with Fast Localized Spectral Filtering</title>
+      <link>/blogs/chebnet/</link>
+      <pubDate>Sat, 01 Feb 2020 23:40:49 +0000</pubDate>
+      
+      <guid>/blogs/chebnet/</guid>
+      <description>Motivation As a part of this blog series, this time we&amp;rsquo;ll be looking at a spectral convolution technique introduced in the paper by M.</description>
+    </item>
+    
+    <item>
+      <title>Understanding Graph Attention Networks (GAT)</title>
+      <link>/blogs/gat/</link>
+      <pubDate>Tue, 21 Jan 2020 23:40:49 +0000</pubDate>
+      
+      <guid>/blogs/gat/</guid>
+      <description>Understanding Graph Attention Networks (GAT) This is 4th in the series of blogs Explained: Graph Representation Learning.</description>
+    </item>
+    
+    <item>
+      <title>Graph SAGE(SAmple and aggreGatE) : Inductive Learning on Graphs</title>
+      <link>/blogs/graphsage/</link>
+      <pubDate>Sat, 18 Jan 2020 23:40:49 +0000</pubDate>
+      
+      <guid>/blogs/graphsage/</guid>
+      <description>Introduction In the previous blogs, we covered GCN and DeepWalk, which are methods to generate node embeddings.</description>
+    </item>
+    
+    <item>
+      <title>A Review : Graph Convolutional Networks (GCN)</title>
+      <link>/blogs/gcn/</link>
+      <pubDate>Wed, 01 Jan 2020 23:40:49 +0000</pubDate>
+      
+      <guid>/blogs/gcn/</guid>
+      <description>Introduction Graphs Whom are we kidding! You may skip this section if you know what graphs are.</description>
+    </item>
+    
+    <item>
+      <title>Graph Representation Learning</title>
+      <link>/work/graph_nets/</link>
+      <pubDate>Wed, 01 Jan 2020 23:40:49 +0000</pubDate>
+      
+      <guid>/work/graph_nets/</guid>
+      <description>This project involves a simplified, yet exhaustive approach to implementation and explanation of various Graph Representation Learning techniques developed in the recent past.</description>
+    </item>
+    
+    <item>
+      <title>Understanding Deepwalk</title>
+      <link>/blogs/deepwalk/</link>
+      <pubDate>Fri, 20 Dec 2019 23:40:49 +0000</pubDate>
+      
+      <guid>/blogs/deepwalk/</guid>
+      <description>This is the first in this blog series Explained: Graph Representation Learning and to discuss extraction useful graph features and node embeddings by considering the topology of the network graph using machine learning, this blog deals with Deep Walk.</description>
+    </item>
+    
+  </channel>
+</rss>

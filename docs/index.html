@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en-us"><head>
+  <!-- Basic Page Needs -->
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  
+  <meta name="description" content="A student organization driving innovation via Machine Learning @ IIT Roorkee. Code | Train | Predict">
+  <meta name="author" content="DSG">
+  <meta name="generator" content="Hugo 0.108.0">
+  
+  <!-- Mobile Specific Metas -->
+  <meta name="format-detection" content="telephone=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DSG | IIT Roorkee</title>
+  <link rel="icon" href="/images/dsg_new_square_logo.png">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+  <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+  <!-- Twitter Bootstrs CSS -->
+  <link rel="stylesheet" href="/plugins/bootstrap/bootstrap.min.css">
+  <!-- Ionicons Fonts Css -->
+  <link rel="stylesheet" href="/plugins/ionicons/ionicons.min.css">
+  <!-- animate css -->
+  <link rel="stylesheet" href="/plugins/animate-css/animate.css">
+  <!-- Hero area slider css-->
+  <link rel="stylesheet" href="/plugins/slider/slider.css">
+  <!-- slick slider -->
+  <link rel="stylesheet" href="/plugins/slick/slick.css">
+  <!-- Fancybox -->
+  <link rel="stylesheet" href="/plugins/facncybox/jquery.fancybox.css">
+  <!-- hover -->
+  <link rel="stylesheet" href="/plugins/hover/hover-min.css">
+  <!-- template main css file -->
+  
+  <link rel="stylesheet" href="/css/style.min.css" integrity="" media="screen">
+</head><body><section class="top-bar animated-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <a class="navbar-brand" href="/">
+                        <img id="logo" src="/images/dsg.png" alt="logo">
+                    </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
+                        aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navigation">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item">
+                                <a class="nav-link"
+                                    href="/">Home
+                                </a>
+                            </li>
+                            
+                            <li class="nav-item">
+                                
+                                    <a class="nav-link" href="/#works">Work</a>
+                                
+                                
+                                
+                            </li>
+                            
+                            <li class="nav-item">
+                                
+                                
+                                    <a class="nav-link" href="/events">News</a>
+                                
+                                
+                            </li>
+                            
+                            <li class="nav-item">
+                                
+                                
+                                    <a class="nav-link" href="/blogs">Blogs</a>
+                                
+                                
+                            </li>
+                            
+                            <li class="nav-item">
+                                
+                                
+                                    <a class="nav-link" href="/about">About</a>
+                                
+                                
+                            </li>
+                            
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Slider Section Start -->
+<section id="hero-area">
+    <div class="container center-verticle" style="z-index: 9; height: 35%;">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <div class="block wow fadeInUp" data-wow-delay=".2s">
+                    <!-- Slider -->
+                    <section class="cd-intro intro-landing">
+                        <h1 class="wow fadeInUp animated cd-headline slide" data-wow-delay=".4s">
+                            <div class="inter">Data Science Group</div>
+                            <div class="inter">IIT Roorkee</div>
+                        </h1>
+                    </section>
+                    <h2 id="landing-text" class="wow fadeInUp animated inter" data-wow-delay=".6s">A student organization driving innovation via Machine Learning.</h2>
+                        <h2 id="landing-subText" class="typewrite typewriteStl" data-period="2000" data-type='[ "Code", "Train", "Predict" ]'>
+                        <span class="wrap">_</span>
+                        </h2>
+                    <div class="div-project">
+                        <span class="view-project"><a href="#works">View & Explore</a></span>
+                    </div>
+                    <div class="scroll">
+                        <a class="scroll-a" href="#feature" style="display: flex; flex-direction: column;">
+                            <img src="/images/scroll.svg" alt="scroll">
+                            <img src="/images/down.svg" id="arrow_down" alt="scroll" style="margin-top: 1vh;">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Slider Section End -->
+
+
+
+<script src="/plugins/jQurey/jquery.min.js"></script>
+<script src="/plugins/velocityJS/velocity.min.js">
+  
+  
+	
+	
+	
+	
+	
+
+</script>
+
+<script type="text/javascript">var TxtType = function(el, toRotate, period) {
+        this.toRotate = toRotate;
+        this.el = el;
+        this.loopNum = 0;
+        this.period = parseInt(period, 10) || 2000;
+        this.txt = '';
+        this.tick();
+        this.isDeleting = false;
+    };
+
+    TxtType.prototype.tick = function() {
+        var i = this.loopNum % this.toRotate.length;
+        var fullTxt = this.toRotate[i];
+
+        if (this.isDeleting) {
+        this.txt = fullTxt.substring(0, this.txt.length - 1);
+        } else {
+        this.txt = fullTxt.substring(0, this.txt.length + 1);
+        }
+
+        this.el.innerHTML = '<span class="wrap">'+this.txt+'_</span>';
+
+        var that = this;
+        var delta = 200 - Math.random() * 100;
+
+        if (this.isDeleting) { delta /= 2; }
+
+        if (!this.isDeleting && this.txt === fullTxt) {
+        delta = this.period;
+        this.isDeleting = true;
+        } else if (this.isDeleting && this.txt === '') {
+        this.isDeleting = false;
+        this.loopNum++;
+        delta = 500;
+        }
+
+        setTimeout(function() {
+        that.tick();
+        }, delta);
+    };
+
+    window.onload = function() {
+        var elements = document.getElementsByClassName('typewrite');
+        for (var i=0; i<elements.length; i++) {
+            var toRotate = elements[i].getAttribute('data-type');
+            var period = elements[i].getAttribute('data-period');
+            if (toRotate) {
+              new TxtType(elements[i], JSON.parse(toRotate), period);
+            }
+        }
+        
+        var css = document.createElement("style");
+        css.type = "text/css";
+        css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #fff}";
+        document.body.appendChild(css);
+    };</script>
+
+
+
+<!-- announcement Section Start -->
+<section id="feature">
+    <div class="container">
+        <div class="section-heading">
+            <h1 class="title-announcement wow fadeInDown" data-wow-delay=".3s">Announcements</h1>
+        </div>
+        <div class="row-ann">
+            
+            <div class="ann-content">
+                
+                <div class="media wow fadeInUp animated announcement-flex" data-wow-duration="500ms" data-wow-delay="300ms" style="height: max-content;">
+                    
+                        
+                        
+                        
+                        
+                        
+
+                        
+                            <div class="first-Section media-top1" style='margin: 1.5rem 2rem;'>
+                                <p>NEWS</p>
+                            </div>
+                        
+                        
+
+                        <div class="media-middle1" style="margin: 0 0.5rem 0 1rem; height: max-content; ">
+                            <p>Accurate Prediction of COVID-19 using Chest X-Ray Images through Deep Feature Learning model with SMOTE and Machine Learning Classifiers</p>
+                        </div>
+                        <div class="media-bottom1" style="margin: 2rem 1rem; text-align: none;">
+                            <p style="font-size: 15px; text-align: none;">One of our members worked on COVID-19 predictions based on Chest XRays applying various Machine Learning algorithms. The research work received media recognition.
+</p>
+                        </div>
+                        <div class="media-link1">
+                            <a href="https://timesofindia.indiatimes.com/india/indian-scientists-devise-low-cost-ai-based-software-to-detect-covid-19/articleshow/75187192.cms">View Details-&gt;</a>
+                        </div>
+                    
+                </div>
+            </div>
+            
+            <div class="ann-content">
+                
+                <div class="media wow fadeInUp animated announcement-flex" data-wow-duration="500ms" data-wow-delay="300ms" style="height: max-content;">
+                    
+                        
+                        
+                        
+                        
+                        
+
+                        
+                        
+                            <div class="media-top1" style='margin: 1.5rem 2rem;'>
+                                <p>NEW BLOG</p>
+                            </div>
+                        
+
+                        <div class="media-middle1" style="margin: 0 0.5rem 0 1rem; height: max-content; ">
+                            <p>Understanding Graph Attention Networks (GAT)</p>
+                        </div>
+                        <div class="media-bottom1" style="margin: 2rem 1rem; text-align: none;">
+                            <p style="font-size: 15px; text-align: none;">GAT introduces a mechanism to attend over neighborhoods&#39; features and weigh  different nodes accordingly.
+</p>
+                        </div>
+                        <div class="media-link1">
+                            <a href="https://dsgiitr.com/blogs/gat/">Read-&gt;</a>
+                        </div>
+                    
+                </div>
+            </div>
+            
+            <div class="ann-content">
+                
+                <div class="media wow fadeInUp animated announcement-flex" data-wow-duration="500ms" data-wow-delay="300ms" style="height: max-content;">
+                    
+                        
+                        
+                        
+                        
+                        
+
+                        
+                        
+                            <div class="media-top1" style='margin: 1.5rem 2rem;'>
+                                <p>PAST EVENT</p>
+                            </div>
+                        
+
+                        <div class="media-middle1" style="margin: 0 0.5rem 0 1rem; height: max-content; ">
+                            <p>Kaggle Days</p>
+                        </div>
+                        <div class="media-bottom1" style="margin: 2rem 1rem; text-align: none;">
+                            <p style="font-size: 15px; text-align: none;">DSG in collaboration with E-Summit IIT R organizing Kaggle Days.</p>
+                        </div>
+                        <div class="media-link1">
+                            <a href="/events">View Details-&gt;</a>
+                        </div>
+                    
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</section>
+<!-- announcement Section End -->
+
+
+
+<!-- work Section Start -->
+<section id="works" class="works">
+    <div class="container">
+        <div class="section-heading">
+            <h1 class="title wow fadeInDown" style="text-transform: none;" data-wow-delay=".3s">Projects</h1>
+            
+        </div>
+        <div class="row">
+            
+            <div class="col-md-4 col-sm-6">
+                
+                <figure class="wow fadeInLeft animated portfolio-item zoomIn" data-wow-duration="500ms" data-wow-delay="200ms">
+                    <div class="img-wrapper">
+                        <img src="/images/work/visualml.png" class="img-fluid" alt="this is a title">
+                        <div class="overlay">
+                            <div class="buttons">
+                                <a class="fancybox" href="https://github.com/dsgiitr/VisualML">Github</a>
+                                <a href="/work/visual-ml/">Details</a>
+                            </div>
+                        </div>
+                    </div>
+                    <figcaption>
+                        <h4>
+                            <a href="/work/visual-ml/">
+                                Visual ML
+                            </a>
+                        </h4>
+                        <p>
+                            Interactive Visual Machine Learning Demos. Machine Learning in the browser powered by TF JS.
+                        </p>
+                    </figcaption>
+                </figure>
+            </div>
+            
+            <div class="col-md-4 col-sm-6">
+                
+                <figure class="wow fadeInLeft animated portfolio-item zoomIn" data-wow-duration="500ms" data-wow-delay="200ms">
+                    <div class="img-wrapper">
+                        <img src="/images/work/d2l_pytorch.svg" class="img-fluid" alt="this is a title">
+                        <div class="overlay">
+                            <div class="buttons">
+                                <a class="fancybox" href="https://github.com/dsgiitr/d2l-pytorch">Github</a>
+                                <a href="/work/d2l-pytorch/">Details</a>
+                            </div>
+                        </div>
+                    </div>
+                    <figcaption>
+                        <h4>
+                            <a href="/work/d2l-pytorch/">
+                                d2l-pytorch
+                            </a>
+                        </h4>
+                        <p>
+                            This project reproduces the book Dive Into Deep Learning (www.d2l.ai), adapting the code from MXNet into PyTorch.
+                        </p>
+                    </figcaption>
+                </figure>
+            </div>
+            
+            <div class="col-md-4 col-sm-6">
+                
+                <figure class="wow fadeInLeft animated portfolio-item zoomIn" data-wow-duration="500ms" data-wow-delay="200ms">
+                    <div class="img-wrapper">
+                        <img src="/images/work/graph_nets.svg" class="img-fluid" alt="this is a title">
+                        <div class="overlay">
+                            <div class="buttons">
+                                <a class="fancybox" href="https://github.com/dsgiitr/graph_nets">Github</a>
+                                <a href="/work/graph_nets/">Details</a>
+                            </div>
+                        </div>
+                    </div>
+                    <figcaption>
+                        <h4>
+                            <a href="/work/graph_nets/">
+                                Graph Representation Learning
+                            </a>
+                        </h4>
+                        <p>
+                            Implementation and Explanation Graph Representation Learning papers involving DeepWalk, GCN, GraphSAGE, ChebNet and GAT.
+                        </p>
+                    </figcaption>
+                </figure>
+            </div>
+            
+            <div class="col-md-4 col-sm-6">
+                
+                <figure class="wow fadeInLeft animated portfolio-item zoomIn" data-wow-duration="500ms" data-wow-delay="200ms">
+                    <div class="img-wrapper">
+                        <img src="/images/work/rl2048.jpeg" class="img-fluid" alt="this is a title">
+                        <div class="overlay">
+                            <div class="buttons">
+                                <a class="fancybox" href="https://github.com/dsgiitr/rl_2048">Github</a>
+                                <a href="/work/rl_2048/">Details</a>
+                            </div>
+                        </div>
+                    </div>
+                    <figcaption>
+                        <h4>
+                            <a href="/work/rl_2048/">
+                                Reinforcement Learning 2048
+                            </a>
+                        </h4>
+                        <p>
+                            This project builds on a demo for playing the game 2048 using Reinforcement Learning.
+                        </p>
+                    </figcaption>
+                </figure>
+            </div>
+            
+            <div class="col-md-4 col-sm-6">
+                
+                <figure class="wow fadeInLeft animated portfolio-item zoomIn" data-wow-duration="500ms" data-wow-delay="200ms">
+                    <div class="img-wrapper">
+                        <img src="https://img.buzzfeed.com/buzzfeed-static/static/2016-03/10/14/enhanced/webdr01/enhanced-11415-1457636668-6.png?output-quality=auto&amp;output-format=auto&amp;downsize=640" class="img-fluid" alt="this is a title">
+                        <div class="overlay">
+                            <div class="buttons">
+                                <a class="fancybox" href="https://github.com/dsgiitr/Sarcasm-Detection-Tensorflow">Github</a>
+                                <a href="/work/sarcasm_detection/">Details</a>
+                            </div>
+                        </div>
+                    </div>
+                    <figcaption>
+                        <h4>
+                            <a href="/work/sarcasm_detection/">
+                                Sarcasm Detection using BERT
+                            </a>
+                        </h4>
+                        <p>
+                            Implementation of BERT based Sarcasm Detection Classification model using Tensorflow.
+                        </p>
+                    </figcaption>
+                </figure>
+            </div>
+            
+            <div class="col-md-4 col-sm-6">
+                
+                <figure class="wow fadeInLeft animated portfolio-item zoomIn" data-wow-duration="500ms" data-wow-delay="200ms">
+                    <div class="img-wrapper">
+                        <img src="/images/work/adversarial_example.gif" class="img-fluid" alt="this is a title">
+                        <div class="overlay">
+                            <div class="buttons">
+                                <a class="fancybox" href="https://github.com/dsgiitr/adversarial_lab">Github</a>
+                                <a href="/work/adversarial_lab/">Details</a>
+                            </div>
+                        </div>
+                    </div>
+                    <figcaption>
+                        <h4>
+                            <a href="/work/adversarial_lab/">
+                                Adversarial Lab
+                            </a>
+                        </h4>
+                        <p>
+                            This project builds on a demo for several Adversarial Attacks on ImageNet Classifier Models.
+                        </p>
+                    </figcaption>
+                </figure>
+            </div>
+            
+            <div class="col-md-4 col-sm-6">
+                
+                <figure class="wow fadeInLeft animated portfolio-item zoomIn" data-wow-duration="500ms" data-wow-delay="200ms">
+                    <div class="img-wrapper">
+                        <img src="/images/work/np_detection.gif" class="img-fluid" alt="this is a title">
+                        <div class="overlay">
+                            <div class="buttons">
+                                <a class="fancybox" href="https://github.com/dsgiitr/np_detection">Github</a>
+                                <a href="/work/number_plate_detection/">Details</a>
+                            </div>
+                        </div>
+                    </div>
+                    <figcaption>
+                        <h4>
+                            <a href="/work/number_plate_detection/">
+                                Number Plate Detection
+                            </a>
+                        </h4>
+                        <p>
+                            This is a step towards automating the vehicles entering IIT Roorkee campus using state of the art Deep learning &amp; Computer Vision.
+                        </p>
+                    </figcaption>
+                </figure>
+            </div>
+            
+            <div class="col-md-4 col-sm-6">
+                
+                <figure class="wow fadeInLeft animated portfolio-item zoomIn" data-wow-duration="500ms" data-wow-delay="200ms">
+                    <div class="img-wrapper">
+                        <img src="/images/work/Eye_In_The_Sky.svg" class="img-fluid" alt="this is a title">
+                        <div class="overlay">
+                            <div class="buttons">
+                                <a class="fancybox" href="https://github.com/dsgiitr/Eye-In-The-Sky-Image_Segmentation_Challenge">Github</a>
+                                <a href="/work/eye-in-the-sky-image_segmentation_challenge/">Details</a>
+                            </div>
+                        </div>
+                    </div>
+                    <figcaption>
+                        <h4>
+                            <a href="/work/eye-in-the-sky-image_segmentation_challenge/">
+                                Eye In The Sky: Image Segmentation Challenge Inter IIT 2018
+                            </a>
+                        </h4>
+                        <p>
+                            Winning Solution in the Inter IIT Tech Meet 2018 Machine Learning Challenge, &#34;Eye In The Sky&#34;.
+                        </p>
+                    </figcaption>
+                </figure>
+            </div>
+            
+            <div class="col-md-4 col-sm-6">
+                
+                <figure class="wow fadeInLeft animated portfolio-item zoomIn" data-wow-duration="500ms" data-wow-delay="200ms">
+                    <div class="img-wrapper">
+                        <img src="https://cdn-images-1.medium.com/max/1920/1*zbrYLZQa8w-C4y13Kh_ssA.jpeg" class="img-fluid" alt="this is a title">
+                        <div class="overlay">
+                            <div class="buttons">
+                                <a class="fancybox" href="https://github.com/dsgiitr/Visualizing-Loss-Functions">Github</a>
+                                <a href="/work/visualizing-loss-functions/">Details</a>
+                            </div>
+                        </div>
+                    </div>
+                    <figcaption>
+                        <h4>
+                            <a href="/work/visualizing-loss-functions/">
+                                Visualizing Loss Functions
+                            </a>
+                        </h4>
+                        <p>
+                            Visualising different loss and optimisation functions using Autoencoders.
+                        </p>
+                    </figcaption>
+                </figure>
+            </div>
+            
+            <div class="col-md-4 col-sm-6">
+                
+                <figure class="wow fadeInLeft animated portfolio-item zoomIn" data-wow-duration="500ms" data-wow-delay="200ms">
+                    <div class="img-wrapper">
+                        <img src="https://miro.medium.com/max/1313/1*Fe6z8VdUS6laTd6Ev3EohQ.gif" class="img-fluid" alt="this is a title">
+                        <div class="overlay">
+                            <div class="buttons">
+                                <a class="fancybox" href="https://github.com/dsgiitr/Neural-Style-Transfer">Github</a>
+                                <a href="/work/neural_style_transfer/">Details</a>
+                            </div>
+                        </div>
+                    </div>
+                    <figcaption>
+                        <h4>
+                            <a href="/work/neural_style_transfer/">
+                                Neural Style Transfer
+                            </a>
+                        </h4>
+                        <p>
+                            Implementation of Neural Style Transfer described in the paper by Gatys et.al.
+                        </p>
+                    </figcaption>
+                </figure>
+            </div>
+            
+            <div class="col-md-4 col-sm-6">
+                
+                <figure class="wow fadeInLeft animated portfolio-item zoomIn" data-wow-duration="500ms" data-wow-delay="200ms">
+                    <div class="img-wrapper">
+                        <img src="https://miro.medium.com/max/2400/1*PoVAzAk7lTiWXHIgm2dLeQ.jpeg" class="img-fluid" alt="this is a title">
+                        <div class="overlay">
+                            <div class="buttons">
+                                <a class="fancybox" href="https://github.com/dsgiitr/Traffic-Sign-Classification">Github</a>
+                                <a href="/work/traffic_sign_classification/">Details</a>
+                            </div>
+                        </div>
+                    </div>
+                    <figcaption>
+                        <h4>
+                            <a href="/work/traffic_sign_classification/">
+                                Beginner Friendly Project: Traffic Sign Classification
+                            </a>
+                        </h4>
+                        <p>
+                            Using GTSRB dataset to build a CNN based Traffic Sign Classifier.
+                        </p>
+                    </figcaption>
+                </figure>
+            </div>
+            
+        </div>
+    </div>
+</section>
+<!-- work Section End -->
+
+
+<section id="cerebro-full-width" style='background-image: url("/images/cerebroBack.svg");height: 14rem;'>
+    <div class="container cerebroContainer">
+        <div class="row">
+            <div class="col-md-4 cerebro">
+                <img class="img-cerebro" alt="" src="/images/cerebro.png">
+                <div class="cerebro-text">
+                    Visit Cerebro, our competition portal. 
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="link-cerebro">
+                    <a href="http://cerebro.sdslabs.co/" class="visit-cerebro">Visit Cerebro</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer Section Start -->
+<footer id="footer">
+    <div class="container" id="footer-container">
+        <div class="row content-justify-between">
+            <div style="width: 100%;">
+                <p class="copyright">
+                    Contact Us
+                </p>
+            </div>
+            <div class="col-md-7 col-12 text-lg-left text-md-left">
+                <!-- Social Media -->
+                <ul class="social">
+                    
+                    <li><a href="mailto:dsg@iitr.ac.in"><i class="ion-android-mail"></i></a></li>
+                    
+                    <li><a href="https://www.facebook.com/dsgiitr/"><i class="ion-social-facebook"></i></a></li>
+                    
+                    <li><a href="https://github.com/dsgiitr"><i class="ion-social-github"></i></a></li>
+                    
+                    <li><a href="https://www.linkedin.com/company/26638705/"><i class="ion-social-linkedin"></i></a></li>
+                    
+                    <li><a href="https://twitter.com/dsg_iitr"><i class="ion-social-twitter"></i></a></li>
+                    
+                    <li><a href="https://www.instagram.com/dsgiitr/"><i class="fab fa-instagram"></i></a></li>
+                    
+                    <li><a href="https://discord.com/invite/ATDN5D9M"><i class="fab fa-discord"></i></a></li>
+                    
+                    
+                    <li style="float: right; color: #FFFFFF;"><i class="ion-closed-captioning"></i> DSG IITR</li>
+                    
+                </ul>
+            </div>
+            <div class="col-md-5 col-12 text-lg-left text-md-left location-foot">
+                
+                <div style="float: right; color: #FFFFFF;">
+                    <i class="ion-ios-location" style="color: #000;"></i> New Sac Building, IIT Roorkee
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    
+    <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+  });
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+
+  MathJax.Hub.Config({
+  
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+  });
+</script>
+</footer>
+<!-- footer section end -->
+
+
+<!-- jquery -->
+<script src="/plugins/jQurey/jquery.min.js"></script>
+<!-- Form Validation -->
+<script src="/plugins/form-validation/jquery.form.js"></script>
+<script src="/plugins/form-validation/jquery.validate.min.js"></script>
+<!-- slick slider -->
+<script src="/plugins/slick/slick.min.js"></script>
+<!-- bootstrap js -->
+<script src="/plugins/bootstrap/bootstrap.min.js"></script>
+<!-- wow js -->
+<script src="/plugins/wow-js/wow.min.js"></script>
+<!-- slider js -->
+<script src="/plugins/slider/slider.js"></script>
+<!-- Fancybox -->
+<script src="/plugins/facncybox/jquery.fancybox.js"></script>
+<!-- template main js -->
+
+<script src="/js/script.min.js"></script>
+<!-- google analitycs -->
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', '', 'auto');
+    ga('send', 'pageview');
+</script>
+<script type="text/javascript" src="/plugins/particlesjs/particles.min.js"></script>
+<script type="text/javascript" src="/plugins/particlesjs/demo/js/app.js"></script></body>
+</html>

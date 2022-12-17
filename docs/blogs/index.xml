@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blogs on DSG | IIT Roorkee</title>
+    <link>/blogs/</link>
+    <description>Recent content in Blogs on DSG | IIT Roorkee</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 01 Jan 2020 23:40:49 +0000</lastBuildDate><atom:link href="/blogs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ChebNet: CNN on Graphs with Fast Localized Spectral Filtering</title>
+      <link>/blogs/chebnet/</link>
+      <pubDate>Sat, 01 Feb 2020 23:40:49 +0000</pubDate>
+      
+      <guid>/blogs/chebnet/</guid>
+      <description>Motivation As a part of this blog series, this time we&amp;rsquo;ll be looking at a spectral convolution technique introduced in the paper by M.</description>
+    </item>
+    
+    <item>
+      <title>Understanding Graph Attention Networks (GAT)</title>
+      <link>/blogs/gat/</link>
+      <pubDate>Tue, 21 Jan 2020 23:40:49 +0000</pubDate>
+      
+      <guid>/blogs/gat/</guid>
+      <description>Understanding Graph Attention Networks (GAT) This is 4th in the series of blogs Explained: Graph Representation Learning.</description>
+    </item>
+    
+    <item>
+      <title>Graph SAGE(SAmple and aggreGatE) : Inductive Learning on Graphs</title>
+      <link>/blogs/graphsage/</link>
+      <pubDate>Sat, 18 Jan 2020 23:40:49 +0000</pubDate>
+      
+      <guid>/blogs/graphsage/</guid>
+      <description>Introduction In the previous blogs, we covered GCN and DeepWalk, which are methods to generate node embeddings.</description>
+    </item>
+    
+    <item>
+      <title>A Review : Graph Convolutional Networks (GCN)</title>
+      <link>/blogs/gcn/</link>
+      <pubDate>Wed, 01 Jan 2020 23:40:49 +0000</pubDate>
+      
+      <guid>/blogs/gcn/</guid>
+      <description>Introduction Graphs Whom are we kidding! You may skip this section if you know what graphs are.</description>
+    </item>
+    
+    <item>
+      <title>Understanding Deepwalk</title>
+      <link>/blogs/deepwalk/</link>
+      <pubDate>Fri, 20 Dec 2019 23:40:49 +0000</pubDate>
+      
+      <guid>/blogs/deepwalk/</guid>
+      <description>This is the first in this blog series Explained: Graph Representation Learning and to discuss extraction useful graph features and node embeddings by considering the topology of the network graph using machine learning, this blog deals with Deep Walk.</description>
+    </item>
+    
+    <item>
+      <title>Roadmap To Data Science</title>
+      <link>/blogs/roadmap_to_datascience/</link>
+      <pubDate>Sun, 04 Aug 2019 23:40:49 +0000</pubDate>
+      
+      <guid>/blogs/roadmap_to_datascience/</guid>
+      <description>In the 21st century, computer science advancement, development of intelligent machines and generation of immense amounts of data has led to the development of new fields of study, buzzwords, Data Science and Machine Learning.</description>
+    </item>
+    
+    <item>
+      <title>GodNet: A Neural Network Which Can Predict Your Future?</title>
+      <link>/blogs/godnet/</link>
+      <pubDate>Wed, 27 Mar 2019 23:40:49 +0000</pubDate>
+      
+      <guid>/blogs/godnet/</guid>
+      <description>“Have you ever questioned the nature of your reality, Dolores?” — Westworld. “Are you living in a computer simulation?</description>
+    </item>
+    
+    <item>
+      <title>Word Embedding</title>
+      <link>/blogs/word_embeddings/</link>
+      <pubDate>Sun, 15 Oct 2017 23:40:49 +0000</pubDate>
+      
+      <guid>/blogs/word_embeddings/</guid>
+      <description>What are word embeddings? Why we use word embeddings? Before going into details. lets see some example :</description>
+    </item>
+    
+    <item>
+      <title>Loss Functions and Optimization Algorithms. Demystified.</title>
+      <link>/blogs/loss_functions_and_optimization_algorithms_demystified/</link>
+      <pubDate>Fri, 29 Sep 2017 23:40:49 +0000</pubDate>
+      
+      <guid>/blogs/loss_functions_and_optimization_algorithms_demystified/</guid>
+      <description>The choice of Optimisation Algorithms and Loss Functions for a deep learning model can play a big role in producing optimum and faster results.</description>
+    </item>
+    
+    <item>
+      <title>Artistic Style Transfer with Convolutional Neural Network</title>
+      <link>/blogs/style_transfer_with_cnn/</link>
+      <pubDate>Mon, 04 Sep 2017 23:40:49 +0000</pubDate>
+      
+      <guid>/blogs/style_transfer_with_cnn/</guid>
+      <description>We all have used apps like Prisma and Lucid, but ever wondered how these things works?</description>
+    </item>
+    
+    <item>
+      <title>Baby steps with Tensoflow #2</title>
+      <link>/blogs/baby_steps_with_tf_part2/</link>
+      <pubDate>Sat, 17 Jun 2017 23:40:49 +0000</pubDate>
+      
+      <guid>/blogs/baby_steps_with_tf_part2/</guid>
+      <description>In this blog we will understand how to use Tensoflow for Linear and Logistic Regression. I hope you have read 1st blog of this series, if not please give it a read.</description>
+    </item>
+    
+    <item>
+      <title>Convolutional Neural Network with TensorFlow Implementation</title>
+      <link>/blogs/cnn_with_tf/</link>
+      <pubDate>Sat, 17 Jun 2017 23:40:49 +0000</pubDate>
+      
+      <guid>/blogs/cnn_with_tf/</guid>
+      <description>When you hear about deep learning breaking a new technological barrier, Convolutional Neural Networks are involved most of the times.</description>
+    </item>
+    
+    <item>
+      <title>Baby steps with Tensorflow #1</title>
+      <link>/blogs/baby_steps_with_tf_part1/</link>
+      <pubDate>Thu, 01 Jun 2017 23:40:49 +0000</pubDate>
+      
+      <guid>/blogs/baby_steps_with_tf_part1/</guid>
+      <description>Deep Learning is a Mandate for Humans, Not Just Machines — Andrew Ng Yes, Deep learning is a next big thing.</description>
+    </item>
+    
+    <item>
+      <title>Placement Experience.</title>
+      <link>/blogs/placement_experience/</link>
+      <pubDate>Wed, 24 May 2017 23:40:49 +0000</pubDate>
+      
+      <guid>/blogs/placement_experience/</guid>
+      <description>Placement season is like GOT, you never know what will happen in the next episode.</description>
+    </item>
+    
+    <item>
+      <title>Logistic Regression. Simplified.</title>
+      <link>/blogs/logistic_regression/</link>
+      <pubDate>Thu, 18 May 2017 23:40:49 +0000</pubDate>
+      
+      <guid>/blogs/logistic_regression/</guid>
+      <description>After the basics of Regression, it’s time for basics of Classification. And, what can be easier than Logistic Regression!</description>
+    </item>
+    
+    <item>
+      <title>Singular Value Decomposition. Elucidated.</title>
+      <link>/blogs/svd/</link>
+      <pubDate>Thu, 18 May 2017 23:40:49 +0000</pubDate>
+      
+      <guid>/blogs/svd/</guid>
+      <description>Not this SVD :P
+Mathematics is building block of Machine learning. I know math is hard to understand but it is much needed as well.</description>
+    </item>
+    
+    <item>
+      <title>Data Science Congress. Something legendary.</title>
+      <link>/blogs/data_science_congress/</link>
+      <pubDate>Wed, 17 May 2017 23:40:49 +0000</pubDate>
+      
+      <guid>/blogs/data_science_congress/</guid>
+      <description>I know. You know. Everybody knows. What?
+India. Research. Data Science. They hardly go together.</description>
+    </item>
+    
+    <item>
+      <title>Regularization. Clarified.</title>
+      <link>/blogs/regularization_clarified/</link>
+      <pubDate>Sun, 02 Apr 2017 23:40:49 +0000</pubDate>
+      
+      <guid>/blogs/regularization_clarified/</guid>
+      <description>The end is near. No, not the world, but the 12A12D series. After Linear Regression, it’s time to add more DS flavour.</description>
+    </item>
+    
+    <item>
+      <title>Boosting Decrypted</title>
+      <link>/blogs/boosting/</link>
+      <pubDate>Wed, 22 Mar 2017 23:40:49 +0000</pubDate>
+      
+      <guid>/blogs/boosting/</guid>
+      <description>I know it’s getting arduous to catch up with out daily posts, but it’s just meant to be this.</description>
+    </item>
+    
+    <item>
+      <title>Decision Trees. Decoded.</title>
+      <link>/blogs/decision_trees_decoded/</link>
+      <pubDate>Wed, 22 Mar 2017 23:40:49 +0000</pubDate>
+      
+      <guid>/blogs/decision_trees_decoded/</guid>
+      <description>It’s time to give the Algorithm series, an informative start. Here, we start with one of the most famous category i.</description>
+    </item>
+    
+    <item>
+      <title>How To Setup Timer Hugo</title>
+      <link>/blogs/installation/</link>
+      <pubDate>Tue, 01 Dec 2015 23:40:49 +0000</pubDate>
+      
+      <guid>/blogs/installation/</guid>
+      <description>Install this template by following those simple steps: STEP-1 : Hugo installation Check this link below for install hugo on your computer.</description>
+    </item>
+    
+    <item>
+      <title>Clustering Described</title>
+      <link>/blogs/clustering/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/blogs/clustering/</guid>
+      <description>After Supervised Learning algorithms, it’s time to have a look at the most popular Unsupervised method.</description>
+    </item>
+    
+  </channel>
+</rss>

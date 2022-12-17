@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en-us"><head>
+  <!-- Basic Page Needs -->
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  
+  <meta name="description" content="Machine Learning / NLP / Deep Learning">
+  <meta name="author" content="DSG">
+  <meta name="generator" content="Hugo 0.108.0">
+  
+  <!-- Mobile Specific Metas -->
+  <meta name="format-detection" content="telephone=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Word Embedding</title>
+  <link rel="icon" href="/images/dsg_new_square_logo.png">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+  <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+  <!-- Twitter Bootstrs CSS -->
+  <link rel="stylesheet" href="/plugins/bootstrap/bootstrap.min.css">
+  <!-- Ionicons Fonts Css -->
+  <link rel="stylesheet" href="/plugins/ionicons/ionicons.min.css">
+  <!-- animate css -->
+  <link rel="stylesheet" href="/plugins/animate-css/animate.css">
+  <!-- Hero area slider css-->
+  <link rel="stylesheet" href="/plugins/slider/slider.css">
+  <!-- slick slider -->
+  <link rel="stylesheet" href="/plugins/slick/slick.css">
+  <!-- Fancybox -->
+  <link rel="stylesheet" href="/plugins/facncybox/jquery.fancybox.css">
+  <!-- hover -->
+  <link rel="stylesheet" href="/plugins/hover/hover-min.css">
+  <!-- template main css file -->
+  
+  <link rel="stylesheet" href="/css/style.min.css" integrity="" media="screen">
+</head><body><section class="top-bar animated-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <a class="navbar-brand" href="/">
+                        <img id="logo" src="/images/dsg.png" alt="logo">
+                    </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
+                        aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navigation">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item">
+                                <a class="nav-link"
+                                    href="/">Home
+                                </a>
+                            </li>
+                            
+                            <li class="nav-item">
+                                
+                                    <a class="nav-link" href="/#works">Work</a>
+                                
+                                
+                                
+                            </li>
+                            
+                            <li class="nav-item">
+                                
+                                
+                                    <a class="nav-link" href="/events">News</a>
+                                
+                                
+                            </li>
+                            
+                            <li class="nav-item">
+                                
+                                
+                                    <a class="nav-link" href="/blogs">Blogs</a>
+                                
+                                
+                            </li>
+                            
+                            <li class="nav-item">
+                                
+                                
+                                    <a class="nav-link" href="/about">About</a>
+                                
+                                
+                            </li>
+                            
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="global-page-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="block">
+                    <h2>Word Embedding</h2>
+                    <div class="portfolio-meta">
+                        <span>Sunday, Oct 15, 2017</span>|
+                        <span> Tags:
+                            Deep Learning, NLP
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="single-post">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                
+                <div class="post-img">
+                    <img class="img-fluid-work" alt="" src="https://www.ibm.com/blogs/research/wp-content/uploads/2018/10/WMEFig1.png">
+                </div>
+                
+                <div class="post-content">
+                    <p>What are word embeddings? Why we use word embeddings? Before going into details. lets see some example :</p>
+<ol>
+<li>
+<p>There are many website that ask us to give reviews or feedback about there product when we are using them. like:- Amazon, IMDB.</p>
+</li>
+<li>
+<p>we also use to search at google with couple of words and get result related to it.</p>
+</li>
+<li>
+<p>There are some sites that put tags on the blog related the material in the blog.</p>
+</li>
+</ol>
+<p>so how do they do this. Actually these things are application of <strong>Text processing</strong>. we use text to do sentiment analysis, clustering similar word, document classification and tagging.</p>
+<p>As we read any newspaper we can say that what is the news about but how computer will do these things? Computer can match strings and can tell us that they are same or not But how do we make computers tell you about football or Ronaldo when you search for Messi?</p>
+<p>For tasks like object or speech recognition we know that all the information required to successfully perform the task is encoded in the data (because humans can perform these tasks from the raw data). However, natural language processing systems traditionally treat words as discrete atomic symbols, and therefore ‘cat’ may be represented as <code>Id537</code> and &lsquo;dog&rsquo; as <code>Id143</code>. These encodings are arbitrary, and provide no useful information to the system regarding the relationships that may exist between the individual symbols.</p>
+<blockquote>
+<p>Here comes word embeddings. word embeddings are nothing but numerical representations of texts.</p>
+</blockquote>
+<p>There are many different types of word embeddings:</p>
+<ol>
+<li>
+<p>Frequency based embedding</p>
+</li>
+<li>
+<p>Prediction based embedding</p>
+</li>
+</ol>
+<h1 id="frequency-based-embedding"><strong>Frequency based embedding:</strong></h1>
+<h4 id="count-vector"><strong>Count vector:</strong></h4>
+<p>count vector model learns a vocabulary from all of the documents, then models each document by counting the number of times each word appears. For example, consider we have <strong>D</strong> documents and <strong>T</strong> is the number of different words in our vocabulary then the size of count vector matrix will be given by D*T . Let’s take the following two sentences:</p>
+<p>Document 1: “The cat sat on the hat”</p>
+<p>Document 2: “The dog ate the cat and the hat”</p>
+<p>From these two documents, our vocabulary is as follows:</p>
+<p>{ the, cat, sat, on, hat, dog, ate, and }</p>
+<p>so D = 2, T = 8</p>
+<p>Now, we count the number of times each word occurs in each document. In Document 1, “the” appears twice, and “cat”, “sat”, “on”, and “hat” each appear once, so the feature vector for documents is:</p>
+<p>{ the, cat, sat, on, hat, dog, ate, and }</p>
+<p>so the count vector matrix is :-</p>
+<p><img src="https://cdn-images-1.medium.com/max/1366/1*3fSoceiPMzVXrKbzr7lrXw.png" alt=""></p>
+<p>Now, a column can also be understood as word vector for the corresponding word in the matrix M. For example, the word vector for ‘cat’ in the above matrix is [1,1] and so on.Here, the <em>rows</em> correspond to the <em>documents</em> in the corpus and the <em>columns</em> correspond to the <em>tokens</em> in the dictionary. The second row in the above matrix may be read as — Document 2 contains ‘hat’: once, ‘dog’: once and ‘the’ thrice and so on.</p>
+<p>There is a problem related to dimensions of the matrix for a large corpus of text so we can use stop words (remove common words like ‘a, an, this, that’) or we can extract some top words from vocabulary based on frequency and use as a new vocabulary or we can use both methods.</p>
+<h4 id="tf-idf-vectorization">TF-IDF vectorization:</h4>
+<p>In a large text corpus, some words will be very present (e.g. “the”, “a”, “is” in English) hence carrying very little meaningful information about the actual contents of the document. If we were to feed the direct count data directly to a classifier those very frequent terms would shadow the frequencies of rarer yet more interesting terms.</p>
+<p>In order to re-weight the count features into floating point values suitable for usage by a classifier it is very common to use the tf–idf transform. This method takes into account not just the occurrence of a word in a single document but in the entire corpus. lets take a business article this article will contain more business related terms like Stock-market, Prices, shares etc in comparison to any other article. but terms like “a, an, the” will come in each article with high frequency. so this method will penalize these type of high frequency words.</p>
+<p>Tf means <strong>term-frequency</strong> while tf–idf means term-frequency times <strong>inverse document-frequency.</strong></p>
+<p>TF = (Number of times term t appears in a document)/(Number of terms in the document)</p>
+<p>IDF = log(N/n), where, N is the total number of documents and n is the number of documents a term t has appeared in.</p>
+<p>TF-IDF(t, document) = TF(t, document) * IDF(t)</p>
+<h4 id="co-occurrence-matrix-with-a-fixed-context-window">Co-Occurrence Matrix with a fixed context window</h4>
+<p>Words co-occurrence matrix describes how words occur together that in turn captures the relationships between words. Words co-occurrence matrix is computed simply by counting how two or more words occur together in a given corpus. As an example of words co-occurrence, consider a corpus consisting of the following documents:</p>
+<p><em>penny wise and pound foolish</em></p>
+<p><em>a penny saved is a penny earned</em></p>
+<p>Letting <em>count(w(next)|w(current))</em> represent how many times word *w(next) *follows the word <em>w(current)</em>, we can summarize co-occurrence statistics for words “a” and “penny” as:</p>
+<p><img src="https://cdn-images-1.medium.com/max/1376/1*zr_x8uS1SxGSiTNaB85HJw.png" alt=""></p>
+<p>The above table shows that “a” is followed twice by “penny” while words “earned”, “saved”, and “wise” each follows “penny” once in our corpus. Thus, “earned” is one out of three times probable to appear after “penny.” The count shown above is called <em>bigram frequency</em>; it looks into only the next word from a current word. Given a corpus of <em>N</em> words, we need a table of size <em>NxN</em> to represent bigram frequencies of all possible word-pairs. Such a table is highly sparse as most frequencies are equal to zero. In practice, the co-occurrence counts are converted to probabilities. This results in row entries for each row adding up to one in the co-occurrence matrix.</p>
+<p>But, remember this co-occurrence matrix is not the word vector representation that is generally used. Instead, this Co-occurrence matrix is decomposed using techniques like PCA, SVD etc. into factors and combination of these factors forms the word vector representation.</p>
+<p>Let me illustrate this more clearly. For example, you perform PCA on the above matrix of size NXN. You will obtain V principal components. You can choose k components out of these V components. So, the new matrix will be of the form N X k.</p>
+<p>And, a single word, instead of being represented in N dimensions will be represented in k dimensions while still capturing almost the same semantic meaning. k is generally of the order of hundreds.</p>
+<p>So, what PCA does at the back is decompose Co-Occurrence matrix into three matrices, U,S and V where U and V are both orthogonal matrices. What is of importance is that dot product of U and S gives the word vector representation and V gives the word context representation.</p>
+<p><img src="https://cdn-images-1.medium.com/max/2800/0*41NAZ3a1lD3wrrBD.png" alt=""></p>
+<p><strong>Advantages of Co-occurrence Matrix</strong></p>
+<ol>
+<li>
+<p>It preserves the semantic relationship between words. i.e man and woman tend to be closer than man and apple.</p>
+</li>
+<li>
+<p>It uses SVD at its core, which produces more accurate word vector representations than existing methods.</p>
+</li>
+<li>
+<p>It uses factorization which is a well-defined problem and can be efficiently solved.</p>
+</li>
+<li>
+<p>It has to be computed once and can be used anytime once computed. In this sense, it is faster in comparison to others.</p>
+</li>
+</ol>
+<p><strong>Disadvantages of Co-Occurrence Matrix</strong></p>
+<ol>
+<li>It requires huge memory to store the co-occurrence matrix.
+But, this problem can be circumvented by factorizing the matrix out of the system for example in Hadoop clusters etc. and can be saved.</li>
+</ol>
+<h4 id="applications-of-frequency-based-methods">Applications of frequency based methods:</h4>
+<p>The frequency based methods are easy to understand and their are many applications of them like text classification, sentiment analysis and many more. Because they extract positive and negative words from the text so we can easily classify them with the help of any good machine learning algorithms.</p>
+<h1 id="prediction-based-methods">Prediction based methods:</h1>
+<h4 id="continuous-bag-of-wordscbow"><strong>Continuous Bag of Words(CBOW):</strong></h4>
+<p><strong>CBOW</strong> is learning to predict the word by the context. A context may be single word or multiple word for a given target words.</p>
+<p>lets see this by an example “The cat jumped over the puddle.”</p>
+<p>So one approach is to treat {“The”, “cat”, ’over”, “the’, “puddle”} as a context and from these words, be able to predict or generate the center word “jumped”. This type of model we call a Continuous Bag of Words (CBOW) Model.</p>
+<p>**Before going in detail in CBOW lets talk about one hot representation of words : **One way to represent a word as a vector is one-hot representation. One-hot representation is a representation method in which only one element is 1 and the other elements are 0 in the vector. By setting 1 or 0 for each dimension, it represents “that word or not”.</p>
+<p>Let’s say, for example, we represent the word “python” as one-hot representation. Here, the vocabulary which is a set of words is five words(nlp, python, word, ruby, one-hot). Then the following vector expresses the word “python”:</p>
+<p><img src="https://cdn-images-1.medium.com/max/1888/0*RC6v7KcnJrIyoaDP.png" alt=""></p>
+<p>Although one-hot representation is simple, there are weak points: it is impossible to obtain meaningful results with arithmetic between vectors. Let’s say we take an inner product to calculate similarity between words. In one-hot representation, different words are 1 in different places and the other elements are 0. Thus, the result of taking the dot product between the different words is 0. This is not a useful result.</p>
+<p><img src="https://cdn-images-1.medium.com/max/2800/0*rdPzjV4Lr4R1DcAP.png" alt=""></p>
+<p>Another weak point is the vector tend to become very high dimension. Since one dimension is assigned to one word, as the number of vocabularies increases, it becomes very high dimension.</p>
+<p>We breakdown the way this model works in these steps:</p>
+<p>Wi = weight matrix between input layer and hidden layer of size [V * N]</p>
+<p>Wj= weight matrix between hidden layer and output layer of size [N * V]</p>
+<ol>
+<li>
+<p>We generate our one hot word vectors (x (c−m) , . . . , x (c−1) , x (c+1) , . . . , x (c+m) ) for the input context of size m. where x(c) is the center or target word that we want to predict. we have C(= 2m) one hot word vector of size [1 * V]. so our input layer size is [C * V]</p>
+</li>
+<li>
+<p>We than multiply them with matrix Wi to get our embedded words of size [1 * N].</p>
+</li>
+<li>
+<p>Now we take average of these 2m [1 * N] vectors.</p>
+</li>
+<li>
+<p>Now we calculate the hidden layer output by multiplying hidden layer input with matrix Wj. Now we get a score vector of size[1 * V]. lets name it z.</p>
+</li>
+<li>
+<p>Turn the scores into probabilities by yˆ = softmax(z)</p>
+</li>
+<li>
+<p>We desire our probabilities generated, yˆ, to match the true probabilities, y, which also happens to be the one hot vector of the actual word.</p>
+</li>
+<li>
+<p>Error between output and target is calculated and propagated back to re-adjust the weights.</p>
+</li>
+</ol>
+<p><img src="https://cdn-images-1.medium.com/max/772/1*hOPfxvgtxs7d73OM6I4uiQ.png" alt="CBOW Architecture"></p>
+<p>The loss function used is <strong>Cross entropy</strong>.</p>
+<p><img src="https://cdn-images-1.medium.com/max/604/1*33QEeeLMZ3qsC68VVIgREA.png" alt="Formula for cross entropy"></p>
+<p>and then we use gradient descent or any good optimizer to train this network. After training the weight between the hidden layer and the output layer (Wj) is taken as the <strong>word vector representation</strong> of the word. where each column represent a word vector of size [1 * N].</p>
+<h4 id="skip-gram-model"><strong>Skip-gram model:</strong></h4>
+<p>Another approach is to create a model such that given the center word “jumped”, the model will be able to predict or generate the surrounding words “The”, “cat”, “over”, “the”, “puddle”. Here we call the word “jumped” the context. We call this type of model a SkipGram model.</p>
+<p>Skip-gram model reverses the use of target and context words. Skip-gram take a word and predict the context word from it.</p>
+<p><img src="https://cdn-images-1.medium.com/max/948/1*ZV0FBN6g7cNEdsRoCoF4ZA.png" alt="Skip-gram model"></p>
+<p>We breakdown the way this model works in these steps:</p>
+<p>Wi = weight matrix between input layer and hidden layer of size [V * N]</p>
+<p>Wj= weight matrix between hidden layer and output layer of size [N * V]</p>
+<ol>
+<li>
+<p>We generate our one hot word vectors x(c) for the input center word. where (x (c−m) , . . . , x (c−1) , x (c+1) , . . . , x (c+m) ) is the context words that we want to predict. so our input layer size is [1 * V]</p>
+</li>
+<li>
+<p>We than multiply them with matrix Wi to get our embedded words of size [1 * N].</p>
+</li>
+<li>
+<p>Now we calculate the hidden layer output by multiplying hidden layer input with matrix Wj. Now we get C(= 2m) score vector of size[1 * V]. lets name it z(i).</p>
+</li>
+<li>
+<p>Turn the scores into probabilities by yˆ(i) = softmax(z(i))</p>
+</li>
+<li>
+<p>We desire our probabilities generated, yˆ(i), to match the true probabilities, y(i), which also happens to be the one hot vector of the actual words.</p>
+</li>
+<li>
+<p>Error between output and target is calculated and propagated back to re-adjust the weights.</p>
+</li>
+</ol>
+<p>One can ask that all the yˆ are same so how will they help?</p>
+<p>yeah, yˆ are all same but their target vectors are different so they all give different error vectors and Element-wise sum is taken over all the error vectors to obtain a final error vector. after that we use the back-propagation algorithm and gradient descent to learn the model.</p>
+<p><strong>Advantages/Disadvantages of CBOW and Skip-gram:</strong></p>
+<ol>
+<li>
+<p>Being probabilistic is nature, these are supposed to perform superior to deterministic methods(generally).</p>
+</li>
+<li>
+<p>These are low on memory. They don’t need to have huge RAM requirements like that of co-occurrence matrix where it needs to store three huge matrices.</p>
+</li>
+<li>
+<p>Though CBOW (predict target from context) and skip-gram (predict context words from target) are just inverted methods to each other, they each have their advantages/disadvantage. Since CBOW can use many context words to predict the 1 target word, it can essentially **smooth out **over the distribution. This is essentially like regularization and is offer very good performance when our input data is not so large. However the skip-gram model is more <strong>fine grained</strong> so we are able to extract more information and essentially have more accurate embeddings when we have a large data set (large data is always the best regularizer). Skip-gram with negative sub-sampling outperforms every other method generally.</p>
+</li>
+</ol>
+<h1 id="application-of-word-embeddingword2vec">Application of word embedding(Word2Vec):</h1>
+<p>There are various NLP based tasks where these word embeddings used in deep learning have surpassed older ML based models. There are various NLP applications where they are used extensively. Eg. Automatic summarization, Machine translation, Named entity resolution, Sentiment analysis, Chat-bot, Information retrieval, Speech recognition, Question answering etc.</p>
+<p>We can visualize the learned vectors by projecting them down to 2 dimensions using for instance something like the t-SNE dimensionality reduction technique. When we inspect these visualizations it becomes apparent that the vectors capture some general, and in fact quite useful, semantic information about words and their relationships to one another. It was very interesting when we first discovered that certain directions in the induced vector space specialize towards certain semantic relationships, e.g. <em>male-female</em>, <em>verb tense</em> and even *country-capital *relationships between words, as illustrated in the figure below .</p>
+<p><img src="https://cdn-images-1.medium.com/max/2800/0*rSHs5Wmq1K_Th1on.png" alt=""></p>
+<p>This explains why these vectors are also useful as features for many canonical NLP prediction tasks, such as part-of-speech tagging or named entity recognition.</p>
+<p><img src="https://cdn-images-1.medium.com/max/1262/1*YXr9REk2IfrYgLwZTPUKvg.png" alt="t-SNE of Word2Vec"></p>
+<p>As we can see all the similar words are in together. We can perform some amazing tasks from word embeddings of Word2Vec.</p>
+<ol>
+<li>
+<p>Finding the degree of similarity between two words.
+<code>model.similarity('woman','man')</code>
+<code>0.73723527</code></p>
+</li>
+<li>
+<p>Finding odd one out.
+<code>model.doesnt_match('breakfast cereal dinner lunch';.split())</code>
+<code>'cereal'</code></p>
+</li>
+<li>
+<p>Amazing things like woman+king-man =queen
+<code>model.most_similar(positive=['woman','king'],negative=['man'],topn=1)</code>
+<code>queen: 0.508</code></p>
+</li>
+<li>
+<p>Probability of a text under the model
+<code>model.score(['The fox jumped over the lazy dog'.split()])</code>
+<code>0.21</code></p>
+</li>
+</ol>
+<p><img src="https://cdn-images-1.medium.com/max/2400/1*YAGrtIpuRyA87iQHIwuPVA.jpeg" alt=""></p>
+<p><strong>Word Embeddings</strong> is an active research area trying to figure out better word representations than the existing ones. But, with time they have grown large in number and more complex. This article was aimed at simplying some of the workings of these embedding models without carrying the mathematical overhead.</p>
+<h4 id="references">References</h4>
+<ol>
+<li>
+<p>**<a href="h**ttps://github.com/dsgiitr">Bag of words(count vector) and Word2Vec **Github repository of **D</a>SG.</p>
+</li>
+<li>
+<p><a href="http://scikit-learn.org/stable/modules/feature_extraction.html#tfidf-term-weighting">Tf–idf term weighting</a></p>
+</li>
+<li>
+<p><a href="https://cs224d.stanford.edu/lecture_notes/notes1.pdf">Co-occurrence matrix with fixed context size</a></p>
+</li>
+<li>
+<p>[Word2Vec Tutorial (CBOW)](<a href="http://mccormickml.com/assets/word2vec/Alex_Minnaar_Word2Vec_Tutorial_Part_II_The_Continuous_Bag-of-Words_Model.pdf">http://mccormickml.com/assets/word2vec/Alex_Minnaar_Word2Vec_Tutorial_Part_II_The_Continuous_Bag-of-Words_Model.pdf</a>)</p>
+</li>
+<li>
+<p><a href="http://mccormickml.com/2016/04/19/word2vec-tutorial-the-skip-gram-model/">Word2Vec Tutorial (Skip-gram)</a></p>
+</li>
+<li>
+<p><a href="https://www.kaggle.com/c/word2vec-nlp-tutorial/details/part-2-word-vectors">Word2Vec python implementation</a></p>
+</li>
+<li>
+<p>[Word2Vec Maths](http://word2vec Parameter Learning Explained)</p>
+</li>
+</ol>
+<h4 id="footnotes">Footnotes:</h4>
+<p>One suggestion is that do not miss out references, by reading them only you can understand algorithm properly.</p>
+<p>Hit ❤ if this makes you little bit more intelligent.</p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer Section Start -->
+<footer id="footer">
+    <div class="container" id="footer-container">
+        <div class="row content-justify-between">
+            <div style="width: 100%;">
+                <p class="copyright">
+                    Contact Us
+                </p>
+            </div>
+            <div class="col-md-7 col-12 text-lg-left text-md-left">
+                <!-- Social Media -->
+                <ul class="social">
+                    
+                    <li><a href="mailto:dsg@iitr.ac.in"><i class="ion-android-mail"></i></a></li>
+                    
+                    <li><a href="https://www.facebook.com/dsgiitr/"><i class="ion-social-facebook"></i></a></li>
+                    
+                    <li><a href="https://github.com/dsgiitr"><i class="ion-social-github"></i></a></li>
+                    
+                    <li><a href="https://www.linkedin.com/company/26638705/"><i class="ion-social-linkedin"></i></a></li>
+                    
+                    <li><a href="https://twitter.com/dsg_iitr"><i class="ion-social-twitter"></i></a></li>
+                    
+                    <li><a href="https://www.instagram.com/dsgiitr/"><i class="fab fa-instagram"></i></a></li>
+                    
+                    <li><a href="https://discord.com/invite/ATDN5D9M"><i class="fab fa-discord"></i></a></li>
+                    
+                    
+                    <li style="float: right; color: #FFFFFF;"><i class="ion-closed-captioning"></i> DSG IITR</li>
+                    
+                </ul>
+            </div>
+            <div class="col-md-5 col-12 text-lg-left text-md-left location-foot">
+                
+                <div style="float: right; color: #FFFFFF;">
+                    <i class="ion-ios-location" style="color: #000;"></i> New Sac Building, IIT Roorkee
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    
+    <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+  });
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+
+  MathJax.Hub.Config({
+  
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+  });
+</script>
+</footer>
+<!-- footer section end -->
+
+
+<!-- jquery -->
+<script src="/plugins/jQurey/jquery.min.js"></script>
+<!-- Form Validation -->
+<script src="/plugins/form-validation/jquery.form.js"></script>
+<script src="/plugins/form-validation/jquery.validate.min.js"></script>
+<!-- slick slider -->
+<script src="/plugins/slick/slick.min.js"></script>
+<!-- bootstrap js -->
+<script src="/plugins/bootstrap/bootstrap.min.js"></script>
+<!-- wow js -->
+<script src="/plugins/wow-js/wow.min.js"></script>
+<!-- slider js -->
+<script src="/plugins/slider/slider.js"></script>
+<!-- Fancybox -->
+<script src="/plugins/facncybox/jquery.fancybox.js"></script>
+<!-- template main js -->
+
+<script src="/js/script.min.js"></script>
+<!-- google analitycs -->
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', '', 'auto');
+    ga('send', 'pageview');
+</script>
+<script type="text/javascript" src="/plugins/particlesjs/particles.min.js"></script>
+<script type="text/javascript" src="/plugins/particlesjs/demo/js/app.js"></script></body>
+</html>
