@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Reinforcement Learning on DSG | IIT Roorkee</title>
+    <link>/tags/reinforcement-learning/</link>
+    <description>Recent content in Reinforcement Learning on DSG | IIT Roorkee</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 07 Dec 2019 23:40:49 +0000</lastBuildDate><atom:link href="/tags/reinforcement-learning/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Reinforcement Learning 2048</title>
+      <link>/work/rl_2048/</link>
+      <pubDate>Sat, 07 Dec 2019 23:40:49 +0000</pubDate>
+      
+      <guid>/work/rl_2048/</guid>
+      <description>Q Learning Agent to Play 2048 Implementation of Deep Q-network to play the game 2048 using Keras.</description>
+    </item>
+    
+  </channel>
+</rss>

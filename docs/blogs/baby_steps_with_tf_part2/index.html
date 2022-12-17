@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en-us"><head>
+  <!-- Basic Page Needs -->
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  
+  <meta name="description" content="Computer Vision / Deep Learning">
+  <meta name="author" content="DSG">
+  <meta name="generator" content="Hugo 0.108.0">
+  
+  <!-- Mobile Specific Metas -->
+  <meta name="format-detection" content="telephone=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Baby steps with Tensoflow #2</title>
+  <link rel="icon" href="/images/dsg_new_square_logo.png">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+  <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+  <!-- Twitter Bootstrs CSS -->
+  <link rel="stylesheet" href="/plugins/bootstrap/bootstrap.min.css">
+  <!-- Ionicons Fonts Css -->
+  <link rel="stylesheet" href="/plugins/ionicons/ionicons.min.css">
+  <!-- animate css -->
+  <link rel="stylesheet" href="/plugins/animate-css/animate.css">
+  <!-- Hero area slider css-->
+  <link rel="stylesheet" href="/plugins/slider/slider.css">
+  <!-- slick slider -->
+  <link rel="stylesheet" href="/plugins/slick/slick.css">
+  <!-- Fancybox -->
+  <link rel="stylesheet" href="/plugins/facncybox/jquery.fancybox.css">
+  <!-- hover -->
+  <link rel="stylesheet" href="/plugins/hover/hover-min.css">
+  <!-- template main css file -->
+  
+  <link rel="stylesheet" href="/css/style.min.css" integrity="" media="screen">
+</head><body><section class="top-bar animated-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <a class="navbar-brand" href="/">
+                        <img id="logo" src="/images/dsg.png" alt="logo">
+                    </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
+                        aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navigation">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item">
+                                <a class="nav-link"
+                                    href="/">Home
+                                </a>
+                            </li>
+                            
+                            <li class="nav-item">
+                                
+                                    <a class="nav-link" href="/#works">Work</a>
+                                
+                                
+                                
+                            </li>
+                            
+                            <li class="nav-item">
+                                
+                                
+                                    <a class="nav-link" href="/events">News</a>
+                                
+                                
+                            </li>
+                            
+                            <li class="nav-item">
+                                
+                                
+                                    <a class="nav-link" href="/blogs">Blogs</a>
+                                
+                                
+                            </li>
+                            
+                            <li class="nav-item">
+                                
+                                
+                                    <a class="nav-link" href="/about">About</a>
+                                
+                                
+                            </li>
+                            
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="global-page-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="block">
+                    <h2>Baby steps with Tensoflow #2</h2>
+                    <div class="portfolio-meta">
+                        <span>Saturday, Jun 17, 2017</span>|
+                        <span> Tags:
+                            Deep Learning, NLP
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="single-post">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                
+                <div class="post-img">
+                    <img class="img-fluid-work" alt="" src="https://cdn-images-1.medium.com/max/800/1*ZBRUL9BfVbxmyv8CGgcR_A.jpeg">
+                </div>
+                
+                <div class="post-content">
+                    <p>In this blog we will understand how to use Tensoflow for Linear and Logistic Regression. I hope you have read 1st blog of this series, if not please give it <a href="https://medium.com/data-science-group-iitr/baby-steps-with-tensorflow-1-b29091d502fd">a read</a>.</p>
+<h3 id="why-in-the-world-would-i-use-tensorflow-for-regression">Why in the world would I use Tensorflow for regression?</h3>
+<p>No. you will not. Though to understand each function of Tensorflow properly I suggest you go through this.</p>
+<h1 id="linear-regression">Linear Regression</h1>
+<p>Start with generating the data.</p>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># Generate X_data of shape [1000, 4]</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">X_data</span> <span style="color:#f92672">=</span> <span style="color:#111">np</span><span style="color:#f92672">.</span><span style="color:#111">random</span><span style="color:#f92672">.</span><span style="color:#111">normal</span><span style="color:#111">(</span><span style="color:#111">loc</span><span style="color:#f92672">=</span><span style="color:#ae81ff">10</span><span style="color:#111">,</span> <span style="color:#111">scale</span><span style="color:#f92672">=</span><span style="color:#ae81ff">10</span><span style="color:#111">,</span> <span style="color:#111">size</span><span style="color:#f92672">=</span><span style="color:#111">(</span><span style="color:#ae81ff">1000</span><span style="color:#111">,</span><span style="color:#ae81ff">4</span><span style="color:#111">))</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Equation of Y in terms of X_data</p>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">Y_data</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.5</span> <span style="color:#f92672">*</span> <span style="color:#111">X_data</span><span style="color:#111">[:,</span> <span style="color:#ae81ff">0</span><span style="color:#111">]</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">52</span> <span style="color:#f92672">*</span> <span style="color:#111">X_data</span><span style="color:#111">[:,</span> <span style="color:#ae81ff">1</span><span style="color:#111">]</span> <span style="color:#f92672">+</span><span style="color:#ae81ff">12</span><span style="color:#f92672">*</span><span style="color:#111">X_data</span><span style="color:#111">[:,</span> <span style="color:#ae81ff">2</span><span style="color:#111">]</span> <span style="color:#f92672">-</span> <span style="color:#111">X_data</span><span style="color:#111">[:,</span> <span style="color:#ae81ff">3</span><span style="color:#111">]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#111">Y_data</span> <span style="color:#f92672">=</span> <span style="color:#111">Y_data</span><span style="color:#f92672">.</span><span style="color:#111">reshape</span><span style="color:#111">(</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span><span style="color:#111">,</span><span style="color:#ae81ff">1</span><span style="color:#111">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Now, to start with we need to define Place holders for the data feeding while training. We have seen what placeholders do in the last blog.</p>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">x</span> <span style="color:#f92672">=</span> <span style="color:#111">tf</span><span style="color:#f92672">.</span><span style="color:#111">placeholder</span><span style="color:#111">(</span><span style="color:#111">tf</span><span style="color:#f92672">.</span><span style="color:#111">float32</span><span style="color:#111">,</span> <span style="color:#111">shape</span><span style="color:#f92672">=</span><span style="color:#111">[</span><span style="color:#00a8c8">None</span><span style="color:#111">,</span> <span style="color:#ae81ff">4</span><span style="color:#111">])</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">y</span> <span style="color:#f92672">=</span> <span style="color:#111">tf</span><span style="color:#f92672">.</span><span style="color:#111">placeholder</span><span style="color:#111">(</span><span style="color:#111">tf</span><span style="color:#f92672">.</span><span style="color:#111">float32</span><span style="color:#111">,</span> <span style="color:#111">shape</span> <span style="color:#f92672">=</span> <span style="color:#111">[</span><span style="color:#00a8c8">None</span><span style="color:#111">,</span><span style="color:#ae81ff">1</span><span style="color:#111">])</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Here shape is [None, 4]. What does this mean? It means we can provide any value in place of None. So while feeding we can provide as many examples we want. This is very useful in mini batch training, which we will see in the subsequent blogs. So, basically we feed training data through placeholders.</p>
+<p>Now we will define weight variable and intercept term. This will be tf.Variable because we need to find the value of W and b. So, we will initialize it randomly and then using optimization algorithm we will reach to the true value.</p>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">W</span> <span style="color:#f92672">=</span> <span style="color:#111">tf</span><span style="color:#f92672">.</span><span style="color:#111">Variable</span><span style="color:#111">(</span><span style="color:#111">tf</span><span style="color:#f92672">.</span><span style="color:#111">random_normal</span><span style="color:#111">([</span><span style="color:#ae81ff">4</span><span style="color:#111">,</span><span style="color:#ae81ff">1</span><span style="color:#111">]),</span> <span style="color:#111">name</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;Weight&#34;</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">b</span> <span style="color:#f92672">=</span> <span style="color:#111">tf</span><span style="color:#f92672">.</span><span style="color:#111">Variable</span><span style="color:#111">(</span><span style="color:#111">tf</span><span style="color:#f92672">.</span><span style="color:#111">random_normal</span><span style="color:#111">([</span><span style="color:#ae81ff">1</span><span style="color:#111">,</span><span style="color:#ae81ff">1</span><span style="color:#111">]),</span> <span style="color:#111">name</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;Intercept&#34;</span><span style="color:#111">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Next we generate our hypothesis. Read more about more matrix functions like matmul <a href="https://www.tensorflow.org/api_guides/python/math_ops#Matrix_Math_Functions">here</a>.</p>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">hypothesis</span> <span style="color:#f92672">=</span> <span style="color:#111">tf</span><span style="color:#f92672">.</span><span style="color:#111">matmul</span><span style="color:#111">(</span><span style="color:#111">x</span><span style="color:#111">,</span> <span style="color:#111">W</span><span style="color:#111">)</span> <span style="color:#f92672">+</span> <span style="color:#111">b</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Now we will define our loss function. We will be using <a href="https://www.kaggle.com/wiki/RootMeanSquaredError">RMSE</a> (reduced mean squared error) loss.</p>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">Loss</span> <span style="color:#f92672">=</span> <span style="color:#111">tf</span><span style="color:#f92672">.</span><span style="color:#111">reduce_mean</span><span style="color:#111">(</span><span style="color:#111">tf</span><span style="color:#f92672">.</span><span style="color:#111">square</span><span style="color:#111">(</span><span style="color:#111">y</span> <span style="color:#f92672">-</span> <span style="color:#111">hypothesis</span><span style="color:#111">))</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Next we will use Stochastic Gradient Optimizer to minimize this loss. If you don’t know how this optimization is carried out, I strongly suggest you to read this <a href="http://sebastianruder.com/optimizing-gradient-descent/">great blog</a> on gradient descent optimization.</p>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">optimizer</span> <span style="color:#f92672">=</span> <span style="color:#111">tf</span><span style="color:#f92672">.</span><span style="color:#111">train</span><span style="color:#f92672">.</span><span style="color:#111">GradientDescentOptimizer</span><span style="color:#111">(</span><span style="color:#111">learning_rate</span><span style="color:#f92672">=</span> <span style="color:#ae81ff">0.0001</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">train</span> <span style="color:#f92672">=</span> <span style="color:#111">optimizer</span><span style="color:#f92672">.</span><span style="color:#111">minimize</span><span style="color:#111">(</span><span style="color:#111">Loss</span><span style="color:#111">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Now as we’ve seen in previous blog, tensorflow is Static graph. We need to start Tensorflow session to pass data through this graph.</p>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">sess</span> <span style="color:#f92672">=</span> <span style="color:#111">tf</span><span style="color:#f92672">.</span><span style="color:#111">Session</span><span style="color:#111">()</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Initialize all the variables</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">sess</span><span style="color:#f92672">.</span><span style="color:#111">run</span><span style="color:#111">(</span><span style="color:#111">tf</span><span style="color:#f92672">.</span><span style="color:#111">global_variables_initializer</span><span style="color:#111">())</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Now everything is set. We need to feed data to the graph and find the optimal values for W and b</p>
+<p><img src="https://cdn-images-1.medium.com/max/1456/1*5wjWC39_zrNmTZrv2X-5dA.png" alt=""></p>
+<p>Now here you need to understand what sess.run() does? It basically computes the values of the quantities you specified (in our case Loss, hypothesis, W, b, train). But look train is not a quantity, it’s just an optimizer trying to minimize error. So, based on the current error when you run train, it will update values of W and b. This will continue for all 20000 epochs.</p>
+<p>As you can see at the end W and b values are very close to its original values.</p>
+<p>You can find a full code <a href="https://github.com/ajayunagar/Baby-Steps-With-Tensorflow/tree/master/Linear%20Regression">here</a>.</p>
+<h1 id="logistic-regression">Logistic Regression</h1>
+<p>We will use iris data for logistic regression. Iris data has three classes (setosa, versicolor and virginica). I used setosa as class “0” and versicolor and virginica as class “1”.</p>
+<p>Here is how you import data using tensorflow. We have two files iris_training.csv and iris_test.csv</p>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">iris_training</span> <span style="color:#f92672">=</span> <span style="color:#d88200">&#34;iris_training.csv&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">iris_testing</span> <span style="color:#f92672">=</span> <span style="color:#d88200">&#34;iris_test.csv&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Now to import data from these csv. More about reading data in tensorflow <a href="https://www.tensorflow.org/programmers_guide/reading_data">here</a>.</p>
+<p><img src="https://cdn-images-1.medium.com/max/1492/1*W35JiskZ7bmKj61SdAhoMA.png" alt=""></p>
+<p>Now logistic regression is useful can do binary classification only! So, we need to merge two classes.</p>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># We have three classes, we will merge class = 1 and class = 2.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># So, now we will have binary classification problem (0, 1)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#111">X_train_data</span> <span style="color:#f92672">=</span> <span style="color:#111">training_set</span><span style="color:#f92672">.</span><span style="color:#111">data</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">Y_train</span> <span style="color:#f92672">=</span> <span style="color:#111">training_set</span><span style="color:#f92672">.</span><span style="color:#111">target</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">Y_train</span><span style="color:#111">[</span><span style="color:#111">Y_train</span> <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">1</span><span style="color:#111">]</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#111">X_test_data</span> <span style="color:#f92672">=</span> <span style="color:#111">testing_set</span><span style="color:#f92672">.</span><span style="color:#111">data</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">Y_test</span> <span style="color:#f92672">=</span> <span style="color:#111">testing_set</span><span style="color:#f92672">.</span><span style="color:#111">target</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">Y_test</span><span style="color:#111">[</span><span style="color:#111">Y_test</span> <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">1</span><span style="color:#111">]</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Again it’s the same as before. Define placeholders, variables, Hypothesis, Loss function and Optimizer.</p>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># tf.placeholder is used for data</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">X</span> <span style="color:#f92672">=</span> <span style="color:#111">tf</span><span style="color:#f92672">.</span><span style="color:#111">placeholder</span><span style="color:#111">(</span><span style="color:#111">tf</span><span style="color:#f92672">.</span><span style="color:#111">float32</span><span style="color:#111">,</span> <span style="color:#111">shape</span> <span style="color:#f92672">=</span> <span style="color:#111">[</span><span style="color:#00a8c8">None</span><span style="color:#111">,</span> <span style="color:#ae81ff">4</span><span style="color:#111">])</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">Y</span> <span style="color:#f92672">=</span> <span style="color:#111">tf</span><span style="color:#f92672">.</span><span style="color:#111">placeholder</span><span style="color:#111">(</span><span style="color:#111">tf</span><span style="color:#f92672">.</span><span style="color:#111">float32</span><span style="color:#111">,</span> <span style="color:#111">shape</span> <span style="color:#f92672">=</span> <span style="color:#111">[</span><span style="color:#00a8c8">None</span><span style="color:#111">])</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># tf.Variable is used for Variable</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">W</span> <span style="color:#f92672">=</span> <span style="color:#111">tf</span><span style="color:#f92672">.</span><span style="color:#111">Variable</span><span style="color:#111">(</span><span style="color:#111">tf</span><span style="color:#f92672">.</span><span style="color:#111">random_normal</span><span style="color:#111">([</span><span style="color:#ae81ff">4</span><span style="color:#111">,</span><span style="color:#ae81ff">1</span><span style="color:#111">]),</span> <span style="color:#111">name</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;weights&#34;</span> <span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">b</span> <span style="color:#f92672">=</span> <span style="color:#111">tf</span><span style="color:#f92672">.</span><span style="color:#111">Variable</span><span style="color:#111">(</span><span style="color:#111">tf</span><span style="color:#f92672">.</span><span style="color:#111">random_normal</span><span style="color:#111">([</span><span style="color:#ae81ff">1</span><span style="color:#111">]),</span> <span style="color:#111">name</span> <span style="color:#f92672">=</span> <span style="color:#d88200">&#34;bias&#34;</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Hypothesis</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">hypothesis</span> <span style="color:#f92672">=</span> <span style="color:#111">tf</span><span style="color:#f92672">.</span><span style="color:#111">sigmoid</span><span style="color:#111">(</span><span style="color:#111">tf</span><span style="color:#f92672">.</span><span style="color:#111">matmul</span><span style="color:#111">(</span><span style="color:#111">X</span><span style="color:#111">,</span> <span style="color:#111">W</span><span style="color:#111">)</span> <span style="color:#f92672">+</span> <span style="color:#111">b</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Use categorical cross entropy loss (or log loss)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">cost</span> <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#111">tf</span><span style="color:#f92672">.</span><span style="color:#111">reduce_mean</span><span style="color:#111">(</span><span style="color:#111">Y</span> <span style="color:#f92672">*</span> <span style="color:#111">tf</span><span style="color:#f92672">.</span><span style="color:#111">log</span><span style="color:#111">(</span><span style="color:#111">hypothesis</span><span style="color:#111">)</span> <span style="color:#f92672">+</span> <span style="color:#111">(</span><span style="color:#ae81ff">1</span> <span style="color:#f92672">-</span> <span style="color:#111">Y</span><span style="color:#111">)</span><span style="color:#f92672">*</span><span style="color:#111">tf</span><span style="color:#f92672">.</span><span style="color:#111">log</span><span style="color:#111">(</span><span style="color:#ae81ff">1</span> <span style="color:#f92672">-</span> <span style="color:#111">hypothesis</span><span style="color:#111">))</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># We will define an optimizer (Gradient Descent Optimizer)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">optimizer</span> <span style="color:#f92672">=</span> <span style="color:#111">tf</span><span style="color:#f92672">.</span><span style="color:#111">train</span><span style="color:#f92672">.</span><span style="color:#111">GradientDescentOptimizer</span><span style="color:#111">(</span><span style="color:#111">learning_rate</span><span style="color:#f92672">=</span> <span style="color:#ae81ff">0.001</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">train</span> <span style="color:#f92672">=</span> <span style="color:#111">optimizer</span><span style="color:#f92672">.</span><span style="color:#111">minimize</span><span style="color:#111">(</span><span style="color:#111">cost</span><span style="color:#111">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>This all steps are self explaining. Here loss in categorical cross entropy loss, you can read about it <a href="https://www.kaggle.com/wiki/LogLoss">here</a></p>
+<p>If hypothesis value is &gt; 0.5, class ‘1’ otherwise class 0. And accuracy is simple classification accuracy.</p>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># Predict if output probability &gt; 0.5</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">predicted</span> <span style="color:#f92672">=</span> <span style="color:#111">tf</span><span style="color:#f92672">.</span><span style="color:#111">cast</span><span style="color:#111">(</span><span style="color:#111">hypothesis</span> <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0.5</span><span style="color:#111">,</span> <span style="color:#111">dtype</span><span style="color:#f92672">=</span> <span style="color:#111">tf</span><span style="color:#f92672">.</span><span style="color:#111">float32</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#Define accuracy</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">accuracy</span> <span style="color:#f92672">=</span> <span style="color:#111">tf</span><span style="color:#f92672">.</span><span style="color:#111">reduce_mean</span><span style="color:#111">(</span><span style="color:#111">tf</span><span style="color:#f92672">.</span><span style="color:#111">cast</span><span style="color:#111">(</span><span style="color:#111">tf</span><span style="color:#f92672">.</span><span style="color:#111">equal</span><span style="color:#111">(</span><span style="color:#111">predicted</span><span style="color:#111">,</span> <span style="color:#111">Y</span><span style="color:#111">),</span> <span style="color:#111">dtype</span> <span style="color:#f92672">=</span> <span style="color:#111">tf</span><span style="color:#f92672">.</span><span style="color:#111">float32</span><span style="color:#111">))</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Let’s train:</p>
+<p><img src="https://cdn-images-1.medium.com/max/1952/1*Kz__goWSomxlaP41X0syhA.png" alt=""></p>
+<p>Check the accuracy on test data. It is about 0.73</p>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">_</span><span style="color:#111">,</span> <span style="color:#111">acc_test</span> <span style="color:#f92672">=</span> <span style="color:#111">sess</span><span style="color:#f92672">.</span><span style="color:#111">run</span><span style="color:#111">([</span><span style="color:#111">predicted</span><span style="color:#111">,</span> <span style="color:#111">accuracy</span><span style="color:#111">],</span> <span style="color:#111">feed_dict</span> <span style="color:#f92672">=</span> <span style="color:#111">{</span><span style="color:#111">X</span><span style="color:#111">:</span> <span style="color:#111">X_test_data</span><span style="color:#111">,</span> <span style="color:#111">Y</span><span style="color:#111">:</span> <span style="color:#111">Y_test</span><span style="color:#111">})</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#111">print</span><span style="color:#111">(</span><span style="color:#111">acc_test</span><span style="color:#111">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Let’s check the result with sklearn Logistic Regression</p>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> <span style="color:#111">sklearn.linear_model</span> <span style="color:#f92672">import</span> <span style="color:#111">LogisticRegression</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Define a logistic regression</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># We will use very small C value because we are not adding any    #  penalty</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">logistic_regression</span> <span style="color:#f92672">=</span> <span style="color:#111">LogisticRegression</span><span style="color:#111">(</span><span style="color:#111">max_iter</span><span style="color:#f92672">=</span><span style="color:#ae81ff">20000</span><span style="color:#111">,</span> <span style="color:#111">C</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1e-9</span><span style="color:#111">,</span> <span style="color:#111">verbose</span> <span style="color:#f92672">=</span> <span style="color:#00a8c8">True</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># fit on training data</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">logistic_regression</span><span style="color:#f92672">.</span><span style="color:#111">fit</span><span style="color:#111">(</span><span style="color:#111">X_train_data</span><span style="color:#111">,</span> <span style="color:#111">Y_train</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#111">print</span><span style="color:#111">(</span><span style="color:#d88200">&#34;test accuracy using sklearn is &#34;</span><span style="color:#111">,</span> <span style="color:#111">logistic_regression</span><span style="color:#f92672">.</span><span style="color:#111">score</span><span style="color:#111">(</span><span style="color:#111">X_test_data</span><span style="color:#111">,</span> <span style="color:#111">Y_test</span><span style="color:#111">))</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Both accuracies are comparable, but sklearn is surprisingly fast. I have to look into it.</p>
+<p>In my full code <a href="https://github.com/ajayunagar/Baby-Steps-With-Tensorflow/tree/master/LogisticRegression">here</a>, I have even tried regularization at the end, but it didn’t improve accuracy.</p>
+<h1 id="references">REFERENCES:</h1>
+<ol>
+<li>
+<p><a href="https://github.com/nfmcclure/tensorflow_cookbook/tree/master/03_Linear_Regression">Tensorflow cookbook</a></p>
+</li>
+<li>
+<p><a href="http://sebastianruder.com/optimizing-gradient-descent/">Optimization Algorithms</a></p>
+</li>
+<li>
+<p><a href="https://medium.com/all-of-us-are-belong-to-machines/gentlest-intro-to-tensorflow-part-3-matrices-multi-feature-linear-regression-30a81ebaaa6c">Blog</a> and <a href="https://medium.com/all-of-us-are-belong-to-machines/gentlest-intro-to-tensorflow-4-logistic-regression-2afd0cabc54">blog</a></p>
+</li>
+<li>
+<p><a href="http://web.stanford.edu/class/cs20si/lectures/notes_03.pdf">Stanford notes</a></p>
+</li>
+<li>
+<p><a href="https://www.tensorflow.org/tutorials/wide">Tensorflow tutorial</a></p>
+</li>
+</ol>
+<p>Note: I strongly suggest to go deep into references. Whatever I’ve written here is just to make you feel comfortable with tensorflow, but all the magics lie in References.</p>
+<p>Happy learning! :D</p>
+<p>Hit ❤ if this was useful.</p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer Section Start -->
+<footer id="footer">
+    <div class="container" id="footer-container">
+        <div class="row content-justify-between">
+            <div style="width: 100%;">
+                <p class="copyright">
+                    Contact Us
+                </p>
+            </div>
+            <div class="col-md-7 col-12 text-lg-left text-md-left">
+                <!-- Social Media -->
+                <ul class="social">
+                    
+                    <li><a href="mailto:dsg@iitr.ac.in"><i class="ion-android-mail"></i></a></li>
+                    
+                    <li><a href="https://www.facebook.com/dsgiitr/"><i class="ion-social-facebook"></i></a></li>
+                    
+                    <li><a href="https://github.com/dsgiitr"><i class="ion-social-github"></i></a></li>
+                    
+                    <li><a href="https://www.linkedin.com/company/26638705/"><i class="ion-social-linkedin"></i></a></li>
+                    
+                    <li><a href="https://twitter.com/dsg_iitr"><i class="ion-social-twitter"></i></a></li>
+                    
+                    <li><a href="https://www.instagram.com/dsgiitr/"><i class="fab fa-instagram"></i></a></li>
+                    
+                    <li><a href="https://discord.com/invite/ATDN5D9M"><i class="fab fa-discord"></i></a></li>
+                    
+                    
+                    <li style="float: right; color: #FFFFFF;"><i class="ion-closed-captioning"></i> DSG IITR</li>
+                    
+                </ul>
+            </div>
+            <div class="col-md-5 col-12 text-lg-left text-md-left location-foot">
+                
+                <div style="float: right; color: #FFFFFF;">
+                    <i class="ion-ios-location" style="color: #000;"></i> New Sac Building, IIT Roorkee
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    
+    <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+  });
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+
+  MathJax.Hub.Config({
+  
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+  });
+</script>
+</footer>
+<!-- footer section end -->
+
+
+<!-- jquery -->
+<script src="/plugins/jQurey/jquery.min.js"></script>
+<!-- Form Validation -->
+<script src="/plugins/form-validation/jquery.form.js"></script>
+<script src="/plugins/form-validation/jquery.validate.min.js"></script>
+<!-- slick slider -->
+<script src="/plugins/slick/slick.min.js"></script>
+<!-- bootstrap js -->
+<script src="/plugins/bootstrap/bootstrap.min.js"></script>
+<!-- wow js -->
+<script src="/plugins/wow-js/wow.min.js"></script>
+<!-- slider js -->
+<script src="/plugins/slider/slider.js"></script>
+<!-- Fancybox -->
+<script src="/plugins/facncybox/jquery.fancybox.js"></script>
+<!-- template main js -->
+
+<script src="/js/script.min.js"></script>
+<!-- google analitycs -->
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', '', 'auto');
+    ga('send', 'pageview');
+</script>
+<script type="text/javascript" src="/plugins/particlesjs/particles.min.js"></script>
+<script type="text/javascript" src="/plugins/particlesjs/demo/js/app.js"></script></body>
+</html>

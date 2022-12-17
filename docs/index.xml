@@ -1,0 +1,508 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>DSG | IIT Roorkee</title>
+    <link>/</link>
+    <description>Recent content on DSG | IIT Roorkee</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 26 Aug 2020 23:40:49 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Visual ML</title>
+      <link>/work/visual-ml/</link>
+      <pubDate>Wed, 26 Aug 2020 23:40:49 +0000</pubDate>
+      
+      <guid>/work/visual-ml/</guid>
+      <description>Visual ML VisualML aims to visualise Machine Learning Algorithms. Interactive Visualisations help build intuition, and thus, better understanding of the algorithm&amp;rsquo;s working.</description>
+    </item>
+    
+    <item>
+      <title>Accurate Prediction Of COVID-19 Using Chest X-Ray Images Through Deep Feature Learning Model With SMOTE And Machine Learning Classifiers</title>
+      <link>/events/covid19_vipul_research/</link>
+      <pubDate>Sun, 19 Apr 2020 23:40:49 +0000</pubDate>
+      
+      <guid>/events/covid19_vipul_research/</guid>
+      <description>Our member Vipul Bansal was involved in building a AI based prediction model using Chest X-Rays.</description>
+    </item>
+    
+    <item>
+      <title>Cerebro Hackathon: Lockdown Mania</title>
+      <link>/events/lockdown_mania/</link>
+      <pubDate>Tue, 14 Apr 2020 23:40:49 +0000</pubDate>
+      
+      <guid>/events/lockdown_mania/</guid>
+      <description>Let’s work towards building solutions to the COVID-19 Pandemic applying your Data Science skills.
+Lockdown Mania</description>
+    </item>
+    
+    <item>
+      <title>DSG Shrishti: Talk</title>
+      <link>/events/shrishthi_talk_2020/</link>
+      <pubDate>Fri, 20 Mar 2020 23:40:49 +0000</pubDate>
+      
+      <guid>/events/shrishthi_talk_2020/</guid>
+      <description>NOTE: We may need to postpone this event due to the ongoing COVID-19 pandemic.
+Details of the event to be announced soon.</description>
+    </item>
+    
+    <item>
+      <title>Kaggle Meetup: E-Summit 20</title>
+      <link>/events/kaggle_meetup/</link>
+      <pubDate>Sun, 02 Feb 2020 23:40:49 +0000</pubDate>
+      
+      <guid>/events/kaggle_meetup/</guid>
+      <description>Data Science Group in collaboration with E-Summit IIT R, and Kaggle is organising the very first Data Enthusiasts Meetup in Roorkee.</description>
+    </item>
+    
+    <item>
+      <title>ChebNet: CNN on Graphs with Fast Localized Spectral Filtering</title>
+      <link>/blogs/chebnet/</link>
+      <pubDate>Sat, 01 Feb 2020 23:40:49 +0000</pubDate>
+      
+      <guid>/blogs/chebnet/</guid>
+      <description>Motivation As a part of this blog series, this time we&amp;rsquo;ll be looking at a spectral convolution technique introduced in the paper by M.</description>
+    </item>
+    
+    <item>
+      <title>d2l-pytorch</title>
+      <link>/work/d2l-pytorch/</link>
+      <pubDate>Sat, 01 Feb 2020 23:40:49 +0000</pubDate>
+      
+      <guid>/work/d2l-pytorch/</guid>
+      <description>d2l-pytorch This project is adapted from the original Dive Into Deep Learning book by Aston Zhang, Zachary C.</description>
+    </item>
+    
+    <item>
+      <title>Understanding Graph Attention Networks (GAT)</title>
+      <link>/blogs/gat/</link>
+      <pubDate>Tue, 21 Jan 2020 23:40:49 +0000</pubDate>
+      
+      <guid>/blogs/gat/</guid>
+      <description>Understanding Graph Attention Networks (GAT) This is 4th in the series of blogs Explained: Graph Representation Learning.</description>
+    </item>
+    
+    <item>
+      <title>Recruitment 2020 Results</title>
+      <link>/events/recruitments2020_results/</link>
+      <pubDate>Sun, 19 Jan 2020 23:40:49 +0000</pubDate>
+      
+      <guid>/events/recruitments2020_results/</guid>
+      <description>Data Science Group welcomes all the new recruits!!
+It was a very tough choice to select a few candidates from the pool of enthusiastic and talented freshers and sophomores who turned up.</description>
+    </item>
+    
+    <item>
+      <title>Graph SAGE(SAmple and aggreGatE) : Inductive Learning on Graphs</title>
+      <link>/blogs/graphsage/</link>
+      <pubDate>Sat, 18 Jan 2020 23:40:49 +0000</pubDate>
+      
+      <guid>/blogs/graphsage/</guid>
+      <description>Introduction In the previous blogs, we covered GCN and DeepWalk, which are methods to generate node embeddings.</description>
+    </item>
+    
+    <item>
+      <title>Cerebro Hackathon: Roti Kapda Makaan</title>
+      <link>/events/roti_kapda_makaan/</link>
+      <pubDate>Mon, 06 Jan 2020 23:40:49 +0000</pubDate>
+      
+      <guid>/events/roti_kapda_makaan/</guid>
+      <description>Let’s kickoff 2020 with our annual ML Competition.
+Beginners’ Hypothesis
+Starts at 6:00 PM, 6th Jan.</description>
+    </item>
+    
+    <item>
+      <title>A Review : Graph Convolutional Networks (GCN)</title>
+      <link>/blogs/gcn/</link>
+      <pubDate>Wed, 01 Jan 2020 23:40:49 +0000</pubDate>
+      
+      <guid>/blogs/gcn/</guid>
+      <description>Introduction Graphs Whom are we kidding! You may skip this section if you know what graphs are.</description>
+    </item>
+    
+    <item>
+      <title>Graph Representation Learning</title>
+      <link>/work/graph_nets/</link>
+      <pubDate>Wed, 01 Jan 2020 23:40:49 +0000</pubDate>
+      
+      <guid>/work/graph_nets/</guid>
+      <description>This project involves a simplified, yet exhaustive approach to implementation and explanation of various Graph Representation Learning techniques developed in the recent past.</description>
+    </item>
+    
+    <item>
+      <title>Understanding Deepwalk</title>
+      <link>/blogs/deepwalk/</link>
+      <pubDate>Fri, 20 Dec 2019 23:40:49 +0000</pubDate>
+      
+      <guid>/blogs/deepwalk/</guid>
+      <description>This is the first in this blog series Explained: Graph Representation Learning and to discuss extraction useful graph features and node embeddings by considering the topology of the network graph using machine learning, this blog deals with Deep Walk.</description>
+    </item>
+    
+    <item>
+      <title>Reinforcement Learning 2048</title>
+      <link>/work/rl_2048/</link>
+      <pubDate>Sat, 07 Dec 2019 23:40:49 +0000</pubDate>
+      
+      <guid>/work/rl_2048/</guid>
+      <description>Q Learning Agent to Play 2048 Implementation of Deep Q-network to play the game 2048 using Keras.</description>
+    </item>
+    
+    <item>
+      <title>Sarcasm Detection using BERT</title>
+      <link>/work/sarcasm_detection/</link>
+      <pubDate>Mon, 02 Dec 2019 23:40:49 +0000</pubDate>
+      
+      <guid>/work/sarcasm_detection/</guid>
+      <description>What Is Sarcasm? Sarcasm, a sharp and ironic utterance designed to cut or to cause pain, is often used to express strong emotions, such as contempt, mockery or bitterness.</description>
+    </item>
+    
+    <item>
+      <title>Adversarial Lab</title>
+      <link>/work/adversarial_lab/</link>
+      <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
+      
+      <guid>/work/adversarial_lab/</guid>
+      <description>Adversarial Lab This project is a Web-based Tool for visualisation and generation of adversarial examples by attacking ImageNet Models like VGG, AlexNet, ResNet etc.</description>
+    </item>
+    
+    <item>
+      <title>Number Plate Detection</title>
+      <link>/work/number_plate_detection/</link>
+      <pubDate>Sun, 01 Dec 2019 23:40:49 +0000</pubDate>
+      
+      <guid>/work/number_plate_detection/</guid>
+      <description>Number Plate Detection System This project aims to detect vehicles entering the campus of IIT Roorkee, recording the Number Plates for security purposes.</description>
+    </item>
+    
+    <item>
+      <title>Workshop: Machine Learning 2019</title>
+      <link>/events/workshop_machinelearning2019/</link>
+      <pubDate>Wed, 23 Oct 2019 23:40:49 +0000</pubDate>
+      
+      <guid>/events/workshop_machinelearning2019/</guid>
+      <description>Greetings IIT R! We are back with our workshop on Machine Learning. The workshop is specifically designed for 1st-year students and it would help you get comfortable with basic ML algorithms, their explanation and implementation.</description>
+    </item>
+    
+    <item>
+      <title>Cerebro Hackathon: Dolores</title>
+      <link>/events/dolores/</link>
+      <pubDate>Fri, 11 Oct 2019 23:40:49 +0000</pubDate>
+      
+      <guid>/events/dolores/</guid>
+      <description>Hi Folks, DSG is launching ‘Dolores’, a 3-day competition on predictive modeling, open for freshers and sophomores, participate and grab this opportunity to enhance your knowledge of Machine Learning.</description>
+    </item>
+    
+    <item>
+      <title>Intro To Data Science Libraries</title>
+      <link>/events/intro_to_data_science_libraries/</link>
+      <pubDate>Wed, 04 Sep 2019 23:40:49 +0000</pubDate>
+      
+      <guid>/events/intro_to_data_science_libraries/</guid>
+      <description>Greetings IIT R!
+We are back with the first workshop of the semester. We would be introducing the basics of python and data science libraries such as numpy, pandas, matplotlib, scikit-learn and PyTorch.</description>
+    </item>
+    
+    <item>
+      <title>Open Lecture: Computer Vision</title>
+      <link>/events/sandeep_giri_talk_cv/</link>
+      <pubDate>Fri, 30 Aug 2019 23:40:49 +0000</pubDate>
+      
+      <guid>/events/sandeep_giri_talk_cv/</guid>
+      <description>Sandeep is a seasoned, hands-on machine learning scientist with 16+ years of strong experience in building world-class software products, Machine Learning and churning humongous data.</description>
+    </item>
+    
+    <item>
+      <title>Linux Party</title>
+      <link>/events/linux_party19/</link>
+      <pubDate>Sun, 25 Aug 2019 23:40:49 +0000</pubDate>
+      
+      <guid>/events/linux_party19/</guid>
+      <description>Idea about Linux? Want to dive into any kind of software development? Interested in Machine Learning?</description>
+    </item>
+    
+    <item>
+      <title>DSG Intro Talk 2k19</title>
+      <link>/events/intro_talk_19/</link>
+      <pubDate>Sat, 10 Aug 2019 23:40:49 +0000</pubDate>
+      
+      <guid>/events/intro_talk_19/</guid>
+      <description>Join us this Saturday to know about the activities of Data Science Group, and learn what all the field of Machine Learning &amp;amp; Deep Learning has got to offer you.</description>
+    </item>
+    
+    <item>
+      <title>Roadmap To Data Science</title>
+      <link>/blogs/roadmap_to_datascience/</link>
+      <pubDate>Sun, 04 Aug 2019 23:40:49 +0000</pubDate>
+      
+      <guid>/blogs/roadmap_to_datascience/</guid>
+      <description>In the 21st century, computer science advancement, development of intelligent machines and generation of immense amounts of data has led to the development of new fields of study, buzzwords, Data Science and Machine Learning.</description>
+    </item>
+    
+    <item>
+      <title>GodNet: A Neural Network Which Can Predict Your Future?</title>
+      <link>/blogs/godnet/</link>
+      <pubDate>Wed, 27 Mar 2019 23:40:49 +0000</pubDate>
+      
+      <guid>/blogs/godnet/</guid>
+      <description>“Have you ever questioned the nature of your reality, Dolores?” — Westworld. “Are you living in a computer simulation?</description>
+    </item>
+    
+    <item>
+      <title>Security and Privacy of Machine Learning</title>
+      <link>/events/shrishthi_2k19_talk/</link>
+      <pubDate>Thu, 07 Mar 2019 23:40:49 +0000</pubDate>
+      
+      <guid>/events/shrishthi_2k19_talk/</guid>
+      <description>With Srishti 2k19 just around the corner, SDS will be conducting a series of open lectures for all the students of IITR on a wide array of topics, with Data Science Group members, Anirudh Dagar &amp;amp; Harshal Mittal will be talking about one of the most interesting fields in Deep Learning at the moment, i.</description>
+    </item>
+    
+    <item>
+      <title>Cerebro: Melodious Medley &#39;19 Results</title>
+      <link>/events/cerebro_melodious_medley_19_results/</link>
+      <pubDate>Wed, 16 Jan 2019 23:40:49 +0000</pubDate>
+      
+      <guid>/events/cerebro_melodious_medley_19_results/</guid>
+      <description>#Melodious_Medley_19 #Results Congratulations to the winners of Melodious Medley and Beginner&amp;rsquo;s Hypothesis!
+All the best for interview which will be conducted next week after 22nd January.</description>
+    </item>
+    
+    <item>
+      <title>Recruitments &#39;19: Challenge Series</title>
+      <link>/events/recruitments19/</link>
+      <pubDate>Sun, 06 Jan 2019 23:40:49 +0000</pubDate>
+      
+      <guid>/events/recruitments19/</guid>
+      <description>#Recruitments &amp;lsquo;19 With recruitments just around the corner, we begin with our annual recruitment competition series.</description>
+    </item>
+    
+    <item>
+      <title>Eye In The Sky: Image Segmentation Challenge Inter IIT 2018</title>
+      <link>/work/eye-in-the-sky-image_segmentation_challenge/</link>
+      <pubDate>Tue, 18 Dec 2018 23:40:49 +0000</pubDate>
+      
+      <guid>/work/eye-in-the-sky-image_segmentation_challenge/</guid>
+      <description>This is the winning code for &amp;ldquo;Eye In The Sky&amp;rdquo; Satellite Image Segmentation Competetion as a part of Inter-IIT Tech Meet 2018 hosted by IIT Bombay.</description>
+    </item>
+    
+    <item>
+      <title>Visualizing Loss Functions</title>
+      <link>/work/visualizing-loss-functions/</link>
+      <pubDate>Sat, 01 Dec 2018 23:40:49 +0000</pubDate>
+      
+      <guid>/work/visualizing-loss-functions/</guid>
+      <description>Visualising different loss and optimisation functions using Autoencoder. The aim of the project was to reconstruct images with the help of Autoencoders to visualise the difference in output when different loss or optimisation functions are used.</description>
+    </item>
+    
+    <item>
+      <title>Hackathon: Melodious Medley</title>
+      <link>/events/cerebro_launch_melodious_medley18/</link>
+      <pubDate>Wed, 31 Oct 2018 23:40:49 +0000</pubDate>
+      
+      <guid>/events/cerebro_launch_melodious_medley18/</guid>
+      <description>Greetings IITR!
+Hold your breath as a new era of DS in IIT Roorkee begins. Tonight, we launch CEREBRO, a platform for hosting data hackathons exclusively in IITR developed by SDSLabs.</description>
+    </item>
+    
+    <item>
+      <title>Workshop: Deep Learning 2018</title>
+      <link>/events/dl_workshop18/</link>
+      <pubDate>Wed, 31 Oct 2018 23:40:49 +0000</pubDate>
+      
+      <guid>/events/dl_workshop18/</guid>
+      <description>Meet us at our Deep Learning Workshop and learn from scratch implementation of how to teach machines to see, In order to understand things a little better, you may like to go through the study material shared here.</description>
+    </item>
+    
+    <item>
+      <title>Microsoft Code Fun Do 2018</title>
+      <link>/events/code_fun_do18/</link>
+      <pubDate>Sat, 20 Oct 2018 23:40:49 +0000</pubDate>
+      
+      <guid>/events/code_fun_do18/</guid>
+      <description>#CodeFunDo We are extremely delighted to announce that members of the Software Development Section have yet again emerged as the winners and first runners-up in Microsoft Code.</description>
+    </item>
+    
+    <item>
+      <title>SMP Talk: Career in Data Science</title>
+      <link>/events/smp_talk_dsg/</link>
+      <pubDate>Wed, 07 Feb 2018 23:40:49 +0000</pubDate>
+      
+      <guid>/events/smp_talk_dsg/</guid>
+      <description>Career Talk from DSG IIT R members Oprah Winfrey once said: &amp;ldquo;A mentor is someone who allows you to see the hope inside yourself&amp;rdquo;.</description>
+    </item>
+    
+    <item>
+      <title>Neural Style Transfer</title>
+      <link>/work/neural_style_transfer/</link>
+      <pubDate>Fri, 01 Dec 2017 23:40:49 +0000</pubDate>
+      
+      <guid>/work/neural_style_transfer/</guid>
+      <description>It&amp;rsquo;s all about cool stuff with Neural Style.
+This is a Keras implementation of neural style described in the paper by Gatys et.</description>
+    </item>
+    
+    <item>
+      <title>Beginner Friendly Project: Traffic Sign Classification</title>
+      <link>/work/traffic_sign_classification/</link>
+      <pubDate>Tue, 21 Nov 2017 23:40:49 +0000</pubDate>
+      
+      <guid>/work/traffic_sign_classification/</guid>
+      <description>This project involves tackling a beginner friendly computer vision based Deep Learning problem based on the dataset The German Traffic Sign Recognition Benchmark(GTSRB).</description>
+    </item>
+    
+    <item>
+      <title>Annual GS Quantify 2017</title>
+      <link>/events/gs_quantify17/</link>
+      <pubDate>Thu, 09 Nov 2017 23:40:49 +0000</pubDate>
+      
+      <guid>/events/gs_quantify17/</guid>
+      <description>Roorkee does it again! 3 teams from IIT R have finished in top 10 of Annual GS Quantify contest hosted by Goldman Sachs.</description>
+    </item>
+    
+    <item>
+      <title>Word Embedding</title>
+      <link>/blogs/word_embeddings/</link>
+      <pubDate>Sun, 15 Oct 2017 23:40:49 +0000</pubDate>
+      
+      <guid>/blogs/word_embeddings/</guid>
+      <description>What are word embeddings? Why we use word embeddings? Before going into details. lets see some example :</description>
+    </item>
+    
+    <item>
+      <title>Data Science Challenge: American Express Analyze This 2017</title>
+      <link>/events/amex_analyze_this17/</link>
+      <pubDate>Mon, 09 Oct 2017 23:40:49 +0000</pubDate>
+      
+      <guid>/events/amex_analyze_this17/</guid>
+      <description>DSG bags 3rd Place Congratulations Team Data_Targaryens ( Harsh Singhal and Gaurav Jindal) for securing third position in Pan IIT Data Science Competition Analyze This by American Express.</description>
+    </item>
+    
+    <item>
+      <title>Loss Functions and Optimization Algorithms. Demystified.</title>
+      <link>/blogs/loss_functions_and_optimization_algorithms_demystified/</link>
+      <pubDate>Fri, 29 Sep 2017 23:40:49 +0000</pubDate>
+      
+      <guid>/blogs/loss_functions_and_optimization_algorithms_demystified/</guid>
+      <description>The choice of Optimisation Algorithms and Loss Functions for a deep learning model can play a big role in producing optimum and faster results.</description>
+    </item>
+    
+    <item>
+      <title>Artistic Style Transfer with Convolutional Neural Network</title>
+      <link>/blogs/style_transfer_with_cnn/</link>
+      <pubDate>Mon, 04 Sep 2017 23:40:49 +0000</pubDate>
+      
+      <guid>/blogs/style_transfer_with_cnn/</guid>
+      <description>We all have used apps like Prisma and Lucid, but ever wondered how these things works?</description>
+    </item>
+    
+    <item>
+      <title>Baby steps with Tensoflow #2</title>
+      <link>/blogs/baby_steps_with_tf_part2/</link>
+      <pubDate>Sat, 17 Jun 2017 23:40:49 +0000</pubDate>
+      
+      <guid>/blogs/baby_steps_with_tf_part2/</guid>
+      <description>In this blog we will understand how to use Tensoflow for Linear and Logistic Regression. I hope you have read 1st blog of this series, if not please give it a read.</description>
+    </item>
+    
+    <item>
+      <title>Convolutional Neural Network with TensorFlow Implementation</title>
+      <link>/blogs/cnn_with_tf/</link>
+      <pubDate>Sat, 17 Jun 2017 23:40:49 +0000</pubDate>
+      
+      <guid>/blogs/cnn_with_tf/</guid>
+      <description>When you hear about deep learning breaking a new technological barrier, Convolutional Neural Networks are involved most of the times.</description>
+    </item>
+    
+    <item>
+      <title>Baby steps with Tensorflow #1</title>
+      <link>/blogs/baby_steps_with_tf_part1/</link>
+      <pubDate>Thu, 01 Jun 2017 23:40:49 +0000</pubDate>
+      
+      <guid>/blogs/baby_steps_with_tf_part1/</guid>
+      <description>Deep Learning is a Mandate for Humans, Not Just Machines — Andrew Ng Yes, Deep learning is a next big thing.</description>
+    </item>
+    
+    <item>
+      <title>Placement Experience.</title>
+      <link>/blogs/placement_experience/</link>
+      <pubDate>Wed, 24 May 2017 23:40:49 +0000</pubDate>
+      
+      <guid>/blogs/placement_experience/</guid>
+      <description>Placement season is like GOT, you never know what will happen in the next episode.</description>
+    </item>
+    
+    <item>
+      <title>Logistic Regression. Simplified.</title>
+      <link>/blogs/logistic_regression/</link>
+      <pubDate>Thu, 18 May 2017 23:40:49 +0000</pubDate>
+      
+      <guid>/blogs/logistic_regression/</guid>
+      <description>After the basics of Regression, it’s time for basics of Classification. And, what can be easier than Logistic Regression!</description>
+    </item>
+    
+    <item>
+      <title>Singular Value Decomposition. Elucidated.</title>
+      <link>/blogs/svd/</link>
+      <pubDate>Thu, 18 May 2017 23:40:49 +0000</pubDate>
+      
+      <guid>/blogs/svd/</guid>
+      <description>Not this SVD :P
+Mathematics is building block of Machine learning. I know math is hard to understand but it is much needed as well.</description>
+    </item>
+    
+    <item>
+      <title>Data Science Congress. Something legendary.</title>
+      <link>/blogs/data_science_congress/</link>
+      <pubDate>Wed, 17 May 2017 23:40:49 +0000</pubDate>
+      
+      <guid>/blogs/data_science_congress/</guid>
+      <description>I know. You know. Everybody knows. What?
+India. Research. Data Science. They hardly go together.</description>
+    </item>
+    
+    <item>
+      <title>Regularization. Clarified.</title>
+      <link>/blogs/regularization_clarified/</link>
+      <pubDate>Sun, 02 Apr 2017 23:40:49 +0000</pubDate>
+      
+      <guid>/blogs/regularization_clarified/</guid>
+      <description>The end is near. No, not the world, but the 12A12D series. After Linear Regression, it’s time to add more DS flavour.</description>
+    </item>
+    
+    <item>
+      <title>Boosting Decrypted</title>
+      <link>/blogs/boosting/</link>
+      <pubDate>Wed, 22 Mar 2017 23:40:49 +0000</pubDate>
+      
+      <guid>/blogs/boosting/</guid>
+      <description>I know it’s getting arduous to catch up with out daily posts, but it’s just meant to be this.</description>
+    </item>
+    
+    <item>
+      <title>Decision Trees. Decoded.</title>
+      <link>/blogs/decision_trees_decoded/</link>
+      <pubDate>Wed, 22 Mar 2017 23:40:49 +0000</pubDate>
+      
+      <guid>/blogs/decision_trees_decoded/</guid>
+      <description>It’s time to give the Algorithm series, an informative start. Here, we start with one of the most famous category i.</description>
+    </item>
+    
+    <item>
+      <title>How To Setup Timer Hugo</title>
+      <link>/blogs/installation/</link>
+      <pubDate>Tue, 01 Dec 2015 23:40:49 +0000</pubDate>
+      
+      <guid>/blogs/installation/</guid>
+      <description>Install this template by following those simple steps: STEP-1 : Hugo installation Check this link below for install hugo on your computer.</description>
+    </item>
+    
+    <item>
+      <title>Clustering Described</title>
+      <link>/blogs/clustering/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/blogs/clustering/</guid>
+      <description>After Supervised Learning algorithms, it’s time to have a look at the most popular Unsupervised method.</description>
+    </item>
+    
+  </channel>
+</rss>
