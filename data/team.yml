@@ -1,15 +1,6 @@
 enable: true
 title: Team
 members:
-  - name: Aastha Khaitan
-    image: images/team/Aastha_Khaitan.jpg
-    fbicon: ion-social-facebook
-    fburl: https://www.facebook.com/profile.php?id=100075622926525
-    githubicon: ion-social-github
-    githuburl: https://www.github.com/AK1405
-    linkedInicon: ion-social-linkedin
-    linkedInurl: https://www.linkedin.com/in/aastha-khaitan-97b40023a/
-    
   - name: Aaryan Garg
     image: images/team/Aaryan_Garg.jpg
     fbicon: ion-social-facebook
@@ -18,6 +9,15 @@ members:
     githuburl: https://www.github.com/Garg-Doppler
     linkedInicon: ion-social-linkedin
     linkedInurl: https://www.linkedin.com/garg-doppler
+
+  - name: Aastha Khaitan
+    image: images/team/Aastha_Khaitan.jpg
+    fbicon: ion-social-facebook
+    fburl: https://www.facebook.com/profile.php?id=100075622926525
+    githubicon: ion-social-github
+    githuburl: https://www.github.com/AK1405
+    linkedInicon: ion-social-linkedin
+    linkedInurl: https://www.linkedin.com/in/aastha-khaitan-97b40023a/
 
   - name: Aashwin Sharma
     image: images/team/Aashwin_Sharma.jpg
@@ -54,15 +54,6 @@ members:
     githuburl: https://github.com/AjitPant
     linkedInicon: ion-social-linkedin
     linkedInurl: https://www.linkedin.com/in/ajit-pant-83349121a/
-
-  - name: Ankit Biswas
-    image: images/team/Ankit_Biswas.jpg
-    fbicon: ion-social-facebook
-    fburl: https://www.facebook.com/ankit.biswas.3705
-    githubicon: ion-social-github
-    githuburl: https://github.com/ankitdsi2010
-    linkedInicon: ion-social-linkedin
-    linkedInurl: https://www.linkedin.com/in/ankit-biswas-149bb2195/
 
   - name: Apoorva Verma
     image: images/team/Apoorva_Verma.jpg
